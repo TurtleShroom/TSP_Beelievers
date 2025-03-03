@@ -2,9 +2,9 @@
 
 <Defs>
 	<ThingCategoryDef>
-		<defName>TSP_Beeliever_RB_GneeCategory</defName>
-		<label>TSP Bees</label>
+		<defName>TSP_RB_Beeliever_BeesAndQueens</defName>
+		<label>TSP Bees and Queens</label>
 		<parent>RB_BeesAndQueens</parent>
-		<iconPath>Things/Pawn/Animal/Bug_Types/Bee/ST_Bee_south</iconPath>
+		<iconPath>Things/Pawn/Animal/Bug_Types/Bee/TSP_Bee_Queen</iconPath>
 	</ThingCategoryDef>
 </Defs>
