@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<Defs>
+	<!-- MASTER BEE DEFINITION, CATEGORIZATION, DATA -->
+	<ThingDef ParentName="RB_BeeBase" Name="TSP_RB_Beeliever_MasterBeeBase" Abstract="True">
+		<label>TurtleShroom Productions Bees</label>
+		<description>LOOK AT ALL THESE NEW BEES! I CANNOT BEE-LIEVE IT!! \n\n\n\n\n Bee Traits: \n\n 	Production time: 23.88 hours \n 	Works at Night: No \n 	Works When Raining: Yes \n 	Unusual sources needed: No \n 	Minimum Temperature: 0ºF (-17.7778ºC) \n 	Maximum temperature: 97ºF (36.1111ºC)</description>
+		<descriptionHyperlinks></descriptionHyperlinks>
+		<statBases>
+			<MarketValue>0.14</MarketValue>
+			<Mass>0.0041</Mass>
+			<DeteriorationRate>3</DeteriorationRate>
+			<Flammability>2</Flammability>
+			<Beauty>1</Beauty>
+		</statBases>
+		<stackLimit>300</stackLimit>
+		<tradeability>All</tradeability>
+		<graphicData Inherit="False">
+			<texPath>Things/Pawn/Animal/Bug_Types/Bee/TSP_Bee_Queen</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<thingCategories Inherit="False">
+			<li>TSP_RB_Beeliever_BeesAndQueens</li>
+		</thingCategories>
+		<comps Inherit="False">
+			<li Class="CompProperties_Forbiddable"></li>
+			<li Class="RimBees.CompProperties_TempRuinableAndDestroy" Inherit="False">
+				<minSafeTemperature>-17.7778</minSafeTemperature> <!-- Zero degrees Farenheit -->
+				<maxSafeTemperature>36.1111</maxSafeTemperature> <!-- Ninety-seven degrees Farenheit -->
+				<progressPerDegreePerTick>0.000045</progressPerDegreePerTick>
+			</li>
+			<li>
+				<compClass>RimBees.CompDangerBee</compClass>
+			</li>
+		</comps>
+	</ThingDef>
+</Defs>
