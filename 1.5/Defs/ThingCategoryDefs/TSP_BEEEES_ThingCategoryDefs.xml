@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<Defs>
+	<ThingCategoryDef>
+		<defName>TSP_Beeliever_RB_GneeCategory</defName>
+		<label>TSP Bees</label>
+		<parent>RB_BeesAndQueens</parent>
+		<iconPath>Things/Pawn/Animal/Bug_Types/Bee/ST_Bee_south</iconPath>
+	</ThingCategoryDef>
+</Defs>
