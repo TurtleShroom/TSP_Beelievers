@@ -300,7 +300,7 @@
 						<li>TSP_RB_Beeliever_Honeycombs</li>
 					</thingCategories>
 					<butcherProducts>
-						<RB_Honey>2</RB_Honey>
+						<RB_BaseHoney>2</RB_BaseHoney>
 						<MegabeeTallow>3</MegabeeTallow>
 						<MedicineMegabee>2</MedicineMegabee>
 					</butcherProducts>
