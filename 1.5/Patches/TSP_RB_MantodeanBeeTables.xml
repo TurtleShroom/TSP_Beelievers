@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<Patch>
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>/Defs/ThingDef[defName="L24_Manto_MantodeanJelly"]</xpath>
+		<!-- If it does, add this. -->
+		<match Class="PatchOperationAdd">
+			<xpath>/Defs</xpath>
+			<success>Always</success>
+			<value>
+				<!-- Slaver Branch -->
+				<!-- TIER II -->
+				<!-- Mantodean Slaver Bees: kidnaps Mantodean larvae, makes Mantodean Jelly-->
+				<RimBees.BeeListDef>
+					<defName>TSP_RB_Beeliever_SlaverBee1_Mantodean</defName>
+					<nameString>Mantodean</nameString>
+					<beeDroneDef>RB_Bee_Mantodean_Drone</beeDroneDef>
+					<beeQueenDef>RB_Bee_Mantodean_Queen</beeQueenDef>
+					<!--
+					<beeQueenTag>RB_Bee_Slaver_Queen_Tag</beeQueenTag>
+					<beeDroneTag>RB_Bee_Slaver_Drone_Tag</beeDroneTag>
+					-->
+				</RimBees.BeeListDef>
+				
+				<!--
+				<RimBees.BeeCombinationDef>
+					<defName>TSP_RB_Beelievers_SlaverTables_Mantodean</defName>
+					<bee1>Slaver</bee1>
+					<bee2>Adaptive</bee2>
+					<result>
+						<li>Mantodean</li>
+					</result>				
+				</RimBees.BeeCombinationDef>
+				-->
+			
+				<ThingDef ParentName="TSP_RB_Beeliever_SlaverBase" Name="TSP_RB_Beeliever_MantodeanBase" Abstract="True">
+					<!-- <label>Mantodean Slave-Making Bee</label> -->
+					<description>On Old Earth, living beings' ownership of other living beings as chattel did not stop with men owning animals, or even men owning men. Animals are capable of it too! There exists a rare adaption among insects where they will capture animals of other species and compel them to work for them. This is called "dulosis," literally "slave-making," and is a form of facultative, social, brood parasitism. It occurs most commonly among the slave-making ants, of which dozens of species exist. However, dulosis has also beeen recorded in bees. \n \n These slave-making bees exclusively target the larvae of Mantodean worker castes and feed on Mantodean Jelly. \n\n\n\n\n Bee Traits: \n\n 	Production time: 0.7 days \n 	Works at Night: No \n 	Works When Raining: Yes \n 	Unusual sources needed: No \n 	Minimum Temperature: 0ºF (-17.7778ºC) \n 	Maximum temperature: 97ºF (36.1111ºC)</description>
+					<!--
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/ST_Bee_south</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData>
+					-->
+					<comps>			
+						<li Class="RimBees.CompProperties_Bees" Inherit="False">
+							<species>Mantodean</species>
+							<comb>TSP_RB_Beeliever_SlaveryOfMantodean_Honeycomb</comb>
+							<combtimedays>0.7</combtimedays>
+							<nocturnal>false</nocturnal> <!-- Works at night -->
+							<pluviophile>true</pluviophile> <!-- Works in the rain -->
+							<weirdplantneeded>no</weirdplantneeded>
+							<tempMin>-17.778</tempMin> <!-- Zero degrees -->
+							<tempMax>36.1111</tempMax> <!-- Ninety-seven degrees -->
+						</li>   
+					</comps>
+				</ThingDef>
+				
+				<ThingDef ParentName="TSP_RB_Beeliever_MantodeanBase">
+					<defName>RB_Bee_Mantodean_Queen</defName>
+					<label>Mantodean Slaver queen</label>
+					<descriptionHyperlinks>
+						<!-- <ThingDef>RB_Bee_Mantodean_Queen</ThingDef> -->
+						<ThingDef>RB_Bee_Mantodean_Drone</ThingDef>
+						<ThingDef>TSP_RB_Beeliever_SlaveryOfMantodean_Honeycomb</ThingDef>
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_SlaveryOfMantodean_Honeycomb</RecipeDef>
+						<!--
+						<ThingDef>TSP_ST_RB_WildHive_Gnome</ThingDef>
+						<RecipeDef>TSP_ST_RB_Gneehive_Extract</RecipeDef>
+						-->
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/SlaverBranch/TSP_Bee_Dahomey_Mantodean_Queen</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData> 		
+				</ThingDef>
+				
+				<ThingDef ParentName="TSP_RB_Beeliever_MantodeanBase">
+					<defName>RB_Bee_Mantodean_Drone</defName>
+					<label>Mantodean Slaver drone</label>
+					<descriptionHyperlinks>
+						<ThingDef>RB_Bee_Mantodean_Queen</ThingDef>
+						<!-- <ThingDef>RB_Mantodean</ThingDef> -->
+						<ThingDef>TSP_RB_Beeliever_SlaveryOfMantodean_Honeycomb</ThingDef>
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_SlaveryOfMantodean_Honeycomb</RecipeDef>
+						<!--
+						<ThingDef>TSP_ST_RB_WildHive_Gnome</ThingDef>
+						<RecipeDef>TSP_ST_RB_Gneehive_Extract</RecipeDef>
+						-->
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/SlaverBranch/TSP_Bee_Dahomey_Mantodean_Drone</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData> 		
+				</ThingDef>
+				
+				<ThingDef ParentName="RB_CombBase">
+					<defName>TSP_RB_Beeliever_SlaveryOfMantodean_Honeycomb</defName>
+					<label>Mantodean Slaver Bee honeycomb</label>
+					<description>Slaver Bees are facultative, social, brood parasites that abduct larvae and use them to produce beeswax and honey. Instead of expending effort to feed, house, and construct for new members of the colony, Slaver Bee drones drive the slave species and kidnap new larvae, while the Slaver Queen produces new Slaver Bee drones to continue the cycle, all while she gets fat from her doting chattel. \n \nMantodean Slaver Bees parasitize Mantodean larvae to consume their food instead of honey. Reap the harvest of slave labor and enjoy large amounts of Mantodean Jelly and Mantodean Exudate.</description>
+					<descriptionHyperlinks>
+						<!-- <ResearchProjectDef>ST_GnomeCulture</ResearchProjectDef> -->
+						<ThingDef>RB_Bee_Slaver_Queen</ThingDef>
+						<ThingDef>RB_Bee_Slaver_Drone</ThingDef>
+						<!-- <ThingDef>TSP_RB_Beeliever_SlaveryOfMantodean_Honeycomb</ThingDef> -->
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_SlaveryOfMantodean_Honeycomb</RecipeDef>
+						<!--
+						<ThingDef>TSP_ST_GnomeHoney</ThingDef>
+						<ThingDef>TSP_ST_RB_WildHive_Gnome</ThingDef>
+						<RecipeDef>TSP_ST_RB_Gneehive_Extract</RecipeDef>
+						-->
+						<ThingDef>L24_Manto_MantodeanJelly</ThingDef>
+						<ThingDef>L24_Manto_Exudate</ThingDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/Honeycombs/TSP_RB_SlaverBee_Honeycomb</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+						<color>(108,118,76)</color>
+					</graphicData>
+					<thingCategories>
+						<li>TSP_RB_Beeliever_Honeycombs</li>
+					</thingCategories>
+					<butcherProducts>
+						<L24_Manto_MantodeanJelly>10</L24_Manto_MantodeanJelly>
+						<L24_Manto_Exudate>6</L24_Manto_Exudate>
+					</butcherProducts>
+				</ThingDef>
+				
+				<RecipeDef>
+					<defName>TSP_RB_Beeliever_Centrifuge_SlaveryOfMantodean_Honeycomb</defName>
+					<label>extract from Mantodean Slave-Making Bee honeycomb</label>
+					<description>Extracts Mantodean Jelly and Mantodean Jelly from a Mantodean Slaver Bee honeycomb. Mantodean Slaver Bees parasitize Mantodean larvae to consume their food instead of honey. What's wrong with exploiting exploiters, after all?</description>
+					<descriptionHyperlinks>
+						<!-- <ResearchProjectDef>ST_GnomeCulture</ResearchProjectDef> -->
+						<ThingDef>RB_Bee_Slaver_Queen</ThingDef>
+						<ThingDef>RB_Bee_Slaver_Drone</ThingDef>
+						<ThingDef>TSP_RB_Beeliever_SlaveryOfMantodean_Honeycomb</ThingDef>
+						<ThingDef>L24_Manto_MantodeanJelly</ThingDef>
+						<ThingDef>L24_Manto_Exudate</ThingDef>
+						<!-- <RecipeDef>TSP_RB_Beeliever_Centrifuge_SlaveryOfMantodean_Honeycomb</RecipeDef> -->
+						<!--
+						<ThingDef>TSP_ST_GnomeHoney</ThingDef>
+						<ThingDef>TSP_ST_RB_WildHive_Gnome</ThingDef>
+						<RecipeDef>TSP_ST_RB_Gneehive_Extract</RecipeDef>
+						-->
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<uiIconThing>L24_Manto_MantodeanJelly</uiIconThing>
+					<jobString>Taking advantage of slave labor.</jobString>
+					<effectWorking>Cremate</effectWorking>
+					<soundWorking>Recipe_Cremate</soundWorking>
+					<workAmount>900</workAmount>
+					<recipeUsers>
+						<li>RB_Honey_Centrifuge</li>
+						<li>RB_Advanced_Honey_Centrifuge</li>
+						<li MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</li>
+					</recipeUsers>	
+					<ingredients>
+						<li>
+							<filter>
+								<thingDefs>
+									<li>TSP_RB_Beeliever_SlaveryOfMantodean_Honeycomb</li>
+								</thingDefs>
+							</filter>
+							<count>1</count>
+						</li>
+					</ingredients>
+					<fixedIngredientFilter>
+						<thingDefs>
+							<li>TSP_RB_Beeliever_SlaveryOfMantodean_Honeycomb</li>
+						</thingDefs>
+					</fixedIngredientFilter>
+					<specialProducts>
+						<li>Butchery</li>
+					</specialProducts>
+					<skillRequirements></skillRequirements>
+					<researchPrerequisites>
+						<li>RB_BasicBeekeeping</li>
+					</researchPrerequisites>
+				</RecipeDef>
+
+				<!-- LEVEL II -->
+				<!-- Mantodean Component Slaver Bees: kidnaps Mantodean larvae, makes Mantodean Components, DO NOT ASK HOW -->
+				<RimBees.BeeListDef>
+					<defName>TSP_RB_Beeliever_SlaverBee2_Mantodean</defName>
+					<nameString>Pupaponent</nameString>
+					<beeDroneDef>RB_Bee_Pupaponent_Drone</beeDroneDef>
+					<beeQueenDef>RB_Bee_Pupaponent_Queen</beeQueenDef>
+					<!--
+					<beeQueenTag>RB_Bee_Slaver_Queen_Tag</beeQueenTag>
+					<beeDroneTag>RB_Bee_Slaver_Drone_Tag</beeDroneTag>
+					-->
+				</RimBees.BeeListDef>
+				
+				<RimBees.BeeCombinationDef>
+					<defName>TSP_RB_Beeliever_MantodeanTechno</defName>
+					<bee1>Mantodean</bee1>
+					<bee2>Technological</bee2>
+					<result>
+						<li>Pupaponent</li>
+					</result>				
+				</RimBees.BeeCombinationDef>
+				
+				<ThingDef ParentName="TSP_RB_Beeliever_MantodeanBase" Name="TSP_RB_Beeliever_MantodeanComponent" Abstract="True">
+					<!-- <label>Mantodean Slave-Making Bee</label> -->
+					<description>On Old Earth, living beings' ownership of other living beings as chattel did not stop with men owning animals, or even men owning men. Animals are capable of it too! There exists a rare adaption among insects where they will capture animals of other species and compel them to work for them. This is called "dulosis," literally "slave-making," and is a form of facultative, social, brood parasitism. It occurs most commonly among the slave-making ants, but dulosis has also beeen recorded in bees. \n \n These slave-making bees order their chattel to grind together Mantodean Component Pupae. DO NOT ask how that is done. \n\n\n\n\n Bee Traits: \n\n 	Production time: 1.5 days \n 	Works at Night: No \n 	Works When Raining: Yes \n 	Unusual sources needed: No \n 	Minimum Temperature: 0ºF (-17.7778ºC) \n 	Maximum temperature: 97ºF (36.1111ºC)</description>
+					<!--
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/ST_Bee_south</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData>
+					-->
+					<comps>			
+						<li Class="RimBees.CompProperties_Bees" Inherit="False">
+							<species>Pupaponent</species>
+							<comb>TSP_RB_Beeliever_SlaveryOfMantodean_Component_Honeycomb</comb>
+							<combtimedays>1.5</combtimedays>
+							<nocturnal>false</nocturnal> <!-- Works at night -->
+							<pluviophile>true</pluviophile> <!-- Works in the rain -->
+							<weirdplantneeded>no</weirdplantneeded>
+							<tempMin>-17.778</tempMin> <!-- Zero degrees -->
+							<tempMax>36.1111</tempMax> <!-- Ninety-seven degrees -->
+						</li>   
+					</comps>
+				</ThingDef>
+				
+				<ThingDef ParentName="TSP_RB_Beeliever_MantodeanBase">
+					<defName>RB_Bee_Pupaponent_Queen</defName>
+					<label>Pupa Component Slaver queen</label>
+					<descriptionHyperlinks>
+						<!-- <ThingDef>RB_Bee_Pupaponent_Queen</ThingDef> -->
+						<ThingDef>RB_Bee_Pupaponent_Drone</ThingDef>
+						<ThingDef>TSP_RB_Beeliever_SlaveryOfMantodean_Component_Honeycomb</ThingDef>
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_SlaveryOfMantodean_Component_Honeycomb</RecipeDef>
+						<!--
+						<ThingDef>TSP_ST_RB_WildHive_Gnome</ThingDef>
+						<RecipeDef>TSP_ST_RB_Gneehive_Extract</RecipeDef>
+						-->
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/SlaverBranch/TSP_Bee_Dahomey_Mantodean_Component_Queen</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData> 		
+				</ThingDef>
+				
+				<ThingDef ParentName="TSP_RB_Beeliever_MantodeanBase">
+					<defName>RB_Bee_Pupaponent_Drone</defName>
+					<label>Pupa Component Slaver drone</label>
+					<descriptionHyperlinks>
+						<ThingDef>RB_Bee_Pupaponent_Queen</ThingDef>
+						<!-- <ThingDef>RB_Pupaponent_Drone</ThingDef> -->
+						<ThingDef>TSP_RB_Beeliever_SlaveryOfMantodean_Component_Honeycomb</ThingDef>
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_SlaveryOfMantodean_Component_Honeycomb</RecipeDef>
+						<!--
+						<ThingDef>TSP_ST_RB_WildHive_Gnome</ThingDef>
+						<RecipeDef>TSP_ST_RB_Gneehive_Extract</RecipeDef>
+						-->
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/SlaverBranch/TSP_Bee_Dahomey_Mantodean_Component_Drone</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData> 		
+				</ThingDef>
+				
+				<ThingDef ParentName="RB_CombBase">
+					<defName>TSP_RB_Beeliever_SlaveryOfMantodean_Component_Honeycomb</defName>
+					<label>Pupa Component Slaver honeycomb</label>
+					<description>Slaver Bees are facultative, social, brood parasites that abduct larvae and use them to produce beeswax and honey. Instead of expending effort to feed, house, and construct for new members of the colony, Slaver Bee drones drive the slave species and kidnap new larvae, while the Slaver Queen produces new Slaver Bee drones to continue the cycle, all while she gets fat from her doting chattel. \n \n Pupa Component Slaver Bees, like other technoligical bees, produce machinery in the process of their life cycle... but don't ask how THESE bee technicians order their chattel to get the ingredients for their components... \n \n Reap the harvest of slave labor and enjoy Mantodean Pupa Components, Mantodean Exudate, and some Steel Wax.</description>
+					<descriptionHyperlinks>
+						<!-- <ResearchProjectDef>ST_GnomeCulture</ResearchProjectDef> -->
+						<ThingDef>RB_Bee_Pupaponent_Queen</ThingDef>
+						<ThingDef>RB_Bee_Pupaponent_Drone</ThingDef>
+						<!-- <ThingDef>TSP_RB_Beeliever_SlaveryOfMantodean_Honeycomb</ThingDef> -->
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_SlaveryOfMantodean_Component_Honeycomb</RecipeDef>
+						<!--
+						<ThingDef>TSP_ST_GnomeHoney</ThingDef>
+						<ThingDef>TSP_ST_RB_WildHive_Gnome</ThingDef>
+						<RecipeDef>TSP_ST_RB_Gneehive_Extract</RecipeDef>
+						-->
+						<ThingDef>L24_Manto_ComponentPupa</ThingDef>
+						<ThingDef>L24_Manto_Exudate</ThingDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/Honeycombs/TSP_RB_SlaverBee_Honeycomb</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+						<color>(108,118,76)</color>
+					</graphicData>
+					<thingCategories>
+						<li>TSP_RB_Beeliever_Honeycombs</li>
+					</thingCategories>
+					<butcherProducts>
+						<L24_Manto_ComponentPupa>2</L24_Manto_ComponentPupa>
+						<L24_Manto_Exudate>4</L24_Manto_Exudate>
+						<RB_Steelwax>3</RB_Steelwax>
+					</butcherProducts>
+				</ThingDef>
+				
+				<RecipeDef>
+					<defName>TSP_RB_Beeliever_Centrifuge_SlaveryOfMantodean_Component_Honeycomb</defName>
+					<label>extract from Mantodean Pupa Component Slave-Making Bee honeycomb</label>
+					<description>Extracts Mantodean Pupa Components, Mantodean Exudate, and some Steel Wax from a Mantodean Component Slaver Bee honeycomb. Mantodean Slaver Bees parasitize Mantodean larvae to consume their food instead of honey. What's wrong with exploiting exploiters, after all?</description>
+					<descriptionHyperlinks>
+						<!-- <ResearchProjectDef>ST_GnomeCulture</ResearchProjectDef> -->
+						<ThingDef>RB_Bee_Pupaponent_Queen</ThingDef>
+						<ThingDef>RB_Bee_Pupaponent_Drone</ThingDef>
+						<ThingDef>TSP_RB_Beeliever_SlaveryOfMantodean_Honeycomb</ThingDef>
+						<ThingDef>L24_Manto_ComponentPupa</ThingDef>
+						<ThingDef>L24_Manto_Exudate</ThingDef>
+						<!-- <RecipeDef>TSP_RB_Beeliever_Centrifuge_SlaveryOfMantodean_Component_Honeycomb</RecipeDef> -->
+						<!--
+						<ThingDef>TSP_ST_GnomeHoney</ThingDef>
+						<ThingDef>TSP_ST_RB_WildHive_Gnome</ThingDef>
+						<RecipeDef>TSP_ST_RB_Gneehive_Extract</RecipeDef>
+						-->
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<uiIconThing>L24_Manto_ComponentPupa</uiIconThing>
+					<jobString>Taking advantage of slave labor.</jobString>
+					<effectWorking>Cremate</effectWorking>
+					<soundWorking>Recipe_Cremate</soundWorking>
+					<workAmount>900</workAmount>
+					<recipeUsers>
+						<li>RB_Honey_Centrifuge</li>
+						<li>RB_Advanced_Honey_Centrifuge</li>
+						<li MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</li>
+					</recipeUsers>	
+					<ingredients>
+						<li>
+							<filter>
+								<thingDefs>
+									<li>TSP_RB_Beeliever_SlaveryOfMantodean_Component_Honeycomb</li>
+								</thingDefs>
+							</filter>
+							<count>1</count>
+						</li>
+					</ingredients>
+					<fixedIngredientFilter>
+						<thingDefs>
+							<li>TSP_RB_Beeliever_SlaveryOfMantodean_Component_Honeycomb</li>
+						</thingDefs>
+					</fixedIngredientFilter>
+					<specialProducts>
+						<li>Butchery</li>
+					</specialProducts>
+					<skillRequirements></skillRequirements>
+					<researchPrerequisites>
+						<li>RB_BasicBeekeeping</li>
+					</researchPrerequisites>
+				</RecipeDef>
+			</value>
+		</match>
+	</Operation>
+</Patch>

@@ -7,4 +7,18 @@
 		<parent>RB_BeesAndQueens</parent>
 		<iconPath>Things/Pawn/Animal/Bug_Types/Bee/TSP_Bee_Queen</iconPath>
 	</ThingCategoryDef>
+	
+	<ThingCategoryDef>
+		<defName>TSP_RB_Beeliever_Honeycombs</defName>
+		<label>TSP Honeycombs</label>
+		<parent>RB_Combs</parent>
+		<iconPath>Things/Pawn/Animal/Bug_Types/Bee/TSP_Bee_Queen</iconPath>
+	</ThingCategoryDef>
+	
+	<ThingCategoryDef>
+		<defName>TSP_RB_Beeliever_Beesearch</defName>
+		<label>TSP Beesearch</label>
+		<parent>RB_BeeResearch</parent>
+		<iconPath>Things/Pawn/Animal/Bug_Types/Bee/TSP_Bee_Queen</iconPath>
+	</ThingCategoryDef>
 </Defs>

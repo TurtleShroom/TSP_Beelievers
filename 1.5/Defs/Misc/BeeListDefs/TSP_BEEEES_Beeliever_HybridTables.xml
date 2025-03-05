@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Defs>
+	<RimBees.BeeCombinationDef>
+		<defName>TSP_RB_Beelievers_SlaverHybridTables_Base</defName>
+		<bee1>Warden</bee1>
+		<bee2>Insectoid</bee2>
+		<result>
+			<li>Slaver</li>
+		</result>
+	</RimBees.BeeCombinationDef>
+	
+	<RimBees.BeeCombinationDef>
+		<defName>TSP_RB_Beelievers_SlaverTables_OtherHoney</defName>
+		<bee1>Slaver</bee1>
+		<bee2>Adaptive</bee2>
+		<result>
+			<li MayRequire="gguake.race.vivi">Vivi</li>
+			<li MayRequire="sera.apinialienrace">Apini</li>
+			<li MayRequire="haplo.miscellaneous.beesnhoney">Haplo</li>
+			<li MayRequire="adamas.bees">Adamas</li>
+			<li MayRequire="eltwofour.mantodeanrace">Mantodean</li>
+			<!-- <li MayRequire="zoura3025.megabees">Megabee</li> -->
+		</result>				
+	</RimBees.BeeCombinationDef>
+</Defs>

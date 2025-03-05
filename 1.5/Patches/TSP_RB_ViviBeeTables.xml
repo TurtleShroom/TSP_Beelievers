@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<Patch>
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>/Defs/ThingDef[defName="VV_Viviwax"]</xpath>
+		<!-- If it does, add this. -->
+		<match Class="PatchOperationAdd">
+			<xpath>/Defs</xpath>
+			<success>Always</success>
+			<value>
+				<!-- Slaver Branch -->
+				<!-- TIER II -->
+				<!-- Vivi Slaver Bees: kidnaps Vivi larvae (they deserve it), makes Vivi Honey -->
+				<RimBees.BeeListDef>
+					<defName>TSP_RB_Beeliever_SlaverBee1_Vivi</defName>
+					<nameString>Vivi</nameString>
+					<beeDroneDef>RB_Bee_Vivi_Drone</beeDroneDef>
+					<beeQueenDef>RB_Bee_Vivi_Queen</beeQueenDef>
+					<!--
+					<beeQueenTag>RB_Bee_Slaver_Queen_Tag</beeQueenTag>
+					<beeDroneTag>RB_Bee_Slaver_Drone_Tag</beeDroneTag>
+					-->
+				</RimBees.BeeListDef>
+				
+				<!--
+				<RimBees.BeeCombinationDef>
+					<defName>TSP_RB_Beelievers_SlaverTables_Vivi</defName>
+					<bee1>Slaver</bee1>
+					<bee2>Adaptive</bee2>
+					<result>
+						<li>Vivi</li>
+					</result>				
+				</RimBees.BeeCombinationDef>
+				-->
+			
+				<ThingDef ParentName="TSP_RB_Beeliever_SlaverBase" Name="TSP_RB_Beeliever_ViviBase" Abstract="True">
+					<!-- <label>Vivi Slave-Making Bee</label> -->
+					<description>On Old Earth, living beings' ownership of other living beings as chattel did not stop with men owning animals, or even men owning men. Animals are capable of it too! There exists a rare adaption among insects where they will capture animals of other species and compel them to work for them. This is called "dulosis," literally "slave-making," and is a form of facultative, social, brood parasitism. It occurs most commonly among the slave-making ants, of which dozens of species exist. However, dulosis has also beeen recorded in bees. \n \n These slave-making bees exclusively target the larvae of Vivi Bees (they deserve it) and feed on the Vivi Honey of those bees. \n\n\n\n\n Bee Traits: \n\n 	Production time: 1 day \n 	Works at Night: Yes \n 	Works When Raining: Yes \n 	Unusual sources needed: No \n 	Minimum Temperature: 0ºF (-17.7778ºC) \n 	Maximum temperature: 97ºF (36.1111ºC)</description>
+					<!--
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/ST_Bee_south</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData>
+					-->
+					<thingCategories>
+						<li>VV_ViviResource</li>
+					</thingCategories>
+					<tradeTags Inherit="False"></tradeTags>
+					<comps>			
+						<li Class="RimBees.CompProperties_Bees" Inherit="False">
+							<species>Vivi</species>
+							<comb>TSP_RB_Beeliever_SlaveryOfVivi_Honeycomb</comb>
+							<combtimedays>1</combtimedays>
+							<nocturnal>true</nocturnal> <!-- Works at night -->
+							<pluviophile>true</pluviophile> <!-- Works in the rain -->
+							<weirdplantneeded>no</weirdplantneeded>
+							<tempMin>-17.778</tempMin> <!-- Zero degrees -->
+							<tempMax>36.1111</tempMax> <!-- Ninety-seven degrees -->
+						</li>   
+					</comps>
+				</ThingDef>
+				
+				<ThingDef ParentName="TSP_RB_Beeliever_ViviBase">
+					<defName>RB_Bee_Vivi_Queen</defName>
+					<label>Vivi Slaver queen</label>
+					<descriptionHyperlinks>
+						<!-- <ThingDef>RB_Bee_Vivi_Queen</ThingDef> -->
+						<ThingDef>RB_Bee_Vivi_Drone</ThingDef>
+						<ThingDef>TSP_RB_Beeliever_SlaveryOfVivi_Honeycomb</ThingDef>
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_SlaveryOfVivi_Honeycomb</RecipeDef>
+						<!--
+						<ThingDef>TSP_ST_RB_WildHive_Gnome</ThingDef>
+						<RecipeDef>TSP_ST_RB_Gneehive_Extract</RecipeDef>
+						-->
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/SlaverBranch/TSP_Bee_GigaChad_Vivi_Queen</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData> 		
+				</ThingDef>
+				
+				<ThingDef ParentName="TSP_RB_Beeliever_ViviBase">
+					<defName>RB_Bee_Vivi_Drone</defName>
+					<label>Vivi Slaver drone</label>
+					<descriptionHyperlinks>
+						<ThingDef>RB_Bee_Vivi_Queen</ThingDef>
+						<!-- <ThingDef>RB_Bee_Vivi_Drone</ThingDef> -->
+						<ThingDef>TSP_RB_Beeliever_SlaveryOfVivi_Honeycomb</ThingDef>
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_SlaveryOfVivi_Honeycomb</RecipeDef>
+						<!--
+						<ThingDef>TSP_ST_RB_WildHive_Gnome</ThingDef>
+						<RecipeDef>TSP_ST_RB_Gneehive_Extract</RecipeDef>
+						-->
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/SlaverBranch/TSP_Bee_GigaChad_Vivi_Drone</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData> 		
+				</ThingDef>
+				
+				<ThingDef ParentName="RB_CombBase">
+					<defName>TSP_RB_Beeliever_SlaveryOfVivi_Honeycomb</defName>
+					<label>Vivi Slaver Bee honeycomb</label>
+					<description>Slaver Bees are facultative, social, brood parasites that abduct larvae and use them to produce beeswax and honey. Instead of expending effort to feed, house, and construct for new members of the colony, Slaver Bee drones drive the slave species and kidnap new larvae, while the Slaver Queen produces new Slaver Bee drones to continue the cycle, all while she gets fat from her doting chattel. \n \ Vivi Slaver Bees parasitize Vivi larvae (they deserve it) to consume their honey. Reap the harvest of slave labor and enjoy large amounts of Vivi Honey and Vivi Wax.</description>
+					<descriptionHyperlinks>
+						<!-- <ResearchProjectDef>ST_GnomeCulture</ResearchProjectDef> -->
+						<ThingDef>RB_Bee_Vivi_Queen</ThingDef>
+						<ThingDef>RB_Bee_Vivi_Drone</ThingDef>
+						<!-- <ThingDef>TSP_RB_Beeliever_SlaveryOfVivi_Honeycomb</ThingDef> -->
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_SlaveryOfVivi_Honeycomb</RecipeDef>
+						<!--
+						<ThingDef>TSP_ST_GnomeHoney</ThingDef>
+						<ThingDef>TSP_ST_RB_WildHive_Gnome</ThingDef>
+						<RecipeDef>TSP_ST_RB_Gneehive_Extract</RecipeDef>
+						-->
+						<ThingDef>Honey</ThingDef> <!-- Seriously dude, give it a better name -->
+						<ThingDef>VV_Viviwax</ThingDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/Honeycombs/TSP_RB_SlaverBee_Honeycomb</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+						<!-- <color>(159,75,27)</color> -->
+						<color>(254,253,39)</color>
+					</graphicData>
+					<thingCategories>
+						<li>TSP_RB_Beeliever_Honeycombs</li>
+						<li>VV_ViviResource</li>
+					</thingCategories>
+					<butcherProducts>
+						<VV_FilteredHoney>5</VV_FilteredHoney>
+						<VV_Viviwax>5</VV_Viviwax>
+						<VV_FilthPollen>5</VV_FilthPollen>
+						<VV_Pollen>2</VV_Pollen>
+					</butcherProducts>
+					<tradeTags>
+						<li>VV_ViviResource</li>
+					</tradeTags>
+				</ThingDef>
+				
+				<RecipeDef>
+					<defName>TSP_RB_Beeliever_Centrifuge_SlaveryOfVivi_Honeycomb</defName>
+					<label>extract from Vivi Slave-Making Bee honeycomb</label>
+					<description>Extracts Vivi Honey and ordianary Beeswax from an Vivi Slaver Bee honeycomb. Adamas Slaver Bees parasitize Miscellaneous Bee larvae to consume their food instead of honey. What's wrong with exploiting exploiters, after all?</description>
+					<descriptionHyperlinks>
+						<!-- <ResearchProjectDef>ST_GnomeCulture</ResearchProjectDef> -->
+						<ThingDef>RB_Bee_Vivi_Queen</ThingDef>
+						<ThingDef>RB_Bee_Vivi_Drone</ThingDef>
+						<ThingDef>TSP_RB_Beeliever_SlaveryOfVivi_Honeycomb</ThingDef>
+						<ThingDef>VV_FilteredHoney</ThingDef>
+						<ThingDef>VV_Viviwax</ThingDef>
+						<!-- <RecipeDef>TSP_RB_Beeliever_Centrifuge_SlaveryOfVivi_Honeycomb</RecipeDef> -->
+						<!--
+						<ThingDef>TSP_ST_GnomeHoney</ThingDef>
+						<ThingDef>TSP_ST_RB_WildHive_Gnome</ThingDef>
+						<RecipeDef>TSP_ST_RB_Gneehive_Extract</RecipeDef>
+						-->
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<uiIconThing>VV_FilteredHoney</uiIconThing>
+					<jobString>Taking advantage of slave labor.</jobString>
+					<effectWorking>Cremate</effectWorking>
+					<soundWorking>Recipe_Cremate</soundWorking>
+					<workAmount>900</workAmount>
+					<recipeUsers>
+						<li>RB_Honey_Centrifuge</li>
+						<li>RB_Advanced_Honey_Centrifuge</li>
+						<li MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</li>
+					</recipeUsers>	
+					<ingredients>
+						<li>
+							<filter>
+								<thingDefs>
+									<li>TSP_RB_Beeliever_SlaveryOfVivi_Honeycomb</li>
+								</thingDefs>
+							</filter>
+							<count>1</count>
+						</li>
+					</ingredients>
+					<fixedIngredientFilter>
+						<thingDefs>
+							<li>TSP_RB_Beeliever_SlaveryOfVivi_Honeycomb</li>
+						</thingDefs>
+					</fixedIngredientFilter>
+					<specialProducts>
+						<li>Butchery</li>
+					</specialProducts>
+					<skillRequirements></skillRequirements>
+					<researchPrerequisites>
+						<li>RB_BasicBeekeeping</li>
+					</researchPrerequisites>
+				</RecipeDef>
+
+
+				<!-- Slaver Branch -->
+				<!-- TIER III -->
+				<!-- Vivicream Slaver Bees: kidnaps Vivi larvae, makes Vivi Cream -->
+				<RimBees.BeeListDef>
+					<defName>TSP_RB_Beeliever_SlaverBee2_Vivi</defName>
+					<nameString>Vivicream</nameString>
+					<beeDroneDef>RB_Bee_Vivicream_Drone</beeDroneDef>
+					<beeQueenDef>RB_Bee_Vivicream_Queen</beeQueenDef>
+					<!--
+					<beeQueenTag>RB_Bee_Slaver_Queen_Tag</beeQueenTag>
+					<beeDroneTag>RB_Bee_Slaver_Drone_Tag</beeDroneTag>
+					-->
+				</RimBees.BeeListDef>
+				
+				<RimBees.BeeCombinationDef>
+					<defName>TSP_RB_Beelievers_SlaverTables_Vivicream</defName>
+					<bee1>Vivi</bee1>
+					<bee2>Lactic</bee2>
+					<result>
+						<li>Vivicream</li>
+					</result>				
+				</RimBees.BeeCombinationDef>
+				
+				<ThingDef ParentName="TSP_RB_Beeliever_ViviBase" Name="TSP_RB_Beeliever_VivicreamBase" Abstract="True">
+					<!-- <label>Vivi Slave-Making Bee</label> -->
+					<description>On Old Earth, living beings' ownership of other living beings as chattel did not stop with men owning animals, or even men owning men. Animals are capable of it too! There exists a rare adaption among insects where they will capture animals of other species and compel them to work for them. This is called "dulosis," literally "slave-making," and is a form of facultative, social, brood parasitism. It occurs most commonly among the slave-making ants, of which dozens of species exist. However, dulosis has also beeen recorded in bees. \n \n These slave-making bees exclusively target the larvae of Vivi Bees (they deserve it) and feed on the Vivi Cream of those bees. \n\n\n\n\n Bee Traits: \n\n 	Production time: 0.66 days \n 	Works at Night: No \n 	Works When Raining: Yes \n 	Unusual sources needed: No \n 	Minimum Temperature: 0ºF (-17.7778ºC) \n 	Maximum temperature: 97ºF (36.1111ºC)</description>
+					<!--
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/ST_Bee_south</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData>
+					-->
+					<thingCategories></thingCategories> <!-- Inherits from the Base -->
+					<tradeTags Inherit="False"></tradeTags>
+					<comps>			
+						<li Class="RimBees.CompProperties_Bees" Inherit="False">
+							<species>Vivicream</species>
+							<comb>TSP_RB_Beeliever_SlaveryOfVivicream_Honeycomb</comb>
+							<combtimedays>0.66</combtimedays>
+							<nocturnal>false</nocturnal> <!-- Works at night -->
+							<pluviophile>true</pluviophile> <!-- Works in the rain -->
+							<weirdplantneeded>no</weirdplantneeded>
+							<tempMin>-17.778</tempMin> <!-- Zero degrees -->
+							<tempMax>36.1111</tempMax> <!-- Ninety-seven degrees -->
+						</li>   
+					</comps>
+				</ThingDef>
+				
+				<ThingDef ParentName="TSP_RB_Beeliever_ViviBase">
+					<defName>RB_Bee_Vivicream_Queen</defName>
+					<label>Slaver Vivicream queen</label>
+					<descriptionHyperlinks>
+						<!-- <ThingDef>RB_Bee_Vivicream_Queen</ThingDef> -->
+						<ThingDef>RB_Bee_Vivicream_Drone</ThingDef>
+						<ThingDef>TSP_RB_Beeliever_SlaveryOfVivicream_Honeycomb</ThingDef>
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_SlaveryOfVivicream_Honeycomb</RecipeDef>
+						<!--
+						<ThingDef>TSP_ST_RB_WildHive_Gnome</ThingDef>
+						<RecipeDef>TSP_ST_RB_Gneehive_Extract</RecipeDef>
+						-->
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/SlaverBranch/TSP_Bee_GigaChad_Vivicream_Queen</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData> 		
+				</ThingDef>
+				
+				<ThingDef ParentName="TSP_RB_Beeliever_ViviBase">
+					<defName>RB_Bee_Vivicream_Drone</defName>
+					<label>Slaver Vivicream drone</label>
+					<descriptionHyperlinks>
+						<ThingDef>RB_Bee_Vivi_Queen</ThingDef>
+						<!-- <ThingDef>RB_Bee_Vivi_Drone</ThingDef> -->
+						<ThingDef>TSP_RB_Beeliever_SlaveryOfVivi_Honeycomb</ThingDef>
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_SlaveryOfVivi_Honeycomb</RecipeDef>
+						<!--
+						<ThingDef>TSP_ST_RB_WildHive_Gnome</ThingDef>
+						<RecipeDef>TSP_ST_RB_Gneehive_Extract</RecipeDef>
+						-->
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/SlaverBranch/TSP_Bee_GigaChad_Vivi_Drone</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData> 		
+				</ThingDef>
+				
+				<ThingDef ParentName="RB_CombBase">
+					<defName>TSP_RB_Beeliever_SlaveryOfVivicream_Honeycomb</defName>
+					<label>Slaver Vivicream Bee honeycomb</label>
+					<description>Slaver Bees are facultative, social, brood parasites that abduct larvae and use them to produce beeswax and honey. Instead of expending effort to feed, house, and construct for new members of the colony, Slaver Bee drones drive the slave species and kidnap new larvae, while the Slaver Queen produces new Slaver Bee drones to continue the cycle, all while she gets fat from her doting chattel. \n \ Vivi Cream Slaver Bees parasitize Vivi larvae (they deserve it) to consume their Vivi Cream. Reap the harvest of slave labor and enjoy large amounts of Vivi Honey and Vivi Wax.</description>
+					<descriptionHyperlinks>
+						<!-- <ResearchProjectDef>ST_GnomeCulture</ResearchProjectDef> -->
+						<ThingDef>RB_Bee_Vivicream_Queen</ThingDef>
+						<ThingDef>RB_Bee_Vivicream_Drone</ThingDef>
+						<!-- <ThingDef>TSP_RB_Beeliever_SlaveryOfVivicream_Honeycomb</ThingDef> -->
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_SlaveryOfVivicream_Honeycomb</RecipeDef>
+						<!--
+						<ThingDef>TSP_ST_GnomeHoney</ThingDef>
+						<ThingDef>TSP_ST_RB_WildHive_Gnome</ThingDef>
+						<RecipeDef>TSP_ST_RB_Gneehive_Extract</RecipeDef>
+						-->
+						<ThingDef>VV_Vivicream</ThingDef>
+						<ThingDef>VV_Viviwax</ThingDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/Honeycombs/TSP_RB_SlaverBee_Honeycomb</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+						<color>(254,253,239)</color>
+					</graphicData>
+					<thingCategories>
+						<li>TSP_RB_Beeliever_Honeycombs</li>
+						<li>VV_ViviResource</li>
+					</thingCategories>
+					<butcherProducts>
+						<VV_Vivicream>20</VV_Vivicream>
+						<VV_Viviwax>5</VV_Viviwax>
+						<VV_FilthPollen>2</VV_FilthPollen>
+						<VV_Pollen>1</VV_Pollen>
+					</butcherProducts>
+					<tradeTags>
+						<li>VV_ViviResource</li>
+					</tradeTags>
+				</ThingDef>
+				
+				<RecipeDef>
+					<defName>TSP_RB_Beeliever_Centrifuge_SlaveryOfVivicream_Honeycomb</defName>
+					<label>extract from Slave-Making Vivicream Bee honeycomb</label>
+					<description>Extracts Vivi Cream and Vivi Beeswax from a Vivi Slaver Bee honeycomb. Vivicrean Slaver Bees parasitize Vivi Bee larvae (they deserve it) to consume their Vivi Cream instead of honey. What's wrong with exploiting exploiters, after all?</description>
+					<descriptionHyperlinks>
+						<!-- <ResearchProjectDef>ST_GnomeCulture</ResearchProjectDef> -->
+						<ThingDef>RB_Bee_Vivicream_Queen</ThingDef>
+						<ThingDef>RB_Bee_Vivicream_Drone</ThingDef>
+						<ThingDef>TSP_RB_Beeliever_SlaveryOfVivicream_Honeycomb</ThingDef>
+						<ThingDef>VV_Vivicream</ThingDef>
+						<ThingDef>VV_Viviwax</ThingDef>
+						<!-- <RecipeDef>TSP_RB_Beeliever_Centrifuge_SlaveryOfVivicream_Honeycomb</RecipeDef> -->
+						<!--
+						<ThingDef>TSP_ST_GnomeHoney</ThingDef>
+						<ThingDef>TSP_ST_RB_WildHive_Gnome</ThingDef>
+						<RecipeDef>TSP_ST_RB_Gneehive_Extract</RecipeDef>
+						-->
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<uiIconThing>VV_Vivicream</uiIconThing>
+					<jobString>Taking advantage of slave labor.</jobString>
+					<effectWorking>Cremate</effectWorking>
+					<soundWorking>Recipe_Cremate</soundWorking>
+					<workAmount>900</workAmount>
+					<recipeUsers>
+						<li>RB_Honey_Centrifuge</li>
+						<li>RB_Advanced_Honey_Centrifuge</li>
+						<li MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</li>
+					</recipeUsers>	
+					<ingredients>
+						<li>
+							<filter>
+								<thingDefs>
+									<li>TSP_RB_Beeliever_SlaveryOfVivicream_Honeycomb</li>
+								</thingDefs>
+							</filter>
+							<count>1</count>
+						</li>
+					</ingredients>
+					<fixedIngredientFilter>
+						<thingDefs>
+							<li>TSP_RB_Beeliever_SlaveryOfVivicream_Honeycomb</li>
+						</thingDefs>
+					</fixedIngredientFilter>
+					<specialProducts>
+						<li>Butchery</li>
+					</specialProducts>
+					<skillRequirements></skillRequirements>
+					<researchPrerequisites>
+						<li>RB_BasicBeekeeping</li>
+					</researchPrerequisites>
+				</RecipeDef>
+			</value>
+		</match>
+	</Operation>
+</Patch>

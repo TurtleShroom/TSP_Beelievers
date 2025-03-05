@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<Defs>	
+	<ThingDef ParentName="TSP_RB_Beeliever_MasterBeeBase" Name="TSP_RB_Beeliever_SlaverBase" Abstract="True">
+		<!-- <label>Slaver Bee</label> -->
+		<description>Slaver Bee branch. Breed Slaver Bees and have them compel other insects to work for them, just like slaver ants do in real life!</description>
+		<descriptionHyperlinks></descriptionHyperlinks>
+		<statBases>
+			<MarketValue>0.4</MarketValue>
+			<Mass>0.0041</Mass>
+			<DeteriorationRate>3</DeteriorationRate>
+			<Flammability>2</Flammability>
+		</statBases>
+		<stackLimit>300</stackLimit>
+		<tradeability>All</tradeability>
+		<!--
+		<graphicData Inherit="False">
+			<texPath>Things/Pawn/Animal/Bug_Types/Bee</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		-->
+		<thingCategories></thingCategories> <!-- Inherited from the Base -->
+	</ThingDef>
+	
+	<!-- BASE BEES -->
+	<!-- Slaver Bees -->
+	<!-- Begins Slaver Branch, where you can produce the byproducts of other insects and bee Mods. -->
+	<!-- These Mod-specific insects will be found in the Patches folder -->
+	<ThingDef ParentName="TSP_RB_Beeliever_SlaverBase" Name="TSP_RB_Beeliever_SlaverRoot" Abstract="True">
+		<!-- <label>Slave-Making Bee</label> -->
+		<description>On Old Earth, living beings' ownership of other living beings as chattel did not stop with men owning animals, or even men owning men. Animals are capable of it too! There exists a rare adaption among insects where they will capture animals of other species and compel them to work for them, complete with killing them if they escape and perpetual brainwashing. This is called "dulosis," literally "slave-making," and is a form of facultative, social, brood parasitism. It occurs most commonly among the slave-making ants, of which dozens of species exist. However, dulosis has also beeen recorded in bees, and it is these bees of which are made use all over the galaxy. Slaver Bees kidnap the larvae (babies) of other insects (especially other bees) and use them to produce honey to keep them alive. Drones' sole purpose is to drive these slaves, or kidnap more larvae of other species. \n\n\n\n\n Bee Traits: \n\n 	Production time: 48 hours \n 	Works at Night: No \n 	Works When Raining: Yes \n 	Unusual sources needed: No \n 	Minimum Temperature: 29.3ºF (-1.5ºC) \n 	Maximum temperature: 122ºF (50ºC)</description>
+		<!--
+		<graphicData Inherit="False">
+			<texPath>Things/Pawn/Animal/Bug_Types/Bee/ST_Bee_south</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		-->
+		<comps>			
+			<li Class="RimBees.CompProperties_Bees" Inherit="False">
+				<species>Slaver</species>
+				<comb>TSP_RB_Beeliever_Slaver_Honeycomb</comb>
+				<combtimedays>2</combtimedays>
+				<nocturnal>false</nocturnal> <!-- Works at night -->
+				<pluviophile>true</pluviophile> <!-- Works in the rain -->
+				<weirdplantneeded>no</weirdplantneeded>
+				<tempMin>-1.5</tempMin> <!-- Slightly below freezing -->
+				<tempMax>50</tempMax> <!-- Halfway to boiling. -->
+			</li>   
+		</comps>
+	</ThingDef>
+	
+	<ThingDef ParentName="TSP_RB_Beeliever_SlaverRoot">
+		<defName>RB_Bee_Slaver_Queen</defName>
+		<label>Slave-Making Bee queen</label>
+		<description>Don't let her suspiciously masculine bowtie fool you, this queen bee is female! \n \n On Old Earth, living beings' ownership of other living beings as chattel did not stop with men owning animals, or even men owning men. Animals are capable of it too! There exists a rare adaption among insects where they will capture animals of other species and compel them to work for them, complete with killing them if they escape and perpetual brainwashing. This is called "dulosis," literally "slave-making," and is a form of facultative, social, brood parasitism. It occurs most commonly among the slave-making ants, of which dozens of species exist. However, dulosis has also beeen recorded in bees, and it is these bees of which are made use all over the galaxy. Slaver Bees kidnap the larvae (babies) of other insects (especially other bees) and use them to produce honey to keep them alive. A slaver drone's sole purpose is to drive these slaves, or kidnap more larvae of other species. \n\n\n\n\n Bee Traits: \n\n 	Production time: 48 hours \n 	Works at Night: No \n 	Works When Raining: Yes \n 	Unusual sources needed: No \n 	Minimum Temperature: 29.3ºF (-1.5ºC) \n 	Maximum temperature: 122ºF (50ºC)</description>
+		<descriptionHyperlinks>
+			<!-- <ThingDef>RB_Bee_Slaver_Queen</ThingDef> -->
+			<ThingDef>RB_Bee_Slaver_Drone</ThingDef>
+			<ThingDef>TSP_RB_Beeliever_Slaver_Honeycomb</ThingDef>
+			<RecipeDef>TSP_RB_Beeliever_Centrifuge_Slaver_Honeycomb</RecipeDef>
+			<!--
+			<ThingDef>TSP_ST_RB_WildHive_Gnome</ThingDef>
+			<RecipeDef>TSP_ST_RB_Gneehive_Extract</RecipeDef>
+			-->
+			<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+		</descriptionHyperlinks>
+		<graphicData Inherit="False">
+			<texPath>Things/Pawn/Animal/Bug_Types/Bee/SlaverBranch/TSP_Bee_Slaver_Queen</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData> 		
+	</ThingDef>
+	
+	<ThingDef ParentName="TSP_RB_Beeliever_SlaverRoot">
+		<defName>RB_Bee_Slaver_Drone</defName>
+		<label>Slave-Making Bee drone</label>
+		<descriptionHyperlinks>
+			<ThingDef>RB_Bee_Slaver_Queen</ThingDef>
+			<!-- <ThingDef>RB_Bee_Slaver_Drone</ThingDef> -->
+			<ThingDef>TSP_RB_Beeliever_Slaver_Honeycomb</ThingDef>
+			<RecipeDef>TSP_RB_Beeliever_Centrifuge_Slaver_Honeycomb</RecipeDef>
+			<!--
+			<ThingDef>TSP_ST_RB_WildHive_Gnome</ThingDef>
+			<RecipeDef>TSP_ST_RB_Gneehive_Extract</RecipeDef>
+			-->
+			<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+		</descriptionHyperlinks>
+		<graphicData Inherit="False">
+			<texPath>Things/Pawn/Animal/Bug_Types/Bee/SlaverBranch/TSP_Bee_Slaver_Drone</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData> 		
+	</ThingDef>
+</Defs>

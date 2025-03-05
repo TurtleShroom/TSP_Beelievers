@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<Defs>
+	<!-- Slaver Branch -->
+	<!-- Slaver Bees: the source of all other species' honey -->
+	<RimBees.BeeListDef>
+		<defName>TSP_RB_Beeliever_SlaverBee0_Base_List</defName>
+		<nameString>Slaver</nameString>
+		<beeDroneDef>RB_Bee_Slaver_Drone</beeDroneDef>
+		<beeQueenDef>RB_Bee_Slaver_Queen</beeQueenDef>
+		<!--
+		<beeQueenTag>RB_Bee_Slaver_Queen_Tag</beeQueenTag>
+		<beeDroneTag>RB_Bee_Slaver_Drone_Tag</beeDroneTag>
+		-->
+	</RimBees.BeeListDef>
+</Defs>

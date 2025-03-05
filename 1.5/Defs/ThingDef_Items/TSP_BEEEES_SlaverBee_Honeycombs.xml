@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<Defs>
+	<ThingDef ParentName="RB_CombBase">
+		<defName>TSP_RB_Beeliever_Slaver_Honeycomb</defName>
+		<label>Slaver-Making Bee honeycomb</label>
+		<description>Slaver Bees are facultative, social, brood parasites that abduct larvae and use them to produce beeswax and honey. Instead of expending effort to feed, house, and construct for new members of the colony, Slaver Bee drones drive the slave species and kidnap new larvae, while the Slaver Queen produces new Slaver Bee drones to continue the cycle, all while she gets fat from her doting chattel. \n \nReap the harvest of slave labor and enjoy large amounts of white honey and white beeswax, as well as some special Performance Enhancing Honey to "encourage" slaves to work harder.</description>
+		<descriptionHyperlinks>
+			<!-- <ResearchProjectDef>ST_GnomeCulture</ResearchProjectDef> -->
+			<ThingDef>RB_Bee_Slaver_Queen</ThingDef>
+			<ThingDef>RB_Bee_Slaver_Drone</ThingDef>
+			<!-- <ThingDef>TSP_RB_Beeliever_Slaver_Honeycomb</ThingDef> -->
+			<RecipeDef>TSP_RB_Beeliever_Centrifuge_Slaver_Honeycomb</RecipeDef>
+			<!--
+			<ThingDef>TSP_ST_GnomeHoney</ThingDef>
+			<ThingDef>TSP_ST_RB_WildHive_Gnome</ThingDef>
+			<RecipeDef>TSP_ST_RB_Gneehive_Extract</RecipeDef>
+			-->
+			<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+		</descriptionHyperlinks>
+		<graphicData Inherit="False">
+			<texPath>Things/Pawn/Animal/Bug_Types/Bee/Honeycombs/TSP_RB_SlaverBee_Honeycomb</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<color>(255,255,255)</color>
+		</graphicData>
+		<thingCategories>
+			<li>TSP_RB_Beeliever_Honeycombs</li>
+		</thingCategories>
+		<butcherProducts>
+			<RB_WhiteHoney>17</RB_WhiteHoney>
+			<RB_WhiteBeeswax>7</RB_WhiteBeeswax>
+			<RB_PerformanceEnhancingHoney>2</RB_PerformanceEnhancingHoney>
+		</butcherProducts>
+	</ThingDef>
+	
+	<RecipeDef>
+		<defName>TSP_RB_Beeliever_Centrifuge_Slaver_Honeycomb</defName>
+		<label>extract from Slave-Making Bee honeycomb</label>
+		<description>Extracts white honey and white beeswax from a Slaver Bee honeycomb. What's wrong with exploiting exploiters, after all?</description>
+		<descriptionHyperlinks>
+			<!-- <ResearchProjectDef>ST_GnomeCulture</ResearchProjectDef> -->
+			<ThingDef>RB_Bee_Slaver_Queen</ThingDef>
+			<ThingDef>RB_Bee_Slaver_Drone</ThingDef>
+			<ThingDef>TSP_RB_Beeliever_Slaver_Honeycomb</ThingDef>
+			<!-- <RecipeDef>TSP_RB_Beeliever_Centrifuge_Slaver_Honeycomb</RecipeDef> -->
+			<!--
+			<ThingDef>TSP_ST_GnomeHoney</ThingDef>
+			<ThingDef>TSP_ST_RB_WildHive_Gnome</ThingDef>
+			<RecipeDef>TSP_ST_RB_Gneehive_Extract</RecipeDef>
+			-->
+			<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+		</descriptionHyperlinks>
+		<uiIconThing>TSP_RB_Beeliever_Slaver_Honeycomb</uiIconThing>
+		<jobString>Taking advantage of slave labor.</jobString>
+		<effectWorking>Cremate</effectWorking>
+		<soundWorking>Recipe_Cremate</soundWorking>
+		<workAmount>900</workAmount>
+		<recipeUsers>
+			<li>RB_Honey_Centrifuge</li>
+			<li>RB_Advanced_Honey_Centrifuge</li>
+			<li MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</li>
+		</recipeUsers>	
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>TSP_RB_Beeliever_Slaver_Honeycomb</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>TSP_RB_Beeliever_Slaver_Honeycomb</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<specialProducts>
+			<li>Butchery</li>
+		</specialProducts>
+		<skillRequirements></skillRequirements>
+		<researchPrerequisites>
+			<li>RB_BasicBeekeeping</li>
+		</researchPrerequisites>
+	</RecipeDef>
+</Defs>

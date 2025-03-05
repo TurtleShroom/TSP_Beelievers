@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<Patch>
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>/Defs/ThingDef[defName="Megabee"]</xpath>
+		<!-- If it does, add this. -->
+		<match Class="PatchOperationAdd">
+			<xpath>/Defs</xpath>
+			<success>Always</success>
+			<value>
+				<!-- Slaver Branch -->
+				<!-- TIER II -->
+				<!-- Mega Bee Slaver Bees: kidnaps Megabee larvae, makes Megabee Honey -->
+				<RimBees.BeeCombinationDef>
+					<defName>TSP_RB_Beelievers_SlaverTables_Megabee</defName>
+					<bee1>Slaver</bee1>
+					<bee2>Nutritious</bee2>
+					<result>
+						<li>Megabee</li>
+						<li>Beesalve</li>
+					</result>				
+				</RimBees.BeeCombinationDef>
+				
+				<RimBees.BeeListDef>
+					<defName>TSP_RB_Beeliever_SlaverBee1_Megabee</defName>
+					<nameString>Megabee</nameString>
+					<beeDroneDef>RB_Bee_Megabee_Drone</beeDroneDef>
+					<beeQueenDef>RB_Bee_Megabee_Queen</beeQueenDef>
+					<!--
+					<beeQueenTag>RB_Bee_Slaver_Queen_Tag</beeQueenTag>
+					<beeDroneTag>RB_Bee_Slaver_Drone_Tag</beeDroneTag>
+					-->
+				</RimBees.BeeListDef>
+			
+				<ThingDef ParentName="TSP_RB_Beeliever_SlaverBase" Name="TSP_RB_Beeliever_MegabeeBase" Abstract="True">
+					<!-- <label>Megabee Slave-Making Bee</label> -->
+					<description>On Old Earth, living beings' ownership of other living beings as chattel did not stop with men owning animals, or even men owning men. Animals are capable of it too! There exists a rare adaption among insects where they will capture animals of other species and compel them to work for them. This is called "dulosis," literally "slave-making," and is a form of facultative, social, brood parasitism. It occurs most commonly among the slave-making ants, of which dozens of species exist. However, dulosis has also beeen recorded in bees. \n \n These slave-making sting and stunt the grwoth of Megabee larvae to keep them from reaching their monstrous side, and then feed on the Megabee Honey of those bees. \n\n\n\n\n Bee Traits: \n\n 	Production time: 1 day \n 	Works at Night: No \n 	Works When Raining: Yes \n 	Unusual sources needed: No \n 	Minimum Temperature: 0ºF (-17.7778ºC) \n 	Maximum temperature: 97ºF (36.1111ºC)</description>
+					<!--
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/ST_Bee_south</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData>
+					-->
+					<comps>			
+						<li Class="RimBees.CompProperties_Bees" Inherit="False">
+							<species>Megabee</species>
+							<comb>TSP_RB_Beeliever_SlaveryOfMegabee_Honeycomb</comb>
+							<combtimedays>1</combtimedays>
+							<nocturnal>false</nocturnal> <!-- Works at night -->
+							<pluviophile>true</pluviophile> <!-- Works in the rain -->
+							<weirdplantneeded>no</weirdplantneeded>
+							<tempMin>-17.778</tempMin> <!-- Zero degrees -->
+							<tempMax>36.1111</tempMax> <!-- Ninety-seven degrees -->
+						</li>   
+					</comps>
+				</ThingDef>
+				
+				<ThingDef ParentName="TSP_RB_Beeliever_MegabeeBase">
+					<defName>RB_Bee_Megabee_Queen</defName>
+					<label>Megabee Stunting queen</label>
+					<descriptionHyperlinks>
+						<!-- <ThingDef>RB_Bee_Megabee_Queen</ThingDef> -->
+						<ThingDef>RB_Bee_Megabee_Drone</ThingDef>
+						<ThingDef>TSP_RB_Beeliever_SlaveryOfMegabee_Honeycomb</ThingDef>
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_SlaveryOfMegabee_Honeycomb</RecipeDef>
+						<ThingDef>Megabee</ThingDef>
+						<!--
+						<ThingDef>TSP_ST_RB_WildHive_Gnome</ThingDef>
+						<RecipeDef>TSP_ST_RB_Gneehive_Extract</RecipeDef>
+						-->
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/SlaverBranch/TSP_Bee_GigaChad_Megabee_Queen</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData> 		
+				</ThingDef>
+				
+				<ThingDef ParentName="TSP_RB_Beeliever_MegabeeBase">
+					<defName>RB_Bee_Megabee_Drone</defName>
+					<label>Megabee Stunting drone</label>
+					<descriptionHyperlinks>
+						<ThingDef>RB_Bee_Megabee_Queen</ThingDef>
+						<!-- <ThingDef>RB_Bee_Megabee_Drone</ThingDef> -->
+						<ThingDef>TSP_RB_Beeliever_SlaveryOfMegabee_Honeycomb</ThingDef>
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_SlaveryOfMegabee_Honeycomb</RecipeDef>
+						<ThingDef>Megabee</ThingDef>
+						<!--
+						<ThingDef>TSP_ST_RB_WildHive_Gnome</ThingDef>
+						<RecipeDef>TSP_ST_RB_Gneehive_Extract</RecipeDef>
+						-->
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/SlaverBranch/TSP_Bee_GigaChad_Megabee_Drone</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData> 		
+				</ThingDef>
+				
+				<ThingDef ParentName="RB_CombBase">
+					<defName>TSP_RB_Beeliever_SlaveryOfMegabee_Honeycomb</defName>
+					<label>Megabee Stunting Bee honeycomb</label>
+					<description>Slaver Bees are facultative, social, brood parasites that abduct larvae and use them to produce beeswax and honey. Instead of expending effort to feed, house, and construct for new members of the colony, Slaver Bee drones drive the slave species and kidnap new larvae, while the Slaver Queen produces new Slaver Bee drones to continue the cycle, all while she gets fat from her doting chattel. \n \ Megabee Slaver Bees sting and stunt the growth of Megabee larvae to stop them from reaching their monstrous size, and then consume their honey. Reap the harvest of slave labor and enjoy large amounts of Megabee Honey and Megabee Wool.</description>
+					<descriptionHyperlinks>
+						<!-- <ResearchProjectDef>ST_GnomeCulture</ResearchProjectDef> -->
+						<ThingDef>RB_Bee_Megabee_Queen</ThingDef>
+						<ThingDef>RB_Bee_Megabee_Drone</ThingDef>
+						<!-- <ThingDef>TSP_RB_Beeliever_SlaveryOfMegabee_Honeycomb</ThingDef> -->
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_SlaveryOfMegabee_Honeycomb</RecipeDef>
+						<!--
+						<ThingDef>TSP_ST_GnomeHoney</ThingDef>
+						<ThingDef>TSP_ST_RB_WildHive_Gnome</ThingDef>
+						<RecipeDef>TSP_ST_RB_Gneehive_Extract</RecipeDef>
+						-->
+						<ThingDef>Megabee</ThingDef>
+						<ThingDef>MegabeeTallow</ThingDef>
+						<ThingDef>WoolMegabee</ThingDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/Honeycombs/TSP_RB_SlaverBee_Honeycomb</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+						<color>(200,200,50)</color>
+					</graphicData>	
+					<thingCategories>
+						<li>TSP_RB_Beeliever_Honeycombs</li>
+					</thingCategories>
+					<butcherProducts>
+						<MegabeeTallow>11</MegabeeTallow>
+						<WoolMegabee>7</WoolMegabee>
+					</butcherProducts>
+				</ThingDef>
+				
+				<RecipeDef>
+					<defName>TSP_RB_Beeliever_Centrifuge_SlaveryOfMegabee_Honeycomb</defName>
+					<label>extract from Megabee Stunting Bee honeycomb</label>
+					<description>Extracts Megabee Honey and megabee Wool from a Megabee Slaver Bee honeycomb. Megabee Slaver Bees sting and stunt Megabee larvae to prevent them from growing to their usual monstrous side, and then consume their food instead of honey. What's wrong with exploiting exploiters, after all?</description>
+					<descriptionHyperlinks>
+						<!-- <ResearchProjectDef>ST_GnomeCulture</ResearchProjectDef> -->
+						<ThingDef>RB_Bee_Megabee_Queen</ThingDef>
+						<ThingDef>RB_Bee_Megabee_Drone</ThingDef>
+						<ThingDef>TSP_RB_Beeliever_SlaveryOfMegabee_Honeycomb</ThingDef>
+						<ThingDef>Megabee</ThingDef>
+						<ThingDef>MegabeeTallow</ThingDef>
+						<ThingDef>WoolMegabee</ThingDef>
+						<!-- <RecipeDef>TSP_RB_Beeliever_Centrifuge_SlaveryOfMegabee_Honeycomb</RecipeDef> -->
+						<!--
+						<ThingDef>TSP_ST_GnomeHoney</ThingDef>
+						<ThingDef>TSP_ST_RB_WildHive_Gnome</ThingDef>
+						<RecipeDef>TSP_ST_RB_Gneehive_Extract</RecipeDef>
+						-->
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<uiIconThing>Megabee</uiIconThing>
+					<jobString>Taking advantage of slave labor.</jobString>
+					<effectWorking>Cremate</effectWorking>
+					<soundWorking>Recipe_Cremate</soundWorking>
+					<workAmount>900</workAmount>
+					<recipeUsers>
+						<li>RB_Honey_Centrifuge</li>
+						<li>RB_Advanced_Honey_Centrifuge</li>
+						<li MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</li>
+					</recipeUsers>	
+					<ingredients>
+						<li>
+							<filter>
+								<thingDefs>
+									<li>TSP_RB_Beeliever_SlaveryOfMegabee_Honeycomb</li>
+								</thingDefs>
+							</filter>
+							<count>1</count>
+						</li>
+					</ingredients>
+					<fixedIngredientFilter>
+						<thingDefs>
+							<li>TSP_RB_Beeliever_SlaveryOfMegabee_Honeycomb</li>
+						</thingDefs>
+					</fixedIngredientFilter>
+					<specialProducts>
+						<li>Butchery</li>
+					</specialProducts>
+					<skillRequirements></skillRequirements>
+					<researchPrerequisites>
+						<li>RB_BasicBeekeeping</li>
+					</researchPrerequisites>
+				</RecipeDef>7
+				
+				
+				<!-- TIER II -->
+				<!-- Mega Bee Slaver Bees: kidnaps Megabee larvae, makes Megabee Honey -->
+				<RimBees.BeeListDef>
+					<defName>TSP_RB_Beeliever_SlaverBee2_Megabee</defName>
+					<nameString>Beesalve</nameString>
+					<beeDroneDef>RB_Bee_Beesalve_Drone</beeDroneDef>
+					<beeQueenDef>RB_Bee_Beesalve_Queen</beeQueenDef>
+					<!--
+					<beeQueenTag>RB_Bee_Slaver_Queen_Tag</beeQueenTag>
+					<beeDroneTag>RB_Bee_Slaver_Drone_Tag</beeDroneTag>
+					-->
+				</RimBees.BeeListDef>
+				
+				<ThingDef ParentName="TSP_RB_Beeliever_MegabeeBase" Name="TSP_RB_Beeliever_Megabee_Salve_Base" Abstract="True">
+					<!-- <label>Megabee Slave-Making Bee</label> -->
+					<description>On Old Earth, living beings' ownership of other living beings as chattel did not stop with men owning animals, or even men owning men. Animals are capable of it too! There exists a rare adaption among insects where they will capture animals of other species and compel them to work for them. This is called "dulosis," literally "slave-making," and is a form of facultative, social, brood parasitism. It occurs most commonly among the slave-making ants, of which dozens of species exist. However, dulosis has also beeen recorded in bees. \n \n These slave-making bees abduct, sting, and stunt the growth of Megabee larvae. It is this special caste of Megabee Slaver Bees that create the poison that keeps chattel Megabee larvae from growing. The poison can be reverse-engineered into an useful medicine. \n\n\n\n\n Bee Traits: \n\n 	Production time: 0.77 days \n 	Works at Night: Yes \n 	Works When Raining: No \n 	Unusual sources needed: No \n 	Minimum Temperature: 0ºF (-17.7778ºC) \n 	Maximum temperature: 97ºF (36.1111ºC)</description>
+					<!--
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/ST_Bee_south</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData>
+					-->
+					<comps>			
+						<li Class="RimBees.CompProperties_Bees" Inherit="False">
+							<species>Beesalve</species>
+							<comb>TSP_RB_Beeliever_SlaveryOfMegabee_Salve_Honeycomb</comb>
+							<combtimedays>0.77</combtimedays>
+							<nocturnal>true</nocturnal> <!-- Works at night -->
+							<pluviophile>false</pluviophile> <!-- Works in the rain -->
+							<weirdplantneeded>no</weirdplantneeded>
+							<tempMin>-17.778</tempMin> <!-- Zero degrees -->
+							<tempMax>36.1111</tempMax> <!-- Ninety-seven degrees -->
+							<additionalBeeEffects>
+								<li Class="RimBees.AdditionalBeeEffects_Damage">
+									<damage>ScratchToxic</damage>
+									<amount>2</amount>
+								</li>
+							</additionalBeeEffects>
+						</li>
+					</comps>
+				</ThingDef>
+				
+				<ThingDef ParentName="TSP_RB_Beeliever_MegabeeBase">
+					<defName>RB_Bee_Beesalve_Queen</defName>
+					<label>Megabee Salve worker queen</label>
+					<descriptionHyperlinks>
+						<!-- <ThingDef>RB_Bee_Beesalve_Queen</ThingDef> -->
+						<ThingDef>RB_Bee_Beesalve_Drone</ThingDef>
+						<ThingDef>TSP_RB_Beeliever_SlaveryOfMegabee_Salve_Honeycomb</ThingDef>
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_SlaveryOfMegabee_Salve_Honeycomb</RecipeDef>
+						<ThingDef>Megabee</ThingDef>
+						<!--
+						<ThingDef>TSP_ST_RB_WildHive_Gnome</ThingDef>
+						<RecipeDef>TSP_ST_RB_Gneehive_Extract</RecipeDef>
+						-->
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/SlaverBranch/TSP_Bee_GigaChad_Megabee_Salve_Queen</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData> 		
+				</ThingDef>
+				
+				<ThingDef ParentName="TSP_RB_Beeliever_MegabeeBase">
+					<defName>RB_Bee_Beesalve_Drone</defName>
+					<label>Megabee Salve worker drone</label>
+					<descriptionHyperlinks>
+						<ThingDef>RB_Bee_Beesalve_Queen</ThingDef>
+						<!-- <ThingDef>RB_Bee_Beesalve_Drone</ThingDef> -->
+						<ThingDef>TSP_RB_Beeliever_SlaveryOfMegabee_Salve_Honeycomb</ThingDef>
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_SlaveryOfMegabee_Salve_Honeycomb</RecipeDef>
+						<ThingDef>Megabee</ThingDef>
+						<!--
+						<ThingDef>TSP_ST_RB_WildHive_Gnome</ThingDef>
+						<RecipeDef>TSP_ST_RB_Gneehive_Extract</RecipeDef>
+						-->
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/SlaverBranch/TSP_Bee_GigaChad_Megabee_Salve_Drone</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData> 		
+				</ThingDef>
+				
+				<ThingDef ParentName="RB_CombBase">
+					<defName>TSP_RB_Beeliever_SlaveryOfMegabee_Salve_Honeycomb</defName>
+					<label>Megabee Salve honeycomb</label>
+					<description>Slaver Bees are facultative, social, brood parasites that abduct larvae and use them to produce beeswax and honey. Instead of expending effort to feed, house, and construct for new members of the colony, Slaver Bee drones drive the slave species and kidnap new larvae, while the Slaver Queen produces new Slaver Bee drones to continue the cycle, all while she gets fat from her doting chattel. \n \ Megabee Slaver Bees bees abduct, sting, and stunt the growth of Megabee larvae. It is this special caste of Megabee Slaver Bees that create the poison that keeps Megabees from growing. The poison can be reverse-engineered into an useful medicine.</description>
+					<descriptionHyperlinks>
+						<!-- <ResearchProjectDef>ST_GnomeCulture</ResearchProjectDef> -->
+						<ThingDef>RB_Bee_Beesalve_Queen</ThingDef>
+						<ThingDef>RB_Bee_Beesalve_Drone</ThingDef>
+						<!-- <ThingDef>TSP_RB_Beeliever_SlaveryOfMegabee_Salve_Honeycomb</ThingDef> -->
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_SlaveryOfMegabee_Salve_Honeycomb</RecipeDef>
+						<!--
+						<ThingDef>TSP_ST_GnomeHoney</ThingDef>
+						<ThingDef>TSP_ST_RB_WildHive_Gnome</ThingDef>
+						<RecipeDef>TSP_ST_RB_Gneehive_Extract</RecipeDef>
+						-->
+						<ThingDef>Megabee</ThingDef>
+						<ThingDef>MegabeeTallow</ThingDef>
+						<ThingDef>MedicineMegabee</ThingDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/Honeycombs/TSP_RB_SlaverBee_Honeycomb</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+						<color>(200,200,50)</color>
+					</graphicData>	
+					<thingCategories>
+						<li>TSP_RB_Beeliever_Honeycombs</li>
+					</thingCategories>
+					<butcherProducts>
+						<RB_Honey>2</RB_Honey>
+						<MegabeeTallow>3</MegabeeTallow>
+						<MedicineMegabee>2</MedicineMegabee>
+					</butcherProducts>
+				</ThingDef>
+				
+				<RecipeDef>
+					<defName>TSP_RB_Beeliever_Centrifuge_SlaveryOfMegabee_Salve_Honeycomb</defName>
+					<label>extract from Megabee Salve honeycomb</label>
+					<description>Megabee Slaver Bees sting and stunt Megabee larvae to prevent them from growing to their usual monstrous side, and then consume their food instead of honey. By reverse-engineering the venom they use to stunt Megabee larvae, we can create an useful ointment! What's wrong with exploiting exploiters, after all?</description>
+					<descriptionHyperlinks>
+						<!-- <ResearchProjectDef>ST_GnomeCulture</ResearchProjectDef> -->
+						<ThingDef>RB_Bee_Beesalve_Queen</ThingDef>
+						<ThingDef>RB_Bee_Beesalve_Drone</ThingDef>
+						<ThingDef>TSP_RB_Beeliever_SlaveryOfMegabee_Salve_Honeycomb</ThingDef>
+						<ThingDef>Megabee</ThingDef>
+						<ThingDef>MegabeeTallow</ThingDef>
+						<ThingDef>MedicineMegabee</ThingDef>
+						<!-- <RecipeDef>TSP_RB_Beeliever_Centrifuge_SlaveryOfMegabee_Honeycomb</RecipeDef> -->
+						<!--
+						<ThingDef>TSP_ST_GnomeHoney</ThingDef>
+						<ThingDef>TSP_ST_RB_WildHive_Gnome</ThingDef>
+						<RecipeDef>TSP_ST_RB_Gneehive_Extract</RecipeDef>
+						-->
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<uiIconThing>Megabee</uiIconThing>
+					<jobString>Taking advantage of slave labor.</jobString>
+					<effectWorking>Cremate</effectWorking>
+					<soundWorking>Recipe_Cremate</soundWorking>
+					<workAmount>900</workAmount>
+					<recipeUsers>
+						<li>RB_Honey_Centrifuge</li>
+						<li>RB_Advanced_Honey_Centrifuge</li>
+						<li MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</li>
+					</recipeUsers>	
+					<ingredients>
+						<li>
+							<filter>
+								<thingDefs>
+									<li>TSP_RB_Beeliever_SlaveryOfMegabee_Salve_Honeycomb</li>
+								</thingDefs>
+							</filter>
+							<count>1</count>
+						</li>
+					</ingredients>
+					<fixedIngredientFilter>
+						<thingDefs>
+							<li>TSP_RB_Beeliever_SlaveryOfMegabee_Salve_Honeycomb</li>
+						</thingDefs>
+					</fixedIngredientFilter>
+					<specialProducts>
+						<li>Butchery</li>
+					</specialProducts>
+					<skillRequirements></skillRequirements>
+					<researchPrerequisites>
+						<li>RB_BasicBeekeeping</li>
+					</researchPrerequisites>
+				</RecipeDef>
+			</value>
+		</match>
+	</Operation>
+</Patch>
