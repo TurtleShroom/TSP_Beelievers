@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<Patch>
+	<!-- Aelanna's Model No-Match Detector and Insertion Code -->
+	<!-- Special thanks to Aelanna for straight-up saving me scores of headaches! -->
+	<!-- Add comps field to Settlement WorldObjectDef if it doesn't exist -->
+	<Operation Class="PatchOperationConditional">
+		<xpath>/Defs/ThingDef[defName="L24_Manto_RedJelly"]/thingCategories</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>/Defs/ThingDef[defName="L24_Manto_RedJelly"]</xpath>
+			<success>Always</success>
+			<value>
+				<thingCategories></thingCategories>
+			</value>
+		</nomatch>
+	</Operation>
+	
+	<!-- Add comps field to Settlement WorldObjectDef if it doesn't exist -->
+	<Operation Class="PatchOperationConditional">
+		<xpath>/Defs/ThingDef[defName="RB_RedBeeswax"]/thingCategories</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>/Defs/ThingDef[defName="RB_RedBeeswax"]</xpath>
+			<success>Always</success>
+			<value>
+				<thingCategories></thingCategories>
+			</value>
+		</nomatch>
+	</Operation>
+	
+	<!-- Add comps field to Settlement WorldObjectDef if it doesn't exist -->
+	<Operation Class="PatchOperationConditional">
+		<xpath>/Defs/ThingDef[defName="RB_PerformanceEnhancingHoney"]/thingCategories</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>/Defs/ThingDef[defName="RB_PerformingEnhancingHoney"]</xpath>
+			<success>Always</success>
+			<value>
+				<thingCategories></thingCategories>
+			</value>
+		</nomatch>
+	</Operation>
+	
+	<!-- Add comps field to Settlement WorldObjectDef if it doesn't exist -->
+	<Operation Class="PatchOperationConditional">
+		<xpath>/Defs/ThingDef[defName="L24_Meat_Mantodean"]/thingCategories</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>/Defs/ThingDef[defName="L24_Meat_Mantodean"]</xpath>
+			<success>Always</success>
+			<value>
+				<thingCategories></thingCategories>
+			</value>
+		</nomatch>
+	</Operation>
+
+
+	<!-- Add comps field to Settlement WorldObjectDef if it doesn't exist -->
+	<Operation Class="PatchOperationConditional">
+		<xpath>/Defs/ThingDef[defName="L24_Egg_Unfert"]/thingCategories</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>/Defs/ThingDef[defName="L24_Egg_Unfert"]</xpath>
+			<success>Always</success>
+			<value>
+				<thingCategories></thingCategories>
+			</value>
+		</nomatch>
+	</Operation>
+
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>/Defs/ThingDef[defName="L24_Manto_RedJelly"]</xpath>
+		<!-- If it does, add this. -->
+		<match Class="PatchOperationAdd">
+			<xpath>/Defs</xpath>
+			<success>Always</success>
+			<value>
+				<ThingCategoryDef>
+					<defName>TSP_RB_Beeliever_HiddenCategorySpawn_RedJelly</defName>
+					<label>TSP Mantodean Red Jelly Slaver Bees Spawn System Category</label>
+					<parent IsNull="True" Inherit="False"></parent>
+					<iconPath>Things/Item/Drug/RedJelly/RedJelly_a</iconPath>
+				</ThingCategoryDef>
+			</value>
+		</match>
+	</Operation>
+	
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>/Defs/ThingDef[defName="L24_Manto_RedJelly"]</xpath>
+		<!-- If it does, add this. -->
+		<match Class="PatchOperationAdd">
+			<xpath>/Defs/ThingDef[defName = "L24_Manto_RedJelly" or defName = "RB_PerformanceEnhancingHoney" or defName = "L24_Meat_Mantodean" or defName = "L24_Egg_Unfert"]/thingCategories</xpath>
+			<sucess>Always</sucess>
+			<value>
+				<li>TSP_RB_Beeliever_HiddenCategorySpawn_RedJelly</li>
+			</value>
+		</match>
+	</Operation>
+	
+
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>/Defs/ThingDef[defName="L24_Manto_RedJelly"]</xpath>
+		<!-- If it does, add this. -->
+		<match Class="PatchOperationAdd">
+			<xpath>/Defs</xpath>
+			<success>Always</success>
+			<value>
+				<ThingDef ParentName="ResourceBase">
+					<defName>TSP_RB_Beelievers_RedJelly_SpawnSystem</defName>
+					<label>Mantoscald Products</label>
+					<description>Red Mantodean Slaver Bees force-feed their abducted Mantodean Larvae batches of lethal Red Jellly in order to connect them to the Mantodean psychic fields, which kills them. They use this energy to work obscenely fast, albeit slowly. Due to the chaos that causes, Red Mantodean Slaver Bees are not able to produce Red Jelly every time. Sometimes, they spit out Performance-Enhancing Honey, other times they shoot Red Beeswax, and still other times they just botch it entirely and throw out a dead Mantodean.</description>
+					<descriptionHyperlinks>
+						<!-- <ResearchProjectDef>ST_GnomeCulture</ResearchProjectDef> -->
+						<ThingDef>RB_Bee_Mantoscald_Queen</ThingDef>
+						<ThingDef>RB_Bee_Mantoscald_Drone</ThingDef>
+						<!-- <ThingDef>TSP_RB_Beelievers_RedJelly_SpawnSystem</ThingDef> -->
+						<ThingDef>TSP_RB_Beeliever_SlaveryOfMantodean_Red_Honeycomb</ThingDef>
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_SlaveryOfMantodean_Red_Honeycomb</RecipeDef>
+						<!--
+						<ThingDef>TSP_ST_GnomeHoney</ThingDef>
+						<ThingDef>TSP_ST_RB_WildHive_Gnome</ThingDef>
+						<RecipeDef>TSP_ST_RB_Gneehive_Extract</RecipeDef>
+						-->
+						<ThingDef>L24_Manto_RedJelly</ThingDef>
+						<ThingDef>RB_PerformanceEnhancingHoney</ThingDef>
+						<ThingDef>RB_RedBeeswax</ThingDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<fillPercent>0.01</fillPercent>
+					<rotatable>false</rotatable>
+					<tickerType>Normal</tickerType>
+					<clearBuildingArea>false</clearBuildingArea>
+					<graphicData Inherit="False">
+						<texPath>Things/Item/Drug/RedJelly</texPath>
+						<graphicClass>Graphic_StackCount</graphicClass>
+						<color>(255,0,0)</color>
+					</graphicData>
+					<altitudeLayer>Building</altitudeLayer>
+					<stackLimit>999</stackLimit>
+					<statBases>
+						<MaxHitPoints>2</MaxHitPoints>
+						<!-- <WorkToBuild>2</WorkToBuild> -->
+						<Flammability>2</Flammability>
+						<Mass>2</Mass>
+					</statBases>
+					<passability>Standable</passability>
+					<pathCost>0</pathCost>
+					<building>
+						<isEdifice>false</isEdifice>
+						<canBuildNonEdificesUnder>true</canBuildNonEdificesUnder>
+						<canPlaceOverWall>true</canPlaceOverWall>
+					</building>
+					<clearBuildingArea>false</clearBuildingArea>
+					<thingCategories Inherit="False"></thingCategories>
+					<comps>
+						<li Class="RimBees.CompProperties_RandomItemSpawner">
+							<amount>2</amount>
+							<categories>
+								<li>TSP_RB_Beeliever_HiddenCategorySpawn_RedJelly</li>
+							</categories>
+						</li>
+					</comps>
+				</ThingDef>
+			</value>
+		</match>
+	</Operation>
+</Patch>

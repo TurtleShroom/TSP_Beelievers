@@ -63,6 +63,8 @@
 		<li>vanillaexpanded.vplantsemushrooms</li>
 		<li>mlie.expandableplants</li>
 		<li>ku001.starchseedplant</li>
+		<li>sarg.alphaanimals</li>
+		<li>sarg.alphabiomes</li>
 	</loadAfter>
 	<loadBefore>
 		<li>zal.patchhoney</li>

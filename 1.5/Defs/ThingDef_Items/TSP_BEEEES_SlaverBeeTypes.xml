@@ -35,7 +35,7 @@
 			<graphicClass>Graphic_Single</graphicClass>
 		</graphicData>
 		-->
-		<comps>			
+		<comps Inherit="False">			
 			<li Class="RimBees.CompProperties_Bees" Inherit="False">
 				<species>Slaver</species>
 				<comb>TSP_RB_Beeliever_Slaver_Honeycomb</comb>

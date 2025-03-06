@@ -3,8 +3,15 @@
 <Defs>
 	<ThingCategoryDef>
 		<defName>TSP_RB_Beeliever_BeesAndQueens</defName>
-		<label>TSP Bees and Queens</label>
+		<label>TSP Bees</label>
 		<parent>RB_BeesAndQueens</parent>
+		<iconPath>Things/Pawn/Animal/Bug_Types/Bee/TSP_Bee_Queen</iconPath>
+	</ThingCategoryDef>
+	
+	<ThingCategoryDef>
+		<defName>TSP_RB_Beeliever_BeesAndQueens_Mantodean</defName>
+		<label>TSP Mantodean Bees</label>
+		<parent>TSP_RB_Beeliever_BeesAndQueens</parent>
 		<iconPath>Things/Pawn/Animal/Bug_Types/Bee/TSP_Bee_Queen</iconPath>
 	</ThingCategoryDef>
 	
@@ -16,9 +23,16 @@
 	</ThingCategoryDef>
 	
 	<ThingCategoryDef>
+		<defName>TSP_RB_Beeliever_Mantodean_Honeycombs</defName>
+		<label>TSP Mantodean Honeycombs</label>
+		<parent>TSP_RB_Beeliever_Honeycombs</parent>
+		<iconPath>Things/Pawn/Animal/Bug_Types/Bee/TSP_Bee_Queen</iconPath>
+	</ThingCategoryDef>
+	
+	<ThingCategoryDef>
 		<defName>TSP_RB_Beeliever_Beesearch</defName>
 		<label>TSP Beesearch</label>
 		<parent>RB_BeeResearch</parent>
 		<iconPath>Things/Pawn/Animal/Bug_Types/Bee/TSP_Bee_Queen</iconPath>
-	</ThingCategoryDef>
+	</ThingCategoryDef>	
 </Defs>

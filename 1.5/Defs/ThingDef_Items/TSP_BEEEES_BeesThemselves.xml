@@ -22,7 +22,7 @@
 		<thingCategories Inherit="False">
 			<li>TSP_RB_Beeliever_BeesAndQueens</li>
 		</thingCategories>
-		<comps Inherit="False">
+		<comps>
 			<li Class="CompProperties_Forbiddable"></li>
 			<li Class="RimBees.CompProperties_TempRuinableAndDestroy" Inherit="False">
 				<minSafeTemperature>-17.7778</minSafeTemperature> <!-- Zero degrees Farenheit -->
