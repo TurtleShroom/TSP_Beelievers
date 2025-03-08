@@ -4,7 +4,7 @@
 	<!-- MASTER BEE DEFINITION, CATEGORIZATION, DATA -->
 	<ThingDef ParentName="RB_BeeBase" Name="TSP_RB_Beeliever_MasterBeeBase" Abstract="True">
 		<label>TurtleShroom Productions Bees</label>
-		<description>LOOK AT ALL THESE NEW BEES! I CANNOT BEE-LIEVE IT!! \n\n\n\n\n Bee Traits: \n\n 	Production time: 23.88 hours \n 	Works at Night: No \n 	Works When Raining: Yes \n 	Unusual sources needed: No \n 	Minimum Temperature: 0ºF (-17.7778ºC) \n 	Maximum temperature: 97ºF (36.1111ºC)</description>
+		<description>LOOK AT ALL THESE NEW BEES! I CANNOT BEE-LIEVE IT!! \n\n\n\n\n Bee Traits: \n\n 	Production time: 23.88 hours \n 	Works at Night: No \n 	Works When Raining: Yes \n 	Unusual Sources Needed: No \n 	Minimum Temperature: 0ºF (-17.7778ºC) \n 	Maximum temperature: 97ºF (36.1111ºC)</description>
 		<descriptionHyperlinks></descriptionHyperlinks>
 		<statBases>
 			<MarketValue>0.14</MarketValue>

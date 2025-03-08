@@ -36,7 +36,7 @@
 			
 				<ThingDef ParentName="TSP_RB_Beeliever_SlaverBase" Name="TSP_RB_Beeliever_HaploBase" Abstract="True">
 					<!-- <label>Haplo Slave-Making Bee</label> -->
-					<description>On Old Earth, living beings' ownership of other living beings as chattel did not stop with men owning animals, or even men owning men. Animals are capable of it too! There exists a rare adaption among insects where they will capture animals of other species and compel them to work for them. This is called "dulosis," literally "slave-making," and is a form of facultative, social, brood parasitism. It occurs most commonly among the slave-making ants, of which dozens of species exist. However, dulosis has also beeen recorded in bees. \n \n These slave-making bees exclusively target the larvae of Miscellaneous (Haplo) Bees, a special breed, and feed on the Haplo Honey of those bees. \n\n\n\n\n Bee Traits: \n\n 	Production time: 12 hours \n 	Works at Night: No \n 	Works When Raining: Yes \n 	Unusual sources needed: No \n 	Minimum Temperature: 0ºF (-17.7778ºC) \n 	Maximum temperature: 97ºF (36.1111ºC)</description>
+					<description>On Old Earth, living beings' ownership of other living beings as chattel did not stop with men owning animals, or even men owning men. Animals are capable of it too! There exists a rare adaption among insects where they will capture animals of other species and compel them to work for them. This is called "dulosis," literally "slave-making," and is a form of facultative, social, brood parasitism. It occurs most commonly among the slave-making ants, of which dozens of species exist. However, dulosis has also beeen recorded in bees. \n \n These slave-making bees exclusively target the larvae of Miscellaneous (Haplo) Bees, a special breed, and feed on the Haplo Honey of those bees. \n\n\n\n\n Bee Traits: \n\n 	Production time: 12 hours \n 	Works at Night: No \n 	Works When Raining: Yes \n 	Unusual Sources Needed: No \n 	Minimum Temperature: 0ºF (-17.7778ºC) \n 	Maximum temperature: 97ºF (36.1111ºC)</description>
 					<!--
 					<graphicData Inherit="False">
 						<texPath>Things/Pawn/Animal/Bug_Types/Bee/ST_Bee_south</texPath>
@@ -162,9 +162,11 @@
 					<soundWorking>Recipe_Cremate</soundWorking>
 					<workAmount>900</workAmount>
 					<recipeUsers>
+						<!--
 						<li>RB_Honey_Centrifuge</li>
 						<li>RB_Advanced_Honey_Centrifuge</li>
 						<li MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</li>
+						-->
 					</recipeUsers>	
 					<ingredients>
 						<li>
