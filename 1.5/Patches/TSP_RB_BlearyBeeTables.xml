@@ -48,7 +48,7 @@
 					-->
 					<comps>			
 						<li Class="RimBees.CompProperties_Bees" Inherit="False">
-							<species>Haplo</species>
+							<species>Diddy</species>
 							<comb>TSP_RB_Beeliever_SlaveryOfDiddy_Honeycomb</comb>
 							<combtimedays>0.7083</combtimedays>
 							<nocturnal>true</nocturnal> <!-- Works at night -->
