@@ -29,7 +29,7 @@
 		</comps>
 	</ThingDef>
 	
-	<ThingDef ParentName="TSP_RB_Beeliever_SlaverRoot">
+	<ThingDef ParentName="TSP_RB_Beeliever_BlearyRoot">
 		<defName>RB_Bee_Bleary_Queen</defName>
 		<label>Bleary Bee queen</label>
 		<description>Bleary Bees were accidentally produced when a selective breeding experiment intended to breed bees that sleep less instead make them sleep more. The queens of this breed are almost always asleep, unless the hive is in danger or needs expansion, being fed by drones and laying eggs without waking up. Unlike most bees, queens are born one at a time and do not fight other queen bees they encounter. When they fly, they don't do so far. When under threat, her drones will bother to stir from their slumber and sting dangerous Pawns, making them increasingly sleepy.  \n\n\n\n\n Bee Traits: \n\n 	Production time: 6 days \n 	Works at Night: No \n 	Works When Raining: Yes \n 	Unusual Sources Needed: No \n 	Minimum Temperature: 29.3ºF (-1.5ºC) \n 	Maximum temperature: 122ºF (50ºC)</description>

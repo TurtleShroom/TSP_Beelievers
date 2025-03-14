@@ -29,7 +29,7 @@
 				</RimBees.BeeListDef>
 				
 				<RimBees.BeeCombinationDef>
-					<defName>TSP_RB_Beelievers_SlaverTables_Bleary</defName>
+					<defName>TSP_RB_Beelievers_SlaverTables_Diddy</defName>
 					<bee1>Slaver</bee1>
 					<bee2>Bleary</bee2>
 					<result>
@@ -100,12 +100,12 @@
 					<description>All Slave-Making Bees are facultative, social, brood parasites that abduct larvae and use them to produce beeswax and honey. Diddy Bee drones drive the slave species and kidnap new Bleary Bee larvae. \n \ Diddy Bees use the natural sedative venom of Bleary Bees. Reap the harvest of slave labor and enjoy large amounts of White Party Honey, White Party Beesw- hang on a second... THAT'S JUST BABY OIL. Why is there baby oil in a honeycomb?!</description>
 					<descriptionHyperlinks>
 						<!-- <ResearchProjectDef>ST_GnomeCulture</ResearchProjectDef> -->
-						<ThingDef>RB_Bee_Haplo_Queen</ThingDef>
-						<ThingDef>RB_Bee_Haplo_Drone</ThingDef>
-						<!-- <ThingDef>TSP_RB_Beeliever_SlaveryOfHaplo_Honeycomb</ThingDef> -->
-						<RecipeDef>TSP_RB_Beeliever_Centrifuge_SlaveryOfHaplo_Honeycomb</RecipeDef>
+						<ThingDef>RB_Bee_Diddy_Queen</ThingDef>
+						<ThingDef>RB_Bee_Diddy_Drone</ThingDef>
+						<!-- <ThingDef>TSP_RB_Beeliever_SlaveryOfDiddy_Honeycomb</ThingDef> -->
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_SlaveryOfDiddy_Honeycomb</RecipeDef>
 						<ThingDef>BOG_Baby_Oil</ThingDef>
-						<ThingDef>RB_WhiteHoney</ThingDef> <!-- Seriously dude, give it a better name -->
+						<ThingDef>RB_WhiteHoney</ThingDef>
 						<ThingDef>RB_WhiteBeeswax</ThingDef>
 						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
 					</descriptionHyperlinks>
@@ -133,13 +133,13 @@
 						<ThingDef>RB_Bee_Diddy_Queen</ThingDef>
 						<ThingDef>RB_Bee_Diddy_Drone</ThingDef>
 						<ThingDef>TSP_RB_Beeliever_SlaveryOfDiddy_Honeycomb</ThingDef>
-						<ThingDef>BOG_BabyOil</ThingDef>
+						<ThingDef>BOG_Baby_Oil</ThingDef>
 						<ThingDef>RB_WhiteHoney</ThingDef>
 						<ThingDef>RB_WhiteBeeswax</ThingDef>
 						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
 					</descriptionHyperlinks>
 					<uiIconThing>BOG_Baby_Oil</uiIconThing>
-					<jobString>extracting fro- WHY IS THERE BABY OIL?!</jobString>
+					<jobString>Extracting fro- WHY IS THERE BABY OIL?!</jobString>
 					<effectWorking>Cremate</effectWorking>
 					<soundWorking>Recipe_Cremate</soundWorking>
 					<workAmount>900</workAmount>
@@ -224,11 +224,11 @@
 	
 	<Operation Class="PatchOperationConditional">
 		<!-- Does this exist? -->
-		<xpath>/Defs/ThingDef[defName="BOG_BabyOilHigh"]/ingestible/outcomeDoers</xpath>
+		<xpath>/Defs/ThingDef[defName="BOG_Baby_Oil"]/ingestible/outcomeDoers</xpath>
 		<!-- If it does, do this replacement. -->
 		<match Class="PatchOperationReplace">
 			<success>Always</success>
-			<xpath>/Defs/ThingDef[defName="BOG_BabyOilHigh"]/ingestible/outcomeDoers</xpath>
+			<xpath>/Defs/ThingDef[defName="BOG_Baby_Oil"]/ingestible/outcomeDoers</xpath>
 			<value>
 				<outcomeDoers>
 					<li Class="IngestionOutcomeDoer_GiveHediff">
@@ -242,7 +242,7 @@
 					</li>
 					<li Class="IngestionOutcomeDoer_OffsetPsyfocus">
 						<offset>0.53</offset>
-						<toleranceChemical>BOG_BabyOil</toleranceChemical>
+						<!-- <toleranceChemical>BOG_BabyOil</toleranceChemical> -->
 					</li>
 				</outcomeDoers>
 			</value>
@@ -274,7 +274,7 @@
 			<value>
 				<stages>
 					<li>
-						<label>dry skin moistened by baby oil</label>
+						<label>moistened by baby oil</label>
 						<description>Party in the stars, see the glitz and the glam. I be doing shots of that oil, it's a jam! I'm shiny, slick, glowing like a street lamp! I put my hands in the air, this party's about to RAMP! Seriously though, why was this thing's use so controversial thousands of years ago? I feel GREAT!</description>
 						<baseMoodEffect>9</baseMoodEffect>
 					</li>
