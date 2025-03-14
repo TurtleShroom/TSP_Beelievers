@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<Patch>
+	<!--
+	DIDDY BEE SPRITE COURTESY OF THIS:
+		https://www.reddit.com/r/thugz2die4/comments/1gjtnot/happy_birthday_p_diddy/
+	-->
+
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>/Defs/ThingDef[defName="BOG_Baby_Oil"]</xpath>
+		<!-- If it does, add this. -->
+		<match Class="PatchOperationAdd">
+			<xpath>/Defs</xpath>
+			<success>Always</success>
+			<value>
+				<!-- Slaver Branch -->
+				<!-- TIER II -->
+				<!-- WAKE UP IN THE MORNING FEELING LIKE B. DIDDY -->
+				<RimBees.BeeListDef>
+					<defName>TSP_RB_Beeliever_BlearyBee2_BOGJ</defName>
+					<nameString>Diddy</nameString>
+					<beeDroneDef>RB_Bee_Diddy_Drone</beeDroneDef>
+					<beeQueenDef>RB_Bee_Diddy_Queen</beeQueenDef>
+					<!--
+					<beeQueenTag>RB_Bee_Slaver_Queen_Tag</beeQueenTag>
+					<beeDroneTag>RB_Bee_Slaver_Drone_Tag</beeDroneTag>
+					-->
+				</RimBees.BeeListDef>
+				
+				<RimBees.BeeCombinationDef>
+					<defName>TSP_RB_Beelievers_SlaverTables_Bleary</defName>
+					<bee1>Slaver</bee1>
+					<bee2>Bleary</bee2>
+					<result>
+						<li>Diddy</li>
+					</result>				
+				</RimBees.BeeCombinationDef>
+			
+				<ThingDef ParentName="TSP_RB_Beeliever_SlaverBase" Name="TSP_RB_Beeliever_DiddyBase" Abstract="True">
+					<!-- <label>WAKE UP IN THE MORNING FEELING LIKE B. DIDDY</label> -->
+					<description>A spin off of the Bleary Bee made by some Glitter World mad scientist with VERY unethical motives. The origin of the breed's name is completely unknown. On Old Earth, living beings' ownership of other living beings as chattel did not stop with men owning animals, or even men owning men. Animals are capable of it too! There exists a rare adaption among insects where they will capture animals of other species and compel them to work for them. This is called "dulosis," literally "slave-making," and is a form of facultative, social, brood parasitism. It occurs most commonly among the slave-making ants, of which dozens of species exist. However, dulosis has also beeen recorded in bees. \n \n Like other slave-making bees, Diddy Bees adbuct the babies of other species (Bleary Bee larvae in this case), but Diddy Bees use their Bleary Bee larvae as a resource to make a strange, sedative liquid that resem- wait. Hold up. That's just baby oil. WHY IS THERE BABY OIL IN THE HONEYCOMBS?! \n\n\n\n\n Bee Traits: \n\n 	Production time: 17 hours \n 	Works at Night: Yes \n 	Works When Raining: No \n 	Unusual Sources Needed: No \n 	Minimum Temperature: 0ºF (-17.7778ºC) \n 	Maximum temperature: 97ºF (36.1111ºC)</description>
+					<!--
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/ST_Bee_south</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData>
+					-->
+					<comps>			
+						<li Class="RimBees.CompProperties_Bees" Inherit="False">
+							<species>Haplo</species>
+							<comb>TSP_RB_Beeliever_SlaveryOfDiddy_Honeycomb</comb>
+							<combtimedays>0.7083</combtimedays>
+							<nocturnal>true</nocturnal> <!-- Works at night -->
+							<pluviophile>false</pluviophile> <!-- Works in the rain -->
+							<weirdplantneeded>no</weirdplantneeded>
+							<tempMin>-17.778</tempMin> <!-- Zero degrees -->
+							<tempMax>36.1111</tempMax> <!-- Ninety-seven degrees -->
+						</li>   
+					</comps>
+				</ThingDef>
+				
+				<ThingDef ParentName="TSP_RB_Beeliever_DiddyBase">
+					<defName>RB_Bee_Diddy_Queen</defName>
+					<label>B. Diddy queen</label>
+					<descriptionHyperlinks>
+						<!-- <ThingDef>RB_Bee_Diddy_Queen</ThingDef> -->
+						<ThingDef>RB_Bee_Diddy_Drone</ThingDef>
+						<ThingDef>TSP_RB_Beeliever_SlaveryOfDiddy_Honeycomb</ThingDef>
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_SlaveryOfDiddy_Honeycomb</RecipeDef>
+						<ThingDef>BOG_Baby_Oil</ThingDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/BlearyBranch/TSP_B_DIDDY_Queen</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData> 		
+				</ThingDef>
+				
+				<ThingDef ParentName="TSP_RB_Beeliever_DiddyBase">
+					<defName>RB_Bee_Diddy_Drone</defName>
+					<label>B. Diddy drone</label>
+					<descriptionHyperlinks>
+						<ThingDef>RB_Bee_Diddy_Queen</ThingDef>
+						<!-- <ThingDef>RB_Bee_Diddy_Drone</ThingDef> -->
+						<ThingDef>TSP_RB_Beeliever_SlaveryOfDiddy_Honeycomb</ThingDef>
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_SlaveryOfDiddy_Honeycomb</RecipeDef>
+						<ThingDef>BOG_Baby_Oil</ThingDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/BlearyBranch/TSP_B_DIDDY_Drone</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData> 		
+				</ThingDef>
+				
+				<ThingDef ParentName="RB_CombBase">
+					<defName>TSP_RB_Beeliever_SlaveryOfDiddy_Honeycomb</defName>
+					<label>Diddy honeycomb</label>
+					<description>All Slave-Making Bees are facultative, social, brood parasites that abduct larvae and use them to produce beeswax and honey. Diddy Bee drones drive the slave species and kidnap new Bleary Bee larvae. \n \ Diddy Bees use the natural sedative venom of Bleary Bees. Reap the harvest of slave labor and enjoy large amounts of White Party Honey, White Party Beesw- hang on a second... THAT'S JUST BABY OIL. Why is there baby oil in a honeycomb?!</description>
+					<descriptionHyperlinks>
+						<!-- <ResearchProjectDef>ST_GnomeCulture</ResearchProjectDef> -->
+						<ThingDef>RB_Bee_Haplo_Queen</ThingDef>
+						<ThingDef>RB_Bee_Haplo_Drone</ThingDef>
+						<!-- <ThingDef>TSP_RB_Beeliever_SlaveryOfHaplo_Honeycomb</ThingDef> -->
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_SlaveryOfHaplo_Honeycomb</RecipeDef>
+						<ThingDef>BOG_Baby_Oil</ThingDef>
+						<ThingDef>RB_WhiteHoney</ThingDef> <!-- Seriously dude, give it a better name -->
+						<ThingDef>RB_WhiteBeeswax</ThingDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/Honeycombs/TSP_RB_DiddyBee_Honeycomb</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+						<color>(255,255,255)</color>
+					</graphicData>
+					<thingCategories>
+						<li>TSP_RB_Beeliever_Honeycombs</li>
+					</thingCategories>
+					<butcherProducts>
+						<RB_WhiteHoney>15</RB_WhiteHoney>
+						<RB_WhiteBeeswax>13</RB_WhiteBeeswax>
+						<BOG_Baby_Oil>2</BOG_Baby_Oil>
+					</butcherProducts>
+				</ThingDef>
+				
+				<RecipeDef>
+					<defName>TSP_RB_Beeliever_Centrifuge_SlaveryOfDiddy_Honeycomb</defName>
+					<label>extract from Diddy Slave-Making Bee honeycomb</label>
+					<description>Process the honeycombs of Diddy Bees to extract White Party Honey, White Party Beeswax, an- wait a minute. THAT'S BABY OIL. WHY IS THERE BABY OIL?</description>
+					<descriptionHyperlinks>
+						<!-- <ResearchProjectDef>ST_GnomeCulture</ResearchProjectDef> -->
+						<ThingDef>RB_Bee_Diddy_Queen</ThingDef>
+						<ThingDef>RB_Bee_Diddy_Drone</ThingDef>
+						<ThingDef>TSP_RB_Beeliever_SlaveryOfDiddy_Honeycomb</ThingDef>
+						<ThingDef>BOG_BabyOil</ThingDef>
+						<ThingDef>RB_WhiteHoney</ThingDef>
+						<ThingDef>RB_WhiteBeeswax</ThingDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<uiIconThing>BOG_Baby_Oil</uiIconThing>
+					<jobString>extracting fro- WHY IS THERE BABY OIL?!</jobString>
+					<effectWorking>Cremate</effectWorking>
+					<soundWorking>Recipe_Cremate</soundWorking>
+					<workAmount>900</workAmount>
+					<recipeUsers>
+						<!--
+						<li>RB_Honey_Centrifuge</li>
+						<li>RB_Advanced_Honey_Centrifuge</li>
+						<li MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</li>
+						-->
+					</recipeUsers>	
+					<ingredients>
+						<li>
+							<filter>
+								<thingDefs>
+									<li>TSP_RB_Beeliever_SlaveryOfDiddy_Honeycomb</li>
+								</thingDefs>
+							</filter>
+							<count>1</count>
+						</li>
+					</ingredients>
+					<fixedIngredientFilter>
+						<thingDefs>
+							<li>TSP_RB_Beeliever_SlaveryOfDiddy_Honeycomb</li>
+						</thingDefs>
+					</fixedIngredientFilter>
+					<specialProducts>
+						<li>Butchery</li>
+					</specialProducts>
+					<skillRequirements></skillRequirements>
+					<researchPrerequisites>
+						<li>RB_BasicBeekeeping</li>
+					</researchPrerequisites>
+				</RecipeDef>
+			</value>
+		</match>
+	</Operation>
+	
+	<Operation Class="PatchOperationConditional">
+		<!-- Does this exist? -->
+		<xpath>/Defs/HediffDef[defName="BOG_BabyOilHigh"]/stages</xpath>
+		<!-- If it does, do this replacement. -->
+		<match Class="PatchOperationReplace">
+			<success>Always</success>
+			<xpath>/Defs/HediffDef[defName="BOG_BabyOilHigh"]/stages</xpath>
+			<value>
+				<stages>
+					<li>
+						<label>Puffed Up</label>
+						<painFactor>0.85</painFactor>
+						<statOffsets>
+							<Beauty>3</Beauty>
+							<PawnBeauty>3</PawnBeauty>
+						</statOffsets>
+						<forgetMemoryThoughtMtbDays>1</forgetMemoryThoughtMtbDays>
+						<pctConditionalThoughtsNullified>0.5</pctConditionalThoughtsNullified>
+						<capMods>
+							<!--
+							<li>
+								<capacity>Consciousness</capacity>
+								<setMax>0.90</setMax>
+							</li>
+							-->
+							<li>
+								<capacity>Sight</capacity>
+								<offset>-0.1</offset>
+							</li>
+							<li>
+								<capacity>Moving</capacity> <!-- Freak Off -->
+								<offset>0.58</offset>
+							</li>
+							<li>
+								<capacity>Talking</capacity> <!-- So they can't tell on Diddy -->
+								<setMax>0.01</setMax>
+							</li>
+						</capMods>
+					</li>
+				</stages>
+			</value>
+		</match>
+		<!-- If the first XPATH does not exist, the original code stands. -->
+	</Operation>
+	
+	<Operation Class="PatchOperationConditional">
+		<!-- Does this exist? -->
+		<xpath>/Defs/ThingDef[defName="BOG_BabyOilHigh"]/ingestible/outcomeDoers</xpath>
+		<!-- If it does, do this replacement. -->
+		<match Class="PatchOperationReplace">
+			<success>Always</success>
+			<xpath>/Defs/ThingDef[defName="BOG_BabyOilHigh"]/ingestible/outcomeDoers</xpath>
+			<value>
+				<outcomeDoers>
+					<li Class="IngestionOutcomeDoer_GiveHediff">
+						<hediffDef>BOG_BabyOilHigh</hediffDef>
+						<severity>0.5</severity>
+						<!-- <toleranceChemical>BOG_BabyOil</toleranceChemical> -->
+					</li>
+					<li Class="IngestionOutcomeDoer_OffsetNeed">
+						<need>Rest</need>
+						<offset>0.4</offset>
+					</li>
+					<li Class="IngestionOutcomeDoer_OffsetPsyfocus">
+						<offset>0.53</offset>
+						<toleranceChemical>BOG_BabyOil</toleranceChemical>
+					</li>
+				</outcomeDoers>
+			</value>
+		</match>
+		<!-- If the first XPATH does not exist, the original code stands. -->
+	</Operation>
+	
+	<Operation Class="PatchOperationConditional">
+		<!-- Does this exist? -->
+		<xpath>/Defs/ThingDef[defName="BOG_Baby_Oil"]/ingestible/drugCategory</xpath>
+		<!-- If it does, do this replacement. -->
+		<match Class="PatchOperationReplace">
+			<success>Always</success>
+			<xpath>/Defs/ThingDef[defName="BOG_Baby_Oil"]/ingestible/drugCategory</xpath>
+			<value>
+				<drugCategory>Medical</drugCategory>
+			</value>
+		</match>
+		<!-- If the first XPATH does not exist, the original code stands. -->
+	</Operation>
+	
+	<Operation Class="PatchOperationConditional">
+		<!-- Does this exist? -->
+		<xpath>/Defs/ThoughtDef[defName="BOG_BabyOilHigh"]/stages</xpath>
+		<!-- If it does, do this replacement. -->
+		<match Class="PatchOperationReplace">
+			<success>Always</success>
+			<xpath>/Defs/ThoughtDef[defName="BOG_BabyOilHigh"]/stages</xpath>
+			<value>
+				<stages>
+					<li>
+						<label>dry skin moistened by baby oil</label>
+						<description>Party in the stars, see the glitz and the glam. I be doing shots of that oil, it's a jam! I'm shiny, slick, glowing like a street lamp! I put my hands in the air, this party's about to RAMP! Seriously though, why was this thing's use so controversial thousands of years ago? I feel GREAT!</description>
+						<baseMoodEffect>9</baseMoodEffect>
+					</li>
+				</stages>
+			</value>
+		</match>
+		<!-- If the first XPATH does not exist, the original code stands. -->
+	</Operation>
+
+	<Operation Class="PatchOperationConditional">
+		<!-- Does this exist? -->
+		<xpath>/Defs/ThingDef[defName="BOG_Baby_Oil"]/label</xpath>
+		<!-- If it does, do this replacement. -->
+		<match Class="PatchOperationReplace">
+			<success>Always</success>
+			<xpath>/Defs/ThingDef[defName="BOG_Baby_Oil"]/label</xpath>
+			<value>
+				<label>suspicious baby oil</label>
+			</value>
+		</match>
+		<!-- If the first XPATH does not exist, the original code stands. -->
+	</Operation>
+	
+	<Operation Class="PatchOperationConditional">
+		<!-- Does this exist? -->
+		<xpath>/Defs/ThingDef[defName="BOG_Baby_Oil"]/description</xpath>
+		<!-- If it does, do this replacement. -->
+		<match Class="PatchOperationReplace">
+			<success>Always</success>
+			<xpath>/Defs/ThingDef[defName="BOG_Baby_Oil"]/description</xpath>
+			<value>
+				<description>Baby oil is a fragrant, inert, mineral oil used to moisturize human skin. A newborn infant's skin is fragile, thin, and his epidermal barrier is not finioshed. If not dealt with, this can lead to extensive infections and blisters on baby's skin, but baby oil is used to prevent this. \n \n Or, that's what baby oil is supposed to be. Something is VERY wrong with THIS baby oil. Looking at it fills individuals with a nervous, but exciting, desire to consume it, and the ingestion of it sends its consumers on quite a ride. This baby oil is a cure for bleariness, but those who drink it find that what happens next can never be communicated. Prepare to FREAK OUT! \n \n Written on the back of the bottle are the words "DIDDY'S FAVORITE."</description>
+			</value>
+		</match>
+		<!-- If the first XPATH does not exist, the original code stands. -->
+	</Operation>
+	
+	<Operation Class="PatchOperationConditional">
+		<!-- Does this exist? -->
+		<xpath>/Defs/HediffDef[defName="BOG_BabyOilHigh"]/description</xpath>
+		<!-- If it does, do this replacement. -->
+		<match Class="PatchOperationReplace">
+			<success>Always</success>
+			<xpath>/Defs/HediffDef[defName="BOG_BabyOilHigh"]/description</xpath>
+			<value>
+				<description>The strange and unnatural additives of ingested, highly suspect baby oil, present in the blood stream. This baby oil is a cure for bleariness, but those who drink it find that what happens next can never be communicated.</description>
+			</value>
+		</match>
+		<!-- If the first XPATH does not exist, the original code stands. -->
+	</Operation>
+
+	<Operation Class="PatchOperationConditional" MayRequire="goo.babyoilgojuice">
+		<!-- Does this exist? -->
+		<xpath MayRequire="goo.babyoilgojuice">/Defs/JoyGiverDef[defName="TSP_Diddy_FreakOff"]</xpath>
+		<!-- If it DOES NOT, add this. -->
+		<nomatch Class="PatchOperationAdd" MayRequire="goo.babyoilgojuice">
+			<success MayRequire="goo.babyoilgojuice">Always</success>
+			<xpath MayRequire="goo.babyoilgojuice">/Defs</xpath>
+			<value MayRequire="goo.babyoilgojuice">
+				<JoyGiverDef MayRequire="goo.babyoilgojuice">
+					<defName MayRequire="goo.babyoilgojuice">TSP_Diddy_FreakOff</defName>
+					<giverClass MayRequire="goo.babyoilgojuice">JoyGiver_TakeDrug</giverClass>
+					<baseChance MayRequire="goo.babyoilgojuice">3</baseChance>
+					<joyKind MayRequire="goo.babyoilgojuice">Chemical</joyKind>
+					<thingDefs MayRequire="goo.babyoilgojuice">
+						<li MayRequire="goo.babyoilgojuice">BOG_Baby_Oil</li>
+					</thingDefs>
+				</JoyGiverDef>
+			</value>
+		</nomatch>
+		<!-- If the first XPATH does not exist, the original code stands. -->
+	</Operation>
+</Patch>

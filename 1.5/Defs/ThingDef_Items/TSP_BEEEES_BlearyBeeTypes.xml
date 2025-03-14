@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<Defs>
+	<ThingDef ParentName="TSP_RB_Beeliever_MasterBeeBase" Name="TSP_RB_Beeliever_BlearyRoot" Abstract="True">
+		<!-- <label>Bleary Bee</label> -->
+		<!--
+		<graphicData Inherit="False">
+			<texPath>Things/Pawn/Animal/Bug_Types/Bee/ST_Bee_south</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		-->
+		<comps>			
+			<li Class="RimBees.CompProperties_Bees" Inherit="False">
+				<species>Bleary</species>
+				<comb>TSP_RB_Beeliever_Bleary_Honeycomb</comb>
+				<combtimedays>6</combtimedays>
+				<nocturnal>true</nocturnal> <!-- Works at night -->
+				<pluviophile>true</pluviophile> <!-- Works in the rain -->
+				<weirdplantneeded>no</weirdplantneeded>
+				<tempMin>-1.5</tempMin> <!-- Slightly below freezing -->
+				<tempMax>50</tempMax> <!-- Halfway to boiling. -->
+				<additionalBeeEffects>
+					<li Class="RimBees.AdditionalBeeEffects_Damage">
+						<damage>TSP_Beelievers_BlearySting</damage>
+						<amount>23</amount>
+					</li>
+				</additionalBeeEffects>
+			</li>   
+		</comps>
+	</ThingDef>
+	
+	<ThingDef ParentName="TSP_RB_Beeliever_SlaverRoot">
+		<defName>RB_Bee_Bleary_Queen</defName>
+		<label>Bleary Bee queen</label>
+		<description>Bleary Bees were accidentally produced when a selective breeding experiment intended to breed bees that sleep less instead make them sleep more. The queens of this breed are almost always asleep, unless the hive is in danger or needs expansion, being fed by drones and laying eggs without waking up. Unlike most bees, queens are born one at a time and do not fight other queen bees they encounter. When they fly, they don't do so far. When under threat, her drones will bother to stir from their slumber and sting dangerous Pawns, making them increasingly sleepy.  \n\n\n\n\n Bee Traits: \n\n 	Production time: 6 days \n 	Works at Night: No \n 	Works When Raining: Yes \n 	Unusual Sources Needed: No \n 	Minimum Temperature: 29.3ºF (-1.5ºC) \n 	Maximum temperature: 122ºF (50ºC)</description>
+		<descriptionHyperlinks>
+			<!-- <ThingDef>RB_Bee_Bleary_Queen</ThingDef> -->
+			<ThingDef>RB_Bee_Bleary_Drone</ThingDef>
+			<ThingDef>TSP_RB_Beeliever_Bleary_Honeycomb</ThingDef>
+			<RecipeDef>TSP_RB_Beeliever_Centrifuge_Bleary_Honeycomb</RecipeDef>
+			<!--
+			<ThingDef>TSP_ST_RB_WildHive_Gnome</ThingDef>
+			<RecipeDef>TSP_ST_RB_Gneehive_Extract</RecipeDef>
+			-->
+			<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+		</descriptionHyperlinks>
+		<graphicData Inherit="False">
+			<texPath>Things/Pawn/Animal/Bug_Types/Bee/BlearyBranch/TSP_Bee_Bleary_Queen</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData> 		
+	</ThingDef>
+	
+	<ThingDef ParentName="TSP_RB_Beeliever_BlearyRoot">
+		<defName>RB_Bee_Bleary_Drone</defName>
+		<label>Bleary Bee drone</label>
+		<description>Bleary Bees were accidentally produced when a selective breeding experiment intended to breed bees that sleep less instead make them sleep more. The drones of this breed of bee do the bare minimum needed to stave off starvation, and then go to sleep. When under threat, they'll bother to stir from their slumber and sting dangerous Pawns, making them increasingly sleepy. \n\n\n\n\n Bee Traits: \n\n 	Production time: 6 days \n 	Works at Night: No \n 	Works When Raining: Yes \n 	Unusual Sources Needed: No \n 	Minimum Temperature: 29.3ºF (-1.5ºC) \n 	Maximum temperature: 122ºF (50ºC)</description>
+		<descriptionHyperlinks>
+			<ThingDef>RB_Bee_Bleary_Queen</ThingDef>
+			<!-- <ThingDef>RB_Bee_Bleary_Drone</ThingDef> -->
+			<ThingDef>TSP_RB_Beeliever_Bleary_Honeycomb</ThingDef>
+			<RecipeDef>TSP_RB_Beeliever_Centrifuge_Bleary_Honeycomb</RecipeDef>
+			<!--
+			<ThingDef>TSP_ST_RB_WildHive_Gnome</ThingDef>
+			<RecipeDef>TSP_ST_RB_Gneehive_Extract</RecipeDef>
+			-->
+			<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+		</descriptionHyperlinks>
+		<graphicData Inherit="False">
+			<texPath>Things/Pawn/Animal/Bug_Types/Bee/BlearyBranch/TSP_Bee_Bleary_Drone</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData> 		
+	</ThingDef>
+</Defs>

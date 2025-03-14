@@ -13,4 +13,17 @@
 		<beeDroneTag>RB_Bee_Slaver_Drone_Tag</beeDroneTag>
 		-->
 	</RimBees.BeeListDef>
+	
+	<!-- Drug Bee Branch -->
+	<!-- Bleary Bees: administers Anesthetic to attackers -->
+	<RimBees.BeeListDef>
+		<defName>TSP_RB_Beeliever_BlearyBee1_List</defName>
+		<nameString>Bleary</nameString>
+		<beeDroneDef>RB_Bee_Bleary_Drone</beeDroneDef>
+		<beeQueenDef>RB_Bee_Bleary_Queen</beeQueenDef>
+		<!--
+		<beeQueenTag>RB_Bee_Slaver_Queen_Tag</beeQueenTag>
+		<beeDroneTag>RB_Bee_Slaver_Drone_Tag</beeDroneTag>
+		-->
+	</RimBees.BeeListDef>
 </Defs>
