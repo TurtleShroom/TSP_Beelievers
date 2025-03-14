@@ -337,7 +337,7 @@
 				<JoyGiverDef MayRequire="goo.babyoilgojuice">
 					<defName MayRequire="goo.babyoilgojuice">TSP_Diddy_FreakOff</defName>
 					<giverClass MayRequire="goo.babyoilgojuice">JoyGiver_TakeDrug</giverClass>
-					<baseChance MayRequire="goo.babyoilgojuice">3</baseChance>
+					<baseChance MayRequire="goo.babyoilgojuice">2.3</baseChance>
 					<joyKind MayRequire="goo.babyoilgojuice">Chemical</joyKind>
 					<thingDefs MayRequire="goo.babyoilgojuice">
 						<li MayRequire="goo.babyoilgojuice">BOG_Baby_Oil</li>
@@ -345,6 +345,32 @@
 				</JoyGiverDef>
 			</value>
 		</nomatch>
+		<!-- If the first XPATH does not exist, the original code stands. -->
+	</Operation>
+	
+	<Operation Class="PatchOperationConditional">
+		<!-- Does this exist? -->
+		<xpath>/Defs/ThingDef[defName="BOG_Baby_Oil"]/comps</xpath>
+		<!-- If it does, do this replacement. -->
+		<match Class="PatchOperationReplace">
+			<success>Always</success>
+			<xpath>/Defs/ThingDef[defName="BOG_Baby_Oil"]/comps</xpath>
+			<value>
+				<comps>
+					<li Class="CompProperties_Drug">
+						<chemical>BOG_BabyOil</chemical>
+						<addictiveness>0.1</addictiveness>
+						<minToleranceToAddict>0</minToleranceToAddict>
+						<existingAddictionSeverityOffset>0.20</existingAddictionSeverityOffset>
+						<needLevelOffset>1</needLevelOffset>
+						<isCombatEnhancingDrug>true</isCombatEnhancingDrug>
+						<listOrder>200</listOrder>
+						<overdoseSeverityOffset>0.008~0.015</overdoseSeverityOffset>
+						<largeOverdoseChance>0</largeOverdoseChance>
+					</li>
+				</comps>
+			</value>
+		</match>
 		<!-- If the first XPATH does not exist, the original code stands. -->
 	</Operation>
 </Patch>

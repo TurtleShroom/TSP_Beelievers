@@ -1628,6 +1628,176 @@
 						<li>L24_Research_JellyProduction</li>
 					</researchPrerequisites>
 				</RecipeDef>
+				
+				
+				
+				
+				<!-- LEVEL II -->
+				<!-- Mantodean Royal Jelly: kidnaps Mantodean larvae, makes Mantodean Royal Jelly -->
+				<RimBees.BeeListDef>
+					<defName>TSP_RB_Beeliever_SlaverBee12_Mantodean</defName>
+					<nameString>Mantodean_Egg</nameString>
+					<beeDroneDef>RB_Bee_Mantodean_Egg_Drone</beeDroneDef>
+					<beeQueenDef>RB_Bee_Mantodean_Egg_Queen</beeQueenDef>
+					<!--
+					<beeQueenTag>RB_Bee_Slaver_Queen_Tag</beeQueenTag>
+					<beeDroneTag>RB_Bee_Slaver_Drone_Tag</beeDroneTag>
+					-->
+				</RimBees.BeeListDef>
+				
+				<RimBees.BeeCombinationDef>
+					<defName>TSP_RB_Beeliever_Egg</defName>
+					<bee1>Mantodean</bee1>
+					<bee2>Egglaying</bee2>
+					<result>
+						<li>Mantodean_Egg</li>
+					</result>				
+				</RimBees.BeeCombinationDef>
+				
+				<ThingDef ParentName="TSP_RB_Beeliever_MantodeanBase" Name="TSP_RB_Beeliever_Mantodean_Egg" Abstract="True">
+					<!-- <label>Mantodean Slave-Making Bee</label> -->
+					<description>On Old Earth, living beings' ownership of other living beings as chattel did not stop with men owning animals, or even men owning men. Animals are capable of it too! There exists a rare adaption among insects where they will capture animals of other species and compel them to work for them. This is called "dulosis," literally "slave-making," and is a form of facultative, social, brood parasitism. It occurs most commonly among the slave-making ants, but dulosis has also beeen recorded in bees. \n \n These slave-making bees are spliced with Mantodean Brood Mother DNA, and their queens are capable of laying both Mantodean Eggs AND the eggs of their own species. They continue to use Mantodean larvae for labor. However, to lay these eggs, they need a steady supply of Mantodan Jelly to achieve this. \n\n\n\n\n Bee Traits: \n\n 	Production time: 1 day \n 	Works at Night: Yes \n 	Works When Raining: Yes \n 	Unusual Sources Needed: Mantodean Jelly \n 	Minimum Temperature: 0ºF (-17.7778ºC) \n 	Maximum temperature: 97ºF (36.1111ºC)</description>
+					<!--
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/ST_Bee_south</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData>
+					-->
+					<comps>			
+						<li Class="RimBees.CompProperties_Bees" Inherit="False">
+							<species>Mantodean_Egg</species>
+							<comb>TSP_RB_Beeliever_SlaveryOfMantodean_Egg_Honeycomb</comb>
+							<combtimedays>1</combtimedays>
+							<nocturnal>true</nocturnal> <!-- Works at night -->
+							<pluviophile>true</pluviophile> <!-- Works in the rain -->
+							<weirdplantneeded>L24_Manto_MantodeanJelly</weirdplantneeded>
+							<tempMin>-17.778</tempMin> <!-- Zero degrees -->
+							<tempMax>36.1111</tempMax> <!-- Ninety-seven degrees -->
+						</li>   
+					</comps>
+				</ThingDef>
+				
+				<ThingDef ParentName="TSP_RB_Beeliever_Mantodean_Egg">
+					<defName>RB_Bee_Mantodean_Egg_Queen</defName>
+					<label>Mantodean Egg queen</label>
+					<descriptionHyperlinks>
+						<!-- <ThingDef>RB_Bee_Mantodean_Egg_Queen</ThingDef> -->
+						<ThingDef>RB_Bee_Mantodean_Egg_Drone</ThingDef>
+						<ThingDef>TSP_RB_Beeliever_SlaveryOfMantodean_Egg_Honeycomb</ThingDef>
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_SlaveryOfMantodean_Egg_Honeycomb</RecipeDef>
+						<!--
+						<ThingDef>TSP_ST_RB_WildHive_Gnome</ThingDef>
+						<RecipeDef>TSP_ST_RB_Gneehive_Extract</RecipeDef>
+						-->
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/SlaverBranch/TSP_Bee_Dahomey_Mantodean_Egg_Queen</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData> 		
+				</ThingDef>
+				
+				<ThingDef ParentName="TSP_RB_Beeliever_Mantodean_RoyalJelly">
+					<defName>RB_Bee_Mantodean_Egg_Drone</defName>
+					<label>Mantodean Egg drone</label>
+					<descriptionHyperlinks>
+						<ThingDef>RB_Bee_Mantodean_Egg_Queen</ThingDef>
+						<!-- <ThingDef>RB_Mantodean_Egg_Drone</ThingDef> -->
+						<ThingDef>TSP_RB_Beeliever_SlaveryOfMantodean_Egg_Honeycomb</ThingDef>
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_SlaveryOfMantodean_Egg_Honeycomb</RecipeDef>
+						<!--
+						<ThingDef>TSP_ST_RB_WildHive_Gnome</ThingDef>
+						<RecipeDef>TSP_ST_RB_Gneehive_Extract</RecipeDef>
+						-->
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/SlaverBranch/TSP_Bee_Dahomey_Mantodean_Egg_Drone</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData> 		
+				</ThingDef>
+				
+				<ThingDef ParentName="RB_CombBase">
+					<defName>TSP_RB_Beeliever_SlaveryOfMantodean_Egg_Honeycomb</defName>
+					<label>Mantodean Egg honeycomb</label>
+					<description>Slaver Bees are facultative, social, brood parasites that abduct larvae and use them to produce beeswax and honey. Instead of expending effort to feed, house, and construct for new members of the colony, Slaver Bee drones drive the slave species and kidnap new larvae, while the Slaver Queen produces new Slaver Bee drones to continue the cycle, all while she gets fat from her doting chattel. \n \n These slave-making bees are spliced with Mantodean Brood Mother DNA, and their queens are capable of laying both Mantodean Eggs AND the eggs of their own species. They continue to use Mantodean larvae for labor. However, to lay these eggs, they need a steady supply of Mantodan Jelly to achieve this. \n \n Reap the harvest of slave labor and enjoy Mantodean Eggs, Honey, and Heavy Wax.</description>
+					<descriptionHyperlinks>
+						<!-- <ResearchProjectDef>ST_GnomeCulture</ResearchProjectDef> -->
+						<ThingDef>RB_Bee_Mantodean_Egg_Queen</ThingDef>
+						<ThingDef>RB_Bee_Mantodean_Egg_Drone</ThingDef>
+						<!-- <ThingDef>TSP_RB_Beeliever_SlaveryOfMantodean_Egg_Honeycomb</ThingDef> -->
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_SlaveryOfMantodean_Egg_Honeycomb</RecipeDef>
+						<ThingDef>L24_Egg_Unfert</ThingDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/Honeycombs/TSP_RB_Mantodean_Egg_Honeycomb</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData>
+					<thingCategories Inherit="False">
+						<li>TSP_RB_Beeliever_Mantodean_Honeycombs</li>
+					</thingCategories>
+					<butcherProducts>
+						<RB_BaseHoney>4</RB_BaseHoney>
+						<RB_HeavyWax>5</RB_HeavyWax>
+						<L24_Egg_Unfert>4</L24_Egg_Unfert>
+					</butcherProducts>
+				</ThingDef>
+				
+				<RecipeDef>
+					<defName>TSP_RB_Beeliever_Centrifuge_SlaveryOfMantodean_Egg_Honeycomb</defName>
+					<label>extract from Mantodean Egg honeycomb</label>
+					<description>Extracts Mantodean Eggs, Honey, and Heavy Wax from a Mantodean Egg honeycomb. Mantodean Slaver Bees parasitize Mantodean larvae to consume their food instead of honey. These bees were spliced with Mantodean Brood Mother DNA to produce undifferentiated Mantodean Eggs. What's wrong with exploiting exploiters, after all?</description>
+					<descriptionHyperlinks>
+						<!-- <ResearchProjectDef>ST_GnomeCulture</ResearchProjectDef> -->
+						<ThingDef>RB_Bee_Mantodean_Egg_Queen</ThingDef>
+						<ThingDef>RB_Bee_Mantodean_Egg_Drone</ThingDef>
+						<ThingDef>TSP_RB_Beeliever_SlaveryOfMantodean_Egg_Honeycomb</ThingDef>
+						<ThingDef>L24_Egg_Unfert</ThingDef>
+						<!-- <RecipeDef>TSP_RB_Beeliever_Centrifuge_SlaveryOfMantodean_Egg_Honeycomb</RecipeDef> -->
+						<!--
+						<ThingDef>TSP_ST_GnomeHoney</ThingDef>
+						<ThingDef>TSP_ST_RB_WildHive_Gnome</ThingDef>
+						<RecipeDef>TSP_ST_RB_Gneehive_Extract</RecipeDef>
+						-->
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<uiIconThing>L24_Egg_Unfert</uiIconThing>
+					<jobString>Taking advantage of slave labor.</jobString>
+					<effectWorking>Cremate</effectWorking>
+					<soundWorking>Recipe_Cremate</soundWorking>
+					<workAmount>900</workAmount>
+					<recipeUsers>
+						<li>L24_Manto_JellyPool</li>
+						<!--
+						<li>RB_Honey_Centrifuge</li>
+						<li>RB_Advanced_Honey_Centrifuge</li>
+						<li MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</li>
+						-->
+					</recipeUsers>	
+					<ingredients>
+						<li>
+							<filter>
+								<thingDefs>
+									<li>TSP_RB_Beeliever_SlaveryOfMantodean_Egg_Honeycomb</li>
+								</thingDefs>
+							</filter>
+							<count>1</count>
+						</li>
+					</ingredients>
+					<fixedIngredientFilter>
+						<thingDefs>
+							<li>TSP_RB_Beeliever_SlaveryOfMantodean_Egg_Honeycomb</li>
+						</thingDefs>
+					</fixedIngredientFilter>
+					<specialProducts>
+						<li>Butchery</li>
+					</specialProducts>
+					<skillRequirements></skillRequirements>
+					<researchPrerequisites>
+						<li>L24_Research_JellyProduction</li>
+					</researchPrerequisites>
+				</RecipeDef>
 			</value>
 		</match>
 	</Operation>
@@ -2036,5 +2206,71 @@
 				</RecipeDef>
 			</value>
 		</match>
+	</Operation>
+	
+	<Operation Class="PatchOperationConditional">
+		<!-- Does this exist? -->
+		<xpath>/Defs/ThingDef[defName="L24_Manto_TwistedJelly"]/ingestible/foodType</xpath>
+		<!-- If it does, do this replacement. -->
+		<match Class="PatchOperationReplace">
+			<success>Always</success>
+			<xpath>/Defs/ThingDef[defName="L24_Manto_TwistedJelly"]/ingestible/foodType</xpath>
+			<value>
+				<foodType>Meat, CarnivoreAnimal, CarnivoreAnimalStrict, Corpse, Liquor, AnimalProduct, Kibble</foodType>
+			</value>
+		</match>
+		<!-- If it DOES NOT, add this instead. -->
+		<nomatch Class="PatchOperationAdd">
+			<xpath>/Defs/ThingDef[defName="L24_Manto_TwistedJelly"]/ingestible</xpath>
+			<success>Always</success>
+			<value>
+				<foodType>Meat, CarnivoreAnimal, CarnivoreAnimalStrict, Corpse, Liquor, AnimalProduct, Kibble</foodType>
+			</value>
+		</nomatch>
+		<!-- If the first XPATH does not exist, the original code stands. -->
+	</Operation>
+	
+	<Operation Class="PatchOperationConditional">
+		<!-- Does this exist? -->
+		<xpath>/Defs/ThingDef[defName="L24_Manto_TwistedJelly"]/statBases/Mass</xpath>
+		<!-- If it does, do this replacement. -->
+		<match Class="PatchOperationReplace">
+			<success>Always</success>
+			<xpath>/Defs/ThingDef[defName="L24_Manto_TwistedJelly"]/statBases/Mass</xpath>
+			<value>
+				<Mass>0.045</Mass>
+			</value>
+		</match>
+		<!-- If it DOES NOT, add this instead. -->
+		<nomatch Class="PatchOperationAdd">
+			<xpath>/Defs/ThingDef[defName="L24_Manto_TwistedJelly"]/statBases</xpath>
+			<success>Always</success>
+			<value>
+				<Mass>0.045</Mass>
+			</value>
+		</nomatch>
+		<!-- If the first XPATH does not exist, the original code stands. -->
+	</Operation>
+	
+	<Operation Class="PatchOperationConditional">
+		<!-- Does this exist? -->
+		<xpath>/Defs/ThingDef[defName="L24_Manto_TwistedJelly"]/statBases/Nutrition</xpath>
+		<!-- If it does, do this replacement. -->
+		<match Class="PatchOperationReplace">
+			<success>Always</success>
+			<xpath>/Defs/ThingDef[defName="L24_Manto_TwistedJelly"]/statBases/Nutrition</xpath>
+			<value>
+				<Nutrition>0.19</Nutrition>
+			</value>
+		</match>
+		<!-- If it DOES NOT, add this instead. -->
+		<nomatch Class="PatchOperationAdd">
+			<xpath>/Defs/ThingDef[defName="L24_Manto_TwistedJelly"]/statBases</xpath>
+			<success>Always</success>
+			<value>
+				<Nutrition>0.19</Nutrition>
+			</value>
+		</nomatch>
+		<!-- If the first XPATH does not exist, the original code stands. -->
 	</Operation>
 </Patch>
