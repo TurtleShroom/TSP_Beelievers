@@ -36,7 +36,7 @@
 	<RecipeDef>
 		<defName>TSP_RB_Beeliever_Centrifuge_Bleary_Honeycomb</defName>
 		<label>extract from Bleary Bee honeycomb</label>
-		<description>Extracts white honey and white beeswax from a Slaver Bee honeycomb. What's wrong with exploiting exploiters, after all?</description>
+		<description>Extracts a paltry amount of Blue Honey and Heavy Wax from the poorly assembled honeycombs of the sleepy Bleary Bees. Most of the honeycombs are occupied by a soft material closely resembling down feathers.</description>
 		<descriptionHyperlinks>
 			<!-- <ResearchProjectDef>ST_GnomeCulture</ResearchProjectDef> -->
 			<ThingDef>RB_Bee_Bleary_Queen</ThingDef>
