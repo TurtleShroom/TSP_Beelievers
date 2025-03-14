@@ -670,7 +670,7 @@
 					</thingCategories>
 					<butcherProducts>
 						<TSP_Apini_DeluxeHoney_Spawner>1</TSP_Apini_DeluxeHoney_Spawner>
-						<RB_Beeswax>3</RB_Beeswax>
+						<RB_Beeswax>5</RB_Beeswax>
 						<ApiniPollen>13</ApiniPollen>
 					</butcherProducts>
 				</ThingDef>

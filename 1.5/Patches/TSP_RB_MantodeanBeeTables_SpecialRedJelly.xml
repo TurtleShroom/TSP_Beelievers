@@ -106,12 +106,12 @@
 			<value>
 				<ThingDef ParentName="ResourceBase">
 					<defName>TSP_RB_Beelievers_RedJelly_SpawnSystem</defName>
-					<label>Mantoscald Products</label>
+					<label>Mantodean_Red Products</label>
 					<description>Red Mantodean Slaver Bees force-feed their abducted Mantodean Larvae batches of lethal Red Jellly in order to connect them to the Mantodean psychic fields, which kills them. They use this energy to work obscenely fast, faster than almost any other bee. Due to the chaos that causes, Red Mantodean Slaver Bees are not able to produce Red Jelly every time. Sometimes, they spit out Performance-Enhancing Honey, other times they shoot Red Beeswax, and still other times they just botch it entirely and throw out a dead Mantodean.</description>
 					<descriptionHyperlinks>
 						<!-- <ResearchProjectDef>ST_GnomeCulture</ResearchProjectDef> -->
-						<ThingDef>RB_Bee_Mantoscald_Queen</ThingDef>
-						<ThingDef>RB_Bee_Mantoscald_Drone</ThingDef>
+						<ThingDef>RB_Bee_Mantodean_Red_Queen</ThingDef>
+						<ThingDef>RB_Bee_Mantodean_Red_Drone</ThingDef>
 						<!-- <ThingDef>TSP_RB_Beelievers_RedJelly_SpawnSystem</ThingDef> -->
 						<ThingDef>TSP_RB_Beeliever_SlaveryOfMantodean_Red_Honeycomb</ThingDef>
 						<RecipeDef>TSP_RB_Beeliever_Centrifuge_SlaveryOfMantodean_Red_Honeycomb</RecipeDef>

@@ -4,7 +4,6 @@
 	<supportedVersions>
 		<li>1.5</li>
 	</supportedVersions>
-	<modIconPath IgnoreIfNoMatchingField="True">UI/AlphaBeesLogo</modIconPath>
 	<modDependencies>
 		<li>
 			<packageId>brrainz.harmony</packageId>
@@ -65,6 +64,7 @@
 		<li>ku001.starchseedplant</li>
 		<li>sarg.alphaanimals</li>
 		<li>sarg.alphabiomes</li>
+		<li>goo.babyoilgojuice</li>
 	</loadAfter>
 	<loadBefore>
 		<li>zal.patchhoney</li>

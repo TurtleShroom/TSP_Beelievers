@@ -13,7 +13,7 @@
 			<Flammability>2</Flammability>
 			<Beauty>1</Beauty>
 		</statBases>
-		<stackLimit>300</stackLimit>
+		<stackLimit>520</stackLimit>
 		<tradeability>All</tradeability>
 		<graphicData Inherit="False">
 			<texPath>Things/Pawn/Animal/Bug_Types/Bee/TSP_Bee_Queen</texPath>

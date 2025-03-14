@@ -557,17 +557,17 @@
 					<bee1>Mantodean</bee1>
 					<bee2>Research</bee2>
 					<result>
-						<li>Mantochill</li> <!-- Mantodean Blue Jelly -->
-						<li>Mantoscald</li> <!-- Mantodean Red Jelly -->
-						<li>Mantobrain</li> <!-- Mantodean Purple Jelly -->
+						<li>Mantodean_Blue</li> <!-- Mantodean Blue Jelly -->
+						<li>Mantodean_Red</li> <!-- Mantodean Red Jelly -->
+						<li>Mantodean_Purple</li> <!-- Mantodean Purple Jelly -->
 					</result>
 				</RimBees.BeeCombinationDef>
 				
 				<RimBees.BeeListDef>
 					<defName>TSP_RB_Beeliever_SlaverBee6_Mantodean</defName>
-					<nameString>Mantochill</nameString>
-					<beeDroneDef>RB_Bee_Mantochill_Drone</beeDroneDef>
-					<beeQueenDef>RB_Bee_Mantochill_Queen</beeQueenDef>
+					<nameString>Mantodean_Blue</nameString>
+					<beeDroneDef>RB_Bee_Mantodean_Blue_Drone</beeDroneDef>
+					<beeQueenDef>RB_Bee_Mantodean_Blue_Queen</beeQueenDef>
 					<!--
 					<beeQueenTag>RB_Bee_Slaver_Queen_Tag</beeQueenTag>
 					<beeDroneTag>RB_Bee_Slaver_Drone_Tag</beeDroneTag>
@@ -585,7 +585,7 @@
 					-->
 					<comps>			
 						<li Class="RimBees.CompProperties_Bees" Inherit="False">
-							<species>Mantochill</species>
+							<species>Mantodean_Blue</species>
 							<comb>TSP_RB_Beeliever_SlaveryOfMantodean_Blue_Honeycomb</comb>
 							<combtimedays>0.5</combtimedays>
 							<nocturnal>true</nocturnal> <!-- Works at night -->
@@ -598,11 +598,11 @@
 				</ThingDef>
 				
 				<ThingDef ParentName="TSP_RB_Beeliever_Mantodean_Blue">
-					<defName>RB_Bee_Mantochill_Queen</defName>
+					<defName>RB_Bee_Mantodean_Blue_Queen</defName>
 					<label>Blue Mantodean Slaver queen</label>
 					<descriptionHyperlinks>
-						<!-- <ThingDef>RB_Bee_Mantochill_Queen</ThingDef> -->
-						<ThingDef>RB_Bee_Mantochill_Drone</ThingDef>
+						<!-- <ThingDef>RB_Bee_Mantodean_Blue_Queen</ThingDef> -->
+						<ThingDef>RB_Bee_Mantodean_Blue_Drone</ThingDef>
 						<ThingDef>TSP_RB_Beeliever_SlaveryOfMantodean_Blue_Honeycomb</ThingDef>
 						<RecipeDef>TSP_RB_Beeliever_Centrifuge_SlaveryOfMantodean_Blue_Honeycomb</RecipeDef>
 						<!--
@@ -620,11 +620,11 @@
 				</ThingDef>
 				
 				<ThingDef ParentName="TSP_RB_Beeliever_Mantodean_Blue">
-					<defName>RB_Bee_Mantochill_Drone</defName>
+					<defName>RB_Bee_Mantodean_Blue_Drone</defName>
 					<label>Blue Mantodean Slaver drone</label>
 					<descriptionHyperlinks>
-						<ThingDef>RB_Bee_Mantochill_Queen</ThingDef>
-						<!-- <ThingDef>RB_Mantochill_Drone</ThingDef> -->
+						<ThingDef>RB_Bee_Mantodean_Blue_Queen</ThingDef>
+						<!-- <ThingDef>RB_Mantodean_Blue_Drone</ThingDef> -->
 						<ThingDef>TSP_RB_Beeliever_SlaveryOfMantodean_Blue_Honeycomb</ThingDef>
 						<RecipeDef>TSP_RB_Beeliever_Centrifuge_SlaveryOfMantodean_Blue_Honeycomb</RecipeDef>
 						<!--
@@ -647,8 +647,8 @@
 					<description>Slaver Bees are facultative, social, brood parasites that abduct larvae and use them to produce beeswax and honey. Instead of expending effort to feed, house, and construct for new members of the colony, Slaver Bee drones drive the slave species and kidnap new larvae, while the Slaver Queen produces new Slaver Bee drones to continue the cycle, all while she gets fat from her doting chattel. \n \n Reap the harvest of slave labor and enjoy large amounts of Mantodean Blue Jelly, Blue Honey, and Blue Beeswax.</description>
 					<descriptionHyperlinks>
 						<!-- <ResearchProjectDef>ST_GnomeCulture</ResearchProjectDef> -->
-						<ThingDef>RB_Bee_Mantochill_Queen</ThingDef>
-						<ThingDef>RB_Bee_Mantochill_Drone</ThingDef>
+						<ThingDef>RB_Bee_Mantodean_Blue_Queen</ThingDef>
+						<ThingDef>RB_Bee_Mantodean_Blue_Drone</ThingDef>
 						<!-- <ThingDef>TSP_RB_Beeliever_SlaveryOfMantodean_Blue_Honeycomb</ThingDef> -->
 						<RecipeDef>TSP_RB_Beeliever_Centrifuge_SlaveryOfMantodean_Blue_Honeycomb</RecipeDef>
 						<!--
@@ -662,7 +662,7 @@
 						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
 					</descriptionHyperlinks>
 					<graphicData Inherit="False">
-						<texPath>Things/Pawn/Animal/Bug_Types/Bee/Honeycombs/TSP_RB_Mantodean_RoyalJelly_Honeycomb</texPath>
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/Honeycombs/TSP_RB_Mantodean_VariousJelly_Honeycomb</texPath>
 						<graphicClass>Graphic_Single</graphicClass>
 						<color>(21,21,255)</color>
 					</graphicData>
@@ -682,8 +682,8 @@
 					<description>Extracts Mantodean Blue Jelly, Blue Honey, and Blue Beeswax from. Mantodean Slaver Bees parasitize Mantodean larvae to consume their food instead of honey. What's wrong with exploiting exploiters, after all?</description>
 					<descriptionHyperlinks>
 						<!-- <ResearchProjectDef>ST_GnomeCulture</ResearchProjectDef> -->
-						<ThingDef>RB_Bee_Mantochill_Queen</ThingDef>
-						<ThingDef>RB_Bee_Mantochill_Drone</ThingDef>
+						<ThingDef>RB_Bee_Mantodean_Blue_Queen</ThingDef>
+						<ThingDef>RB_Bee_Mantodean_Blue_Drone</ThingDef>
 						<ThingDef>TSP_RB_Beeliever_SlaveryOfMantodean_Blue_Honeycomb</ThingDef>
 						<ThingDef>L24_Manto_BlueJelly</ThingDef>
 						<ThingDef>RB_BlueHoney</ThingDef>
@@ -739,9 +739,9 @@
 				<!-- Mantodean Red Jelly: kidnaps Mantodean larvae, chaotically makes Red Jelly, but only some of the time -->
 				<RimBees.BeeListDef>
 					<defName>TSP_RB_Beeliever_SlaverBee7_Mantodean</defName>
-					<nameString>Mantoscald</nameString>
-					<beeDroneDef>RB_Bee_Mantoscald_Drone</beeDroneDef>
-					<beeQueenDef>RB_Bee_Mantoscald_Queen</beeQueenDef>
+					<nameString>Mantodean_Red</nameString>
+					<beeDroneDef>RB_Bee_Mantodean_Red_Drone</beeDroneDef>
+					<beeQueenDef>RB_Bee_Mantodean_Red_Queen</beeQueenDef>
 					<!--
 					<beeQueenTag>RB_Bee_Slaver_Queen_Tag</beeQueenTag>
 					<beeDroneTag>RB_Bee_Slaver_Drone_Tag</beeDroneTag>
@@ -759,7 +759,7 @@
 					-->
 					<comps>			
 						<li Class="RimBees.CompProperties_Bees" Inherit="False">
-							<species>Mantoscald</species>
+							<species>Mantodean_Red</species>
 							<comb>TSP_RB_Beeliever_SlaveryOfMantodean_Red_Honeycomb</comb>
 							<combtimedays>0.33</combtimedays>
 							<nocturnal>false</nocturnal> <!-- Works at night -->
@@ -772,11 +772,11 @@
 				</ThingDef>
 				
 				<ThingDef ParentName="TSP_RB_Beeliever_Mantodean_Red">
-					<defName>RB_Bee_Mantoscald_Queen</defName>
+					<defName>RB_Bee_Mantodean_Red_Queen</defName>
 					<label>Red Mantodean Slaver queen</label>
 					<descriptionHyperlinks>
-						<!-- <ThingDef>RB_Bee_Mantoscald_Queen</ThingDef> -->
-						<ThingDef>RB_Bee_Mantoscald_Drone</ThingDef>
+						<!-- <ThingDef>RB_Bee_Mantodean_Red_Queen</ThingDef> -->
+						<ThingDef>RB_Bee_Mantodean_Red_Drone</ThingDef>
 						<ThingDef>TSP_RB_Beelievers_RedJelly_SpawnSystem</ThingDef>
 						<ThingDef>TSP_RB_Beeliever_SlaveryOfMantodean_Red_Honeycomb</ThingDef>
 						<RecipeDef>TSP_RB_Beeliever_Centrifuge_SlaveryOfMantodean_Red_Honeycomb</RecipeDef>
@@ -795,11 +795,11 @@
 				</ThingDef>
 				
 				<ThingDef ParentName="TSP_RB_Beeliever_Mantodean_Red">
-					<defName>RB_Bee_Mantoscald_Drone</defName>
+					<defName>RB_Bee_Mantodean_Red_Drone</defName>
 					<label>Red Mantodean Slaver drone</label>
 					<descriptionHyperlinks>
-						<ThingDef>RB_Bee_Mantoscald_Queen</ThingDef>
-						<!-- <ThingDef>RB_Mantoscald_Drone</ThingDef> -->
+						<ThingDef>RB_Bee_Mantodean_Red_Queen</ThingDef>
+						<!-- <ThingDef>RB_Mantodean_Red_Drone</ThingDef> -->
 						<ThingDef>TSP_RB_Beelievers_RedJelly_SpawnSystem</ThingDef>
 						<ThingDef>TSP_RB_Beeliever_SlaveryOfMantodean_Red_Honeycomb</ThingDef>
 						<RecipeDef>TSP_RB_Beeliever_Centrifuge_SlaveryOfMantodean_Red_Honeycomb</RecipeDef>
@@ -823,8 +823,8 @@
 					<description>Slaver Bees are facultative, social, brood parasites that abduct larvae and use them to produce beeswax and honey. Instead of expending effort to feed, house, and construct for new members of the colony, Slaver Bee drones drive the slave species and kidnap new larvae, while the Slaver Queen produces new Slaver Bee drones to continue the cycle, all while she gets fat from her doting chattel. \n \n Red Mantodean Bees force-feed lethal Red Jelly to their abducted Mantodean larvae in order to connect them to Mantodean psychic energy. This allows them to work extremely fast, thought not as productively. Reap the harvest of slave labor and enjoy large amounts of Mantodean Red Jelly, Red Beeswax, and (due to the psychic energy) Psychotropic Honey.</description>
 					<descriptionHyperlinks>
 						<!-- <ResearchProjectDef>ST_GnomeCulture</ResearchProjectDef> -->
-						<ThingDef>RB_Bee_Mantoscald_Queen</ThingDef>
-						<ThingDef>RB_Bee_Mantoscald_Drone</ThingDef>
+						<ThingDef>RB_Bee_Mantodean_Red_Queen</ThingDef>
+						<ThingDef>RB_Bee_Mantodean_Red_Drone</ThingDef>
 						<ThingDef>TSP_RB_Beelievers_RedJelly_SpawnSystem</ThingDef>
 						<!-- <ThingDef>TSP_RB_Beeliever_SlaveryOfMantodean_Red_Honeycomb</ThingDef> -->
 						<RecipeDef>TSP_RB_Beeliever_Centrifuge_SlaveryOfMantodean_Red_Honeycomb</RecipeDef>
@@ -839,7 +839,7 @@
 						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
 					</descriptionHyperlinks>
 					<graphicData Inherit="False">
-						<texPath>Things/Pawn/Animal/Bug_Types/Bee/Honeycombs/TSP_RB_Mantodean_RoyalJelly_Honeycomb</texPath>
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/Honeycombs/TSP_RB_Mantodean_VariousJelly_Honeycomb</texPath>
 						<graphicClass>Graphic_Single</graphicClass>
 						<color>(255,21,21)</color>
 					</graphicData>
@@ -848,7 +848,7 @@
 					</thingCategories>
 					<butcherProducts>
 						<TSP_RB_Beelievers_RedJelly_SpawnSystem>1</TSP_RB_Beelievers_RedJelly_SpawnSystem>
-						<RB_RedBeeswax>1</RB_RedBeeswax>
+						<RB_RedBeeswax>5</RB_RedBeeswax>
 						<!--
 						<L24_Manto_RedJelly>1</L24_Manto_BlueJelly>
 						<RB_PerformanceEnhancingHoney>1</RB_PerformanceEnhancingHoney>
@@ -862,8 +862,8 @@
 					<description>Extracts Mantodean Red Jelly, Psychotropic Honey, and Red Beeswax from a Red Mantodean Slaver Bee's honeycombs. Mantodean Slaver Bees parasitize Mantodean larvae to consume their food instead of honey. Red Mantodean Bees force-feed lethal Red Jelly to their abducted Mantodean larvae in order to connect them to Mantodean psychic energy. This allows them to work extremely fast, thought not as productively. Due to the chaos that causes, Red Mantodean Slaver Bees are not able to produce Red Jelly every time. Sometimes, they spit out Performance-Enhancing Honey,and other times they just botch it entirely and throw out a dead Mantodean.</description>
 					<descriptionHyperlinks>
 						<!-- <ResearchProjectDef>ST_GnomeCulture</ResearchProjectDef> -->
-						<ThingDef>RB_Bee_Mantoscald_Queen</ThingDef>
-						<ThingDef>RB_Bee_Mantoscald_Drone</ThingDef>
+						<ThingDef>RB_Bee_Mantodean_Red_Queen</ThingDef>
+						<ThingDef>RB_Bee_Mantodean_Red_Drone</ThingDef>
 						<ThingDef>TSP_RB_Beelievers_RedJelly_SpawnSystem</ThingDef>
 						<ThingDef>TSP_RB_Beeliever_SlaveryOfMantodean_Red_Honeycomb</ThingDef>
 						<ThingDef>L24_Manto_RedJelly</ThingDef>
@@ -920,9 +920,9 @@
 				<!-- Mantodean Purple Jelly: kidnaps Mantodean larvae, makes Mantodean Purple Jelly -->
 				<RimBees.BeeListDef>
 					<defName>TSP_RB_Beeliever_SlaverBee8_Mantodean</defName>
-					<nameString>Mantobrain</nameString>
-					<beeDroneDef>RB_Bee_Mantobrain_Drone</beeDroneDef>
-					<beeQueenDef>RB_Bee_Mantobrain_Queen</beeQueenDef>
+					<nameString>Mantodean_Purple</nameString>
+					<beeDroneDef>RB_Bee_Mantodean_Purple_Drone</beeDroneDef>
+					<beeQueenDef>RB_Bee_Mantodean_Purple_Queen</beeQueenDef>
 					<!--
 					<beeQueenTag>RB_Bee_Slaver_Queen_Tag</beeQueenTag>
 					<beeDroneTag>RB_Bee_Slaver_Drone_Tag</beeDroneTag>
@@ -940,7 +940,7 @@
 					-->
 					<comps>			
 						<li Class="RimBees.CompProperties_Bees" Inherit="False">
-							<species>Mantobrain</species>
+							<species>Mantodean_Purple</species>
 							<comb>TSP_RB_Beeliever_SlaveryOfMantodean_Purple_Honeycomb</comb>
 							<combtimedays>1.5</combtimedays>
 							<nocturnal>false</nocturnal> <!-- Works at night -->
@@ -953,11 +953,11 @@
 				</ThingDef>
 				
 				<ThingDef ParentName="TSP_RB_Beeliever_Mantodean_Purple">
-					<defName>RB_Bee_Mantobrain_Queen</defName>
+					<defName>RB_Bee_Mantodean_Purple_Queen</defName>
 					<label>Purple Mantodean Slaver queen</label>
 					<descriptionHyperlinks>
-						<!-- <ThingDef>RB_Bee_Mantobrain_Queen</ThingDef> -->
-						<ThingDef>RB_Bee_Mantobrain_Drone</ThingDef>
+						<!-- <ThingDef>RB_Bee_Mantodean_Purple_Queen</ThingDef> -->
+						<ThingDef>RB_Bee_Mantodean_Purple_Drone</ThingDef>
 						<ThingDef>TSP_RB_Beeliever_SlaveryOfMantodean_Purple_Honeycomb</ThingDef>
 						<RecipeDef>TSP_RB_Beeliever_Centrifuge_SlaveryOfMantodean_Purple_Honeycomb</RecipeDef>
 						<!--
@@ -975,11 +975,11 @@
 				</ThingDef>
 				
 				<ThingDef ParentName="TSP_RB_Beeliever_Mantodean_Purple">
-					<defName>RB_Bee_Mantobrain_Drone</defName>
+					<defName>RB_Bee_Mantodean_Purple_Drone</defName>
 					<label>Purple Mantodean Slaver drone</label>
 					<descriptionHyperlinks>
-						<ThingDef>RB_Bee_Mantobrain_Queen</ThingDef>
-						<!-- <ThingDef>RB_Mantobrain_Drone</ThingDef> -->
+						<ThingDef>RB_Bee_Mantodean_Purple_Queen</ThingDef>
+						<!-- <ThingDef>RB_Mantodean_Purple_Drone</ThingDef> -->
 						<ThingDef>TSP_RB_Beeliever_SlaveryOfMantodean_Purple_Honeycomb</ThingDef>
 						<RecipeDef>TSP_RB_Beeliever_Centrifuge_SlaveryOfMantodean_Purple_Honeycomb</RecipeDef>
 						<!--
@@ -1002,8 +1002,8 @@
 					<description>Slaver Bees are facultative, social, brood parasites that abduct larvae and use them to produce beeswax and honey. Instead of expending effort to feed, house, and construct for new members of the colony, Slaver Bee drones drive the slave species and kidnap new larvae, while the Slaver Queen produces new Slaver Bee drones to continue the cycle, all while she gets fat from her doting chattel. \n \n Unlike their reckless Red cousins, Purple Mantodean Slaver Bees feed their abductated Mantodean larvae a safe dosage of Purple (Corpse) Jelly mixed with Psychotropic Honey. This connects them to the Mantodean psychic fields and allows the bees to produce far more food than they normally would. \n \n Reap the harvest of slave labor and enjoy Mantodean Purple (Corpse) Jelly, Psychotropic Honey, and Heavy Wax.</description>
 					<descriptionHyperlinks>
 						<!-- <ResearchProjectDef>ST_GnomeCulture</ResearchProjectDef> -->
-						<ThingDef>RB_Bee_Mantobrain_Queen</ThingDef>
-						<ThingDef>RB_Bee_Mantobrain_Drone</ThingDef>
+						<ThingDef>RB_Bee_Mantodean_Purple_Queen</ThingDef>
+						<ThingDef>RB_Bee_Mantodean_Purple_Drone</ThingDef>
 						<!-- <ThingDef>TSP_RB_Beeliever_SlaveryOfMantodean_Purple_Honeycomb</ThingDef> -->
 						<RecipeDef>TSP_RB_Beeliever_Centrifuge_SlaveryOfMantodean_Purple_Honeycomb</RecipeDef>
 						<!--
@@ -1017,7 +1017,7 @@
 						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
 					</descriptionHyperlinks>
 					<graphicData Inherit="False">
-						<texPath>Things/Pawn/Animal/Bug_Types/Bee/Honeycombs/TSP_RB_Mantodean_RoyalJelly_Honeycomb</texPath>
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/Honeycombs/TSP_RB_Mantodean_VariousJelly_Honeycomb</texPath>
 						<graphicClass>Graphic_Single</graphicClass>
 						<color>(107,29,128)</color>
 					</graphicData>
@@ -1037,8 +1037,8 @@
 					<description>Extracts Purple (Corpse) Jelly, Psychotropic Honey, and Heavy Wax from a Purple Mantodean Slaver Bee honeycomb. Mantodean Slaver Bees parasitize Mantodean larvae to consume their food instead of honey. What's wrong with exploiting exploiters, after all?</description>
 					<descriptionHyperlinks>
 						<!-- <ResearchProjectDef>ST_GnomeCulture</ResearchProjectDef> -->
-						<ThingDef>RB_Bee_Mantobrain_Queen</ThingDef>
-						<ThingDef>RB_Bee_Mantobrain_Drone</ThingDef>
+						<ThingDef>RB_Bee_Mantodean_Purple_Queen</ThingDef>
+						<ThingDef>RB_Bee_Mantodean_Purple_Drone</ThingDef>
 						<ThingDef>TSP_RB_Beeliever_SlaveryOfMantodean_Purple_Honeycomb</ThingDef>
 						<ThingDef>L24_Manto_CorpseJelly</ThingDef>
 						<ThingDef>RB_PsychotropicHoney</ThingDef>
@@ -1099,16 +1099,16 @@
 					<bee1>Mantodean</bee1>
 					<bee2>Radioactive</bee2>
 					<result>
-						<li>Mantogreen</li>
+						<li>Mantodean_Green</li>
 						<li>Mutaphid</li>
 					</result>
 				</RimBees.BeeCombinationDef>
 				
 				<RimBees.BeeListDef>
 					<defName>TSP_RB_Beeliever_SlaverBee9_Mantodean</defName>
-					<nameString>Mantogreen</nameString>
-					<beeDroneDef>RB_Bee_Mantogreen_Drone</beeDroneDef>
-					<beeQueenDef>RB_Bee_Mantogreen_Queen</beeQueenDef>
+					<nameString>Mantodean_Green</nameString>
+					<beeDroneDef>RB_Bee_Mantodean_Green_Drone</beeDroneDef>
+					<beeQueenDef>RB_Bee_Mantodean_Green_Queen</beeQueenDef>
 					<!--
 					<beeQueenTag>RB_Bee_Slaver_Queen_Tag</beeQueenTag>
 					<beeDroneTag>RB_Bee_Slaver_Drone_Tag</beeDroneTag>
@@ -1126,7 +1126,7 @@
 					-->
 					<comps>			
 						<li Class="RimBees.CompProperties_Bees" Inherit="False">
-							<species>Mantogreen</species>
+							<species>Mantodean_Green</species>
 							<comb>TSP_RB_Beeliever_SlaveryOfMantodean_Green_Honeycomb</comb>
 							<combtimedays>2</combtimedays>
 							<nocturnal>true</nocturnal> <!-- Works at night -->
@@ -1139,11 +1139,11 @@
 				</ThingDef>
 				
 				<ThingDef ParentName="TSP_RB_Beeliever_Mantodean_Green">
-					<defName>RB_Bee_Mantogreen_Queen</defName>
+					<defName>RB_Bee_Mantodean_Green_Queen</defName>
 					<label>Green Mantodean Slaver queen</label>
 					<descriptionHyperlinks>
-						<!-- <ThingDef>RB_Bee_Mantogreen_Queen</ThingDef> -->
-						<ThingDef>RB_Bee_Mantogreen_Drone</ThingDef>
+						<!-- <ThingDef>RB_Bee_Mantodean_Green_Queen</ThingDef> -->
+						<ThingDef>RB_Bee_Mantodean_Green_Drone</ThingDef>
 						<ThingDef>TSP_RB_Beeliever_SlaveryOfMantodean_Green_Honeycomb</ThingDef>
 						<RecipeDef>TSP_RB_Beeliever_Centrifuge_SlaveryOfMantodean_Green_Honeycomb</RecipeDef>
 						<!--
@@ -1161,11 +1161,11 @@
 				</ThingDef>
 				
 				<ThingDef ParentName="TSP_RB_Beeliever_Mantodean_Green">
-					<defName>RB_Bee_Mantogreen_Drone</defName>
+					<defName>RB_Bee_Mantodean_Green_Drone</defName>
 					<label>Green Mantodean Slaver drone</label>
 					<descriptionHyperlinks>
-						<ThingDef>RB_Bee_Mantogreen_Queen</ThingDef>
-						<!-- <ThingDef>RB_Mantogreen_Drone</ThingDef> -->
+						<ThingDef>RB_Bee_Mantodean_Green_Queen</ThingDef>
+						<!-- <ThingDef>RB_Mantodean_Green_Drone</ThingDef> -->
 						<ThingDef>TSP_RB_Beeliever_SlaveryOfMantodean_Green_Honeycomb</ThingDef>
 						<RecipeDef>TSP_RB_Beeliever_Centrifuge_SlaveryOfMantodean_Green_Honeycomb</RecipeDef>
 						<!--
@@ -1188,8 +1188,8 @@
 					<description>Slaver Bees are facultative, social, brood parasites that abduct larvae and use them to produce beeswax and honey. Instead of expending effort to feed, house, and construct for new members of the colony, Slaver Bee drones drive the slave species and kidnap new larvae, while the Slaver Queen produces new Slaver Bee drones to continue the cycle, all while she gets fat from her doting chattel. \n \n Green Mantodean Slaver Bees spawn their larvae from spawning pools, much like Mantodeans themselves, using Green (Morph) Jelly. While this takes longer than other slave-making processes, they do not need to leave the hive to abduct Mantodean larvae, and thus never stop working at night or in the rain. \n \n Reap the harvest of slave labor and enjoy Mantodean Green (Morph) Jelly, Mantodean Exudate, Heavy Wax, and a small amount of Mantodean Jelly.</description>
 					<descriptionHyperlinks>
 						<!-- <ResearchProjectDef>ST_GnomeCulture</ResearchProjectDef> -->
-						<ThingDef>RB_Bee_Mantogreen_Queen</ThingDef>
-						<ThingDef>RB_Bee_Mantogreen_Drone</ThingDef>
+						<ThingDef>RB_Bee_Mantodean_Green_Queen</ThingDef>
+						<ThingDef>RB_Bee_Mantodean_Green_Drone</ThingDef>
 						<!-- <ThingDef>TSP_RB_Beeliever_SlaveryOfMantodean_Green_Honeycomb</ThingDef> -->
 						<RecipeDef>TSP_RB_Beeliever_Centrifuge_SlaveryOfMantodean_Green_Honeycomb</RecipeDef>
 						<!--
@@ -1203,7 +1203,7 @@
 						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
 					</descriptionHyperlinks>
 					<graphicData Inherit="False">
-						<texPath>Things/Pawn/Animal/Bug_Types/Bee/Honeycombs/TSP_RB_Mantodean_RoyalJelly_Honeycomb</texPath>
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/Honeycombs/TSP_RB_Mantodean_VariousJelly_Honeycomb</texPath>
 						<graphicClass>Graphic_Single</graphicClass>
 						<color>(20,116,17)</color>
 					</graphicData>
@@ -1224,8 +1224,8 @@
 					<description>Extracts Green (Morph) Jelly, Mantodean Exudate, and Heavy Wax from a Green Mantodean Slaver Bee honeycomb. Green Mantodean Slaver Bees grow Mantodean larvae in spawning pools using Green Jelly, lessening their need to leave the hive, which allows them to work day and night and the regardless of weather. What's wrong with exploiting exploiters, after all?</description>
 					<descriptionHyperlinks>
 						<!-- <ResearchProjectDef>ST_GnomeCulture</ResearchProjectDef> -->
-						<ThingDef>RB_Bee_Mantogreen_Queen</ThingDef>
-						<ThingDef>RB_Bee_Mantogreen_Drone</ThingDef>
+						<ThingDef>RB_Bee_Mantodean_Green_Queen</ThingDef>
+						<ThingDef>RB_Bee_Mantodean_Green_Drone</ThingDef>
 						<ThingDef>TSP_RB_Beeliever_SlaveryOfMantodean_Green_Honeycomb</ThingDef>
 						<ThingDef>L24_Manto_MorphJelly</ThingDef>
 						<ThingDef>L24_Manto_Exudate</ThingDef>
@@ -1377,7 +1377,7 @@
 						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
 					</descriptionHyperlinks>
 					<graphicData Inherit="False">
-						<texPath>Things/Pawn/Animal/Bug_Types/Bee/Honeycombs/TSP_RB_Mantodean_RoyalJelly_Honeycomb</texPath>
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/Honeycombs/TSP_RB_Mantodean_VariousJelly_Honeycomb</texPath>
 						<graphicClass>Graphic_Single</graphicClass>
 						<color>(20,116,17)</color>
 					</graphicData>
@@ -1632,24 +1632,24 @@
 		</match>
 	</Operation>
 	
-	<Operation Class="PatchOperationFindMod">
+	<Operation Class="PatchOperationFindMod" MayRequire="eltwofour.mantodeanrace">
 	<!-- Do any of the following Mods exist? -->
-		<mods>
-			<li>Anomaly</li>
-			<li>Alpha Animals</li>
+		<mods MayRequire="eltwofour.mantodeanrace">
+			<li MayRequire="eltwofour.mantodeanrace">Anomaly</li>
+			<li MayRequire="eltwofour.mantodeanrace">Alpha Animals</li>
 		</mods>
 		<!-- If it does, add this. -->
-		<match Class="PatchOperationAdd">
-			<success>Always</success>
-			<xpath>/Defs</xpath>
-			<value>
-				<RimBees.BeeCombinationDef>
+		<match Class="PatchOperationAdd" MayRequire="eltwofour.mantodeanrace">
+			<success MayRequire="eltwofour.mantodeanrace">Always</success>
+			<xpath MayRequire="eltwofour.mantodeanrace">/Defs</xpath>
+			<value MayRequire="eltwofour.mantodeanrace">
+				<RimBees.BeeCombinationDef MayRequire="eltwofour.mantodeanrace">
 					<defName>TSP_RB_Beelievers_MantodeanTables_BlackAndTwisted</defName>
 					<bee1>Mantodean</bee1>
 					<bee2>Nocturnal</bee2>
 					<result>
-						<li MayRequire="ludeon.rimworld.anomaly">Mantodean_Corrupted</li>
-						<li MayRequire="sarg.alphaanimals">Mantoblack</li>
+						<li MayRequire="ludeon.rimworld.anomaly,eltwofour.mantodeanrace">Mantodean_Corrupted</li>
+						<li MayRequire="sarg.alphaanimals,eltwofour.mantodeanrace">Mantodean_Black</li>
 					</result>				
 				</RimBees.BeeCombinationDef>
 			</value>
@@ -1666,7 +1666,7 @@
 			<value>
 				<!-- Slaver Branch -->
 				<!-- TIER II -->
-				<!-- Mantodean Slaver Bees: kidnaps Mantodean larvae, makes Mantodean Jelly-->
+				<!-- Mantodean Slaver Bees: kidnaps Mantodean larvae, makes them into Mantodean Jelly-->
 				<RimBees.BeeListDef>
 					<defName>TSP_RB_Beeliever_SlaverBee4_Mantodean</defName>
 					<nameString>Mantodean_Corrupted</nameString>
@@ -1774,7 +1774,7 @@
 						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
 					</descriptionHyperlinks>
 					<graphicData Inherit="False">
-						<texPath>Things/Pawn/Animal/Bug_Types/Bee/Honeycombs/TSP_RB_Mantodean_RoyalJelly_Honeycomb</texPath>
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/Honeycombs/TSP_RB_Mantodean_VariousJelly_Honeycomb</texPath>
 						<graphicClass>Graphic_Single</graphicClass>
 						<color>(99,52,71)</color>
 					</graphicData>
@@ -1863,9 +1863,9 @@
 				<!-- Mantodean Slaver Bees: kidnaps Mantodean larvae, makes Mantodean Jelly-->
 				<RimBees.BeeListDef>
 					<defName>TSP_RB_Beeliever_SlaverBee5_Mantodean</defName>
-					<nameString>Mantoblack</nameString>
-					<beeDroneDef>RB_Bee_Mantoblack_Drone</beeDroneDef>
-					<beeQueenDef>RB_Bee_Mantoblack_Queen</beeQueenDef>
+					<nameString>Mantodean_Black</nameString>
+					<beeDroneDef>RB_Bee_Mantodean_Black_Drone</beeDroneDef>
+					<beeQueenDef>RB_Bee_Mantodean_Black_Queen</beeQueenDef>
 					<!--
 					<beeQueenTag>RB_Bee_Slaver_Queen_Tag</beeQueenTag>
 					<beeDroneTag>RB_Bee_Slaver_Drone_Tag</beeDroneTag>
@@ -1878,7 +1878,7 @@
 					<bee1>Mantodean</bee1>
 					<bee2>Nocturnal</bee2>
 					<result>
-						<li>Mantoblack</li>
+						<li>Mantodean_Black</li>
 					</result>				
 				</RimBees.BeeCombinationDef>
 				-->
@@ -1894,7 +1894,7 @@
 					-->
 					<comps>
 						<li Class="RimBees.CompProperties_Bees" Inherit="False">
-							<species>Mantoblack</species>
+							<species>Mantodean_Black</species>
 							<comb>TSP_RB_Beeliever_SlaveryOfMantodean_Black_Honeycomb</comb>
 							<combtimedays>0.6</combtimedays>
 							<nocturnal>true</nocturnal> <!-- Works at night -->
@@ -1907,11 +1907,11 @@
 				</ThingDef>
 				
 				<ThingDef ParentName="TSP_RB_Beeliever_Mantodean_Black">
-					<defName>RB_Bee_Mantoblack_Queen</defName>
+					<defName>RB_Bee_Mantodean_Black_Queen</defName>
 					<label>Black Mantodean queen</label>
 					<descriptionHyperlinks>
-						<!-- <ThingDef>RB_Bee_Mantoblack_Queen</ThingDef> -->
-						<ThingDef>RB_Bee_Mantoblack_Drone</ThingDef>
+						<!-- <ThingDef>RB_Bee_Mantodean_Black_Queen</ThingDef> -->
+						<ThingDef>RB_Bee_Mantodean_Black_Drone</ThingDef>
 						<ThingDef>TSP_RB_Beeliever_SlaveryOfMantodean_Black_Honeycomb</ThingDef>
 						<RecipeDef>TSP_RB_Beeliever_Centrifuge_SlaveryOfMantodean_Black_Honeycomb</RecipeDef>
 						<!--
@@ -1927,11 +1927,11 @@
 				</ThingDef>
 				
 				<ThingDef ParentName="TSP_RB_Beeliever_Mantodean_Black">
-					<defName>RB_Bee_Mantoblack_Drone</defName>
+					<defName>RB_Bee_Mantodean_Black_Drone</defName>
 					<label>Black Mantodean drone</label>
 					<descriptionHyperlinks>
-						<ThingDef>RB_Bee_Mantoblack_Queen</ThingDef>
-						<!-- <ThingDef>RB_Mantoblack_Drone</ThingDef> -->
+						<ThingDef>RB_Bee_Mantodean_Black_Queen</ThingDef>
+						<!-- <ThingDef>RB_Mantodean_Black_Drone</ThingDef> -->
 						<ThingDef>TSP_RB_Beeliever_SlaveryOfMantodean_Black_Honeycomb</ThingDef>
 						<RecipeDef>TSP_RB_Beeliever_Centrifuge_SlaveryOfMantodean_Black_Honeycomb</RecipeDef>
 						<!--
@@ -1952,8 +1952,8 @@
 					<description>Slaver Bees are facultative, social, brood parasites that abduct larvae and use them to produce beeswax and honey. Instead of expending effort to feed, house, and construct for new members of the colony, Slaver Bee drones drive the slave species and kidnap new larvae, while the Slaver Queen produces new Slaver Bee drones to continue the cycle, all while she gets fat from her doting chattel. \n \n Black Mantodean Bees abduct a combination of Black Hive larvae and Mantodean larvae in order to use both to formulate delicious, luxurious Black Mantodean Jelly. Black Mantodean honeycombs can be extracted for Black Mantodean Jelly and Black Beeswax.</description>
 					<descriptionHyperlinks>
 						<!-- <ResearchProjectDef>ST_GnomeCulture</ResearchProjectDef> -->
-						<ThingDef>RB_Bee_Mantoblack_Queen</ThingDef>
-						<ThingDef>RB_Bee_Mantoblack_Drone</ThingDef>
+						<ThingDef>RB_Bee_Mantodean_Black_Queen</ThingDef>
+						<ThingDef>RB_Bee_Mantodean_Black_Drone</ThingDef>
 						<!-- <ThingDef>TSP_RB_Beeliever_SlaveryOfMantodean_Black_Honeycomb</ThingDef> -->
 						<RecipeDef>TSP_RB_Beeliever_Centrifuge_SlaveryOfMantodean_Black_Honeycomb</RecipeDef>
 						<!--
@@ -1966,7 +1966,7 @@
 						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
 					</descriptionHyperlinks>
 					<graphicData Inherit="False">
-						<texPath>Things/Pawn/Animal/Bug_Types/Bee/Honeycombs/TSP_RB_Mantodean_RoyalJelly_Honeycomb</texPath>
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/Honeycombs/TSP_RB_Mantodean_VariousJelly_Honeycomb</texPath>
 						<graphicClass>Graphic_Single</graphicClass>
 						<color>(52,51,44)</color>
 					</graphicData>
@@ -1985,8 +1985,8 @@
 					<description>Extracts the luxurious products of Black Mantodean Bees. Black Mantodean Bees boldly abduct Black Hive Larvae and train them with abducted Mantodean Larvae, and form this, make extraordinary, luxurious Black Mantodean Jelly. What's wrong with exploiting exploiters, after all?</description>
 					<descriptionHyperlinks>
 						<!-- <ResearchProjectDef>ST_GnomeCulture</ResearchProjectDef> -->
-						<ThingDef>RB_Bee_Mantoblack_Queen</ThingDef>
-						<ThingDef>RB_Bee_Mantoblack_Drone</ThingDef>
+						<ThingDef>RB_Bee_Mantodean_Black_Queen</ThingDef>
+						<ThingDef>RB_Bee_Mantodean_Black_Drone</ThingDef>
 						<ThingDef>TSP_RB_Beeliever_SlaveryOfMantodean_Black_Honeycomb</ThingDef>
 						<ThingDef>L24_Manto_BlackJelly</ThingDef>
 						<ThingDef>RB_BlackBeeswax</ThingDef>

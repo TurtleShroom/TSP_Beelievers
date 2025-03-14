@@ -140,7 +140,7 @@
 				<RecipeDef>
 					<defName>TSP_RB_Beeliever_Centrifuge_SlaveryOfHaplo_Honeycomb</defName>
 					<label>extract from Haplo Slave-Making Bee honeycomb</label>
-					<description>Extracts Haplo Honey and ordianary Beeswax from an Haplo Slaver Bee honeycomb. Adamas Slaver Bees parasitize Miscellaneous Bee larvae to consume their food instead of honey. What's wrong with exploiting exploiters, after all?</description>
+					<description>Extracts Haplo Honey and ordianary Beeswax from an Haplo Slaver Bee honeycomb. Haplo Slaver Bees parasitize Miscellaneous Bee larvae to consume their food instead of honey. What's wrong with exploiting exploiters, after all?</description>
 					<descriptionHyperlinks>
 						<!-- <ResearchProjectDef>ST_GnomeCulture</ResearchProjectDef> -->
 						<ThingDef>RB_Bee_Haplo_Queen</ThingDef>
