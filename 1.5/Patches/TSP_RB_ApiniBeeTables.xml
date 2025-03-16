@@ -570,6 +570,16 @@
 				<ThingDef ParentName="TSP_RB_Beeliever_ApiniBase" Name="TSP_RB_Beeliever_ApiniBase_Random" Abstract="True">
 					<!-- <label>Apini Slave-Making Bee</label> -->
 					<description>On Old Earth, living beings' ownership of other living beings as chattel did not stop with men owning animals, or even men owning men. Animals are capable of it too! There exists a rare adaption among insects where they will capture animals of other species and compel them to work for them. This is called "dulosis," literally "slave-making," and is a form of facultative, social, brood parasitism. It occurs most commonly among the slave-making ants, of which dozens of species exist. However, dulosis has also beeen recorded in bees. \n \n Deluxe Apini Slaver Bees have mastered the botanical ability of creatinmg exotic forms of honey that are normally unique to the Apini race of bees. Any form of Apini Honey or Apini Nectar is capable of being produced by these slave-making bees, but the beekeeper does not have a means of choosing what comes out when he harvests it. As this is considered an extra step in Apini Honey refinement, a base of regular Apini Honey is needed for processing. \n\n\n\n\n Bee Traits: \n\n 	Production time: 0.81 days \n 	Works at Night: Yes \n 	Works When Raining: Yes \n 	Unusual Sources Needed: Apini Honey \n 	Minimum Temperature: 0ºF (-17.7778ºC) \n 	Maximum temperature: 97ºF (36.1111ºC)</description>
+					<descriptionHyperlinks>
+						<ThingDef>ApiniNectar</ThingDef>
+						<ThingDef>ApiniNectar_F</ThingDef>
+						<ThingDef>ApiniNectar_E</ThingDef>
+						<ThingDef>ApiniNectar_M</ThingDef>
+						<ThingDef>ApiniNectar_B</ThingDef>
+						<ThingDef>ApiniNectar_R</ThingDef>
+						<ThingDef>ApiniNectar_W</ThingDef>
+						<ThingDef>ApiniNectar_V</ThingDef>
+					</descriptionHyperlinks>
 					<!--
 					<graphicData Inherit="False">
 						<texPath>Things/Pawn/Animal/Bug_Types/Bee/ST_Bee_south</texPath>
@@ -648,15 +658,14 @@
 						<RecipeDef>TSP_ST_RB_Gneehive_Extract</RecipeDef>
 						-->
 						<ThingDef>TSP_Apini_DeluxeHoney_Spawner</ThingDef>
-						<ThingDef>ApiniHoney</ThingDef>
-						<ThingDef>ApiniHoney_F</ThingDef>
-						<ThingDef>ApiniHoney_E</ThingDef>
-						<ThingDef>ApiniHoney_M</ThingDef>
-						<ThingDef>ApiniHoney_B</ThingDef>
-						<ThingDef>ApiniHoney_R</ThingDef>
-						<ThingDef>ApiniHoney_W</ThingDef>
-						<ThingDef>ApiniHoney_V</ThingDef>
-						<ThingDef>NpiniMeatHoney</ThingDef>
+						<ThingDef>ApiniNectar</ThingDef>
+						<ThingDef>ApiniNectar_F</ThingDef>
+						<ThingDef>ApiniNectar_E</ThingDef>
+						<ThingDef>ApiniNectar_M</ThingDef>
+						<ThingDef>ApiniNectar_B</ThingDef>
+						<ThingDef>ApiniNectar_R</ThingDef>
+						<ThingDef>ApiniNectar_W</ThingDef>
+						<ThingDef>ApiniNectar_V</ThingDef>
 						<ThingDef>RB_Beeswax</ThingDef>
 						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
 					</descriptionHyperlinks>
@@ -685,15 +694,14 @@
 						<ThingDef>RB_Bee_Apini_Random_Drone</ThingDef>
 						<ThingDef>TSP_RB_Beeliever_SlaveryOfApini_Random_Honeycomb</ThingDef>
 						<ThingDef>TSP_Apini_DeluxeHoney_Spawner</ThingDef>
-						<ThingDef>ApiniHoney</ThingDef>
-						<ThingDef>ApiniHoney_F</ThingDef>
-						<ThingDef>ApiniHoney_E</ThingDef>
-						<ThingDef>ApiniHoney_M</ThingDef>
-						<ThingDef>ApiniHoney_B</ThingDef>
-						<ThingDef>ApiniHoney_R</ThingDef>
-						<ThingDef>ApiniHoney_W</ThingDef>
-						<ThingDef>ApiniHoney_V</ThingDef>
-						<ThingDef>NpiniMeatHoney</ThingDef>
+						<ThingDef>ApiniNectar</ThingDef>
+						<ThingDef>ApiniNectar_F</ThingDef>
+						<ThingDef>ApiniNectar_E</ThingDef>
+						<ThingDef>ApiniNectar_M</ThingDef>
+						<ThingDef>ApiniNectar_B</ThingDef>
+						<ThingDef>ApiniNectar_R</ThingDef>
+						<ThingDef>ApiniNectar_W</ThingDef>
+						<ThingDef>ApiniNectar_V</ThingDef>
 						<ThingDef>RB_Beeswax</ThingDef>
 						<!-- <RecipeDef>TSP_RB_Beeliever_Centrifuge_SlaveryOfApini_Honeycomb</RecipeDef> -->
 						<!--

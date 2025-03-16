@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Patch>
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>/Defs/ThingDef[defName="AC_Gravy"]</xpath>
+		<!-- If it does, add this. -->
+		<match Class="PatchOperationAdd">
+			<xpath>/Defs</xpath>
+			<success>Always</success>
+			<value>
+				<!-- Slaver Branch -->
+				<!-- TIER II -->
+				<!-- Haplo Slaver Bees: kidnaps Haplo (Miscellaneous Bees Mod) larvae, makes Haplo Honey -->
+				<RimBees.BeeListDef>
+					<defName>TSP_RB_Beeliever_AlphaCraftsBee1</defName>
+					<nameString>Gravy</nameString>
+					<beeDroneDef>RB_Bee_Gravy_Drone</beeDroneDef>
+					<beeQueenDef>RB_Bee_Gravy_Queen</beeQueenDef>
+					<!--
+					<beeQueenTag>RB_Bee_AlphaCrafts_Queen_Tag</beeQueenTag>
+					<beeDroneTag>RB_Bee_AlphaCrafts_Drone_Tag</beeDroneTag>
+					-->
+				</RimBees.BeeListDef>
+				
+				<RimBees.BeeCombinationDef>
+					<defName>TSP_RB_Beelievers_AlphaCraftTables1_Gravy</defName>
+					<bee1>Luxurious</bee1>
+					<bee2>Nutritious</bee2>
+					<result>
+						<li>Gravy</li>
+					</result>				
+				</RimBees.BeeCombinationDef>
+				
+				<RimBees.BeeCombinationDef>
+					<defName>TSP_RB_Beelievers_AlphaCraftTables2_Gravy</defName>
+					<bee1>Chef</bee1>
+					<bee2>Nutritious</bee2>
+					<result>
+						<li>Gravy</li>
+					</result>				
+				</RimBees.BeeCombinationDef>
+			
+				<ThingDef ParentName="TSP_RB_Beeliever_MasterBeeBase" Name="TSP_RB_Beeliever_GravyBase" Abstract="True">
+					<!-- <label>Gravy Bee</label> -->
+					<description>Gravy is the luxurious juices and fat of cooked meat that is used for dressing a dish. These juicies and fats form the meat base of gravy, which is then mixed with flour or other thickening agents. Gravy Bees are advanced forms of Nutritious Bees that refine their Non-Descript Meat further. To do this, they need to be given raw corn near them, with which they can grind cornmeal, and mix into their meat's fats. \n\n\n\n\n Bee Traits: \n\n 	Production time: 12 hours \n 	Works at Night: No \n 	Works When Raining: Yes \n 	Unusual Sources Needed: Corn \n 	Minimum Temperature: 0ºF (-17.7778ºC) \n 	Maximum temperature: 97ºF (36.1111ºC)</description>
+					<!--
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/ST_Bee_south</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData>
+					-->
+					<comps>			
+						<li Class="RimBees.CompProperties_Bees" Inherit="False">
+							<species>Gravy</species>
+							<comb>TSP_RB_Beeliever_Gravy_Honeycomb</comb>
+							<combtimedays>0.5</combtimedays>
+							<nocturnal>false</nocturnal> <!-- Works at night -->
+							<pluviophile>true</pluviophile> <!-- Works in the rain -->
+							<weirdplantneeded>RawCorn</weirdplantneeded>
+							<tempMin>-17.778</tempMin> <!-- Zero degrees -->
+							<tempMax>36.1111</tempMax> <!-- Ninety-seven degrees -->
+						</li>   
+					</comps>
+				</ThingDef>
+				
+				<ThingDef ParentName="TSP_RB_Beeliever_GravyBase">
+					<defName>RB_Bee_Gravy_Queen</defName>
+					<label>Gravy Bee queen</label>
+					<descriptionHyperlinks>
+						<!-- <ThingDef>RB_Bee_Gravy_Queen</ThingDef> -->
+						<ThingDef>RB_Bee_Gravy_Drone</ThingDef>
+						<ThingDef>TSP_RB_Beeliever_Gravy_Honeycomb</ThingDef>
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_Gravy_Honeycomb</RecipeDef>
+						<!--
+						<ThingDef>TSP_ST_RB_WildHive_Gnome</ThingDef>
+						<RecipeDef>TSP_ST_RB_Gneehive_Extract</RecipeDef>
+						-->
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/AlphaCraftsBranch/TSP_Bee_Gravy_Queen</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData> 		
+				</ThingDef>
+				
+				<ThingDef ParentName="TSP_RB_Beeliever_GravyBase">
+					<defName>RB_Bee_Gravy_Drone</defName>
+					<label>Gravy Bee drone</label>
+					<descriptionHyperlinks>
+						<ThingDef>RB_Bee_Gravy_Queen</ThingDef>
+						<!-- <ThingDef>RB_Bee_Gravy_Drone</ThingDef> -->
+						<ThingDef>TSP_RB_Beeliever_Gravy_Honeycomb</ThingDef>
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_Gravy_Honeycomb</RecipeDef>
+						<!--
+						<ThingDef>TSP_ST_RB_WildHive_Gnome</ThingDef>
+						<RecipeDef>TSP_ST_RB_Gneehive_Extract</RecipeDef>
+						-->
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/AlphaCraftsBranch/TSP_Bee_Gravy_Drone</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData> 		
+				</ThingDef>
+				
+				<ThingDef ParentName="RB_CombBase">
+					<defName>TSP_RB_Beeliever_Gravy_Honeycomb</defName>
+					<label>Gravy Bee honeycomb</label>
+					<description>Gravy Bees are Nutritious Bees that are further refined to use the fat content of their meats, alongside cornmeal, to make delicious gravy. Reap the harvest and enjoy large amounts of Gravy and Red Beeswax.</description>
+					<descriptionHyperlinks>
+						<!-- <ResearchProjectDef>ST_GnomeCulture</ResearchProjectDef> -->
+						<ThingDef>RB_Bee_Gravy_Drone</ThingDef>
+						<ThingDef>RB_Bee_Gravy_Queen</ThingDef>
+						<!-- <ThingDef>TSP_RB_Beeliever_Gravy_Honeycomb</ThingDef> -->
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_Gravy_Honeycomb</RecipeDef>
+						<!--
+						<ThingDef>TSP_ST_GnomeHoney</ThingDef>
+						<ThingDef>TSP_ST_RB_WildHive_Gnome</ThingDef>
+						<RecipeDef>TSP_ST_RB_Gneehive_Extract</RecipeDef>
+						-->
+						<ThingDef>AC_Gravy</ThingDef> <!-- Seriously dude, give it a better name -->
+						<ThingDef>RB_RedBeeswax</ThingDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<!--
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/Honeycombs/TSP_RB_SlaverBee_Honeycomb</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+						<color>(159,75,27)</color>
+					</graphicData>
+					-->
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/Honeycombs/TSP_RB_Necropini_Honeycomb</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+						<shaderType>CutoutComplex</shaderType>
+						<color>(87,61,36)</color>
+					</graphicData>
+					<thingCategories>
+						<li>TSP_RB_Beeliever_Honeycombs</li>
+					</thingCategories>
+					<butcherProducts>
+						<AC_Gravy>5</AC_Gravy>
+						<RB_RedBeeswax>5</RB_RedBeeswax>
+					</butcherProducts>
+				</ThingDef>
+				
+				<RecipeDef>
+					<defName>TSP_RB_Beeliever_Centrifuge_Gravy_Honeycomb</defName>
+					<label>extract from Gravy Bee honeycomb</label>
+					<description>Extracts Gravy and Red Beeswax from an Gravy Bee honeycomb.</description>
+					<descriptionHyperlinks>
+						<!-- <ResearchProjectDef>ST_GnomeCulture</ResearchProjectDef> -->
+						<ThingDef>RB_Bee_Gravy_Queen</ThingDef>
+						<ThingDef>RB_Bee_Gravy_Drone</ThingDef>
+						<ThingDef>TSP_RB_Beeliever_Gravy_Honeycomb</ThingDef>
+						<ThingDef>AC_Gravy</ThingDef>
+						<ThingDef>RB_RedBeeswax</ThingDef>
+						<!-- <RecipeDef>TSP_RB_Beeliever_Centrifuge_SlaveryOfHaplo_Honeycomb</RecipeDef> -->
+						<!--
+						<ThingDef>TSP_ST_GnomeHoney</ThingDef>
+						<ThingDef>TSP_ST_RB_WildHive_Gnome</ThingDef>
+						<RecipeDef>TSP_ST_RB_Gneehive_Extract</RecipeDef>
+						-->
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<uiIconThing>AC_Gravy</uiIconThing>
+					<jobString>Taking advantage of slave labor.</jobString>
+					<effectWorking>Cremate</effectWorking>
+					<soundWorking>Recipe_Cremate</soundWorking>
+					<workAmount>900</workAmount>
+					<recipeUsers>
+						<!--
+						<li>RB_Honey_Centrifuge</li>
+						<li>RB_Advanced_Honey_Centrifuge</li>
+						<li MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</li>
+						-->
+					</recipeUsers>	
+					<ingredients>
+						<li>
+							<filter>
+								<thingDefs>
+									<li>TSP_RB_Beeliever_Gravy_Honeycomb</li>
+								</thingDefs>
+							</filter>
+							<count>1</count>
+						</li>
+					</ingredients>
+					<fixedIngredientFilter>
+						<thingDefs>
+							<li>TSP_RB_Beeliever_Gravy_Honeycomb</li>
+						</thingDefs>
+					</fixedIngredientFilter>
+					<specialProducts>
+						<li>Butchery</li>
+					</specialProducts>
+					<skillRequirements></skillRequirements>
+					<researchPrerequisites>
+						<li>RB_BasicBeekeeping</li>
+					</researchPrerequisites>
+				</RecipeDef>
+			</value>
+		</match>
+	</Operation>
+</Patch>

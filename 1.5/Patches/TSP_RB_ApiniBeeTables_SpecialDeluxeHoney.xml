@@ -37,22 +37,22 @@
 			<value>
 				<ThingDef ParentName="ResourceBase">
 					<defName>TSP_Apini_DeluxeHoney_Spawner</defName>
-					<label>Apini Deluxe Honey</label>
-					<description>Deluxe Apini Slaver Bees have mastered the botanical ability of creatinmg exotic forms of honey that are normally unique to the Apini race of bees. Any form of Apini Honey or Apini Nectar is capable of being produced by these slave-making bees, but the beekeeper does not have a means of choosing what comes out when he harvests it.</description>
+					<label>Apini Deluxe Nectar</label>
+					<description>Deluxe Apini Slaver Bees have mastered the botanical ability of creatinmg exotic forms of honey that are normally unique to the Apini race of bees. Any form of Apini Nectar is capable of being produced by these slave-making bees, but the beekeeper does not have a means of choosing what comes out when he harvests it.</description>
 					<descriptionHyperlinks>
 						<ThingDef>RB_Bee_Apini_Random_Queen</ThingDef>
 						<ThingDef>RB_Bee_Apini_Random_Drone</ThingDef>
 						<ThingDef>TSP_RB_Beeliever_SlaveryOfApini_Random_Honeycomb</ThingDef>
 						<ThingDef>TSP_Apini_DeluxeHoney_Spawner</ThingDef>
-						<ThingDef>ApiniHoney</ThingDef>
-						<ThingDef>ApiniHoney_F</ThingDef>
-						<ThingDef>ApiniHoney_E</ThingDef>
-						<ThingDef>ApiniHoney_M</ThingDef>
-						<ThingDef>ApiniHoney_B</ThingDef>
-						<ThingDef>ApiniHoney_R</ThingDef>
-						<ThingDef>ApiniHoney_W</ThingDef>
-						<ThingDef>ApiniHoney_V</ThingDef>
-						<ThingDef>NpiniMeatHoney</ThingDef>
+						<ThingDef>ApiniNectar</ThingDef>
+						<ThingDef>ApiniNectar_F</ThingDef>
+						<ThingDef>ApiniNectar_E</ThingDef>
+						<ThingDef>ApiniNectar_M</ThingDef>
+						<ThingDef>ApiniNectar_B</ThingDef>
+						<ThingDef>ApiniNectar_R</ThingDef>
+						<ThingDef>ApiniNectar_W</ThingDef>
+						<ThingDef>ApiniNectar_V</ThingDef>
+						<!-- <ThingDef>NpiniMeatHoney</ThingDef> -->
 						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
 					</descriptionHyperlinks>
 					<fillPercent>0.01</fillPercent>
@@ -84,7 +84,7 @@
 						<li Class="RimBees.CompProperties_RandomItemSpawner">
 							<amount>7</amount>
 							<categories>
-								<li>HoneyCategory</li>
+								<!-- <li>HoneyCategory</li> -->
 								<li>ApiniNectarCategory</li>
 								<!-- <li>ApiniPollenBall</li> -->
 							</categories>
