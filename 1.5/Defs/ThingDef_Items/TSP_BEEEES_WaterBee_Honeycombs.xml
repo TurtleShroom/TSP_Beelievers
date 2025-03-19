@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<Defs>
+	<ThingDef ParentName="RB_CombBase">
+		<defName>TSP_RB_Beeliever_Water_Honeycomb</defName>
+		<label>Water Bee dew honeycomb</label>
+		<description>The honey of Water Bees is diluted by water and other liquids, but still yields plenty of blue honey. Almost all bees use water to cool invidiual combs where bee larvae grow. \n \n \n(A player with the Dubs Bad Hygiene Mod can use the dew contained in Water Bee Honeycombs to satiate the thirst of his Pawns!)</description>
+		<descriptionHyperlinks>
+			<!-- <ResearchProjectDef>ST_GnomeCulture</ResearchProjectDef> -->
+			<ThingDef>RB_Bee_Water_Queen</ThingDef>
+			<ThingDef>RB_Bee_Water_Drone</ThingDef>
+			<!-- <ThingDef>TSP_RB_Beeliever_Water_Honeycomb</ThingDef> -->
+			<RecipeDef>TSP_RB_Beeliever_Centrifuge_Water_Honeycomb</RecipeDef>
+			<ThingDef>RB_BlueHoney</ThingDef>
+			<ThingDef>RB_BlueBeeswax</ThingDef>
+			<ThingDef>Filth_Water</ThingDef>
+			<!--
+			<ThingDef>TSP_ST_GnomeHoney</ThingDef>
+			<ThingDef>TSP_ST_RB_WildHive_Gnome</ThingDef>
+			<RecipeDef>TSP_ST_RB_Gneehive_Extract</RecipeDef>
+			-->
+			<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+		</descriptionHyperlinks>
+		<graphicData Inherit="False">
+			<texPath>Things/Pawn/Animal/Bug_Types/Bee/Honeycombs/TSP_RB_Mantodean_VariousJelly_Honeycomb</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<color>(102,203,224)</color>
+		</graphicData>
+		<statBases>
+			<Mass>0.001</Mass>
+			<Nutrition>0.01</Nutrition> <!-- Just a cool drink of water -->
+			<MarketValue>0.01</MarketValue>
+		</statBases>
+		<ingestible>
+			<foodType>Liquor, Fluid, Kibble</foodType> <!-- Animals can drink it too -->
+			<preferability>NeverForNutrition</preferability>
+			<babiesCanIngest>true</babiesCanIngest>
+			<nurseable>false</nurseable>
+			<ingestSound>Ingest_Beer</ingestSound>
+			<ingestHoldOffsetStanding>
+				<northDefault>
+					<offset>(0.18,0,0)</offset>
+				</northDefault>
+			</ingestHoldOffsetStanding>
+			<ingestCommandString>Suck dew from {0}</ingestCommandString>
+			<ingestReportString>Drinking {0} dew.</ingestReportString>
+			<chairSearchRadius>5</chairSearchRadius>
+		</ingestible>
+		<thingCategories>
+			<li>TSP_RB_Beeliever_Honeycombs</li>
+		</thingCategories>
+		<butcherProducts>
+			<RB_BlueHoney>5</RB_BlueHoney>
+			<RB_BlueBeeswax>5</RB_BlueBeeswax>
+			<Filth_Water>6</Filth_Water>
+			<DBH_WaterBottle MayRequire="dubwise.dubsbadhygiene">2</DBH_WaterBottle>
+		</butcherProducts>
+		<modExtensions>
+			<li Class="DubsBadHygiene.WaterExt" MayRequire="dubwise.dubsbadhygiene">
+				<water>2</water>
+				<UseForWashing>true</UseForWashing>
+				<SeekForThirst>true</SeekForThirst>
+			</li>
+		</modExtensions>
+	</ThingDef>
+	
+	<RecipeDef>
+		<defName>TSP_RB_Beeliever_Centrifuge_Water_Honeycomb</defName>
+		<label>extract from Water Bee honeycomb</label>
+		<description>Extracts Blue Honey and Blue Beeswax from the soaked honeycombs of the Water Bees. Spilling water on the floor is a certainy.</description>
+		<descriptionHyperlinks>
+			<!-- <ResearchProjectDef>ST_GnomeCulture</ResearchProjectDef> -->
+			<ThingDef>RB_Bee_Water_Queen</ThingDef>
+			<ThingDef>RB_Bee_Water_Drone</ThingDef>
+			<ThingDef>TSP_RB_Beeliever_Water_Honeycomb</ThingDef>
+			<ThingDef>RB_BlueBeeswax</ThingDef>
+			<ThingDef>RB_BlueHoney</ThingDef>
+			<ThingDef>Filth_Water</ThingDef>
+			<!-- <RecipeDef>TSP_RB_Beeliever_Centrifuge_Water_Honeycomb</RecipeDef> -->
+			<!--
+			<ThingDef>TSP_ST_GnomeHoney</ThingDef>
+			<ThingDef>TSP_ST_RB_WildHive_Gnome</ThingDef>
+			<RecipeDef>TSP_ST_RB_Gneehive_Extract</RecipeDef>
+			-->
+			<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+		</descriptionHyperlinks>
+		<uiIconThing>Filth_Water</uiIconThing>
+		<jobString>Extracting from watery honeycombs.</jobString>
+		<effectWorking>Cremate</effectWorking>
+		<soundWorking>Recipe_Cremate</soundWorking>
+		<workAmount>900</workAmount>
+		<recipeUsers IsNull="True" Inherit="False"></recipeUsers>	
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>TSP_RB_Beeliever_Water_Honeycomb</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>TSP_RB_Beeliever_Water_Honeycomb</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<specialProducts>
+			<li>Butchery</li>
+		</specialProducts>
+		<skillRequirements></skillRequirements>
+		<researchPrerequisites>
+			<li>RB_BasicBeekeeping</li>
+		</researchPrerequisites>
+	</RecipeDef>
+</Defs>

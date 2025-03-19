@@ -22,8 +22,20 @@
 		<beeDroneDef>RB_Bee_Bleary_Drone</beeDroneDef>
 		<beeQueenDef>RB_Bee_Bleary_Queen</beeQueenDef>
 		<!--
-		<beeQueenTag>RB_Bee_Slaver_Queen_Tag</beeQueenTag>
-		<beeDroneTag>RB_Bee_Slaver_Drone_Tag</beeDroneTag>
+		<beeQueenTag>RB_Bee_Bleary_Queen_Tag</beeQueenTag>
+		<beeDroneTag>RB_Bee_Bleary_Drone_Tag</beeDroneTag>
+		-->
+	</RimBees.BeeListDef>
+	
+	<!-- Adaptive Bee Branch (from base Mod) -->
+	<RimBees.BeeListDef>
+		<defName>TSP_RB_Beeliever_WaterBee1_List</defName>
+		<nameString>Water</nameString>
+		<beeDroneDef>RB_Bee_Water_Drone</beeDroneDef>
+		<beeQueenDef>RB_Bee_Water_Queen</beeQueenDef>
+		<!--
+		<beeQueenTag>RB_Bee_Water_Queen_Tag</beeQueenTag>
+		<beeDroneTag>RB_Bee_Water_Drone_Tag</beeDroneTag>
 		-->
 	</RimBees.BeeListDef>
 </Defs>
