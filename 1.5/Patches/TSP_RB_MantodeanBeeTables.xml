@@ -1952,8 +1952,8 @@
 						<li>TSP_RB_Beeliever_Mantodean_Honeycombs</li>
 					</thingCategories>
 					<butcherProducts>
-						<L24_Manto_TwistedJelly>12</L24_Manto_TwistedJelly>
-						<L24_Meat_Mantodean>3</L24_Meat_Mantodean>
+						<L24_Manto_TwistedJelly>35</L24_Manto_TwistedJelly>
+						<L24_Meat_Mantodean>5</L24_Meat_Mantodean>
 						<L24_Manto_Carapace>5</L24_Manto_Carapace>
 						<RB_PsychotropicHoney>2</RB_PsychotropicHoney>
 					</butcherProducts>
@@ -2260,7 +2260,7 @@
 			<success>Always</success>
 			<xpath>/Defs/ThingDef[defName="L24_Manto_TwistedJelly"]/statBases/Nutrition</xpath>
 			<value>
-				<Nutrition>0.19</Nutrition>
+				<Nutrition>0.22</Nutrition>
 			</value>
 		</match>
 		<!-- If it DOES NOT, add this instead. -->
@@ -2268,7 +2268,7 @@
 			<xpath>/Defs/ThingDef[defName="L24_Manto_TwistedJelly"]/statBases</xpath>
 			<success>Always</success>
 			<value>
-				<Nutrition>0.19</Nutrition>
+				<Nutrition>0.22</Nutrition>
 			</value>
 		</nomatch>
 		<!-- If the first XPATH does not exist, the original code stands. -->

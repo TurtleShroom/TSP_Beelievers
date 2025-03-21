@@ -9,7 +9,7 @@
 			<graphicClass>Graphic_Single</graphicClass>
 		</graphicData>
 		-->
-		<description>Water Bees are resistant to getting wet and can take off and fly, even in the rain. They will not deteriorate outdoors unless they freeze, as they are extremely sensitive to cold. Water Bees love the rain and thrive in moist environments. \n\n\n\n\n Bee Traits: \n\n 	Production time: 12 hours \n 	Works at Night: No \n 	Works When Raining: Yes \n 	Unusual Sources Needed: No \n 	Minimum Temperature: 32ºF (0ºC) \n 	Maximum temperature: 97ºF (36.1111ºC) \n \n (A player with the Dubs Bad Hygiene Mod can use Water Bees and Water Bee Honeycombs to satiate the thirst of his Pawns!)</description>
+		<description>Water Bees are resistant to getting wet and can take off and fly, even in the rain. They will not deteriorate outdoors unless they freeze, as they are extremely sensitive to cold. Water Bees love the rain and thrive in moist environments. \n\n\n\n\n Bee Traits: \n\n 	Production time: 12 hours \n 	Works at Night: Yes \n 	Works When Raining: Yes \n 	Unusual Sources Needed: No \n 	Minimum Temperature: 32ºF (0ºC) \n 	Maximum temperature: 97ºF (36.1111ºC) \n \n (A player with the Dubs Bad Hygiene Mod can use Water Bees and Water Bee Honeycombs to satiate the thirst of his Pawns!)</description>
 		<statBases>
 			<DeteriorationRate>0</DeteriorationRate>
 		</statBases>
@@ -24,7 +24,7 @@
 				<species>Water</species>
 				<comb>TSP_RB_Beeliever_Water_Honeycomb</comb>
 				<combtimedays>0.5</combtimedays>
-				<nocturnal>false</nocturnal> <!-- Works at night -->
+				<nocturnal>true</nocturnal> <!-- Works at night -->
 				<pluviophile>true</pluviophile> <!-- Works in the rain -->
 				<weirdplantneeded>no</weirdplantneeded>
 				<tempMin>-0</tempMin> <!-- Freezing -->
