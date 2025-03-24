@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<Patch>
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>/Defs/TraderKindDef[defName="Caravan_Raider_StolenGoods"]/stockGenerators</xpath>
+		<!-- If it does, add this. -->
+		<match Class="PatchOperationAdd">
+			<xpath>/Defs/TraderKindDef[defName="Caravan_Raider_StolenGoods"]/stockGenerators</xpath>
+			<success>Always</success>
+			<value>
+				<li Class="StockGenerator_SingleDef">
+					<thingDef>RB_Bee_Slaver_Queen</thingDef>
+					<price>Expensive</price>
+					<countRange>1~17</countRange>
+				</li>
+				<li Class="StockGenerator_SingleDef">
+					<thingDef>RB_Bee_Slaver_Drone</thingDef>
+					<price>Expensive</price>
+					<countRange>1~17</countRange>
+				</li>
+			</value>
+		</match>
+		<!-- If the first XPATH does not exist, the original code stands. -->
+	</Operation>
+	
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>/Defs/TraderKindDef[defName="Caravan_Raider_Slaver"]/stockGenerators</xpath>
+		<!-- If it does, add this. -->
+		<match Class="PatchOperationAdd">
+			<xpath>/Defs/TraderKindDef[defName="Caravan_Raider_Slaver"]/stockGenerators</xpath>
+			<success>Always</success>
+			<value>
+				<li Class="StockGenerator_SingleDef">
+					<thingDef>RB_Bee_Slaver_Queen</thingDef>
+					<price>Expensive</price>
+					<countRange>1~17</countRange>
+				</li>
+				<li Class="StockGenerator_SingleDef">
+					<thingDef>RB_Bee_Slaver_Drone</thingDef>
+					<price>Expensive</price>
+					<countRange>1~17</countRange>
+				</li>
+			</value>
+		</match>
+		<!-- If the first XPATH does not exist, the original code stands. -->
+	</Operation>
+	
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>/Defs/TraderKindDef[defName="Caravan_Storytime_Pirate"]/stockGenerators</xpath>
+		<!-- If it does, add this. -->
+		<match Class="PatchOperationAdd">
+			<xpath>/Defs/TraderKindDef[defName="Caravan_Storytime_Pirate"]/stockGenerators</xpath>
+			<success>Always</success>
+			<value>
+				<li Class="StockGenerator_SingleDef">
+					<thingDef>RB_Bee_Slaver_Queen</thingDef>
+					<price>Expensive</price>
+					<countRange>1~17</countRange>
+				</li>
+				<li Class="StockGenerator_SingleDef">
+					<thingDef>RB_Bee_Slaver_Drone</thingDef>
+					<price>Expensive</price>
+					<countRange>1~17</countRange>
+				</li>
+			</value>
+		</match>
+		<!-- If the first XPATH does not exist, the original code stands. -->
+	</Operation>
+	
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>/Defs/TraderKindDef[defName="Caravan_Neolithic_Slaver"]/stockGenerators</xpath>
+		<!-- If it does, add this. -->
+		<match Class="PatchOperationAdd">
+			<xpath>/Defs/TraderKindDef[defName="Caravan_Neolithic_Slaver"]/stockGenerators</xpath>
+			<success>Always</success>
+			<value>
+				<li Class="StockGenerator_SingleDef">
+					<thingDef>RB_Bee_Slaver_Queen</thingDef>
+					<price>Expensive</price>
+					<countRange>1~17</countRange>
+				</li>
+				<li Class="StockGenerator_SingleDef">
+					<thingDef>RB_Bee_Slaver_Drone</thingDef>
+					<price>Expensive</price>
+					<countRange>1~17</countRange>
+				</li>
+			</value>
+		</match>
+		<!-- If the first XPATH does not exist, the original code stands. -->
+	</Operation>
+	
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>/Defs/TraderKindDef[defName="Caravan_Outlander_PirateMerchant"]/stockGenerators</xpath>
+		<!-- If it does, add this. -->
+		<match Class="PatchOperationAdd">
+			<xpath>/Defs/TraderKindDef[defName="Caravan_Outlander_PirateMerchant"]/stockGenerators</xpath>
+			<success>Always</success>
+			<value>
+				<li Class="StockGenerator_SingleDef">
+					<thingDef>RB_Bee_Slaver_Queen</thingDef>
+					<price>Expensive</price>
+					<countRange>1~17</countRange>
+				</li>
+				<li Class="StockGenerator_SingleDef">
+					<thingDef>RB_Bee_Slaver_Drone</thingDef>
+					<price>Expensive</price>
+					<countRange>1~17</countRange>
+				</li>
+			</value>
+		</match>
+		<!-- If the first XPATH does not exist, the original code stands. -->
+	</Operation>
+	
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>/Defs/TraderKindDef[defName="Orbital_PirateMerchant"]/stockGenerators</xpath>
+		<!-- If it does, add this. -->
+		<match Class="PatchOperationAdd">
+			<xpath>/Defs/TraderKindDef[defName="Orbital_PirateMerchant"]/stockGenerators</xpath>
+			<success>Always</success>
+			<value>
+				<li Class="StockGenerator_SingleDef">
+					<thingDef>RB_Bee_Slaver_Queen</thingDef>
+					<price>Expensive</price>
+					<countRange>17~57</countRange>
+				</li>
+				<li Class="StockGenerator_SingleDef">
+					<thingDef>RB_Bee_Slaver_Drone</thingDef>
+					<price>Expensive</price>
+					<countRange>17~57</countRange>
+				</li>
+			</value>
+		</match>
+		<!-- If the first XPATH does not exist, the original code stands. -->
+	</Operation>
+	
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>/Defs/TraderKindDef[defName="Caravan_Neolithic_Odd"]/stockGenerators</xpath>
+		<!-- If it does, add this. -->
+		<match Class="PatchOperationAdd">
+			<xpath>/Defs/TraderKindDef[defName="Caravan_Neolithic_Odd"]/stockGenerators</xpath>
+			<success>Always</success>
+			<value>
+				<li Class="StockGenerator_SingleDef">
+					<thingDef>RB_Bee_Slaver_Queen</thingDef>
+					<price>Expensive</price>
+					<countRange>1~17</countRange>
+				</li>
+				<li Class="StockGenerator_SingleDef">
+					<thingDef>RB_Bee_Slaver_Drone</thingDef>
+					<price>Expensive</price>
+					<countRange>1~17</countRange>
+				</li>
+			</value>
+		</match>
+		<!-- If the first XPATH does not exist, the original code stands. -->
+	</Operation>
+	
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>/Defs/TraderKindDef[defName="FactionBase_GTGBlackMarket"]/stockGenerators</xpath>
+		<!-- If it does, add this. -->
+		<match Class="PatchOperationAdd">
+			<xpath>/Defs/TraderKindDef[defName="FactionBase_GTGBlackMarket"]/stockGenerators</xpath>
+			<success>Always</success>
+			<value>
+				<li Class="StockGenerator_SingleDef">
+					<thingDef>RB_Bee_Slaver_Queen</thingDef>
+					<price>Expensive</price>
+					<countRange>1~17</countRange>
+				</li>
+				<li Class="StockGenerator_SingleDef">
+					<thingDef>RB_Bee_Slaver_Drone</thingDef>
+					<price>Expensive</price>
+					<countRange>1~17</countRange>
+				</li>
+			</value>
+		</match>
+		<!-- If the first XPATH does not exist, the original code stands. -->
+	</Operation>
+	
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>/Defs/TraderKindDef[defName="Visitor_GTGBlackMarket"]/stockGenerators</xpath>
+		<!-- If it does, add this. -->
+		<match Class="PatchOperationAdd">
+			<xpath>/Defs/TraderKindDef[defName="Visitor_GTGBlackMarket"]/stockGenerators</xpath>
+			<success>Always</success>
+			<value>
+				<li Class="StockGenerator_SingleDef">
+					<thingDef>RB_Bee_Slaver_Queen</thingDef>
+					<price>Expensive</price>
+					<countRange>1~1</countRange>
+				</li>
+				<li Class="StockGenerator_SingleDef">
+					<thingDef>RB_Bee_Slaver_Drone</thingDef>
+					<price>Expensive</price>
+					<countRange>1~1</countRange>
+				</li>
+			</value>
+		</match>
+		<!-- If the first XPATH does not exist, the original code stands. -->
+	</Operation>
+	
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>/Defs/TraderKindDef[defName="Orbital_GTGBlackMarket"]/stockGenerators</xpath>
+		<!-- If it does, add this. -->
+		<match Class="PatchOperationAdd">
+			<xpath>/Defs/TraderKindDef[defName="Orbital_GTGBlackMarket"]/stockGenerators</xpath>
+			<success>Always</success>
+			<value>
+				<li Class="StockGenerator_SingleDef">
+					<thingDef>RB_Bee_Slaver_Queen</thingDef>
+					<price>Expensive</price>
+					<countRange>1~17</countRange>
+				</li>
+				<li Class="StockGenerator_SingleDef">
+					<thingDef>RB_Bee_Slaver_Drone</thingDef>
+					<price>Expensive</price>
+					<countRange>1~17</countRange>
+				</li>
+			</value>
+		</match>
+		<!-- If the first XPATH does not exist, the original code stands. -->
+	</Operation>
+	
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>/Defs/TraderKindDef[defName="VFEM2_Base_Medieval_Standard"]/stockGenerators</xpath>
+		<!-- If it does, add this. -->
+		<match Class="PatchOperationAdd">
+			<xpath>/Defs/TraderKindDef[defName="VFEM2_Base_Medieval_Standard"]/stockGenerators</xpath>
+			<success>Always</success>
+			<value>
+				<li Class="StockGenerator_SingleDef">
+					<thingDef>RB_Bee_Slaver_Queen</thingDef>
+					<price>Expensive</price>
+					<countRange>1~17</countRange>
+				</li>
+				<li Class="StockGenerator_SingleDef">
+					<thingDef>RB_Bee_Slaver_Drone</thingDef>
+					<price>Expensive</price>
+					<countRange>1~17</countRange>
+				</li>
+			</value>
+		</match>
+		<!-- If the first XPATH does not exist, the original code stands. -->
+	</Operation>
+	
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>/Defs/TraderKindDef[defName="VFEM2_Caravan_Looter"]/stockGenerators</xpath>
+		<!-- If it does, add this. -->
+		<match Class="PatchOperationAdd">
+			<xpath>/Defs/TraderKindDef[defName="VFEM2_Caravan_Looter"]/stockGenerators</xpath>
+			<success>Always</success>
+			<value>
+				<li Class="StockGenerator_SingleDef">
+					<thingDef>RB_Bee_Slaver_Queen</thingDef>
+					<price>Expensive</price>
+					<countRange>1~17</countRange>
+				</li>
+				<li Class="StockGenerator_SingleDef">
+					<thingDef>RB_Bee_Slaver_Drone</thingDef>
+					<price>Expensive</price>
+					<countRange>1~17</countRange>
+				</li>
+			</value>
+		</match>
+		<!-- If the first XPATH does not exist, the original code stands. -->
+	</Operation>
+	
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>/Defs/TraderKindDef[defName="ArkGoods"]/stockGenerators</xpath>
+		<!-- If it does, add this. -->
+		<match Class="PatchOperationAdd">
+			<xpath>/Defs/TraderKindDef[defName="ArkGoods"]/stockGenerators</xpath>
+			<success>Always</success>
+			<value>
+				<li Class="StockGenerator_SingleDef">
+					<thingDef>RB_Bee_Slaver_Queen</thingDef>
+					<price>Expensive</price>
+					<countRange>1~17</countRange>
+				</li>
+				<li Class="StockGenerator_SingleDef">
+					<thingDef>RB_Bee_Slaver_Drone</thingDef>
+					<price>Expensive</price>
+					<countRange>1~17</countRange>
+				</li>
+			</value>
+		</match>
+		<!-- If the first XPATH does not exist, the original code stands. -->
+	</Operation>
+</Patch>
