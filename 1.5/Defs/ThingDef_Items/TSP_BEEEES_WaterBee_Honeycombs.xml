@@ -46,14 +46,14 @@
 			<ingestReportString>Drinking {0} dew.</ingestReportString>
 			<chairSearchRadius>5</chairSearchRadius>
 		</ingestible>
-		<thingCategories>
+		<thingCategories Inherit="False">
 			<li>TSP_RB_Beeliever_Honeycombs</li>
 		</thingCategories>
 		<butcherProducts>
 			<RB_BlueHoney>5</RB_BlueHoney>
 			<RB_BlueBeeswax>5</RB_BlueBeeswax>
 			<Filth_Water>6</Filth_Water>
-			<DBH_WaterBottle MayRequire="dubwise.dubsbadhygiene">2</DBH_WaterBottle>
+			<DBH_WaterBottle MayRequire="dubwise.dubsbadhygiene">4</DBH_WaterBottle>
 		</butcherProducts>
 		<modExtensions>
 			<li Class="DubsBadHygiene.WaterExt" MayRequire="dubwise.dubsbadhygiene">

@@ -46,7 +46,7 @@
 					<thingCategories>
 						<li>VV_ViviResource</li>
 					</thingCategories>
-					<tradeTags Inherit="False"></tradeTags>
+					<tradeTags></tradeTags>
 				</ThingDef>
 				
 				<ThingDef ParentName="TSP_RB_Beeliever_ViviBase" Name="TSP_RB_Beeliever_ViviBase_Comps" Abstract="True">
@@ -129,7 +129,7 @@
 						<!-- <color>(159,75,27)</color> -->
 						<color>(254,253,39)</color>
 					</graphicData>
-					<thingCategories>
+					<thingCategories Inherit="False">
 						<li>TSP_RB_Beeliever_Honeycombs</li>
 						<li>VV_ViviResource</li>
 					</thingCategories>
@@ -197,7 +197,7 @@
 					</specialProducts>
 					<skillRequirements></skillRequirements>
 					<researchPrerequisites>
-						<li>RB_BasicBeekeeping</li>
+						
 					</researchPrerequisites>
 				</RecipeDef>
 
@@ -235,7 +235,9 @@
 					</graphicData>
 					-->
 					<thingCategories></thingCategories> <!-- Inherits from the Base -->
-					<tradeTags Inherit="False"></tradeTags>
+					<tradeTags>
+						<li>VV_ViviResource</li>
+					</tradeTags>
 					<comps>			
 						<li Class="RimBees.CompProperties_Bees" Inherit="False">
 							<species>Vivicream</species>
@@ -314,7 +316,7 @@
 						<graphicClass>Graphic_Single</graphicClass>
 						<color>(254,253,239)</color>
 					</graphicData>
-					<thingCategories>
+					<thingCategories Inherit="False">
 						<li>TSP_RB_Beeliever_Honeycombs</li>
 						<li>VV_ViviResource</li>
 					</thingCategories>
@@ -382,7 +384,7 @@
 					</specialProducts>
 					<skillRequirements></skillRequirements>
 					<researchPrerequisites>
-						<li>RB_BasicBeekeeping</li>
+						
 					</researchPrerequisites>
 				</RecipeDef>
 				
@@ -500,7 +502,7 @@
 						<graphicClass>Graphic_Single</graphicClass>
 						<color>(254,253,239)</color>
 					</graphicData>
-					<thingCategories>
+					<thingCategories Inherit="False">
 						<li>TSP_RB_Beeliever_Honeycombs</li>
 						<li>VV_ViviResource</li>
 					</thingCategories>
@@ -568,7 +570,7 @@
 					</specialProducts>
 					<skillRequirements></skillRequirements>
 					<researchPrerequisites>
-						<li>RB_BasicBeekeeping</li>
+						
 					</researchPrerequisites>
 				</RecipeDef>
 			</value>

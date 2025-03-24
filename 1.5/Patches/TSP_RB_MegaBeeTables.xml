@@ -123,7 +123,7 @@
 						<graphicClass>Graphic_Single</graphicClass>
 						<color>(200,200,50)</color>
 					</graphicData>	
-					<thingCategories>
+					<thingCategories Inherit="False">
 						<li>TSP_RB_Beeliever_Honeycombs</li>
 					</thingCategories>
 					<butcherProducts>
@@ -184,7 +184,7 @@
 					</specialProducts>
 					<skillRequirements></skillRequirements>
 					<researchPrerequisites>
-						<li>RB_BasicBeekeeping</li>
+						
 					</researchPrerequisites>
 				</RecipeDef>7
 				
@@ -298,7 +298,7 @@
 						<graphicClass>Graphic_Single</graphicClass>
 						<color>(200,200,50)</color>
 					</graphicData>	
-					<thingCategories>
+					<thingCategories Inherit="False">
 						<li>TSP_RB_Beeliever_Honeycombs</li>
 					</thingCategories>
 					<butcherProducts>
@@ -360,10 +360,38 @@
 					</specialProducts>
 					<skillRequirements></skillRequirements>
 					<researchPrerequisites>
-						<li>RB_BasicBeekeeping</li>
+						
 					</researchPrerequisites>
 				</RecipeDef>
 			</value>
 		</match>
+	</Operation>
+	
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>/Defs/ThingDef[defName="Megabee"]</xpath>
+		<!-- If it does, do this replacement. -->
+		<match Class="PatchOperationReplace">
+			<success>Always</success>
+			<xpath>/Defs/ThingDef[defName="MegabeeTallow"]/label</xpath>
+			<value>
+				<label>Mega Bee honey</label>
+			</value>
+		</match>
+		<!-- If the first XPATH does not exist, the original code stands. All according to plan. -->
+	</Operation>
+	
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>/Defs/ThingDef[defName="MegabeeTallow"]/ingestible/preferability</xpath>
+		<!-- If it does, do this replacement. -->
+		<match Class="PatchOperationReplace">
+			<success>Always</success>
+			<xpath>/Defs/ThingDef[defName="MegabeeTallow"]/ingestible/preferability</xpath>
+			<value>
+				<preferability>RawTasty</preferability>
+			</value>
+		</match>
+		<!-- If the first XPATH does not exist, the original code stands. All according to plan. -->
 	</Operation>
 </Patch>

@@ -136,7 +136,7 @@
 						<shaderType>CutoutComplex</shaderType>
 						<color>(87,61,36)</color>
 					</graphicData>
-					<thingCategories>
+					<thingCategories Inherit="False">
 						<li>TSP_RB_Beeliever_Honeycombs</li>
 					</thingCategories>
 					<butcherProducts>
@@ -196,7 +196,7 @@
 					</specialProducts>
 					<skillRequirements></skillRequirements>
 					<researchPrerequisites>
-						<li>RB_BasicBeekeeping</li>
+						
 					</researchPrerequisites>
 				</RecipeDef>
 				
@@ -245,6 +245,11 @@
 							<weirdplantneeded>no</weirdplantneeded>
 							<tempMin>-17.778</tempMin> <!-- Zero degrees -->
 							<tempMax>36.1111</tempMax> <!-- Ninety-seven degrees -->
+							<additionalBeeEffects>
+								<li Class="RimBees.AdditionalBeeEffects_CleanArea">
+									<rareTickFrequency>14</rareTickFrequency>
+								</li>
+							</additionalBeeEffects>
 						</li>   
 					</comps>
 				</ThingDef>
@@ -314,7 +319,7 @@
 						<graphicClass>Graphic_Single</graphicClass>
 						<color>(255,255,255)</color>
 					</graphicData>
-					<thingCategories>
+					<thingCategories Inherit="False">
 						<li>TSP_RB_Beeliever_Honeycombs</li>
 					</thingCategories>
 					<butcherProducts>
@@ -376,7 +381,7 @@
 					</specialProducts>
 					<skillRequirements></skillRequirements>
 					<researchPrerequisites>
-						<li>RB_BasicBeekeeping</li>
+						
 					</researchPrerequisites>
 				</RecipeDef>
 			</value>

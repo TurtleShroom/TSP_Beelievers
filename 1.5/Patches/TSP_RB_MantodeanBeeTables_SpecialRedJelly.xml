@@ -162,4 +162,33 @@
 			</value>
 		</match>
 	</Operation>
+	
+	<!-- Add comps field to Settlement WorldObjectDef if it doesn't exist -->
+	<Operation Class="PatchOperationConditional">
+		<xpath>/Defs/ThingDef[defName="L24_Manto_RedJelly"]/thingCategories</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>/Defs/ThingDef[defName="L24_Manto_RedJelly"]</xpath>
+			<success>Always</success>
+			<value>
+				<thingCategories></thingCategories>
+			</value>
+		</nomatch>
+	</Operation>
+	
+	<Operation Class="PatchOperationConditional">
+		<!-- Does this exist? -->
+		<xpath>/Defs/ThingDef[defName="L24_Manto_RedJelly"]/thingCategories</xpath>
+		<!-- If it does, do this replacement. -->
+		<match Class="PatchOperationReplace">
+			<success>Always</success>
+			<xpath>/Defs/ThingDef[defName="L24_Manto_RedJelly"]/thingCategories</xpath>
+			<value>
+				<thingCategories Inherit="False">
+					<li>L24_Manto_Drug</li>
+					<li>TSP_RB_Beeliever_HiddenCategorySpawn_RedJelly</li>
+				</thingCategories>
+			</value>
+		</match>
+		<!-- If the first XPATH does not exist, the original code stands. -->
+	</Operation>
 </Patch>

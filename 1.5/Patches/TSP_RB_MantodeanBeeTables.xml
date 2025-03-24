@@ -2273,4 +2273,18 @@
 		</nomatch>
 		<!-- If the first XPATH does not exist, the original code stands. -->
 	</Operation>
+	
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>/Defs/ThingDef[defName="L24_Manto_TwistedJelly"]</xpath>
+		<!-- If it does, add this. -->
+		<match Class="PatchOperationAdd">
+			<xpath>/Defs/ThingDef/comps/li/customThingToEat</xpath>
+			<success>Always</success>
+			<value>
+				<li>L24_Manto_TwistedJelly</li>
+			</value>
+		</match>
+		<!-- If the first XPATH does not exist, the original code stands. -->
+	</Operation>
 </Patch>

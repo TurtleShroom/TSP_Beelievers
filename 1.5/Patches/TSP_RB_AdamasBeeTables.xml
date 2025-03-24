@@ -121,7 +121,7 @@
 						<graphicClass>Graphic_Single</graphicClass>
 						<color>(251,174,52)</color>
 					</graphicData>	
-					<thingCategories>
+					<thingCategories Inherit="False">
 						<li>TSP_RB_Beeliever_Honeycombs</li>
 					</thingCategories>
 					<butcherProducts>
@@ -179,7 +179,7 @@
 					</specialProducts>
 					<skillRequirements></skillRequirements>
 					<researchPrerequisites>
-						<li>RB_BasicBeekeeping</li>
+						
 					</researchPrerequisites>
 				</RecipeDef>
 			</value>

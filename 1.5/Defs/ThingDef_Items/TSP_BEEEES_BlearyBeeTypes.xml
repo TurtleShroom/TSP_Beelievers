@@ -19,8 +19,13 @@
 				<weirdplantneeded>no</weirdplantneeded>
 				<tempMin>-1.5</tempMin> <!-- Slightly below freezing -->
 				<tempMax>50</tempMax> <!-- Halfway to boiling. -->
-				<additionalBeeEffects>
+				<additionalBeeEffects Inherit="False">
 					<li Class="RimBees.AdditionalBeeEffects_Damage">
+						<damage>TSP_Beelievers_BlearySting</damage>
+						<amount>23</amount>
+					</li>
+					<li Class="RimBees.AdditionalBeeEffects_LowerPrisonerResistance">
+						<rareTickFrequency>200</rareTickFrequency>
 						<damage>TSP_Beelievers_BlearySting</damage>
 						<amount>23</amount>
 					</li>
