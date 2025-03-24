@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<Patch>
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>/Defs/ThingDef[defName="VCE_Flour"]</xpath>
+		<!-- If it does, add this. -->
+		<match Class="PatchOperationAdd">
+			<xpath>/Defs</xpath>
+			<success>Always</success>
+			<value>
+				<!-- Vanilla Factions Expanded Cooking Branch -->
+				<!-- Sugar Bees: Makes Sugar! -->
+				<RimBees.BeeListDef>
+					<defName>TSP_RB_Beeliever_VFE_Cook_Bee1_Sugar</defName>
+					<nameString>Sugar</nameString>
+					<beeDroneDef>RB_Bee_Sugar_Drone</beeDroneDef>
+					<beeQueenDef>RB_Bee_Sugar_Queen</beeQueenDef>
+					<!--
+					<beeQueenTag>RB_Bee_VFEC_Queen_Tag</beeQueenTag>
+					<beeDroneTag>RB_Bee_VFEC_Drone_Tag</beeDroneTag>
+					-->
+				</RimBees.BeeListDef>
+				
+				<!--
+				<RimBees.BeeCombinationDef>
+					<defName>TSP_RB_Beelievers_VFE_Cook_Tables1</defName>
+					<bee1>Agricultural</bee1>
+					<bee2>Bittersweet</bee2>
+					<result>
+						<li>Baker</li>
+						<li>Sugar</li>
+					</result>		
+				</RimBees.BeeCombinationDef>
+				-->
+			
+				<ThingDef ParentName="TSP_RB_Beeliever_MasterBeeBase" Name="TSP_RB_Beeliever_SugarBase" Abstract="True">
+					<!-- <label>Sugar Bee</label> -->
+					<description>Closely related to Agricultural Bees, Sugar Bees double down on the immense fructose in their honey, making it almost sickeningly sweet. \n\n\n\n\n Bee Traits: \n\n 	Production time: 12 hours \n 	Works at Night: No \n 	Works When Raining: No \n 	Unusual Sources Needed: No \n 	Minimum Temperature: 0ºF (-17.7778ºC) \n 	Maximum temperature: 97ºF (36.1111ºC)</description>
+					<!--
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/ST_Bee_south</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData>
+					-->
+					<comps>			
+						<li Class="RimBees.CompProperties_Bees" Inherit="False">
+							<species>Sugar</species>
+							<comb>TSP_RB_Beeliever_Sugar_Honeycomb</comb>
+							<combtimedays>0.5</combtimedays>
+							<nocturnal>false</nocturnal> <!-- Works at night -->
+							<pluviophile>false</pluviophile> <!-- Works in the rain -->
+							<weirdplantneeded>no</weirdplantneeded>
+							<tempMin>-17.778</tempMin> <!-- Zero degrees -->
+							<tempMax>36.1111</tempMax> <!-- Ninety-seven degrees -->
+						</li>   
+					</comps>
+				</ThingDef>
+				
+				<ThingDef ParentName="TSP_RB_Beeliever_SugarBase">
+					<defName>RB_Bee_Sugar_Queen</defName>
+					<label>Sugar Bee queen</label>
+					<descriptionHyperlinks>
+						<!-- <ThingDef>RB_Bee_Sugar_Queen</ThingDef> -->
+						<ThingDef>RB_Bee_Sugar_Drone</ThingDef>
+						<ThingDef>TSP_RB_Beeliever_Sugar_Honeycomb</ThingDef>
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_Sugar_Honeycomb</RecipeDef>
+						<!--
+						<ThingDef>TSP_ST_RB_WildHive_Gnome</ThingDef>
+						<RecipeDef>TSP_ST_RB_Gneehive_Extract</RecipeDef>
+						-->
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/VFE_CookBranch/TSP_Bee_GigaChad_Baker_Drone</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+						<color>(217, 251, 205)</color>
+					</graphicData> 		
+				</ThingDef>
+				
+				<ThingDef ParentName="TSP_RB_Beeliever_SugarBase">
+					<defName>RB_Bee_Sugar_Drone</defName>
+					<label>Sugar Bee drone</label>
+					<descriptionHyperlinks>
+						<ThingDef>RB_Bee_Sugar_Queen</ThingDef>
+						<!-- <ThingDef>RB_Bee_Sugar_Drone</ThingDef> -->
+						<ThingDef>TSP_RB_Beeliever_Sugar_Honeycomb</ThingDef>
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_Sugar_Honeycomb</RecipeDef>
+						<!--
+						<ThingDef>TSP_ST_RB_WildHive_Gnome</ThingDef>
+						<RecipeDef>TSP_ST_RB_Gneehive_Extract</RecipeDef>
+						-->
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/VFE_CookBranch/TSP_Bee_GigaChad_Baker_Queen</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+						<color>(217, 251, 205)</color>
+					</graphicData> 		
+				</ThingDef>
+				
+				<ThingDef ParentName="RB_CombBase">
+					<defName>TSP_RB_Beeliever_Sugar_Honeycomb</defName>
+					<label>Sugar Bee honeycomb</label>
+					<description>Sugar Bees mix double down on the intense fructose in their honey, making it almost too nauseatingly sweet. Sugar Bee honeycombs can be processed to extract Tasty Honey, normal beeswax, and sugar.</description>
+					<descriptionHyperlinks>
+						<!-- <ResearchProjectDef>ST_GnomeCulture</ResearchProjectDef> -->
+						<ThingDef>RB_Bee_Sugar_Queen</ThingDef>
+						<ThingDef>RB_Bee_Sugar_Drone</ThingDef>
+						<!-- <ThingDef>TSP_RB_Beeliever_Sugar_Honeycomb</ThingDef> -->
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_Sugar_Honeycomb</RecipeDef>
+						<ThingDef>RB_TastyHoney</ThingDef>
+						<ThingDef>RB_Beeswax</ThingDef>
+						<ThingDef>VCE_RawSugar</ThingDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/Honeycombs/TSP_RB_Mantodean_VariousJelly_Honeycomb</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+						<color>(217, 251, 205)</color>
+					</graphicData>	
+					<thingCategories Inherit="False">
+						<li>TSP_RB_Beeliever_Honeycombs</li>
+					</thingCategories>
+					<butcherProducts>
+						<VCE_RawSugar>15</VCE_RawSugar>
+						<RB_TastyHoney>5</RB_TastyHoney>
+						<RB_Beeswax>5</RB_Beeswax>
+					</butcherProducts>
+				</ThingDef>
+				
+				<RecipeDef>
+					<defName>TSP_RB_Beeliever_Centrifuge_Sugar_Honeycomb</defName>
+					<label>extract from Sugar Bee honeycomb</label>
+					<description>Extracts Tasty Honey, ordianary Beeswax, and sugar from a Baker Bee honeycomb.</description>
+					<descriptionHyperlinks>
+						<!-- <ResearchProjectDef>ST_GnomeCulture</ResearchProjectDef> -->
+						<ThingDef>RB_Bee_Sugar_Queen</ThingDef>
+						<ThingDef>RB_Bee_Sugar_Drone</ThingDef>
+						<ThingDef>TSP_RB_Beeliever_Sugar_Honeycomb</ThingDef>
+						<ThingDef>RB_TastyHoney</ThingDef>
+						<ThingDef>RB_Beeswax</ThingDef>
+						<ThingDef>VCE_RawSugar</ThingDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<uiIconThing>VCE_RawSugar</uiIconThing>
+					<jobString>Extracting sugar from honeycombs.</jobString>
+					<effectWorking>Cremate</effectWorking>
+					<soundWorking>Recipe_Cremate</soundWorking>
+					<workAmount>900</workAmount>
+					<recipeUsers>
+						<!--
+						<li>RB_Honey_Centrifuge</li>
+						<li>RB_Advanced_Honey_Centrifuge</li>
+						<li MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</li>
+						-->
+					</recipeUsers>	
+					<ingredients>
+						<li>
+							<filter>
+								<thingDefs>
+									<li>TSP_RB_Beeliever_Sugar_Honeycomb</li>
+								</thingDefs>
+							</filter>
+							<count>1</count>
+						</li>
+					</ingredients>
+					<fixedIngredientFilter>
+						<thingDefs>
+							<li>TSP_RB_Beeliever_Sugar_Honeycomb</li>
+						</thingDefs>
+					</fixedIngredientFilter>
+					<specialProducts>
+						<li>Butchery</li>
+					</specialProducts>
+					<skillRequirements></skillRequirements>
+					<researchPrerequisites></researchPrerequisites>
+				</RecipeDef>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				<!-- TIER III -->
+				<!-- Baker Bees: Makes Flour! -->
+				<RimBees.BeeListDef>
+					<defName>TSP_RB_Beeliever_VFE_Cook_Bee2_Flour</defName>
+					<nameString>Baker</nameString>
+					<beeDroneDef>RB_Bee_Baker_Drone</beeDroneDef>
+					<beeQueenDef>RB_Bee_Baker_Queen</beeQueenDef>
+					<!--
+					<beeQueenTag>RB_Bee_VFEC_Queen_Tag</beeQueenTag>
+					<beeDroneTag>RB_Bee_VFEC_Drone_Tag</beeDroneTag>
+					-->
+				</RimBees.BeeListDef>
+				
+				<RimBees.BeeCombinationDef>
+					<defName>TSP_RB_Beelievers_VFE_Cook_Tables1</defName>
+					<bee1>Agricultural</bee1>
+					<bee2>Sugar</bee2>
+					<result>
+						<li>Baker</li>
+						<li>Bittersweet</li>
+					</result>		
+				</RimBees.BeeCombinationDef>
+			
+				<ThingDef ParentName="TSP_RB_Beeliever_MasterBeeBase" Name="TSP_RB_Beeliever_BakerBase" Abstract="True">
+					<!-- <label>Adamas Slave-Making Bee</label> -->
+					<description>Closely related to Agricultural Bees, Baker Bees saturate their honey with specially mixed pollen that functions almost identically to flour. \n\n\n\n\n Bee Traits: \n\n 	Production time: 12 hours \n 	Works at Night: No \n 	Works When Raining: No \n 	Unusual Sources Needed: No \n 	Minimum Temperature: 0ºF (-17.7778ºC) \n 	Maximum temperature: 97ºF (36.1111ºC)</description>
+					<!--
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/ST_Bee_south</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData>
+					-->
+					<comps>			
+						<li Class="RimBees.CompProperties_Bees" Inherit="False">
+							<species>Baker</species>
+							<comb>TSP_RB_Beeliever_Baker_Honeycomb</comb>
+							<combtimedays>0.5</combtimedays>
+							<nocturnal>false</nocturnal> <!-- Works at night -->
+							<pluviophile>false</pluviophile> <!-- Works in the rain -->
+							<weirdplantneeded>no</weirdplantneeded>
+							<tempMin>-17.778</tempMin> <!-- Zero degrees -->
+							<tempMax>36.1111</tempMax> <!-- Ninety-seven degrees -->
+						</li>   
+					</comps>
+				</ThingDef>
+				
+				<ThingDef ParentName="TSP_RB_Beeliever_BakerBase">
+					<defName>RB_Bee_Baker_Queen</defName>
+					<label>Baker Bee queen</label>
+					<descriptionHyperlinks>
+						<!-- <ThingDef>RB_Bee_Baker_Queen</ThingDef> -->
+						<ThingDef>RB_Bee_Baker_Drone</ThingDef>
+						<ThingDef>TSP_RB_Beeliever_Baker_Honeycomb</ThingDef>
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_Baker_Honeycomb</RecipeDef>
+						<!--
+						<ThingDef>TSP_ST_RB_WildHive_Gnome</ThingDef>
+						<RecipeDef>TSP_ST_RB_Gneehive_Extract</RecipeDef>
+						-->
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/VFE_CookBranch/TSP_Bee_GigaChad_Baker_Drone</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData> 		
+				</ThingDef>
+				
+				<ThingDef ParentName="TSP_RB_Beeliever_BakerBase">
+					<defName>RB_Bee_Baker_Drone</defName>
+					<label>Baker Bee drone</label>
+					<descriptionHyperlinks>
+						<ThingDef>RB_Bee_Baker_Queen</ThingDef>
+						<!-- <ThingDef>RB_Bee_Baker_Drone</ThingDef> -->
+						<ThingDef>TSP_RB_Beeliever_Baker_Honeycomb</ThingDef>
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_Baker_Honeycomb</RecipeDef>
+						<!--
+						<ThingDef>TSP_ST_RB_WildHive_Gnome</ThingDef>
+						<RecipeDef>TSP_ST_RB_Gneehive_Extract</RecipeDef>
+						-->
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/VFE_CookBranch/TSP_Bee_GigaChad_Baker_Queen</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData> 		
+				</ThingDef>
+				
+				<ThingDef ParentName="RB_CombBase">
+					<defName>TSP_RB_Beeliever_Baker_Honeycomb</defName>
+					<label>Baker Bee honeycomb</label>
+					<description>Baker Bees mix special pollen, which functions almost identically to flour, into their honey in order to feed their larvae a rich, nutritous paste. Baker Bee honeycombs can be processed to extract normal honey, normal beeswax, and flour.</description>
+					<descriptionHyperlinks>
+						<!-- <ResearchProjectDef>ST_GnomeCulture</ResearchProjectDef> -->
+						<ThingDef>RB_Bee_Baker_Queen</ThingDef>
+						<ThingDef>RB_Bee_Baker_Drone</ThingDef>
+						<!-- <ThingDef>TSP_RB_Beeliever_Baker_Honeycomb</ThingDef> -->
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_Baker_Honeycomb</RecipeDef>
+						<ThingDef>RB_BaseHoney</ThingDef>
+						<ThingDef>RB_Beeswax</ThingDef>
+						<ThingDef>VCE_Flour</ThingDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/Honeycombs/TSP_RB_Mantodean_VariousJelly_Honeycomb</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+						<color>(255,255,255)</color>
+					</graphicData>	
+					<thingCategories Inherit="False">
+						<li>TSP_RB_Beeliever_Honeycombs</li>
+					</thingCategories>
+					<butcherProducts>
+						<VCE_Flour>15</VCE_Flour>
+						<RB_BaseHoney>5</RB_BaseHoney>
+						<RB_Beeswax>5</RB_Beeswax>
+					</butcherProducts>
+				</ThingDef>
+				
+				<RecipeDef>
+					<defName>TSP_RB_Beeliever_Centrifuge_Baker_Honeycomb</defName>
+					<label>extract from Baker Bee honeycomb</label>
+					<description>Extracts normal Honey, ordianary Beeswax, and flour from a Baker Bee honeycomb.</description>
+					<descriptionHyperlinks>
+						<!-- <ResearchProjectDef>ST_GnomeCulture</ResearchProjectDef> -->
+						<ThingDef>RB_Bee_Baker_Queen</ThingDef>
+						<ThingDef>RB_Bee_Baker_Drone</ThingDef>
+						<ThingDef>TSP_RB_Beeliever_Baker_Honeycomb</ThingDef>
+						<ThingDef>RB_BaseHoney</ThingDef>
+						<ThingDef>RB_Beeswax</ThingDef>
+						<ThingDef>VCE_Flour</ThingDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<uiIconThing>VCE_Flour</uiIconThing>
+					<jobString>Taking advantage of slave labor.</jobString>
+					<effectWorking>Cremate</effectWorking>
+					<soundWorking>Recipe_Cremate</soundWorking>
+					<workAmount>900</workAmount>
+					<recipeUsers>
+						<!--
+						<li>RB_Honey_Centrifuge</li>
+						<li>RB_Advanced_Honey_Centrifuge</li>
+						<li MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</li>
+						-->
+					</recipeUsers>	
+					<ingredients>
+						<li>
+							<filter>
+								<thingDefs>
+									<li>TSP_RB_Beeliever_Baker_Honeycomb</li>
+								</thingDefs>
+							</filter>
+							<count>1</count>
+						</li>
+					</ingredients>
+					<fixedIngredientFilter>
+						<thingDefs>
+							<li>TSP_RB_Beeliever_Baker_Honeycomb</li>
+						</thingDefs>
+					</fixedIngredientFilter>
+					<specialProducts>
+						<li>Butchery</li>
+					</specialProducts>
+					<skillRequirements></skillRequirements>
+					<researchPrerequisites></researchPrerequisites>
+				</RecipeDef>
+			</value>
+		</match>
+	</Operation>
+</Patch>
