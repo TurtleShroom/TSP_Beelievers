@@ -25,7 +25,7 @@
 						<amount>23</amount>
 					</li>
 					<li Class="RimBees.AdditionalBeeEffects_LowerPrisonerResistance">
-						<rareTickFrequency>200</rareTickFrequency>
+						<rareTickFrequency>180</rareTickFrequency>
 						<damage>TSP_Beelievers_BlearySting</damage>
 						<amount>23</amount>
 					</li>
