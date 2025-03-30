@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Patch>
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>/Defs/ThingDef[defName="VFEM2_Honey"]</xpath>
+		<!-- If it does, add this. -->
+		<match Class="PatchOperationAdd">
+			<xpath>/Defs</xpath>
+			<success>Always</success>
+			<value>
+				<!-- No Branch -->
+				<!-- TIER II -->
+				<!-- Starch Bees: basically Agricultural Bees with unique honey -->
+				<RimBees.BeeListDef>
+					<defName>TSP_RB_Beeliever_Medieval</defName>
+					<nameString>Northern</nameString>
+					<beeDroneDef>RB_Bee_Northern_Drone</beeDroneDef>
+					<beeQueenDef>RB_Bee_Northern_Queen</beeQueenDef>
+					<!--
+					<beeQueenTag>RB_Bee_Northern_Queen_Tag</beeQueenTag>
+					<beeDroneTag>RB_Bee_Northern_Drone_Tag</beeDroneTag>
+					-->
+				</RimBees.BeeListDef>
+			
+				<ThingDef ParentName="TSP_RB_Beeliever_MasterBeeBase" Name="TSP_RB_Beeliever_MedievalBase" Abstract="True">
+					<!-- <label>Starch Bee</label> -->
+					<description>Northern Bees are closely related to Temperate Bees and are descended from subspecies of the European dark honey bees of Old Earth. Beekeeping in the steppes of far-eastern Europe, the Baltic regions, and the Volga regions of Old Earth all date back to Old Earth's medieval era. Northern Bees produce a rich, thick honey and can produce honey even in colder temperatures. \n\n\n\n\n Bee Traits: \n\n 	Production time: 1 day \n 	Works at Night: No \n 	Works When Raining: No \n 	Unusual Sources Needed: No \n 	Minimum Temperature: -18ºF (-27.7778ºC) \n 	Maximum temperature: 91ºF (33ºC)</description>
+					<!--
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/ST_Bee_south</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData>
+					-->
+					<comps Inherit="False">
+						<li Class="RimBees.CompProperties_Bees" Inherit="False">
+							<species>Northern</species>
+							<comb>TSP_RB_Beeliever_Northern_Honeycomb</comb>
+							<combtimedays>1</combtimedays>
+							<nocturnal>false</nocturnal> <!-- Works at night -->
+							<pluviophile>false</pluviophile> <!-- Works in the rain -->
+							<weirdplantneeded>no</weirdplantneeded>
+							<tempMin>-27.7778</tempMin> <!-- Negative eighteen degrees -->
+							<tempMax>33</tempMax> <!-- Approximately ninety-one degrees -->
+						</li>
+						<li Class="CompProperties_Forbiddable"></li>
+						<li Class="RimBees.CompProperties_TempRuinableAndDestroy" Inherit="False">
+							<minSafeTemperature>-27.7778</minSafeTemperature> <!-- Zero degrees Farenheit -->
+							<maxSafeTemperature>33</maxSafeTemperature> <!-- Ninety-seven degrees Farenheit -->
+							<progressPerDegreePerTick>0.000045</progressPerDegreePerTick>
+						</li>
+						<li>
+							<compClass>RimBees.CompDangerBee</compClass>
+						</li>
+					</comps>
+				</ThingDef>
+				
+				<ThingDef ParentName="TSP_RB_Beeliever_MedievalBase">
+					<defName>RB_Bee_Northern_Queen</defName>
+					<label>Northern Bee queen</label>
+					<descriptionHyperlinks>
+						<!-- <ThingDef>RB_Bee_Northern_Queen</ThingDef> -->
+						<ThingDef>RB_Bee_Northern_Drone</ThingDef>
+						<ThingDef>TSP_RB_Beeliever_Northern_Honeycomb</ThingDef>
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_Northern_Honeycomb</RecipeDef>
+						<!--
+						<ThingDef>TSP_ST_RB_WildHive_Gnome</ThingDef>
+						<RecipeDef>TSP_ST_RB_Gneehive_Extract</RecipeDef>
+						-->
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Item/Bees/RB_Bee_Temperate_Queen</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+						<color>(153, 89, 32)</color>
+					</graphicData> 		
+				</ThingDef>
+				
+				<ThingDef ParentName="TSP_RB_Beeliever_MedievalBase">
+					<defName>RB_Bee_Northern_Drone</defName>
+					<label>Northern Bee drone</label>
+					<descriptionHyperlinks>
+						<ThingDef>RB_Bee_Northern_Queen</ThingDef>
+						<!-- <ThingDef>RB_Bee_Northern_Drone</ThingDef> -->
+						<ThingDef>TSP_RB_Beeliever_Northern_Honeycomb</ThingDef>
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_Northern_Honeycomb</RecipeDef>
+						<!--
+						<ThingDef>TSP_ST_RB_WildHive_Gnome</ThingDef>
+						<RecipeDef>TSP_ST_RB_Gneehive_Extract</RecipeDef>
+						-->
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Item/Bees/RB_Bee_Temperate_Drone</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+						<color>(153, 89, 32)</color>
+					</graphicData> 		
+				</ThingDef>
+				
+				<ThingDef ParentName="RB_CombBase">
+					<defName>TSP_RB_Beeliever_Northern_Honeycomb</defName>
+					<label>Northern Bee honeycomb</label>
+					<description>Northern Bees are descendants of European dark honey bees that were historically cultivated in Old Earth's Baltic, Volga, and far-eastern European regions. Their honeycombs produce Thick Honey and regular beeswax.</description>
+					<descriptionHyperlinks>
+						<!-- <ResearchProjectDef>ST_GnomeCulture</ResearchProjectDef> -->
+						<ThingDef>RB_Bee_Northern_Queen</ThingDef>
+						<ThingDef>RB_Bee_Northern_Drone</ThingDef>
+						<!-- <ThingDef>TSP_RB_Beeliever_Starch_Honeycomb</ThingDef> -->
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_Starch_Honeycomb</RecipeDef>
+						<!--
+						<ThingDef>TSP_ST_GnomeHoney</ThingDef>
+						<ThingDef>TSP_ST_RB_WildHive_Gnome</ThingDef>
+						<RecipeDef>TSP_ST_RB_Gneehive_Extract</RecipeDef>
+						-->
+						<ThingDef>VFEM2_Honey</ThingDef>
+						<ThingDef>RB_Beeswax</ThingDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Item/Resource/AnimalProductRaw/Honey</texPath>
+						<graphicClass>Graphic_StackCount</graphicClass>
+						<color>(153, 89, 32)</color>
+					</graphicData>	
+					<thingCategories Inherit="False">
+						<li>TSP_RB_Beeliever_Honeycombs</li>
+					</thingCategories>
+					<butcherProducts>
+						<VFEM2_Honey>7</VFEM2_Honey>
+						<RB_Beeswax>5</RB_Beeswax>
+					</butcherProducts>
+				</ThingDef>
+				
+				<RecipeDef>
+					<defName>TSP_RB_Beeliever_Centrifuge_Northern_Honeycomb</defName>
+					<label>extract from Northern honeycomb</label>
+					<description>Extracts Thick Honey and ordinary Beeswax from Northern Bee honeycombs.</description>
+					<descriptionHyperlinks>
+						<!-- <ResearchProjectDef>ST_GnomeCulture</ResearchProjectDef> -->
+						<ThingDef>RB_Bee_Northern_Queen</ThingDef>
+						<ThingDef>RB_Bee_Northern_Drone</ThingDef>
+						<ThingDef>TSP_RB_Beeliever_Northern_Honeycomb</ThingDef>
+						<ThingDef>VFEM2_Honey</ThingDef>
+						<ThingDef>RB_Beeswax</ThingDef>
+						<!-- <RecipeDef>TSP_RB_Beeliever_Centrifuge_Northern_Honeycomb</RecipeDef> -->
+						<!--
+						<ThingDef>TSP_ST_GnomeHoney</ThingDef>
+						<ThingDef>TSP_ST_RB_WildHive_Gnome</ThingDef>
+						<RecipeDef>TSP_ST_RB_Gneehive_Extract</RecipeDef>
+						-->
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<uiIconThing>VFEM2_Honey</uiIconThing>
+					<jobString>Extracting honey.</jobString>
+					<effectWorking>Cremate</effectWorking>
+					<soundWorking>Recipe_Cremate</soundWorking>
+					<workAmount>900</workAmount>
+					<recipeUsers></recipeUsers>	
+					<ingredients>
+						<li>
+							<filter>
+								<thingDefs>
+									<li>TSP_RB_Beeliever_Northern_Honeycomb</li>
+								</thingDefs>
+							</filter>
+							<count>1</count>
+						</li>
+					</ingredients>
+					<fixedIngredientFilter>
+						<thingDefs>
+							<li>TSP_RB_Beeliever_Northern_Honeycomb</li>
+						</thingDefs>
+					</fixedIngredientFilter>
+					<specialProducts>
+						<li>Butchery</li>
+					</specialProducts>
+					<skillRequirements></skillRequirements>
+					<researchPrerequisites>
+						
+					</researchPrerequisites>
+				</RecipeDef>
+			</value>
+		</match>
+	</Operation>
+	
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>/Defs/ThingDef[defName="VFEM2_Honey"]/label</xpath>
+		<!-- If it does, do this replacement. -->
+		<match Class="PatchOperationReplace">
+			<success>Always</success>
+			<xpath>/Defs/ThingDef[defName="VFEM2_Honey"]/label</xpath>
+			<value>
+				<label>thick honey</label>
+			</value>
+		</match>
+		<!-- If the first XPATH does not exist, the original code stands. All according to plan. -->
+	</Operation>
+	
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>/Defs/ThingDef[defName="VFEM2_Honey"]/ingestible/preferability</xpath>
+		<!-- If it does, do this replacement. -->
+		<match Class="PatchOperationReplace">
+			<success>Always</success>
+			<xpath>/Defs/ThingDef[defName="VFEM2_Honey"]/ingestible/preferability</xpath>
+			<value>
+				<preferability>RawTasty</preferability>
+			</value>
+		</match>
+		<!-- If the first XPATH does not exist, the original code stands. All according to plan. -->
+	</Operation>
+</Patch>

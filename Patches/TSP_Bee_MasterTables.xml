@@ -93,6 +93,7 @@
 			<xpath>/Defs/RimBees.BeeCombinationDef[defName="RB_CombinationTier2_1"]/result</xpath>
 			<value>
 				<li>Water</li>
+				<li>Northern</li>
 			</value>
 		</match>
 		<!-- If the first XPATH does not exist, the original code stands. -->
@@ -107,6 +108,7 @@
 			<xpath>/Defs/RimBees.BeeCombinationDef[defName="RB_CombinationTier2_4"]/result</xpath>
 			<value>
 				<li>Sugar</li>
+				<li>Baker</li>
 			</value>
 		</match>
 		<!-- If the first XPATH does not exist, the original code stands. -->
