@@ -69,7 +69,7 @@
 				
 				<ThingDef ParentName="TSP_RB_Beeliever_StarchBase">
 					<defName>RB_Bee_Starch_Drone</defName>
-					<label>Starch drone</label>
+					<label>Starch Bee drone</label>
 					<descriptionHyperlinks>
 						<ThingDef>RB_Bee_Starch_Queen</ThingDef>
 						<!-- <ThingDef>RB_Bee_Starch_Drone</ThingDef> -->
