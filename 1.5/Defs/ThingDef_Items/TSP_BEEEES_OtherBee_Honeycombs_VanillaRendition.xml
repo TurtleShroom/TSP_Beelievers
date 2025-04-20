@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<Defs>
+	<ThingDef ParentName="RB_CombBase">
+		<defName>TSP_RB_Beeliever_Fruit_Honeycomb</defName>
+		<label>Fruit Bee honeycomb</label>
+		<description>Fruit Bees harvest nectar from the abundtant berry bushes that grow on most habitable worlds in the galaxy. They mix the sugars from the berries into their honey. By processing these fruity honeycombs, Tasty Honey, ordinary Beeswax, and Berries can be gathered.</description>
+		<descriptionHyperlinks>
+			<!-- <ResearchProjectDef>ST_GnomeCulture</ResearchProjectDef> -->
+			<ThingDef>RB_Bee_Fruit_Queen</ThingDef>
+			<ThingDef>RB_Bee_Fruit_Drone</ThingDef>
+			<!-- <ThingDef>TSP_RB_Beeliever_Fruit_Honeycomb</ThingDef> -->
+			<RecipeDef>TSP_RB_Beeliever_Centrifuge_Fruit_Honeycomb</RecipeDef>
+			<ThingDef>RB_TastyHoney</ThingDef>
+			<ThigDef>RB_Beeswax</ThigDef>
+			<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+		</descriptionHyperlinks>
+		<graphicData Inherit="False">
+			<texPath>Things/Pawn/Animal/Bug_Types/Bee/Honeycombs/TSP_RB_Fruit_Honeycomb</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<color>(255,255,255)</color>
+		</graphicData>
+		<thingCategories Inherit="False">
+			<li>TSP_RB_Beeliever_Honeycombs</li>
+		</thingCategories>
+		<butcherProducts>
+			<RB_Beeswax>5</RB_Beeswax>
+			<RB_Wax>5</RB_Wax>
+			<RawBerries>15</RawBerries>
+		</butcherProducts>
+	</ThingDef>
+
+	<RecipeDef>
+		<defName>TSP_RB_Beeliever_Centrifuge_Fruit_Honeycomb</defName>
+		<label>extract from Bleary Bee honeycomb</label>
+		<description>Extracts Tasty Honey, ordinary Beeswax, and Berries from a Fruit Bee Honeycomb.</description>
+		<descriptionHyperlinks>
+			<!-- <ResearchProjectDef>ST_GnomeCulture</ResearchProjectDef> -->
+			<ThingDef>RB_Bee_Fruit_Queen</ThingDef>
+			<ThingDef>RB_Bee_Fruit_Drone</ThingDef>
+			<ThingDef>TSP_RB_Beeliever_Fruit_Honeycomb</ThingDef>
+			<!-- <RecipeDef>TSP_RB_Beeliever_Centrifuge_Fruit_Honeycomb</RecipeDef> -->
+			<ThingDef>RB_TastyHoney</ThingDef>
+			<ThingDef>RawBerries</ThingDef>
+			<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+		</descriptionHyperlinks>
+		<uiIconThing>TSP_RB_Beeliever_Fruit_Honeycomb</uiIconThing>
+		<jobString>Extracting from fruity honeycombs.</jobString>
+		<effectWorking>Cremate</effectWorking>
+		<soundWorking>Recipe_Cremate</soundWorking>
+		<workAmount>900</workAmount>
+		<recipeUsers IsNull="True" Inherit="False"></recipeUsers>	
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>TSP_RB_Beeliever_Fruit_Honeycomb</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>TSP_RB_Beeliever_Fruit_Honeycomb</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<specialProducts>
+			<li>Butchery</li>
+		</specialProducts>
+		<skillRequirements></skillRequirements>
+		<researchPrerequisites>
+			<li>RB_BasicBeekeeping</li>
+		</researchPrerequisites>
+	</RecipeDef>
+</Defs>

@@ -227,8 +227,11 @@
 				</RimBees.BeeCombinationDef>
 			
 				<ThingDef ParentName="TSP_RB_Beeliever_MasterBeeBase" Name="TSP_RB_Beeliever_SoapBase" Abstract="True">
-					<!-- <label>Gravy Bee</label> -->
+					<!-- <label>Soap Bee</label> -->
 					<description>Rub-a-dub-dub, bees in a tub! Soap Bees are advanced forms of Janitorial Bees which clean quicker and actively sanitize their honeycombs. \n\n\n\n\n Bee Traits: \n\n 	Production time: 12 hours \n 	Works at Night: No \n 	Works When Raining: Yes \n 	Unusual Sources Needed: None \n 	Minimum Temperature: 0ºF (-17.7778ºC) \n 	Maximum temperature: 97ºF (36.1111ºC)</description>
+					<statBases>
+						<Cleanliness>10</Cleanliness>
+					</statBases>
 					<!--
 					<graphicData Inherit="False">
 						<texPath>Things/Pawn/Animal/Bug_Types/Bee/ST_Bee_south</texPath>
@@ -298,6 +301,9 @@
 					<defName>TSP_RB_Beeliever_Soap_Honeycomb</defName>
 					<label>Soap Bee honeycomb</label>
 					<description>Soap Bees are advanced Janitor Bees that employ more efficient cleaning methods when they gather dirt to feed their larvae. Their honeycombs are sterile and produce soap, White Honey, and White Beeswax when processed.</description>
+					<statBases>
+						<Cleanliness>20</Cleanliness>
+					</statBases>
 					<descriptionHyperlinks>
 						<!-- <ResearchProjectDef>ST_GnomeCulture</ResearchProjectDef> -->
 						<ThingDef>RB_Bee_Soap_Drone</ThingDef>
@@ -341,7 +347,7 @@
 						<ThingDef>AC_Soap</ThingDef>
 						<ThingDef>RB_WhiteHoney</ThingDef>
 						<ThingDef>RB_WhiteBeeswax</ThingDef>
-						<!-- <RecipeDef>TSP_RB_Beeliever_Centrifuge_SlaveryOfHaplo_Honeycomb</RecipeDef> -->
+						<!-- <RecipeDef>TSP_RB_Beeliever_Centrifuge_Soap_Honeycomb</RecipeDef> -->
 						<!--
 						<ThingDef>TSP_ST_GnomeHoney</ThingDef>
 						<ThingDef>TSP_ST_RB_WildHive_Gnome</ThingDef>

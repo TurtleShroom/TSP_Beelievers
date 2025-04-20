@@ -38,4 +38,15 @@
 		<beeDroneTag>RB_Bee_Water_Drone_Tag</beeDroneTag>
 		-->
 	</RimBees.BeeListDef>
+	
+	<RimBees.BeeListDef>
+		<defName>TSP_RB_Beeliever_OtherBett1_Fruit_List</defName>
+		<nameString>Fruit</nameString>
+		<beeDroneDef>RB_Bee_Fruit_Drone</beeDroneDef>
+		<beeQueenDef>RB_Bee_Fruit_Queen</beeQueenDef>
+		<!--
+		<beeQueenTag>RB_Bee_Water_Queen_Tag</beeQueenTag>
+		<beeDroneTag>RB_Bee_Water_Drone_Tag</beeDroneTag>
+		-->
+	</RimBees.BeeListDef>
 </Defs>
