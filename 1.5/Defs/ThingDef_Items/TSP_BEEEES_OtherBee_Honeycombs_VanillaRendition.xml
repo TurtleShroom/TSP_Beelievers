@@ -11,8 +11,9 @@
 			<ThingDef>RB_Bee_Fruit_Drone</ThingDef>
 			<!-- <ThingDef>TSP_RB_Beeliever_Fruit_Honeycomb</ThingDef> -->
 			<RecipeDef>TSP_RB_Beeliever_Centrifuge_Fruit_Honeycomb</RecipeDef>
+			<ThingDef>RawBerries</ThingDef>
 			<ThingDef>RB_TastyHoney</ThingDef>
-			<ThigDef>RB_Beeswax</ThigDef>
+			<ThingDef>RB_Beeswax</ThingDef>
 			<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
 		</descriptionHyperlinks>
 		<graphicData Inherit="False">
@@ -25,7 +26,7 @@
 		</thingCategories>
 		<butcherProducts>
 			<RB_Beeswax>5</RB_Beeswax>
-			<RB_Wax>5</RB_Wax>
+			<RB_Beeswax>5</RB_Beeswax>
 			<RawBerries>15</RawBerries>
 		</butcherProducts>
 	</ThingDef>

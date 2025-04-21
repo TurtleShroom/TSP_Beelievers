@@ -9,9 +9,9 @@
 			<graphicClass>Graphic_Single</graphicClass>
 		</graphicData>
 		-->
-		<description>Fruit Bees harvest nectar from the pollen of berry bushes. They will take berries with them and mix the sugars in the berries into their honey. Fruit Bee honeycombs yield Tasty Honey and Raw Berries. \n\n\n\n\n Bee Traits: \n\n 	Production time: 23.88 hours \n 	Works at Night: No \n 	Works When Raining: Yes \n 	Unusual Sources Needed: No \n 	Minimum Temperature: 0ºF (-17.7778ºC) \n 	Maximum temperature: 97ºF (36.1111ºC)</description>
+		<description>Fruit Bees harvest nectar from the pollen of berry bushes. They will take berries with them and mix the sugars in the berries into their honey. Fruit Bee honeycombs yield Tasty Honey and Berries. \n\n\n\n\n Bee Traits: \n\n 	Production time: 12 hours \n 	Works at Night: No \n 	Works When Raining: Yes \n 	Unusual Sources Needed: No \n 	Minimum Temperature: 0ºF (-17.7778ºC) \n 	Maximum temperature: 97ºF (36.1111ºC)</description>
 		<statBases>
-			<DeteriorationRate>0</DeteriorationRate>
+			<DeteriorationRate>1</DeteriorationRate>
 		</statBases>
 		<comps>
 			<li Class="RimBees.CompProperties_Bees" Inherit="False">
@@ -21,7 +21,7 @@
 				<nocturnal>false</nocturnal> <!-- Works at night -->
 				<pluviophile>true</pluviophile> <!-- Works in the rain -->
 				<weirdplantneeded>no</weirdplantneeded>
-				<tempMin>-17.7778ºC</tempMin> <!-- Freezing -->
+				<tempMin>-17.7778</tempMin> <!-- Zero degrees Farenheit -->
 				<tempMax>36.1111</tempMax> <!-- Ninety-seven degrees. -->
 			</li>
 		</comps>
