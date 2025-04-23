@@ -278,7 +278,7 @@
 				<ThingDef ParentName="RB_CombBase">
 					<defName>TSP_RB_Beeliever_Wine_Honeycomb</defName>
 					<label>Wino Bee honeycomb</label>
-					<description>A "wino" is an alcoholic whose beverage of choice is almost exclusively wine. Very closely related to Tipsy Bees, the Wino Bees are Fruit Bees produce, in essence, all the ingredients necessary for wine. However, to make wine out of Wino Bee Honeycombs, one must insert the wine must that they produce in a barrel for them. \n Wino Bee Honeycombs produce Wine Must, a small amount of  Thick Honey plus Tasty Honey, and Brittle Beeswax.</description>
+					<description>A "wino" is an alcoholic whose beverage of choice is almost exclusively wine. Very closely related to Tipsy Bees, the Wino Bees are Fruit Bees which produce, in essence, all the ingredients necessary for wine. However, to make wine out of Wino Bee Honeycombs, one must insert the wine must that they produce into a barrel for them. \n Wino Bee Honeycombs produce Wine Must, a small amount of  Thick Honey plus Tasty Honey, and Brittle Beeswax.</description>
 					<descriptionHyperlinks>
 						<!-- <ResearchProjectDef>ST_GnomeCulture</ResearchProjectDef> -->
 						<ThingDef>RB_Bee_Wino_Queen</ThingDef>
