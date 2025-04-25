@@ -10,6 +10,24 @@
 		</result>
 	</RimBees.BeeCombinationDef>
 	
+	<RimBees.BeeCombinationDef>
+		<defName>TSP_RB_Beelievers_GoJuice_HybridTables_Base</defName>
+		<bee1>Neutro</bee1>
+		<bee2>Psychic</bee2>
+		<result>
+			<li>Go</li>
+		</result>
+	</RimBees.BeeCombinationDef>
+	
+	<RimBees.BeeCombinationDef>
+		<defName>TSP_RB_Beelievers_WakeUp_HybridTables_Base</defName>
+		<bee1>Go</bee1>
+		<bee2>Bleary</bee2>
+		<result>
+			<li>Insomnia</li>
+		</result>
+	</RimBees.BeeCombinationDef>
+	
 	<!--
 	<RimBees.BeeCombinationDef>
 		<defName>TSP_RB_Beelievers_SlaverTables_OtherHoney</defName>

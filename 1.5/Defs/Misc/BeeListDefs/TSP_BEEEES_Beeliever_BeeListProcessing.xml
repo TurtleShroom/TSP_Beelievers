@@ -49,4 +49,26 @@
 		<beeDroneTag>RB_Bee_Water_Drone_Tag</beeDroneTag>
 		-->
 	</RimBees.BeeListDef>
+	
+	<RimBees.BeeListDef>
+		<defName>TSP_RB_Beeliever_OtherBee2_GoJuice_List</defName>
+		<nameString>Go</nameString>
+		<beeDroneDef>RB_Bee_Go_Drone</beeDroneDef>
+		<beeQueenDef>RB_Bee_Go_Queen</beeQueenDef>
+		<!--
+		<beeQueenTag>RB_Bee_Water_Queen_Tag</beeQueenTag>
+		<beeDroneTag>RB_Bee_Water_Drone_Tag</beeDroneTag>
+		-->
+	</RimBees.BeeListDef>
+	
+	<RimBees.BeeListDef>
+		<defName>TSP_RB_Beeliever_OtherBee3_WakeUp_List</defName>
+		<nameString>Insomnia</nameString>
+		<beeDroneDef>RB_Bee_Insomnia_Drone</beeDroneDef>
+		<beeQueenDef>RB_Bee_Insomnia_Queen</beeQueenDef>
+		<!--
+		<beeQueenTag>RB_Bee_Water_Queen_Tag</beeQueenTag>
+		<beeDroneTag>RB_Bee_Water_Drone_Tag</beeDroneTag>
+		-->
+	</RimBees.BeeListDef>
 </Defs>

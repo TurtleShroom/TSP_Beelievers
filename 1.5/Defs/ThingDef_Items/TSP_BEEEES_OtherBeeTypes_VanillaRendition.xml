@@ -2,7 +2,7 @@
 
 <Defs>
 	<ThingDef ParentName="TSP_RB_Beeliever_MasterBeeBase" Name="TSP_RB_Beeliever_FruitRoot" Abstract="True">
-		<!-- <label>Bleary Bee</label> -->
+		<!-- <label>Fruit Bee</label> -->
 		<!--
 		<graphicData Inherit="False">
 			<texPath>Things/Pawn/Animal/Bug_Types/Bee/ST_Bee_south</texPath>
@@ -64,6 +64,142 @@
 		<graphicData Inherit="False">
 			<texPath>Things/Pawn/Animal/Bug_Types/Bee/OtherBranch/TSP_Bee_Fruit_Drone</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData> 		
+	</ThingDef>
+	
+	
+	
+	<ThingDef ParentName="TSP_RB_Beeliever_MasterBeeBase" Name="TSP_RB_Beeliever_GoJuice_Root" Abstract="True">
+		<!-- <label>Go-Juice Bee</label> -->
+		<!--
+		<graphicData Inherit="False">
+			<texPath>Things/Pawn/Animal/Bug_Types/Bee/ST_Bee_south</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		-->
+		<description>Get ready to run! Go Bees GO, and they go FAST! Give these suckers some Flake and watch them make Go-Juice in a jiffy! (Psychite Leaves aren't enough for Pawns to extract drugs in large enough quantities to consume.) \n\n\n\n\n Bee Traits: \n\n 	Production time: ~10 hours \n 	Works at Night: Yes \n 	Works When Raining: No \n 	Unusual Sources Needed: Flake \n 	Minimum Temperature: 0ºF (-17.7778ºC) \n 	Maximum temperature: 97ºF (36.1111ºC)</description>
+		<statBases>
+			<DeteriorationRate>1</DeteriorationRate>
+		</statBases>
+		<comps>
+			<li Class="RimBees.CompProperties_Bees" Inherit="False">
+				<species>Go</species>
+				<comb>TSP_RB_Beeliever_GoJuice_Honeycomb</comb>
+				<combtimedays>0.24</combtimedays>
+				<nocturnal>true</nocturnal> <!-- Works at night -->
+				<pluviophile>false</pluviophile> <!-- Works in the rain -->
+				<weirdplantneeded>Flake</weirdplantneeded>
+				<tempMin>-17.7778</tempMin> <!-- Zero degrees Farenheit -->
+				<tempMax>36.1111</tempMax> <!-- Ninety-seven degrees. -->
+			</li>
+		</comps>
+	</ThingDef>
+	
+	<ThingDef ParentName="TSP_RB_Beeliever_GoJuice_Root">
+		<defName>RB_Bee_Go_Queen</defName>
+		<label>Go Bee queen</label>
+		<descriptionHyperlinks>
+			<!-- <ThingDef>RB_Bee_Go_Queen</ThingDef> -->
+			<ThingDef>RB_Bee_Go_Drone</ThingDef>
+			<ThingDef>TSP_RB_Beeliever_GoJuice_Honeycomb</ThingDef>
+			<RecipeDef>TSP_RB_Beeliever_Centrifuge_GoJuice_Honeycomb</RecipeDef>
+			<!--
+			<ThingDef>TSP_ST_RB_WildHive_Gnome</ThingDef>
+			<RecipeDef>TSP_ST_RB_Gneehive_Extract</RecipeDef>
+			-->
+			<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+		</descriptionHyperlinks>
+		<graphicData Inherit="False">
+			<texPath>Things/Pawn/Animal/Bug_Types/Bee/OtherBranch/TSP_Bee_GoJuice_Queen</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData> 		
+	</ThingDef>
+	
+	<ThingDef ParentName="TSP_RB_Beeliever_GoJuice_Root">
+		<defName>RB_Bee_Go_Drone</defName>
+		<label>Go Bee drone</label>
+		<descriptionHyperlinks>
+			<ThingDef>RB_Bee_Go_Queen</ThingDef>
+			<!-- <ThingDef>RB_Bee_Go_Drone</ThingDef> -->
+			<ThingDef>TSP_RB_Beeliever_GoJuice_Honeycomb</ThingDef>
+			<RecipeDef>TSP_RB_Beeliever_Centrifuge_GoJuice_Honeycomb</RecipeDef>
+			<!--
+			<ThingDef>TSP_ST_RB_WildHive_Gnome</ThingDef>
+			<RecipeDef>TSP_ST_RB_Gneehive_Extract</RecipeDef>
+			-->
+			<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+		</descriptionHyperlinks>
+		<graphicData Inherit="False">
+			<texPath>Things/Pawn/Animal/Bug_Types/Bee/OtherBranch/TSP_Bee_GoJuice_Drone</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData> 		
+	</ThingDef>
+	
+	<ThingDef ParentName="TSP_RB_Beeliever_MasterBeeBase" Name="TSP_RB_Beeliever_WakeUp_Root" Abstract="True">
+		<!-- <label>Wake-Up Bee</label> -->
+		<!--
+		<graphicData Inherit="False">
+			<texPath>Things/Pawn/Animal/Bug_Types/Bee/ST_Bee_south</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		-->
+		<description>Like Go Bees, Insomnia Bees consume Psychite to make drugs to enrich their larvae. They do not ever go to sleep at night. As with Go Bees, Insomnia Bees can only produce enough Wake-Up for a Pawn to harvest if the hive is given concentrated Flake. Psychite Leaves won't cut it. \n\n\n\n\n Bee Traits: \n\n 	Production time: ~15.6 hours \n 	Works at Night: Yes \n 	Works When Raining: No \n 	Unusual Sources Needed: Flake \n 	Minimum Temperature: 0ºF (-17.7778ºC) \n 	Maximum temperature: 97ºF (36.1111ºC)</description>
+		<statBases>
+			<DeteriorationRate>1</DeteriorationRate>
+		</statBases>
+		<comps>
+			<li Class="RimBees.CompProperties_Bees" Inherit="False">
+				<species>Insomnia</species>
+				<comb>TSP_RB_Beeliever_WakeUp_Honeycomb</comb>
+				<combtimedays>0.65</combtimedays>
+				<nocturnal>true</nocturnal> <!-- Works at night -->
+				<pluviophile>false</pluviophile> <!-- Works in the rain -->
+				<weirdplantneeded>Flake</weirdplantneeded>
+				<tempMin>-17.7778</tempMin> <!-- Zero degrees Farenheit -->
+				<tempMax>36.1111</tempMax> <!-- Ninety-seven degrees. -->
+			</li>
+		</comps>
+	</ThingDef>
+	
+	<ThingDef ParentName="TSP_RB_Beeliever_WakeUp_Root">
+		<defName>RB_Bee_Insomnia_Queen</defName>
+		<label>Insomnia Bee queen</label>
+		<descriptionHyperlinks>
+			<!-- <ThingDef>RB_Bee_Insomnia_Queen</ThingDef> -->
+			<ThingDef>RB_Bee_Insomnia_Drone</ThingDef>
+			<ThingDef>TSP_RB_Beeliever_WakeUp_Honeycomb</ThingDef>
+			<RecipeDef>TSP_RB_Beeliever_Centrifuge_WakeUp_Honeycomb</RecipeDef>
+			<!--
+			<ThingDef>TSP_ST_RB_WildHive_Gnome</ThingDef>
+			<RecipeDef>TSP_ST_RB_Gneehive_Extract</RecipeDef>
+			-->
+			<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+		</descriptionHyperlinks>
+		<graphicData Inherit="False">
+			<texPath>Things/Pawn/Animal/Bug_Types/Bee/OtherBranch/TSP_Bee_GoJuice_Queen</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<color>(189, 120, 63)</color>
+		</graphicData>
+	</ThingDef>
+	
+	<ThingDef ParentName="TSP_RB_Beeliever_WakeUp_Root">
+		<defName>RB_Bee_Insomnia_Drone</defName>
+		<label>Insomnia Bee drone</label>
+		<descriptionHyperlinks>
+			<ThingDef>RB_Bee_Insomnia_Queen</ThingDef>
+			<!-- <ThingDef>RB_Bee_Insomnia_Drone</ThingDef> -->
+			<ThingDef>TSP_RB_Beeliever_WakeUp_Honeycomb</ThingDef>
+			<RecipeDef>TSP_RB_Beeliever_Centrifuge_WakeUp_Honeycomb</RecipeDef>
+			<!--
+			<ThingDef>TSP_ST_RB_WildHive_Gnome</ThingDef>
+			<RecipeDef>TSP_ST_RB_Gneehive_Extract</RecipeDef>
+			-->
+			<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+		</descriptionHyperlinks>
+		<graphicData Inherit="False">
+			<texPath>Things/Pawn/Animal/Bug_Types/Bee/OtherBranch/TSP_Bee_GoJuice_Drone</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<color>(189, 120, 63)</color>
 		</graphicData> 		
 	</ThingDef>
 </Defs>
