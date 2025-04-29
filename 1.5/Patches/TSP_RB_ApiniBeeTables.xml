@@ -432,7 +432,7 @@
 					</graphicData> 		
 				</ThingDef>
 				
-				<ThingDef ParentName="TSP_RB_Beeliever_ApiniBase_Comps">
+				<ThingDef ParentName="TSP_RB_Beeliever_ApiniBase_Necropini">
 					<defName>RB_Bee_Necropini_Drone</defName>
 					<label>Necropini Slaver drone</label>
 					<descriptionHyperlinks>
@@ -455,7 +455,7 @@
 				<ThingDef ParentName="RB_CombBase">
 					<defName>TSP_RB_Beeliever_SlaveryOfApini_Necropini_Honeycomb</defName>
 					<label>Necropini Slaver Bee honeycomb</label>
-					<description>Slaver Bees are facultative, social, brood parasites that abduct larvae and use them to produce beeswax and honey. Instead of expending effort to feed, house, and construct for new members of the colony, Slaver Bee drones drive the slave species and kidnap new larvae, while the Slaver Queen produces new Slaver Bee drones to continue the cycle, all while she gets fat from her doting chattel. \n \ Apini Slaver Bees parasitize Necropini larvae to consume their honey. Reap the harvest of slave labor and enjoy Necropini Honey, pollen, and Red Beeswax.</description>
+					<description>Slaver Bees are facultative, social, brood parasites that abduct larvae and use them to produce beeswax and honey. Instead of expending effort to feed, house, and construct for new members of the colony, Slaver Bee drones drive the slave species and kidnap new larvae, while the Slaver Queen produces new Slaver Bee drones to continue the cycle, all while she gets fat from her doting chattel. \n \ These Apini Slaver Bees parasitize Necropini larvae to consume their honey. Reap the harvest of slave labor and enjoy Necropini Honey, pollen, and Red Beeswax.</description>
 					<descriptionHyperlinks>
 						<!-- <ResearchProjectDef>ST_GnomeCulture</ResearchProjectDef> -->
 						<ThingDef>RB_Bee_Necropini_Queen</ThingDef>

@@ -22,4 +22,18 @@
 		</match>
 		<!-- If the first XPATH does not exist, the original code stands. -->
 	</Operation>
+	
+	<Operation Class="PatchOperationConditional">
+		<!-- Does this exist? -->
+		<xpath>/Defs/ThingDef[defName="RB_BunkerBeehouse"]/passability</xpath>
+		<!-- If it does, do this replacement. -->
+		<match Class="PatchOperationReplace">
+			<success>Always</success>
+			<xpath>/Defs/ThingDef[defName="RB_BunkerBeehouse"]/passability</xpath>
+			<value>
+				<passability>Impassable</passability>
+			</value>
+		</match>
+		<!-- If the first XPATH does not exist, the original code stands. -->
+	</Operation>
 </Patch>

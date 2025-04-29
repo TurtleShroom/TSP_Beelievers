@@ -97,7 +97,7 @@
 				<ThingDef ParentName="RB_CombBase">
 					<defName>TSP_RB_Beeliever_SlaveryOfDiddy_Honeycomb</defName>
 					<label>Diddy honeycomb</label>
-					<description>All Slave-Making Bees are facultative, social, brood parasites that abduct larvae and use them to produce beeswax and honey. Diddy Bee drones drive the slave species and kidnap new Bleary Bee larvae. \n \ Diddy Bees use the natural sedative venom of Bleary Bees. Reap the harvest of slave labor and enjoy large amounts of White Party Honey, White Party Beesw- hang on a second... THAT'S JUST BABY OIL. Why is there baby oil in a honeycomb?!</description>
+					<description>All Slave-Making Bees are facultative, social, brood parasites that abduct larvae and use them to produce beeswax and honey. Diddy Bee drones drive the slave species and kidnap new Bleary Bee larvae. \n \ Diddy Bees use the natural sedative venom of Bleary Bees to make an even more potent substance. Reap the harvest of slave labor and enjoy large amounts of White Party Honey, White Party Beesw- hang on a second... THAT'S JUST BABY OIL. Why is there baby oil in a honeycomb?!</description>
 					<descriptionHyperlinks>
 						<!-- <ResearchProjectDef>ST_GnomeCulture</ResearchProjectDef> -->
 						<ThingDef>RB_Bee_Diddy_Queen</ThingDef>
@@ -337,7 +337,7 @@
 				<JoyGiverDef MayRequire="goo.babyoilgojuice">
 					<defName MayRequire="goo.babyoilgojuice">TSP_Diddy_FreakOff</defName>
 					<giverClass MayRequire="goo.babyoilgojuice">JoyGiver_TakeDrug</giverClass>
-					<baseChance MayRequire="goo.babyoilgojuice">2.3</baseChance>
+					<baseChance MayRequire="goo.babyoilgojuice">2.53</baseChance>
 					<joyKind MayRequire="goo.babyoilgojuice">Chemical</joyKind>
 					<thingDefs MayRequire="goo.babyoilgojuice">
 						<li MayRequire="goo.babyoilgojuice">BOG_Baby_Oil</li>
@@ -369,6 +369,76 @@
 						<largeOverdoseChance>0</largeOverdoseChance>
 					</li>
 				</comps>
+			</value>
+		</match>
+		<!-- If the first XPATH does not exist, the original code stands. -->
+	</Operation>
+	
+	<Operation Class="PatchOperationConditional">
+		<!-- Does this exist? -->
+		<xpath>/Defs/ThoughtDef[defName="BOG_BabyOilHigh"]/hediff</xpath>
+		<!-- If it does, do this replacement. -->
+		<match Class="PatchOperationReplace">
+			<success>Always</success>
+			<xpath>/Defs/ThoughtDef[defName="BOG_BabyOilHigh"]/hediff</xpath>
+			<value>
+				<hediff>BOG_BabyOilHigh</hediff>
+			</value>
+		</match>
+		<!-- If the first XPATH does not exist, the original code stands. -->
+	</Operation>
+	
+	<Operation Class="PatchOperationConditional">
+		<!-- Does this exist? -->
+		<xpath>/Defs/ChemicalDef[defName="BOG_BabyOil"]/addictionHediff</xpath>
+		<!-- If it does, do this replacement. -->
+		<match Class="PatchOperationReplace">
+			<success>Always</success>
+			<xpath>/Defs/ChemicalDef[defName="BOG_BabyOil"]/addictionHediff</xpath>
+			<value>
+				<addictionHediff>BOG_BabyOilAddiction</addictionHediff>
+			</value>
+		</match>
+		<!-- If the first XPATH does not exist, the original code stands. -->
+	</Operation>
+	
+	<Operation Class="PatchOperationConditional">
+		<!-- Does this exist? -->
+		<xpath>/Defs/ThingDef[defName="BOG_BabyOil"]/ingestible/ingestCommandString</xpath>
+		<!-- If it does, do this replacement. -->
+		<match Class="PatchOperationReplace">
+			<success>Always</success>
+			<xpath>/Defs/ThingDef[defName="BOG_BabyOil"]/ingestible/ingestCommandString</xpath>
+			<value>
+				<ingestCommandString>Drink {0}</ingestCommandString>
+			</value>
+		</match>
+		<!-- If the first XPATH does not exist, the original code stands. -->
+	</Operation>
+	
+	<Operation Class="PatchOperationConditional">
+		<!-- Does this exist? -->
+		<xpath>/Defs/ThingDef[defName="BOG_BabyOil"]/ingestible/ingestReportString</xpath>
+		<!-- If it does, do this replacement. -->
+		<match Class="PatchOperationReplace">
+			<success>Always</success>
+			<xpath>/Defs/ThingDef[defName="BOG_BabyOil"]/ingestible/ingestReportString</xpath>
+			<value>
+				<ingestReportString>Freaking off.</ingestReportString>
+			</value>
+		</match>
+		<!-- If the first XPATH does not exist, the original code stands. -->
+	</Operation>
+	
+	<Operation Class="PatchOperationConditional">
+		<!-- Does this exist? -->
+		<xpath>/Defs/ThingDef[defName="BOG_BabyOil"]/ingestible/ingestSound</xpath>
+		<!-- If it does, do this replacement. -->
+		<match Class="PatchOperationReplace">
+			<success>Always</success>
+			<xpath>/Defs/ThingDef[defName="BOG_BabyOil"]/ingestible/ingestSound</xpath>
+			<value>
+				<ingestSound>Ingest_Drink</ingestSound>
 			</value>
 		</match>
 		<!-- If the first XPATH does not exist, the original code stands. -->
