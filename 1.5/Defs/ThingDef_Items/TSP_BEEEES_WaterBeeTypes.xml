@@ -2,7 +2,7 @@
 
 <Defs>
 	<ThingDef ParentName="TSP_RB_Beeliever_MasterBeeBase" Name="TSP_RB_Beeliever_WaterRoot" Abstract="True">
-		<!-- <label>Bleary Bee</label> -->
+		<!-- <label>Water Bee</label> -->
 		<!--
 		<graphicData Inherit="False">
 			<texPath>Things/Pawn/Animal/Bug_Types/Bee/ST_Bee_south</texPath>
@@ -72,6 +72,72 @@
 		</descriptionHyperlinks>
 		<graphicData Inherit="False">
 			<texPath>Things/Pawn/Animal/Bug_Types/Bee/WaterBranch/TSP_Bee_Water_Drone</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData> 		
+	</ThingDef>
+	
+	<ThingDef ParentName="TSP_RB_Beeliever_MasterBeeBase" Name="TSP_RB_Beeliever_OrientalRoot" Abstract="True">
+		<!-- <label>Oriental Bee</label> -->
+		<!--
+		<graphicData Inherit="False">
+			<texPath>Things/Pawn/Animal/Bug_Types/Bee/ST_Bee_south</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		-->
+		<description>Oriental Bees are closely related to Agricultural Bees, Swamp Bees, and Water Bees. Like Agricultural Bees, they store grains in their combs to supplement their honey output and feed their larvae, but they do so using a more water-intensive crop. This means that they are native to, and thrive in, swamplands, making them more sensitive to the cold. Oriental Bees produce grains almost identical to rice, along with normal Honey and normal Beeswax. \n\n\n\n\n Bee Traits: \n\n 	Production time: 12 hours \n 	Works at Night: No \n 	Works When Raining: Yes \n 	Unusual Sources Needed: No \n 	Minimum Temperature: 23ºF (-5ºC) \n 	Maximum temperature: 97ºF (36.1111ºC)</description>
+		<statBases>
+			<DeteriorationRate>1</DeteriorationRate>
+		</statBases>
+		<comps>
+			<li Class="RimBees.CompProperties_Bees" Inherit="False">
+				<species>Oriental</species>
+				<comb>TSP_RB_Beeliever_Oriental_Honeycomb</comb>
+				<combtimedays>0.5</combtimedays>
+				<nocturnal>false</nocturnal> <!-- Works at night -->
+				<pluviophile>true</pluviophile> <!-- Works in the rain -->
+				<weirdplantneeded>no</weirdplantneeded>
+				<tempMin>-5</tempMin> <!-- Twenty-three degrees Farenheit -->
+				<tempMax>36.1111</tempMax> <!-- Ninety-seven degrees. -->
+			</li>
+		</comps>
+	</ThingDef>
+	
+	<ThingDef ParentName="TSP_RB_Beeliever_OrientalRoot">
+		<defName>RB_Bee_Oriental_Queen</defName>
+		<label>Oriental Bee queen</label>
+		<descriptionHyperlinks>
+			<!-- <ThingDef>RB_Bee_Oriental_Queen</ThingDef> -->
+			<ThingDef>RB_Bee_Oriental_Drone</ThingDef>
+			<ThingDef>TSP_RB_Beeliever_Oriental_Honeycomb</ThingDef>
+			<RecipeDef>TSP_RB_Beeliever_Centrifuge_Oriental_Honeycomb</RecipeDef>
+			<!--
+			<ThingDef>TSP_ST_RB_WildHive_Gnome</ThingDef>
+			<RecipeDef>TSP_ST_RB_Gneehive_Extract</RecipeDef>
+			-->
+			<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+		</descriptionHyperlinks>
+		<graphicData Inherit="False">
+			<texPath>Things/Pawn/Animal/Bug_Types/Bee/WaterBranch/TSP_Bee_Oriental_Queen</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData> 		
+	</ThingDef>
+	
+	<ThingDef ParentName="TSP_RB_Beeliever_OrientalRoot">
+		<defName>RB_Bee_Oriental_Drone</defName>
+		<label>Oriental Bee drone</label>
+		<descriptionHyperlinks>
+			<ThingDef>RB_Bee_Oriental_Queen</ThingDef>
+			<!-- <ThingDef>RB_Bee_Oriental_Drone</ThingDef> -->
+			<ThingDef>TSP_RB_Beeliever_Oriental_Honeycomb</ThingDef>
+			<RecipeDef>TSP_RB_Beeliever_Centrifuge_Oriental_Honeycomb</RecipeDef>
+			<!--
+			<ThingDef>TSP_ST_RB_WildHive_Gnome</ThingDef>
+			<RecipeDef>TSP_ST_RB_Gneehive_Extract</RecipeDef>
+			-->
+			<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+		</descriptionHyperlinks>
+		<graphicData Inherit="False">
+			<texPath>Things/Pawn/Animal/Bug_Types/Bee/WaterBranch/TSP_Bee_Oriental_Drone</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
 		</graphicData> 		
 	</ThingDef>

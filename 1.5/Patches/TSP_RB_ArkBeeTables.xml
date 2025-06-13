@@ -222,4 +222,63 @@
 		</match>
 		<!-- If the first XPATH does not exist, the original code stands. -->
 	</Operation>
+	
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>/Defs/ThingDef[defName="FoodGenerator"]</xpath>
+		<!-- If it does, add this. -->
+		<match Class="PatchOperationAdd">
+			<xpath>/Defs/ThingDef[defName="FoodGenerator"]/comps/li/fuelFilter/thingDefs</xpath>
+			<value>
+				<li MayRequire="GarbageDayIsHereToStay.Watermelons.GDIHTSWM">RAW_WATERMELON_RESOURCE_DEF</li>
+				<li MayRequire="sarg.rimbees">RB_SimpleHoney</li>
+				<li MayRequire="sarg.rimbees">RB_FineHoney</li>
+				<li MayRequire="sarg.rimbees">RB_LavishHoney</li>
+				<li MayRequire="sarg.rimbees">RB_HoneyedIcePop</li>
+				<li MayRequire="sarg.rimbees">RB_HoneyPreservedMeat</li>
+				<li MayRequire="sera.apinialienrace">ApiniHoney</li>
+				<li MayRequire="sera.apinialienrace">ApiniHoney_F</li>
+				<li MayRequire="sera.apinialienrace">ApiniHoney_M</li>
+				<li MayRequire="sera.apinialienrace">ApiniHoney_B</li>
+				<li MayRequire="sera.apinialienrace">ApiniHoney_R</li>
+				<li MayRequire="sera.apinialienrace">ApiniHoney_W</li>
+				<li MayRequire="sera.apinialienrace">ApiniHoney_V</li>
+				<li MayRequire="sarg.rimbees">NpiniMeatHoney</li>
+				<li MayRequire="sumika.nanohana">L24_Manto_MantodeanJelly</li>
+				<li MayRequire="sarg.alphaanimals,sarg.alphabiomes">AB_BumbledroneFood</li>
+				<li MayRequire="zoura3025.megabees">MegabeeTallow</li>
+				<li MayRequire="sera.apinialienrace">ApiniJelly</li>
+				<li MayRequire="oskarpotocki.vfe.vikings">VFEV_Sweetroll</li>
+				<li MayRequire="higgs.cozarkian.entomophagy">Insect_MealSimple</li>
+				<li MayRequire="higgs.cozarkian.entomophagy">Insect_MealFine</li>
+				<li MayRequire="higgs.cozarkian.entomophagy">Insect_MealLavish</li>
+				<li MayRequire="higgs.cozarkian.entomophagy">Insect_MealSurvivalPack</li>
+				<li MayRequire="higgs.cozarkian.entomophagy">Insect_Pemmican</li>
+				<li MayRequire="higgs.cozarkian.entomophagy,vanillaexpanded.vcooke">Insect_CookedSoupSimple</li>
+				<li MayRequire="higgs.cozarkian.entomophagy,vanillaexpanded.vcooke">Insect_CookedSoupFine</li>
+				<li MayRequire="higgs.cozarkian.entomophagy,vanillaexpanded.vcooke">Insect_CookedSoupLavish</li>
+				<li MayRequire="higgs.cozarkian.entomophagy,vanillaexpanded.vcooke">Insect_CookedSoupGourmet</li>
+				<li MayRequire="higgs.cozarkian.entomophagy,vanillaexpanded.vcooke">Insect_SimpleBake</li>
+				<li MayRequire="higgs.cozarkian.entomophagy,vanillaexpanded.vcooke">Insect_FineBake</li>
+				<li MayRequire="higgs.cozarkian.entomophagy,vanillaexpanded.vcooke">Insect_LavishBake</li>
+				<li MayRequire="higgs.cozarkian.entomophagy,vanillaexpanded.vcooke">Insect_GourmetBake</li>
+				<li MayRequire="higgs.cozarkian.entomophagy,vanillaexpanded.vcooke">Insect_CannedMeat</li>
+				<li MayRequire="higgs.cozarkian.entomophagy,vanillaexpanded.vcooke">Insect_DeepFriedInsectMeat</li>
+				<li MayRequire="higgs.cozarkian.entomophagy,vanillaexpanded.vcooke">Insect_MealGourmet</li>
+				<li MayRequire="higgs.cozarkian.entomophagy,vanillaexpanded.vcooke">Insect_SimpleDessert</li>
+				<li MayRequire="higgs.cozarkian.entomophagy,vanillaexpanded.vcooke">Insect_FineDessert</li>
+				<li MayRequire="higgs.cozarkian.entomophagy,vanillaexpanded.vcooke">Insect_LavishDessert</li>
+				<li MayRequire="higgs.cozarkian.entomophagy,vanillaexpanded.vcooke">Insect_GourmetDessert</li>
+				<li MayRequire="higgs.cozarkian.entomophagy,vanillaexpanded.vcooke">Insect_SimpleGrill</li>
+				<li MayRequire="higgs.cozarkian.entomophagy,vanillaexpanded.vcooke">Insect_RuinedSimpleGrill</li>
+				<li MayRequire="higgs.cozarkian.entomophagy,vanillaexpanded.vcooke">Insect_FineGrill</li>
+				<li MayRequire="higgs.cozarkian.entomophagy,vanillaexpanded.vcooke">Insect_RuinedFineGrill</li>
+				<li MayRequire="higgs.cozarkian.entomophagy,vanillaexpanded.vcooke">Insect_LavishGrill</li>
+				<li MayRequire="higgs.cozarkian.entomophagy,vanillaexpanded.vcooke">Insect_RuinedLavishGrill</li>
+				<li MayRequire="higgs.cozarkian.entomophagy,vanillaexpanded.vcooke">Insect_GourmetGrill</li>
+				<li MayRequire="higgs.cozarkian.entomophagy,vanillaexpanded.vcooke">Insect_RuinedGourmetGrill</li>
+			</value>
+		</match>
+		<!-- If the first XPATH does not exist, the original code stands. -->
+	</Operation>
 </Patch>

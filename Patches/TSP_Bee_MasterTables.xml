@@ -58,6 +58,21 @@
 	
 	<Operation Class="PatchOperationConditional">
 		<!-- Does this exist? -->
+		<xpath>/Defs/ThingDef[defName="RB_Bee_Warden_Drone"]</xpath>
+		<!-- If it does, add this. -->
+		<match Class="PatchOperationAdd">
+			<success>Always</success>
+			<xpath>/Defs/RimBees.BeeCombinationDef[defName="RB_CombinationTier1_3"]/result</xpath>
+			<value>
+				<li>Agricultural</li>
+				<li>Warden</li>
+			</value>
+		</match>
+		<!-- If the first XPATH does not exist, the original code stands. -->
+	</Operation>
+	
+	<Operation Class="PatchOperationConditional">
+		<!-- Does this exist? -->
 		<xpath>/Defs/ThingDef[defName="RB_Bee_Bleary_Queen"]</xpath>
 		<!-- If it does, add this. -->
 		<match Class="PatchOperationAdd">
@@ -128,4 +143,18 @@
 		</match>
 		<!-- If the first XPATH does not exist, the original code stands. -->
 	</Operation>
+	
+	<Operation Class="PatchOperationConditional">
+		<!-- Does this exist? -->
+		<xpath>/Defs/ThingDef[defName="RB_Bee_Oriental_Queen"]</xpath>
+		<!-- If it does, add this. -->
+		<match Class="PatchOperationAdd">
+			<success>Always</success>
+			<xpath>/Defs/RimBees.BeeCombinationDef[defName="RB_CombinationTier3_3"]/result</xpath>
+			<value>
+				<li>Oriental</li>
+			</value>
+		</match>
+		<!-- If the first XPATH does not exist, the original code stands. -->
+	</Operation>	
 </Patch>

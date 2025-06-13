@@ -28,6 +28,26 @@
 		</result>
 	</RimBees.BeeCombinationDef>
 	
+	<RimBees.BeeCombinationDef>
+		<defName>TSP_RB_Beelievers_Oriental_HybridTables_Base</defName>
+		<bee1>Agricultural</bee1>
+		<bee2>Water</bee2>
+		<result>
+			<li>Oriental</li>
+		</result>
+	</RimBees.BeeCombinationDef>
+	
+	<!--
+	<RimBees.BeeCombinationDef>
+		<defName>TSP_RB_Beelievers_Oriental2_HybridTables_Base</defName>
+		<bee1>Agricultural</bee1>
+		<bee2>Swamp</bee2>
+		<result>
+			<li>Oriental</li>
+		</result>
+	</RimBees.BeeCombinationDef>
+	-->
+	
 	<!--
 	<RimBees.BeeCombinationDef>
 		<defName>TSP_RB_Beelievers_SlaverTables_OtherHoney</defName>

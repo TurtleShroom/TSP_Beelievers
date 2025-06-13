@@ -144,6 +144,9 @@
 		</graphicData>
 		-->
 		<description>Like Go Bees, Insomnia Bees consume Psychite to make drugs to enrich their larvae. They do not ever go to sleep at night. As with Go Bees, Insomnia Bees can only produce enough Wake-Up for a Pawn to harvest if the hive is given concentrated Flake. Psychite Leaves won't cut it. \n\n\n\n\n Bee Traits: \n\n 	Production time: ~15.6 hours \n 	Works at Night: Yes \n 	Works When Raining: No \n 	Unusual Sources Needed: Flake \n 	Minimum Temperature: 0ºF (-17.7778ºC) \n 	Maximum temperature: 97ºF (36.1111ºC)</description>
+		<descriptionHyperlinks>
+			<li>Flake</li>
+		</descriptionHyperlinks>
 		<statBases>
 			<DeteriorationRate>1</DeteriorationRate>
 		</statBases>

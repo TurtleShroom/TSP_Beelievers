@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 
 <Defs>
+	<!-- WATER -->
 	<ThingDef ParentName="RB_CombBase">
 		<defName>TSP_RB_Beeliever_Water_Honeycomb</defName>
 		<label>Water Bee dew honeycomb</label>
@@ -103,6 +104,101 @@
 		<fixedIngredientFilter>
 			<thingDefs>
 				<li>TSP_RB_Beeliever_Water_Honeycomb</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<specialProducts>
+			<li>Butchery</li>
+		</specialProducts>
+		<skillRequirements></skillRequirements>
+		<researchPrerequisites>
+			<li>RB_BasicBeekeeping</li>
+		</researchPrerequisites>
+	</RecipeDef>
+	
+	
+	<!-- ORIENTAL (RICE) -->
+	<ThingDef ParentName="RB_CombBase">
+		<defName>TSP_RB_Beeliever_Oriental_Honeycomb</defName>
+		<label>Oriental honeycomb</label>
+		<description>The honey of Oriental Bees is interspersed with combs containing a rice-like grain, which is grown in waterlogged honeycombs designed for a swampland crop. While almost all bees use water to cool invidiual combs where bee larvae grow, Oriental Bees instead use it to increase food production. Processing an Oriental Honeycomb yields ordinary Honey, ordinary Beeswax, and Rice.</description>
+		<descriptionHyperlinks Inherit="False">
+			<ThingDef>RB_Bee_Oriental_Queen</ThingDef>
+			<ThingDef>RB_Bee_Oriental_Drone</ThingDef>
+			<!-- <ThingDef>TSP_RB_Beeliever_Oriental_Honeycomb</ThingDef> -->
+			<RecipeDef>TSP_RB_Beeliever_Centrifuge_Oriental_Honeycomb</RecipeDef>
+			<ThingDef>RB_BaseHoney</ThingDef>
+			<ThingDef>RB_Beeswax</ThingDef>
+			<ThingDef>RawRice</ThingDef>
+			<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+		</descriptionHyperlinks>
+		<graphicData Inherit="False">
+			<texPath>Things/Pawn/Animal/Bug_Types/Bee/Honeycombs/TSP_RB_OrientalBee_Honeycomb</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<color>(255,255,255)</color>
+		</graphicData>
+		<statBases>
+			<Mass>0.001</Mass>
+			<MarketValue>0.01</MarketValue>
+		</statBases>
+		<thingCategories Inherit="False">
+			<li>TSP_RB_Beeliever_Honeycombs</li>
+		</thingCategories>
+		<butcherProducts>
+			<RB_BaseHoney>5</RB_BaseHoney>
+			<RB_Beeswax>5</RB_Beeswax>
+			<Filth_Water>1</Filth_Water>
+			<RawRice>20</RawRice>
+		</butcherProducts>
+		<!--
+		<modExtensions>
+			<li Class="DubsBadHygiene.WaterExt" MayRequire="dubwise.dubsbadhygiene">
+				<water>2</water>
+				<UseForWashing>true</UseForWashing>
+				<SeekForThirst>true</SeekForThirst>
+			</li>
+		</modExtensions>
+		-->
+	</ThingDef>
+	
+	<RecipeDef>
+		<defName>TSP_RB_Beeliever_Centrifuge_Oriental_Honeycomb</defName>
+		<label>extract from Oriental Bee honeycomb</label>
+		<description>Extracts Rice, normal Honey, and normal Beeswax from Oriental Bee honeycombs.</description>
+		<descriptionHyperlinks>
+			<!-- <ResearchProjectDef>ST_GnomeCulture</ResearchProjectDef> -->
+			<ThingDef>RB_Bee_Oriental_Queen</ThingDef>
+			<ThingDef>RB_Bee_Oriental_Drone</ThingDef>
+			<ThingDef>TSP_RB_Beeliever_Oriental_Honeycomb</ThingDef>
+			<ThingDef>RB_Beeswax</ThingDef>
+			<ThingDef>RB_BaseHoney</ThingDef>
+			<ThingDef>RawRice</ThingDef>
+			<!-- <RecipeDef>TSP_RB_Beeliever_Centrifuge_Oriental_Honeycomb</RecipeDef> -->
+			<!--
+			<ThingDef>TSP_ST_GnomeHoney</ThingDef>
+			<ThingDef>TSP_ST_RB_WildHive_Gnome</ThingDef>
+			<RecipeDef>TSP_ST_RB_Gneehive_Extract</RecipeDef>
+			-->
+			<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+		</descriptionHyperlinks>
+		<uiIconThing>RawRice</uiIconThing>
+		<jobString>Extracting rice from honeycombs.</jobString>
+		<effectWorking>Cremate</effectWorking>
+		<soundWorking>Recipe_Cremate</soundWorking>
+		<workAmount>900</workAmount>
+		<recipeUsers IsNull="True" Inherit="False"></recipeUsers>	
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>TSP_RB_Beeliever_Oriental_Honeycomb</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>TSP_RB_Beeliever_Oriental_Honeycomb</li>
 			</thingDefs>
 		</fixedIngredientFilter>
 		<specialProducts>
