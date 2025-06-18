@@ -152,7 +152,7 @@
 						<li>WoodLog</li>
 						<li>RB_BaseHoney</li>
 						<li>InsectJelly</li>
-						<li>RB_Beeswax</li>
+						<li MayRequire="sarg.rimbees">RB_Beeswax</li>
 						<li MayRequire="tsp.zal.patchhoney2">TSP_HoneyWort</li>
 					</thingDefs>
 				</filter>
@@ -167,7 +167,7 @@
 				<li>WoodLog</li>
 				<li>RB_BaseHoney</li>
 				<li>InsectJelly</li>
-				<li>RB_Beeswax</li>
+				<li MayRequire="sarg.rimbees">RB_Beeswax</li>
 				<li MayRequire="tsp.zal.patchhoney2">TSP_HoneyWort</li>
 			</thingDefs>
 		</fixedIngredientFilter>
@@ -175,7 +175,7 @@
 			<thingDefs>
 				<li>WoodLog</li>
 				<li>InsectJelly</li>
-				<li>RB_Beeswax</li>
+				<li MayRequire="sarg.rimbees">RB_Beeswax</li>
 				<li MayRequire="tsp.zal.patchhoney2">TSP_HoneyWort</li>
 			</thingDefs>
 		</defaultIngredientFilter>
