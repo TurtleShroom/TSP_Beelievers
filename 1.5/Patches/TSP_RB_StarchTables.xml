@@ -215,7 +215,7 @@
 				<Nutrition>0.24</Nutrition>
 			</value>
 		</match>
-		<!-- If the first XPATH does not exist, the original code stands. All according to plan. -->
+		<!-- If the first XPATH does not exist, the original code stands. -->
 	</Operation>
 	
 	<Operation Class="PatchOperationConditional">
@@ -229,6 +229,20 @@
 				<Nutrition>0.24</Nutrition>
 			</value>
 		</match>
-		<!-- If the first XPATH does not exist, the original code stands. All according to plan. -->
+		<!-- If the first XPATH does not exist, the original code stands. -->
+	</Operation>
+	
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>/Defs/ThingDef[defName="RB_Bee_Starch_Queen"]</xpath>
+		<!-- If it does, add this. -->
+		<match Class="PatchOperationAdd">
+			<success>Always</success>
+			<xpath>/Defs/ThingDef[defName="RB_ResearchPapersAgriWood"]/comps/li/resultingBees</xpath>
+			<value>
+				<li>RB_Bee_Starch_Queen</li>
+			</value>
+		</match>
+		<!-- If the first XPATH does not exist, the original code stands. -->
 	</Operation>
 </Patch>

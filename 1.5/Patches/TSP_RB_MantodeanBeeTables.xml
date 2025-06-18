@@ -218,6 +218,23 @@
 					</result>
 				</RimBees.BeeCombinationDef>
 				
+				<ThingDef ParentName="TSP_Beelievers_Beesearch">
+					<defName>TSP_RB_Beeliever_MantodeanTechno_Beesearch</defName>
+					<graphicData Inherit="False">
+						<graphicClass>Graphic_Single</graphicClass>
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/Beesearch/Idr_adbo2</texPath>
+					</graphicData>
+					<comps>
+						<li Class="RimBees.CompProperties_BeeResearchData">
+							<firstBee>RB_Bee_Mantodean_Queen</firstBee>
+							<secondBee>RB_Bee_Technological_Queen</secondBee>
+							<resultingBees>
+								<li>RB_Bee_Pupaponent_Queen</li>
+							</resultingBees>
+						</li>
+					</comps>
+				</ThingDef>
+				
 				<ThingDef ParentName="TSP_RB_Beeliever_MantodeanBase" Name="TSP_RB_Beeliever_Mantodean_Component" Abstract="True">
 					<!-- <label>Mantodean Slave-Making Bee</label> -->
 					<description>On Old Earth, living beings' ownership of other living beings as chattel did not stop with men owning animals, or even men owning men. Animals are capable of it too! There exists a rare adaption among insects where they will capture animals of other species and compel them to work for them. This is called "dulosis," literally "slave-making," and is a form of facultative, social, brood parasitism. It occurs most commonly among the slave-making ants, but dulosis has also beeen recorded in bees. \n \n These slave-making bees order their chattel to grind together Mantodean Component Pupae. DO NOT ask how that is done. \n\n\n\n\n Bee Traits: \n\n 	Production time: 1.5 days \n 	Works at Night: No \n 	Works When Raining: Yes \n 	Unusual Sources Needed: No \n 	Minimum Temperature: 0�F (-17.7778�C) \n 	Maximum temperature: 97�F (36.1111�C)</description>
@@ -397,6 +414,23 @@
 					</result>				
 				</RimBees.BeeCombinationDef>
 				
+				<ThingDef ParentName="TSP_Beelievers_Beesearch">
+					<defName>TSP_RB_Beeliever_MantodeanRoyal_Beeesearch</defName>
+					<graphicData Inherit="False">
+						<graphicClass>Graphic_Single</graphicClass>
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/Beesearch/Idr_adbo2</texPath>
+					</graphicData>
+					<comps>
+						<li Class="RimBees.CompProperties_BeeResearchData">
+							<firstBee>RB_Bee_Mantodean_Queen</firstBee>
+							<secondBee>RB_Bee_Aurum_Queen</secondBee>
+							<resultingBees>
+								<li>RB_Bee_Mantodean_RoyalJelly_Queen</li>
+							</resultingBees>
+						</li>
+					</comps>
+				</ThingDef>
+				
 				<ThingDef ParentName="TSP_RB_Beeliever_MantodeanBase" Name="TSP_RB_Beeliever_Mantodean_RoyalJelly" Abstract="True">
 					<!-- <label>Mantodean Slave-Making Bee</label> -->
 					<description>On Old Earth, living beings' ownership of other living beings as chattel did not stop with men owning animals, or even men owning men. Animals are capable of it too! There exists a rare adaption among insects where they will capture animals of other species and compel them to work for them. This is called "dulosis," literally "slave-making," and is a form of facultative, social, brood parasitism. It occurs most commonly among the slave-making ants, but dulosis has also beeen recorded in bees. \n \n These slave-making bees are cradle robbers, stealing Royal Jelly meant for the Mantodean larvae they kidnap for themselves! They need Mantodan Jelly to achieve this. \n\n\n\n\n Bee Traits: \n\n 	Production time: 1 day \n 	Works at Night: Yes \n 	Works When Raining: Yes \n 	Unusual Sources Needed: Mantodean Jelly \n 	Minimum Temperature: 0ºF (-17.7778ºC) \n 	Maximum temperature: 97ºF (36.1111ºC)</description>
@@ -574,6 +608,25 @@
 					-->
 				</RimBees.BeeListDef>
 				
+				<ThingDef ParentName="TSP_Beelievers_Beesearch">
+					<defName>TSP_RB_Beeliever_MantodeanResearch_Beesearch</defName>
+					<graphicData Inherit="False">
+						<graphicClass>Graphic_Single</graphicClass>
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/Beesearch/Idr_adbo2</texPath>
+					</graphicData>
+					<comps>
+						<li Class="RimBees.CompProperties_BeeResearchData">
+							<firstBee>RB_Bee_Mantodean_Queen</firstBee>
+							<secondBee>RB_Bee_Research_Queen</secondBee>
+							<resultingBees>
+								<li>RB_Bee_Mantodean_Blue_Queen</li>
+								<li>RB_Bee_Mantodean_Red_Queen</li>
+								<li>RB_Bee_Mantodean_Purple_Queen</li>
+							</resultingBees>
+						</li>
+					</comps>
+				</ThingDef>
+				
 				<ThingDef ParentName="TSP_RB_Beeliever_MantodeanBase" Name="TSP_RB_Beeliever_Mantodean_Blue" Abstract="True">
 					<!-- <label>Mantodean Slave-Making Bee</label> -->
 					<description>On Old Earth, living beings' ownership of other living beings as chattel did not stop with men owning animals, or even men owning men. Animals are capable of it too! There exists a rare adaption among insects where they will capture animals of other species and compel them to work for them. This is called "dulosis," literally "slave-making," and is a form of facultative, social, brood parasitism. It occurs most commonly among the slave-making ants, but dulosis has also beeen recorded in bees. \n \n These slave-making bees consist of Mantodean Slaver Bees that are highly adapted to working in extreme cold. They can safely make Blue Jelly even in the worst of Sea Ice Biomes. However, without the assistance of bees adapted to warmer weather, they will not generate anything if it gets above fifty degrees Farenheit (ten degrees Celcius). Mantodean Blue Jelly causes rapid carbohydrate metabolism, the extreme burning of which insulates from the cold, but also greatly increases the hunger of anyone that consumes it. Accordingly, Blue Mantodean Slaver Bees must have an external source of Mantodean Jelly as food, or else they will starve. \n\n\n\n\n Bee Traits: \n\n 	Production time: 0.5 days \n 	Works at Night: Yes \n 	Works When Raining: No \n 	Unusual Sources Needed: Mantodean Jelly \n 	Minimum Temperature: -58ºF (-50ºC) \n 	Maximum temperature: 50ºF (10ºC)</description>
@@ -678,7 +731,7 @@
 				
 				<RecipeDef>
 					<defName>TSP_RB_Beeliever_Centrifuge_SlaveryOfMantodean_Blue_Honeycomb</defName>
-					<label>extract from Blue Mantodean Slver honeycomb</label>
+					<label>extract from Blue Mantodean Slaver honeycomb</label>
 					<description>Extracts Mantodean Blue Jelly, Blue Honey, and Blue Beeswax from. Mantodean Slaver Bees parasitize Mantodean larvae to consume their food instead of honey. What's wrong with exploiting exploiters, after all?</description>
 					<descriptionHyperlinks>
 						<!-- <ResearchProjectDef>ST_GnomeCulture</ResearchProjectDef> -->
@@ -1115,6 +1168,24 @@
 					-->
 				</RimBees.BeeListDef>
 				
+				<ThingDef ParentName="TSP_Beelievers_Beesearch">
+					<defName>TSP_RB_Beeliever_MantodeanRadioactive_Beesearch</defName>
+					<graphicData Inherit="False">
+						<graphicClass>Graphic_Single</graphicClass>
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/Beesearch/Idr_adbo2</texPath>
+					</graphicData>
+					<comps>
+						<li Class="RimBees.CompProperties_BeeResearchData">
+							<firstBee>RB_Bee_Mantodean_Queen</firstBee>
+							<secondBee>RB_Bee_Research_Queen</secondBee>
+							<resultingBees>
+								<li>RB_Bee_Mantodean_Green_Queen</li>
+								<li>RB_Bee_Mutaphid_Queen</li>
+							</resultingBees>
+						</li>
+					</comps>
+				</ThingDef>
+				
 				<ThingDef ParentName="TSP_RB_Beeliever_MantodeanBase" Name="TSP_RB_Beeliever_Mantodean_Green" Abstract="True">
 					<!-- <label>Mantodean Slave-Making Bee</label> -->
 					<description>On Old Earth, living beings' ownership of other living beings as chattel did not stop with men owning animals, or even men owning men. Animals are capable of it too! There exists a rare adaption among insects where they will capture animals of other species and compel them to work for them. This is called "dulosis," literally "slave-making," and is a form of facultative, social, brood parasitism. It occurs most commonly among the slave-making ants, but dulosis has also beeen recorded in bees. \n \n Purple Mantodean Slaver Bees are similar to their vicious red counterparts, but are more reasonable with their drug-fuelled advancements. They feed their abducted Mantodean larvae safe amounts of Purple (Corpse) Jelly and Psychotropic Honey, which connects them to the Mantodean psychic fields and allows the bees to produce far more food than they normally would. \n\n\n\n\n Bee Traits: \n\n 	Production time: 2 days \n 	Works at Night: Yes \n 	Works When Raining: Yes \n 	Unusual Sources Needed: None \n 	Minimum Temperature: 0ºF (-17.7778ºC) \n 	Maximum temperature: 97ºF (36.1111ºC)</description>
@@ -1475,6 +1546,23 @@
 					-->
 				</RimBees.BeeListDef>
 				
+				<ThingDef ParentName="TSP_Beelievers_Beesearch">
+					<defName>TSP_RB_Beeliever_MantodeanWeaving_Beesearch</defName>
+					<graphicData Inherit="False">
+						<graphicClass>Graphic_Single</graphicClass>
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/Beesearch/Idr_adbo2</texPath>
+					</graphicData>
+					<comps>
+						<li Class="RimBees.CompProperties_BeeResearchData">
+							<firstBee>RB_Bee_Mantodean_Queen</firstBee>
+							<secondBee>RB_Bee_Weaving_Queen</secondBee>
+							<resultingBees>
+								<li>RB_Bee_Mantosilk_Queen</li>
+							</resultingBees>
+						</li>
+					</comps>
+				</ThingDef>
+				
 				<ThingDef ParentName="TSP_RB_Beeliever_MantodeanBase" Name="TSP_RB_Beeliever_Mantodean_Silk" Abstract="True">
 					<!-- <label>Mantodean Slave-Making Bee</label> -->
 					<description>On Old Earth, living beings' ownership of other living beings as chattel did not stop with men owning animals, or even men owning men. Animals are capable of it too! There exists a rare adaption among insects where they will capture animals of other species and compel them to work for them. This is called "dulosis," literally "slave-making," and is a form of facultative, social, brood parasitism. It occurs most commonly among the slave-making ants, but dulosis has also beeen recorded in bees. \n \n These Mantodean Slaver Bees abduct lesser castes of Mantodean insects and feed off of the silk that they spin. \n\n\n\n\n Bee Traits: \n\n 	Production time: 0.85 days \n 	Works at Night: No \n 	Works When Raining: No \n 	Unusual Sources Needed: None \n 	Minimum Temperature: 0ºF (-17.7778ºC) \n 	Maximum temperature: 97ºF (36.1111ºC)</description>
@@ -1646,13 +1734,30 @@
 				</RimBees.BeeListDef>
 				
 				<RimBees.BeeCombinationDef>
-					<defName>TSP_RB_Beeliever_Egg</defName>
+					<defName>TSP_RB_Beeliever_Mantodean_Egg_Tables</defName>
 					<bee1>Mantodean</bee1>
 					<bee2>Egglaying</bee2>
 					<result>
 						<li>Mantodean_Egg</li>
 					</result>				
 				</RimBees.BeeCombinationDef>
+				
+				<ThingDef ParentName="TSP_Beelievers_Beesearch">
+					<defName>TSP_RB_Beeliever_Mantodean_Egg_Beesearch</defName>
+					<graphicData Inherit="False">
+						<graphicClass>Graphic_Single</graphicClass>
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/Beesearch/Idr_adbo2</texPath>
+					</graphicData>
+					<comps>
+						<li Class="RimBees.CompProperties_BeeResearchData">
+							<firstBee>RB_Bee_Mantodean_Queen</firstBee>
+							<secondBee>RB_Bee_Egglaying_Queen</secondBee>
+							<resultingBees>
+								<li>RB_Bee_Mantodean_Egg_Queen</li>
+							</resultingBees>
+						</li>
+					</comps>
+				</ThingDef>
 				
 				<ThingDef ParentName="TSP_RB_Beeliever_MantodeanBase" Name="TSP_RB_Beeliever_Mantodean_Egg" Abstract="True">
 					<!-- <label>Mantodean Slave-Making Bee</label> -->
@@ -1822,6 +1927,24 @@
 						<li MayRequire="sarg.alphaanimals,eltwofour.mantodeanrace">Mantodean_Black</li>
 					</result>				
 				</RimBees.BeeCombinationDef>
+				
+				<ThingDef ParentName="TSP_Beelievers_Beesearch">
+					<defName>TSP_RB_Beelievers_MantodeanTables_BlackAndTwisted_Beesearch</defName>
+					<graphicData Inherit="False">
+						<graphicClass>Graphic_Single</graphicClass>
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/Beesearch/Idr_adbo2</texPath>
+					</graphicData>
+					<comps>
+						<li Class="RimBees.CompProperties_BeeResearchData">
+							<firstBee>RB_Bee_Mantodean_Queen</firstBee>
+							<secondBee>RB_Bee_Nocturnal_Queen</secondBee>
+							<resultingBees>
+								<li MayRequire="ludeon.rimworld.anomaly,eltwofour.mantodeanrace">RB_Bee_Mantodean_Corrupted_Queen</li>
+								<li MayRequire="sarg.alphaanimals,eltwofour.mantodeanrace">RB_Bee_Mantodean_Black_Queen</li>
+							</resultingBees>
+						</li>
+					</comps>
+				</ThingDef>
 			</value>
 		</match>
 	</Operation>

@@ -9,9 +9,9 @@
 			<xpath>/Defs</xpath>
 			<success>Always</success>
 			<value>
-				<!-- Slaver Branch -->
-				<!-- TIER II -->
-				<!-- Haplo Slaver Bees: kidnaps Haplo (Miscellaneous Bees Mod) larvae, makes Haplo Honey -->
+				<!-- Alpha Crafts Branch -->
+				<!-- TIER III -->
+				<!-- Alpha Crafts: Makes Gravy! -->
 				<RimBees.BeeListDef>
 					<defName>TSP_RB_Beeliever_AlphaCraftsBee1</defName>
 					<nameString>Gravy</nameString>
@@ -40,6 +40,40 @@
 						<li>Gravy</li>
 					</result>				
 				</RimBees.BeeCombinationDef>
+				
+				<ThingDef ParentName="TSP_Beelievers_Beesearch">
+					<defName>TSP_RB_Beelievers_AlphaCraftTables1_Gravy_Beesearch</defName>
+					<graphicData Inherit="False">
+						<graphicClass>Graphic_Single</graphicClass>
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/Beesearch/Idr_adbo2</texPath>
+					</graphicData>
+					<comps>
+						<li Class="RimBees.CompProperties_BeeResearchData">
+							<firstBee>RB_Bee_Luxurious_Queen</firstBee>
+							<secondBee>RB_Bee_Nutritious_Queen</secondBee>
+							<resultingBees>
+								<li>RB_Bee_Gravy_Queen</li>
+							</resultingBees>
+						</li>
+					</comps>
+				</ThingDef>
+				
+				<ThingDef ParentName="TSP_Beelievers_Beesearch">
+					<defName>TSP_RB_Beelievers_AlphaCraftTables2_Gravy_Beesearch</defName>
+					<graphicData Inherit="False">
+						<graphicClass>Graphic_Single</graphicClass>
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/Beesearch/Idr_adbo2</texPath>
+					</graphicData>
+					<comps>
+						<li Class="RimBees.CompProperties_BeeResearchData">
+							<firstBee>RB_Bee_Chef_Queen</firstBee>
+							<secondBee>RB_Bee_Nutritious_Queen</secondBee>
+							<resultingBees>
+								<li>RB_Bee_Gravy_Queen</li>
+							</resultingBees>
+						</li>
+					</comps>
+				</ThingDef>
 			
 				<ThingDef ParentName="TSP_RB_Beeliever_MasterBeeBase" Name="TSP_RB_Beeliever_GravyBase" Abstract="True">
 					<!-- <label>Gravy Bee</label> -->
@@ -225,6 +259,23 @@
 						<li>Soap</li>
 					</result>				
 				</RimBees.BeeCombinationDef>
+				
+				<ThingDef ParentName="TSP_Beelievers_Beesearch">
+					<defName>TSP_RB_Beelievers_AlphaCraftTables2_Soap_Beesearch</defName>
+					<graphicData Inherit="False">
+						<graphicClass>Graphic_Single</graphicClass>
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/Beesearch/Idr_adbo2</texPath>
+					</graphicData>
+					<comps>
+						<li Class="RimBees.CompProperties_BeeResearchData">
+							<firstBee>RB_Bee_Janitor_Queen</firstBee>
+							<secondBee>RB_Bee_Water_Queen</secondBee>
+							<resultingBees>
+								<li>RB_Bee_Soap_Queen</li>
+							</resultingBees>
+						</li>
+					</comps>
+				</ThingDef>
 			
 				<ThingDef ParentName="TSP_RB_Beeliever_MasterBeeBase" Name="TSP_RB_Beeliever_SoapBase" Abstract="True">
 					<!-- <label>Soap Bee</label> -->

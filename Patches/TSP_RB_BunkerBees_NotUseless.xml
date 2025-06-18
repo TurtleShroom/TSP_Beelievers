@@ -15,7 +15,7 @@
 						<isBeehouse>true</isBeehouse>
 						<electricBeehouse>false</electricBeehouse>
 						<climatizedBeehouse>true</climatizedBeehouse>
-						<beehouseRate>12</beehouseRate>
+						<beehouseRate>12</beehouseRate> <!-- Twelve times slower! -->
 					</li>
 				</comps>
 			</value>

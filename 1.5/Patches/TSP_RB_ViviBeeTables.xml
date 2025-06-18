@@ -119,7 +119,7 @@
 						<ThingDef>TSP_ST_RB_WildHive_Gnome</ThingDef>
 						<RecipeDef>TSP_ST_RB_Gneehive_Extract</RecipeDef>
 						-->
-						<ThingDef>Honey</ThingDef> <!-- Seriously dude, give it a better name -->
+						<ThingDef>VV_FilteredHoney</ThingDef>
 						<ThingDef>VV_Viviwax</ThingDef>
 						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
 					</descriptionHyperlinks>
@@ -224,6 +224,23 @@
 						<li>Vivicream</li>
 					</result>				
 				</RimBees.BeeCombinationDef>
+				
+				<ThingDef ParentName="TSP_Beelievers_Beesearch">
+					<defName>TSP_RB_Beelievers_SlaverTables_Vivicream_Beesearch</defName>
+					<graphicData Inherit="False">
+						<graphicClass>Graphic_Single</graphicClass>
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/Beesearch/Idr_adbo2</texPath>
+					</graphicData>
+					<comps>
+						<li Class="RimBees.CompProperties_BeeResearchData">
+							<firstBee>RB_Bee_Vivi_Queen</firstBee>
+							<secondBee>RB_Bee_Lactic_Queen</secondBee>
+							<resultingBees>
+								<li>RB_Bee_Vivicream_Queen</li>
+							</resultingBees>
+						</li>
+					</comps>
+				</ThingDef>
 				
 				<ThingDef ParentName="TSP_RB_Beeliever_ViviBase" Name="TSP_RB_Beeliever_VivicreamBase" Abstract="True">
 					<!-- <label>Vivi Slave-Making Bee</label> -->
@@ -413,6 +430,23 @@
 					</result>				
 				</RimBees.BeeCombinationDef>
 				
+				<ThingDef ParentName="TSP_Beelievers_Beesearch">
+					<defName>TSP_RB_Beelievers_SlaverTables_Vivi_Royal_Beesearch</defName>
+					<graphicData Inherit="False">
+						<graphicClass>Graphic_Single</graphicClass>
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/Beesearch/Idr_adbo2</texPath>
+					</graphicData>
+					<comps>
+						<li Class="RimBees.CompProperties_BeeResearchData">
+							<firstBee>RB_Bee_Vivicream_Queen</firstBee>
+							<secondBee>RB_Bee_Aurum_Queen</secondBee>
+							<resultingBees>
+								<li>RB_Bee_Vivi_Royal_Queen</li>
+							</resultingBees>
+						</li>
+					</comps>
+				</ThingDef>
+				
 				<ThingDef ParentName="TSP_RB_Beeliever_ViviBase" Name="TSP_RB_Beeliever_ViviBase_Royal" Abstract="True">
 					<!-- <label>Vivi Slave-Making Bee</label> -->
 					<description>On Old Earth, living beings' ownership of other living beings as chattel did not stop with men owning animals, or even men owning men. Animals are capable of it too! There exists a rare adaption among insects where they will capture animals of other species and compel them to work for them. This is called "dulosis," literally "slave-making," and is a form of facultative, social, brood parasitism. It occurs most commonly among the slave-making ants, of which dozens of species exist. However, dulosis has also beeen recorded in bees. \n \n These slave-making bees exclusively target the larvae of Vivi Bees (they deserve it) and refine Vivi Honey into Vivi Royal Jelly. To accomplish this feat, a cache of Vivi Cream needs to be presented to the beehive. \n\n\n\n\n Bee Traits: \n\n 	Production time: 0.66 days \n 	Works at Night: No \n 	Works When Raining: Yes \n 	Unusual Sources Needed: Vivi Cream \n 	Minimum Temperature: 0ºF (-17.7778ºC) \n 	Maximum temperature: 97ºF (36.1111ºC)</description>
@@ -549,7 +583,7 @@
 						<li>RB_Advanced_Honey_Centrifuge</li>
 						<li MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</li>
 						-->
-					</recipeUsers>	
+					</recipeUsers>
 					<ingredients>
 						<li>
 							<filter>

@@ -205,6 +205,23 @@
 					</result>				
 				</RimBees.BeeCombinationDef>
 				
+				<ThingDef ParentName="TSP_Beelievers_Beesearch">
+					<defName>TSP_RB_Beelievers_MedievalTables1_Wine_Beesearch</defName>
+					<graphicData Inherit="False">
+						<graphicClass>Graphic_Single</graphicClass>
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/Beesearch/Idr_adbo2</texPath>
+					</graphicData>
+					<comps>
+						<li Class="RimBees.CompProperties_BeeResearchData">
+							<firstBee>RB_Bee_Fruit_Queen</firstBee>
+							<secondBee>RB_Bee_Tipsy_Queen</secondBee>
+							<resultingBees>
+								<li>RB_Bee_Wino_Queen</li>
+							</resultingBees>
+						</li>
+					</comps>
+				</ThingDef>
+				
 				<ThingDef ParentName="TSP_RB_Beeliever_MasterBeeBase" Name="TSP_RB_Beeliever_Medieval_Wine_Base" Abstract="True">
 					<!-- <label>Wine Bee</label> -->
 					<description>A "wino" is an alcoholic whose beverage of choice is almost exclusively wine. Very closely related to Tipsy Bees, the Wino Bees are Fruit Bees that have developed the ability to ferment the berry sugars in their nectar to great effect, producing what is basically wine must awaiting storage in barrels. They produce, in essence, all the ingredients necessary for wine. However, to make wine out of Wino Bee Honeycombs, one must insert the wine must that they produce in a barrel for them. \n\n\n\n\n Bee Traits: \n\n 	Production time: 18 hours \n 	Works at Night: No \n 	Works When Raining: No \n 	Unusual Sources Needed: No \n 	Minimum Temperature: 23ºF (-5ºC) \n 	Maximum temperature: 91ºF (33ºC)</description>
@@ -390,5 +407,19 @@
 			</value>
 		</match>
 		<!-- If the first XPATH does not exist, the original code stands. All according to plan. -->
+	</Operation>
+	
+	<Operation Class="PatchOperationConditional">
+		<!-- Does this exist? -->
+		<xpath>/Defs/ThingDef[defName="RB_Bee_Northern_Queen"]</xpath>
+		<!-- If it does, add this. -->
+		<match Class="PatchOperationAdd">
+			<success>Always</success>
+			<xpath>/Defs/RimBees.BeeCombinationDef[defName="RB_CombinationTier2_1"]/result</xpath>
+			<value>
+				<li>Northern</li>
+			</value>
+		</match>
+		<!-- If the first XPATH does not exist, the original code stands. -->
 	</Operation>
 </Patch>

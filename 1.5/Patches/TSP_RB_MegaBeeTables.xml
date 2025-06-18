@@ -32,6 +32,24 @@
 					<beeDroneTag>RB_Bee_Slaver_Drone_Tag</beeDroneTag>
 					-->
 				</RimBees.BeeListDef>
+				
+				<ThingDef ParentName="TSP_Beelievers_Beesearch">
+					<defName>TSP_RB_Beelievers_SlaverTables_Megabee_Beesearch</defName>
+					<graphicData Inherit="False">
+						<graphicClass>Graphic_Single</graphicClass>
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/Beesearch/Idr_adbo2</texPath>
+					</graphicData>
+					<comps>
+						<li Class="RimBees.CompProperties_BeeResearchData">
+							<firstBee>RB_Bee_Slaver_Queen</firstBee>
+							<secondBee>RB_Bee_Nutritious_Queen</secondBee>
+							<resultingBees>
+								<li>RB_Bee_Megabee_Queen</li>
+								<li>RB_Bee_Beesalve_Queen</li>
+							</resultingBees>
+						</li>
+					</comps>
+				</ThingDef>
 			
 				<ThingDef ParentName="TSP_RB_Beeliever_SlaverBase" Name="TSP_RB_Beeliever_MegabeeBase" Abstract="True">
 					<!-- <label>Megabee Slave-Making Bee</label> -->

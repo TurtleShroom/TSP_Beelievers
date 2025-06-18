@@ -1,0 +1,427 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<Defs>
+	<ThingCategoryDef>
+		<defName>TSP_RB_Beesearch_Beelievers</defName>
+		<label>TurtleShroom Beesearch</label>
+		<parent>RB_BeeResearch</parent>
+		<iconPath>Things/Pawn/Animal/Bug_Types/Bee/Idr_adbo2</iconPath>
+	</ThingCategoryDef>
+
+	<ThingDef Name="TSP_Beelievers_Beesearch" ParentName="RB_ResearchPapersBase" Abstract="True">
+		<label>Beesearch Files (TurtleShroom Bee-lievers)</label>
+		<description>First things first \n I will write all the bees that I have read \n I'm hungry and looking for the honey from hybrids bred \n Honey from hybrids bred \n Second things second \n Don't you tell me how you think I keep my bees \n I'm the one at the hive and I'm getting this honey \n \n BRAIN! \n \n I'll make you a, make you a BEE-liever, BEE-liever! \n \n BRAIN! \n \n I'll make you a, make you a BEE-liever, BEE-liever! \n \n BRAIN \n \n Let the papers fly let them train, \n My money scheme my hive and all these bees \n \n BRAIN!! \n \n I'll make you a, make you a BEE-liever, BEE-liever!</description>
+		<graphicData Inherit="False">
+			<graphicClass>Graphic_Single</graphicClass>
+			<texPath>Things/Pawn/Animal/Bug_Types/Bee/Beesearch/Idr_adbo2</texPath>
+		</graphicData>
+		<thingCategories>
+			<li>TSP_RB_Beesearch_Beelievers</li>
+		</thingCategories>
+		<tradeTags>
+			<li>Beesearch</li>
+		</tradeTags>
+	</ThingDef>
+	
+	<ThingDef Name="TSP_Beelievers_Beesearch_Low" ParentName="RB_ResearchPapersBase" Abstract="True">
+		<label>Low Beesearch files</label>
+		<description>An amatuer beekeeper has logged the basics of low-level bee hybridization.</description>
+		<graphicData Inherit="False">
+			<graphicClass>Graphic_Single</graphicClass>
+			<texPath>Things/Pawn/Animal/Bug_Types/Bee/Beesearch/YellowJournal</texPath>
+		</graphicData>
+		<thingCategories Inherit="False">
+			<!-- <li>TSP_RB_Beesearch_Beelievers</li> -->
+			<li>RB_BeeResearch</li>
+		</thingCategories>
+		<tradeTags>
+			<li>Beesearch</li>
+		</tradeTags>
+		<comps>
+			<li Class="RimBees.CompProperties_RandomResearch">
+				<labelString>Low Beesearch files</labelString>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<ThingDef ParentName="ResourceBase">
+		<defName>TSP_Beelievers_RB_Beesearch_Randomized</defName>
+		<label>TurtleShroom Beesearch (unfinished)</label>
+		<description>The bee research documentation is in progress. When the Recipe is complete, a random combination of hybrid bees from the Storytime Mod will be displayed for study.</description>
+		<graphicData Inherit="False">
+			<graphicClass>Graphic_Single</graphicClass>
+			<texPath>Things/Pawn/Animal/Bug_Types/Bee/Beesearch/Idr_adbo2</texPath>
+		</graphicData>
+		<statBases>
+			<MaxHitPoints>100</MaxHitPoints>
+			<Flammability>60</Flammability>
+			<DeteriorationRate>12</DeteriorationRate>
+			<Mass>0.12</Mass>
+			<MarketValue>24</MarketValue>
+		</statBases>
+		<tickerType>Normal</tickerType>
+		<tradeability Inherit="False">Sellable</tradeability>
+		<thingCategories Inherit="False">
+			<li>RB_BeeResearch</li>
+		</thingCategories>
+		<stackLimit>999</stackLimit>
+		<comps>
+			<li Class="RimBees.CompProperties_RandomResearch">
+				<labelString>TurtleShroom Beesearch Files (Beelievers Mod)</labelString>
+			</li>
+			<li Class="RimBees.CompProperties_RandomItemSpawner">
+				<amount>1</amount>
+				<categories>
+					<li>TSP_RB_Beesearch_Beelievers</li>
+				</categories>
+			</li>
+		</comps>
+		<tradeTags Inherit="False" IsNull="True"></tradeTags>
+	</ThingDef>
+	
+	<RecipeDef>
+		<defName>TSP_RB_Beeelievers_MakeBeesearch</defName>
+		<label>create TurtleShroom Beelievers Mod Beesearch</label>
+		<description>Research potential hybrid outcomes that produce, or are comprised of, the bees added by the TurtleShroom Beelievers Mod. This research is always random and may yield duplicate results.</description>
+		<jobString>performing Beesearch</jobString>
+		<uiIconThing>TSP_ST_RB_Beesearch_Randomized</uiIconThing>
+		<allowMixingIngredients>true</allowMixingIngredients>
+		<workAmount>1000</workAmount>
+		<recipeUsers Inherit="False">
+			<li>Campfire</li>
+			<li>RB_BeeResearchTable</li>
+			<li MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</li>
+			<li MayRequire="zal.witchinghour">Cauldron</li>
+			<li MayRequire="taranchuk.morearchotechgarbagecontinued,vanillaexpanded.vcooke">MAG_ArchotechCookingStove</li>
+		</recipeUsers>	
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Gold</li>
+						<li>Silver</li>
+						<li>Jade</li>
+						<li MayRequire="tsp.zal.patchhoney2">TSP_HoneyWort</li>
+					</thingDefs>
+				</filter>
+				<count>10</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>Gold</li>
+				<li>Silver</li>
+				<li>Jade</li>
+				<li MayRequire="tsp.zal.patchhoney2">TSP_HoneyWort</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<products>
+			<TSP_ST_RB_Beesearch_Randomized>1</TSP_ST_RB_Beesearch_Randomized>
+		</products>
+		<skillRequirements>
+			<!-- <Intellectual>1</Intellectual> -->
+			<!-- <Cooking>1</Cooking> -->
+			<!-- <Artistic>1</Artistic> -->
+		</skillRequirements>
+		<workSkill>Cooking</workSkill>
+	</RecipeDef>
+	
+	<RecipeDef>
+		<defName>TSP_RB_Beeelievers_MakeBeesearch_Low</defName>
+		<label>create all basic Beesearch</label>
+		<description>Research all basic bee hybrid breeds.</description>
+		<jobString>performing Beesearch</jobString>
+		<uiIconThing>TSP_RB_Beelievers_Low_Hybrid_Beesearch</uiIconThing>
+		<allowMixingIngredients>true</allowMixingIngredients>
+		<workAmount>10</workAmount>
+		<recipeUsers Inherit="False">
+			<li>Campfire</li>
+			<li>CraftingSpot</li>
+			<li>RB_BeeResearchTable</li>
+			<li MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</li>
+			<li MayRequire="zal.witchinghour">Cauldron</li>
+			<li MayRequire="taranchuk.morearchotechgarbagecontinued,vanillaexpanded.vcooke">MAG_ArchotechCookingStove</li>
+		</recipeUsers>	
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Gold</li>
+						<li>Silver</li>
+						<li>Jade</li>
+						<li>WoodLog</li>
+						<li>RB_BaseHoney</li>
+						<li>InsectJelly</li>
+						<li>RB_Beeswax</li>
+						<li MayRequire="tsp.zal.patchhoney2">TSP_HoneyWort</li>
+					</thingDefs>
+				</filter>
+				<count>10</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>Gold</li>
+				<li>Silver</li>
+				<li>Jade</li>
+				<li>WoodLog</li>
+				<li>RB_BaseHoney</li>
+				<li>InsectJelly</li>
+				<li>RB_Beeswax</li>
+				<li MayRequire="tsp.zal.patchhoney2">TSP_HoneyWort</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<defaultIngredientFilter>
+			<thingDefs>
+				<li>WoodLog</li>
+				<li>InsectJelly</li>
+				<li>RB_Beeswax</li>
+				<li MayRequire="tsp.zal.patchhoney2">TSP_HoneyWort</li>
+			</thingDefs>
+		</defaultIngredientFilter>
+		<products>
+			<TSP_RB_Beelievers_Low_Hybrid_Beesearch>1</TSP_RB_Beelievers_Low_Hybrid_Beesearch>
+			<TSP_RB_Beelievers_Low_Adaptive_Beesearch>1</TSP_RB_Beelievers_Low_Adaptive_Beesearch>
+			<TSP_RB_Beelievers_Low_Alloy_Beesearch>1</TSP_RB_Beelievers_Low_Alloy_Beesearch>
+			<TSP_RB_Beelievers_Low_Neutroamine_Beesearch>1</TSP_RB_Beelievers_Low_Neutroamine_Beesearch>
+			<TSP_RB_Beelievers_Low_Nutritious_Beesearch>1</TSP_RB_Beelievers_Low_Nutritious_Beesearch>
+			<TSP_RB_Beelievers_Low_Technological_Beesearch>1</TSP_RB_Beelievers_Low_Technological_Beesearch>
+		</products>
+		<skillRequirements></skillRequirements>
+		<workSkill>Cooking</workSkill>
+	</RecipeDef>
+	
+	<ThingDef ParentName="TSP_Beelievers_Beesearch_Low">
+		<defName>TSP_RB_Beelievers_Low_Nutritious_Beesearch</defName>
+		<label>Low Beesearch (Nutritious Plus Amalgamamation)</label>
+		<graphicData Inherit="False">
+			<graphicClass>Graphic_Single</graphicClass>
+			<texPath>Things/Pawn/Animal/Bug_Types/Bee/Beesearch/YellowJournal</texPath>
+		</graphicData>
+		<comps>
+			<li Class="RimBees.CompProperties_BeeResearchData">
+				<firstBee>RB_Bee_Amalgam_Queen</firstBee>
+				<secondBee>RB_Bee_Nutritious_Queen</secondBee>
+				<resultingBees>
+					<!-- <li>RB_Bee_Agricultural_Queen</li> -->
+					<li>RB_Bee_Bittersweet_Queen</li>
+					<li>RB_Bee_Egglaying_Queen</li>
+					<li>RB_Bee_Lactic_Queen</li>
+					<li>RB_Bee_Fruit_Queen</li>
+					<li>RB_Bee_Insectoid_Queen</li>
+				</resultingBees>
+			</li>
+		</comps>
+	</ThingDef>
+	
+	<ThingDef ParentName="TSP_Beelievers_Beesearch_Low">
+		<defName>TSP_RB_Beelievers_Low_Neutroamine_Beesearch</defName>
+		<label>Low Beesearch (Neutroamine Plus Amalgamamation)</label>
+		<graphicData Inherit="False">
+			<graphicClass>Graphic_Single</graphicClass>
+			<texPath>Things/Pawn/Animal/Bug_Types/Bee/Beesearch/YellowJournal</texPath>
+		</graphicData>
+		<comps>
+			<li Class="RimBees.CompProperties_BeeResearchData">
+				<firstBee>RB_Bee_Amalgam_Queen</firstBee>
+				<secondBee>RB_Bee_Neutro_Queen</secondBee>
+				<resultingBees>
+					<li>RB_Bee_Tipsy_Queen</li>
+					<li>RB_Bee_Luxurious_Queen</li>
+					<li>RB_Bee_Psychic_Queen</li>
+					<li>RB_Bee_Stoner_Queen</li>
+				</resultingBees>
+			</li>
+		</comps>
+	</ThingDef>
+	
+	<ThingDef ParentName="TSP_Beelievers_Beesearch_Low">
+		<defName>TSP_RB_Beelievers_Low_Technological_Beesearch</defName>
+		<label>Low Beesearch (Technological Plus Amalgamamation)</label>
+		<graphicData Inherit="False">
+			<graphicClass>Graphic_Single</graphicClass>
+			<texPath>Things/Pawn/Animal/Bug_Types/Bee/Beesearch/YellowJournal</texPath>
+		</graphicData>
+		<comps>
+			<li Class="RimBees.CompProperties_BeeResearchData">
+				<firstBee>RB_Bee_Amalgam_Queen</firstBee>
+				<secondBee>RB_Bee_Technological_Queen</secondBee>
+				<resultingBees>
+					<li>RB_Bee_Electronic_Queen</li>
+					<li>RB_Bee_Oily_Queen</li>
+					<li>RB_Bee_Plastic_Queen</li>
+					<li>RB_Bee_Quarry_Queen</li>
+				</resultingBees>
+			</li>
+		</comps>
+	</ThingDef>
+	
+	<ThingDef ParentName="TSP_Beelievers_Beesearch_Low">
+		<defName>TSP_RB_Beelievers_Low_Hybrid_Beesearch</defName>
+		<label>Low Beesearch (Hybrid Plus Amalgamamation)</label>
+		<graphicData Inherit="False">
+			<graphicClass>Graphic_Single</graphicClass>
+			<texPath>Things/Pawn/Animal/Bug_Types/Bee/Beesearch/YellowJournal</texPath>
+		</graphicData>
+		<comps>
+			<li Class="RimBees.CompProperties_BeeResearchData">
+				<firstBee>RB_Bee_Amalgam_Queen</firstBee>
+				<secondBee>RB_Bee_Hybrid_Queen</secondBee>
+				<resultingBees>
+					<li>RB_Bee_Adaptive_Queen</li>
+					<li>RB_Bee_Agricultural_Queen</li>
+					<li>RB_Bee_Alloy_Queen</li>
+					<li>RB_Bee_Insectoid_Queen</li>
+					<li>RB_Bee_Nutritious_Queen</li>
+					<li>RB_Bee_Neutro_Queen</li>
+					<li>RB_Bee_Technological_Queen</li>
+					<li>RB_Bee_Warden_Queen</li>
+					<li>RB_Bee_Worker_Queen</li>
+				</resultingBees>
+			</li>
+		</comps>
+	</ThingDef>
+	
+	<ThingDef ParentName="TSP_Beelievers_Beesearch_Low">
+		<defName>TSP_RB_Beelievers_Low_Adaptive_Beesearch</defName>
+		<label>Low Beesearch (Adaptive Plus Amalgamamation)</label>
+		<graphicData Inherit="False">
+			<graphicClass>Graphic_Single</graphicClass>
+			<texPath>Things/Pawn/Animal/Bug_Types/Bee/Beesearch/YellowJournal</texPath>
+		</graphicData>
+		<comps>
+			<li Class="RimBees.CompProperties_BeeResearchData">
+				<firstBee>RB_Bee_Adaptive_Queen</firstBee>
+				<secondBee>RB_Bee_Amalgam_Queen</secondBee>
+				<resultingBees>
+					<li>RB_Bee_Swamp_Queen</li>
+					<li>RB_Bee_Arctic_Queen</li>
+					<li>RB_Bee_Woodland_Queen</li>
+					<li>RB_Bee_Desert_Queen</li>
+					<li>RB_Bee_Nocturnal_Queen</li>
+					<li MayRequire="oskarpotocki.vfe.medieval2">RB_Bee_Northern_Queen</li>
+					<li>RB_Bee_Water_Queen</li>
+				</resultingBees>
+			</li>
+		</comps>
+	</ThingDef>
+	
+	<ThingDef ParentName="TSP_Beelievers_Beesearch_Low">
+		<defName>TSP_RB_Beelievers_Low_Alloy_Beesearch</defName>
+		<label>Low Beesearch (Alloy Plus Amalgamamation)</label>
+		<graphicData Inherit="False">
+			<graphicClass>Graphic_Single</graphicClass>
+			<texPath>Things/Pawn/Animal/Bug_Types/Bee/Beesearch/YellowJournal</texPath>
+		</graphicData>
+		<comps>
+			<li Class="RimBees.CompProperties_BeeResearchData">
+				<firstBee>RB_Bee_Alloy_Queen</firstBee>
+				<secondBee>RB_Bee_Amalgam_Queen</secondBee>
+				<resultingBees>
+					<li>RB_Bee_Radioactive_Queen</li>
+					<li>RB_Bee_Aurum_Queen</li>
+					<li>RB_Bee_Argent_Queen</li>
+					<li>RB_Bee_Precious_Queen</li>
+				</resultingBees>
+			</li>
+		</comps>
+	</ThingDef>
+	
+	<ThingDef ParentName="TSP_Beelievers_Beesearch">
+		<defName>TSP_Beelievers_Beesearch_Test</defName>
+		<label>Beesearch Folder</label>
+		<description>It appears to be an empty folder.</description>
+		<graphicData Inherit="False">
+			<graphicClass>Graphic_Single</graphicClass>
+			<texPath>Things/Pawn/Animal/Bug_Types/Bee/Beesearch/Idr_adbo2</texPath>
+		</graphicData>
+		<comps Inherit="False"></comps>
+		<thingCategories Inherit="False" IsNull="True"></thingCategories>
+		<tradeTags Inherit="False" IsNull="True"></tradeTags>
+	</ThingDef>
+	
+	<ThingDef ParentName="TSP_Beelievers_Beesearch">
+		<defName>TSP_RB_Beelievers_SlaverHybridTables_Beesearch</defName>
+		<graphicData Inherit="False">
+			<graphicClass>Graphic_Single</graphicClass>
+			<texPath>Things/Pawn/Animal/Bug_Types/Bee/Beesearch/Idr_adbo2</texPath>
+		</graphicData>
+		<comps>
+			<li Class="RimBees.CompProperties_BeeResearchData">
+				<firstBee>RB_Bee_Warden_Queen</firstBee>
+				<secondBee>RB_Bee_Insectoid_Queen</secondBee>
+				<resultingBees>
+					<li>RB_Bee_Slaver_Queen</li>
+				</resultingBees>
+			</li>
+		</comps>
+	</ThingDef>
+	
+	<ThingDef ParentName="TSP_Beelievers_Beesearch">
+		<defName>TSP_RB_Beelievers_GoJuice_HybridTables_Beesearch</defName>
+		<graphicData Inherit="False">
+			<graphicClass>Graphic_Single</graphicClass>
+			<texPath>Things/Pawn/Animal/Bug_Types/Bee/Beesearch/Idr_adbo2</texPath>
+		</graphicData>
+		<comps>
+			<li Class="RimBees.CompProperties_BeeResearchData">
+				<firstBee>RB_Bee_Neutro_Queen</firstBee>
+				<secondBee>RB_Bee_Psychic_Queen</secondBee>
+				<resultingBees>
+					<li>RB_Bee_Go_Queen</li>
+				</resultingBees>
+			</li>
+		</comps>
+	</ThingDef>
+	
+	<ThingDef ParentName="TSP_Beelievers_Beesearch">
+		<defName>TSP_RB_Beelievers_WakeUp_HybridTables_Beesearch</defName>
+		<graphicData Inherit="False">
+			<graphicClass>Graphic_Single</graphicClass>
+			<texPath>Things/Pawn/Animal/Bug_Types/Bee/Beesearch/Idr_adbo2</texPath>
+		</graphicData>
+		<comps>
+			<li Class="RimBees.CompProperties_BeeResearchData">
+				<firstBee>RB_Bee_Go_Queen</firstBee>
+				<secondBee>RB_Bee_Bleary_Queen</secondBee>
+				<resultingBees>
+					<li>RB_Bee_Insomnia_Queen</li>
+				</resultingBees>
+			</li>
+		</comps>
+	</ThingDef>
+	
+	<ThingDef ParentName="TSP_Beelievers_Beesearch">
+		<defName>TSP_RB_Beelievers_Oriental_HybridTables_Beesearch</defName>
+		<graphicData Inherit="False">
+			<graphicClass>Graphic_Single</graphicClass>
+			<texPath>Things/Pawn/Animal/Bug_Types/Bee/Beesearch/Idr_adbo2</texPath>
+		</graphicData>
+		<comps>
+			<li Class="RimBees.CompProperties_BeeResearchData">
+				<firstBee>RB_Bee_Agricultural_Queen</firstBee>
+				<secondBee>RB_Bee_Water_Queen</secondBee>
+				<resultingBees>
+					<li>RB_Bee_Oriental_Queen</li>
+				</resultingBees>
+			</li>
+		</comps>
+	</ThingDef>
+	
+	<ThingDef ParentName="TSP_Beelievers_Beesearch">
+		<defName>TSP_RB_Beelievers_Bleary_Beesearch</defName>
+		<graphicData Inherit="False">
+			<graphicClass>Graphic_Single</graphicClass>
+			<texPath>Things/Pawn/Animal/Bug_Types/Bee/Beesearch/Idr_adbo2</texPath>
+		</graphicData>
+		<comps>
+			<li Class="RimBees.CompProperties_BeeResearchData">
+				<firstBee>RB_Bee_Amalgam_Queen</firstBee>
+				<secondBee>RB_Bee_Neutro_Queen</secondBee>
+				<resultingBees>
+					<li>RB_Bee_Bleary_Queen</li>
+				</resultingBees>
+			</li>
+		</comps>
+	</ThingDef>
+</Defs>

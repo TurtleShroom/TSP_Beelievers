@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" ?>
 
 <Patch>
-	<Operation Class="PatchOperationConditional">
+	<Operation Class="PatchOperationConditional" MayRequire="haplo.miscellaneous.beesnhoney">
 	<!-- Does this exist? -->
-		<xpath>/Defs/ThingDef[defName="HoneycombWithQueen"]</xpath>
+		<xpath MayRequire="haplo.miscellaneous.beesnhoney">/Defs/ThingDef[defName="HoneycombWithQueen"]</xpath>
 		<!-- If it does, add this. -->
-		<match Class="PatchOperationAdd">
-			<xpath>/Defs</xpath>
-			<success>Always</success>
-			<value>
+		<match Class="PatchOperationAdd" MayRequire="haplo.miscellaneous.beesnhoney">
+			<xpath MayRequire="haplo.miscellaneous.beesnhoney">/Defs</xpath>
+			<success MayRequire="haplo.miscellaneous.beesnhoney">Always</success>
+			<value MayRequire="haplo.miscellaneous.beesnhoney">
 				<!-- Slaver Branch -->
 				<!-- TIER II -->
 				<!-- Haplo Slaver Bees: kidnaps Haplo (Miscellaneous Bees Mod) larvae, makes Haplo Honey -->

@@ -218,6 +218,29 @@
 						<count>550</count>
 					</value>
 				</li>
+				
+				<li Class="PatchOperationAdd">
+					<success>Always</success>
+					<xpath>/Defs</xpath>
+					<value>
+						<ThingDef ParentName="TSP_Beelievers_Beesearch">
+							<defName>TSP_RB_Beelievers_Ark1_Tables_Beesearch</defName>
+							<graphicData Inherit="False">
+								<graphicClass>Graphic_Single</graphicClass>
+								<texPath>Things/Pawn/Animal/Bug_Types/Bee/Beesearch/Idr_adbo2</texPath>
+							</graphicData>
+							<comps>
+								<li Class="RimBees.CompProperties_BeeResearchData">
+									<firstBee>RB_Bee_Electronic_Queen</firstBee>
+									<secondBee>RB_Bee_Woodland_Queen</secondBee>
+									<resultingBees>
+										<li>RB_Bee_Ark_Queen</li>
+									</resultingBees>
+								</li>
+							</comps>
+						</ThingDef>
+					</value>
+				</li>
 			</operations>
 		</match>
 		<!-- If the first XPATH does not exist, the original code stands. -->

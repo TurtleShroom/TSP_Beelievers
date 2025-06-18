@@ -27,7 +27,7 @@
 				<nocturnal>true</nocturnal> <!-- Works at night -->
 				<pluviophile>true</pluviophile> <!-- Works in the rain -->
 				<weirdplantneeded>no</weirdplantneeded>
-				<tempMin>-0</tempMin> <!-- Freezing -->
+				<tempMin>0</tempMin> <!-- Freezing -->
 				<tempMax>36.1111</tempMax> <!-- Ninety-seven degrees. -->
 			</li>
 			<li>
