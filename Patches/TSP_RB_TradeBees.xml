@@ -1,6 +1,34 @@
 <?xml version="1.0" encoding="utf-8" ?>
 
 <Patch>
+	<!-- Aelanna's Model No-Match Detector and Insertion Code -->
+	<!-- Special thanks to Aelanna for straight-up saving me scores of headaches! -->
+	<!-- Add comps field to Settlement WorldObjectDef if it doesn't exist -->
+	<Operation Class="PatchOperationConditional">
+		<xpath>/Defs/ThingDef[@Name="RB_HoneyBase"]/tradeTags</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>/Defs/ThingDef[@Name="RB_HoneyBase"]</xpath>
+			<success>Always</success>
+			<value>
+				<tradeTags></tradeTags>
+			</value>
+		</nomatch>
+	</Operation>
+	
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>/Defs/ThingDef[@Name="RB_HoneyBase"]/tradeTags</xpath>
+		<!-- If it does, add this. -->
+		<match Class="PatchOperationAdd">
+			<success>Always</success>
+			<xpath>/Defs/ThingDef[@Name="RB_HoneyBase"]/tradeTags</xpath>
+			<value>
+				<li>Honey</li>
+			</value>
+		</match>
+		<!-- If the first XPATH does not exist, the original code stands. -->
+	</Operation>
+
 	<Operation Class="PatchOperationConditional">
 	<!-- Does this exist? -->
 		<xpath>/Defs/TraderKindDef[defName="Caravan_Raider_StolenGoods"]/stockGenerators</xpath>
@@ -295,8 +323,94 @@
 					<price>Expensive</price>
 					<countRange>1~17</countRange>
 				</li>
+				<li Class="StockGenerator_SingleDef">
+					<thingDef>RB_Bee_Ark_Queen</thingDef>
+					<price>Expensive</price>
+					<countRange>3~7</countRange>
+				</li>
+				<li Class="StockGenerator_SingleDef">
+					<thingDef>RB_Bee_Ark_Drone</thingDef>
+					<price>Expensive</price>
+					<countRange>3~7</countRange>
+				</li>
 			</value>
 		</match>
 		<!-- If the first XPATH does not exist, the original code stands. -->
+	</Operation>
+	
+	<!-- Add comps field to Settlement WorldObjectDef if it doesn't exist -->
+	<Operation Class="PatchOperationConditional">
+		<xpath>/Defs/ThingDef[@Name="RB_BeesWaxBase"]/tradeTags</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>/Defs/ThingDef[@Name="RB_BeesWaxBase"]</xpath>
+			<success>Always</success>
+			<value>
+				<tradeTags></tradeTags>
+			</value>
+		</nomatch>
+	</Operation>
+	
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>/Defs/ThingDef[@Name="RB_BeesWaxBase"]/tradeTags</xpath>
+		<!-- If it does, add this. -->
+		<match Class="PatchOperationAdd">
+			<success>Always</success>
+			<xpath>/Defs/ThingDef[@Name="RB_BeesWaxBase"]/tradeTags</xpath>
+			<value>
+				<li>Beeswax</li>
+			</value>
+		</match>
+		<!-- If the first XPATH does not exist, the original code stands. -->
+	</Operation>
+	
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>/Defs/TraderKindDef[defName="Base_Outlander_Standard"]</xpath>
+		<match Class="PatchOperationAdd">
+			<success>Always</success>
+			<xpath>/Defs/TraderKindDef[defName = * and not(defName = "Empire_Caravan_TributeCollector")]/stockGenerators</xpath>
+			<value>
+				<li Class="StockGenerator_BuySingleDef" MayRequire="sarg.rimbees">
+					<thingDef>RB_BaseHoney</thingDef>
+				</li>
+			
+				<li Class="StockGenerator_BuyTradeTag">
+					<tag>VV_ViviProduct</tag>
+				</li>
+				
+				<li Class="StockGenerator_BuyTradeTag">
+					<tag>VV_ViviHoney</tag>
+				</li>
+				
+				<li Class="StockGenerator_BuyTradeTag">
+					<tag>VV_ViviResource</tag>
+				</li>
+				
+				<li Class="StockGenerator_BuyTradeTag">
+					<tag>VV_FloweringTea</tag>
+				</li>
+				
+				<li Class="StockGenerator_BuyTradeTag">
+					<tag>VV_ViviExotic</tag>
+				</li>
+				
+				<li Class="StockGenerator_BuyTradeTag">
+					<tag>L24_MantoDrugs</tag>
+				</li>
+				
+				<li Class="StockGenerator_BuyTradeTag">
+					<tag>GnomeHoney</tag>
+				</li>
+				
+				<li Class="StockGenerator_BuyTradeTag">
+					<tag>Honey</tag>
+				</li>
+				
+				<li Class="StockGenerator_BuyTradeTag">
+					<tag>Beeswax</tag>
+				</li>
+			</value>
+		</match>
 	</Operation>
 </Patch>
