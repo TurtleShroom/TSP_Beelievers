@@ -17,6 +17,11 @@
 			<steamWorkshopUrl>https://www.steamcommunity.com/sharedfiles/filedetails/?id=1558161673</steamWorkshopUrl>
 			<downloadUrl>https://www.github.com/juanosarg/AlphaBees</downloadUrl>
 		</li>
+		<li>
+			<packageId>zal.patchhoney</packageId>
+			<displayName>Make Honey Compatible</displayName>
+			<steamWorkshopUrl>https://www.steamcommunity.com/sharedfiles/filedetails/?id=2919554065</steamWorkshopUrl>
+		</li>
 	</modDependencies>
 	<packageId>TSP.Beelievers</packageId>
 	<loadAfter>
@@ -74,5 +79,40 @@
 		<li>tsp.zal.patchhoney2</li>
 		<li>TSP.Isengriff.Storytime</li>
 	</loadBefore>
-	<description></description>
+	<description>
+		[H2]TURTLESHROOM PRODUCTIONS PRESENTS: I CANNOT BEE-LIEVE IT!![/H2]
+		
+		Based on the world-famous [URL=https://steamcommunity.com/sharedfiles/filedetails/?id=1558161673]ALPHA RIM BEES MOD[/URL], this sub-Mod adds [b][I]OVER THIRTY-FIVE NEW BEES[/I][/b]* for you to explore and breed, with support for multiple Mods and items! Experience bees that produce rice, bees that produce water, bees that produce Wake-Up, Bees that produce Go Juice, and so much more!
+		
+		This Mod contains support for the following Mods, none of which are required:
+			* [URL=https://www.steamcommunity.com/sharedfiles/filedetails/?id=2959585309]MAKE HONEY EVEN MORE COMPATIBLE MOD[/URL] (HIGHLY RECOMMENDED)
+			* [URL=https://www.steamcommunity.com/sharedfiles/filedetails/?id=2856039567]MANTODEANS MOD[/URL]
+			* [URL=https://www.steamcommunity.com/sharedfiles/filedetails/?id=3241577976]VIVI MOD[/URL]
+			* [URL=https://www.steamcommunity.com/sharedfiles/filedetails/?id=3219632807]APINI MOD[/URL]
+			* [URL=https://www.steamcommunity.com/sharedfiles/filedetails/?id=3090186019]ADAMAS BEE MOD[/URL]
+			* [URL=https://www.steamcommunity.com/sharedfiles/filedetails/?id=766264659]MISCELLANEOUS BEE AND HONEY MOD[/URL]
+			* [URL=https://www.steamcommunity.com/sharedfiles/filedetails/?id=3358481320]DIDDY BABY OIL MOD[/URL]
+			* [URL=https://www.steamcommunity.com/sharedfiles/filedetails/?id=3282241187]STARCH SEED MOD[/URL]
+			* [URL=https://www.steamcommunity.com/sharedfiles/filedetails/?id=3382446150]ALPHA CRAFTS MOD[/URL]
+			* [URL=https://www.steamcommunity.com/sharedfiles/filedetails/?id=2134308519]VANILLA FACTIONS EXPANDED COOKING MOD[/URL]
+			* [URL=https://www.steamcommunity.com/sharedfiles/filedetails/?id=3426421043]ARK RACE MOD[/URL]
+			* [URL=https://www.steamcommunity.com/sharedfiles/filedetails/?id=2830700043]MEGABEE MOD[/URL]
+			* [URL=https://www.steamcommunity.com/sharedfiles/filedetails/?id=836308268]DUBS BAD HYGIENE MOD[/URL]
+			
+			[B]-AND SO MUCH MORE!![/I]
+		
+		
+		All bee types come with associated "Beesearch," allowing players to discover how to make these bees!
+		
+		
+		
+		(C) 2007-2025 AD TURTLESHROOM PRODUCTIONS
+		JESUS LOVES YOU AND DIED FOR YOU
+		RANDY RANDOM DID NOTHING WRONG
+		
+		(NO JUSTIN BEEBERS WERE HARMED IN THE MAKING OF B. DIDDY)
+		
+		
+		* = When counting bees that only appear with Mods...
+	</description>
 </ModMetaData>

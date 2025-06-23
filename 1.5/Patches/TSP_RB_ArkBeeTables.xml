@@ -248,7 +248,7 @@
 	
 	<Operation Class="PatchOperationConditional">
 	<!-- Does this exist? -->
-		<xpath>/Defs/ThingDef[defName="FoodGenerator"]</xpath>
+		<xpath>/Defs/ThingDef[defName="FoodGenerator"]/comps/li/fuelFilter/thingDefs</xpath>
 		<!-- If it does, add this. -->
 		<match Class="PatchOperationAdd">
 			<xpath>/Defs/ThingDef[defName="FoodGenerator"]/comps/li/fuelFilter/thingDefs</xpath>

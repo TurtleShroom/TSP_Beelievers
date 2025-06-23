@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Patch>
+	<!-- aaaaa.mymod.beast.anomaly - 3298620617 -->
+	<Operation Class="PatchOperationConditional">
+	<!-- DO THE GENTILES KNOW? -->
+		<xpath>/Defs/AlienRace.ThingDef_AlienRace[defName="AAAAA_AnomalyRace"]/alienRace/raceRestriction/xenotypeList</xpath>
+		<!-- If they do, SHUT IT DOWN. -->
+		<match Class="PatchOperationRemove">
+			<success>Always</success>
+			<xpath>/Defs/AlienRace.ThingDef_AlienRace[defName="AAAAA_AnomalyRace"]/alienRace/raceRestriction/xenotypeList</xpath>
+		</match>
+		<!-- If the first XPATH does not exist, the original code stands. All according to plan. -->
+	</Operation>
+	
+	<Operation Class="PatchOperationConditional">
+	<!-- DO THE GENTILES KNOW? -->
+		<xpath>/Defs/AlienRace.ThingDef_AlienRace[defName="AAAAA_AnomalyRace"]/alienRace/raceRestriction/onlyUseRaceRestrictedXenotypes</xpath>
+		<!-- If they do, SHUT IT DOWN. -->
+		<match Class="PatchOperationRemove">
+			<success>Always</success>
+			<xpath>/Defs/AlienRace.ThingDef_AlienRace[defName="AAAAA_AnomalyRace"]/alienRace/raceRestriction/onlyUseRaceRestrictedXenotypes</xpath>
+		</match>
+		<!-- If the first XPATH does not exist, the original code stands. All according to plan. -->
+	</Operation>
+	
+	<Operation Class="PatchOperationConditional">
+	<!-- DO THE GENTILES KNOW? -->
+		<xpath>/Defs/AlienRace.ThingDef_AlienRace[defName="Ark"]/alienRace/raceRestriction/xenotypeList</xpath>
+		<!-- If they do, SHUT IT DOWN. -->
+		<match Class="PatchOperationRemove">
+			<success>Always</success>
+			<xpath>/Defs/AlienRace.ThingDef_AlienRace[defName="Ark"]/alienRace/raceRestriction/xenotypeList</xpath>
+		</match>
+		<!-- If the first XPATH does not exist, the original code stands. All according to plan. -->
+	</Operation>
+	
+	<Operation Class="PatchOperationConditional">
+	<!-- DO THE GENTILES KNOW? -->
+		<xpath>/Defs/AlienRace.ThingDef_AlienRace[defName="Ark"]/alienRace/raceRestriction/onlyUseRaceRestrictedXenotypes</xpath>
+		<!-- If they do, SHUT IT DOWN. -->
+		<match Class="PatchOperationRemove">
+			<success>Always</success>
+			<xpath>/Defs/AlienRace.ThingDef_AlienRace[defName="Ark"]/alienRace/raceRestriction/onlyUseRaceRestrictedXenotypes</xpath>
+		</match>
+		<!-- If the first XPATH does not exist, the original code stands. All according to plan. -->
+	</Operation>
+	
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>/Defs/AlienRace.ThingDef_AlienRace[defName="Ark"]/alienRace/raceRestriction</xpath>
+		<!-- If it does, do this replacement. -->
+		<match Class="PatchOperationReplace">
+			<success>Always</success>
+			<xpath>/Defs/AlienRace.ThingDef_AlienRace[defName="Ark"]/alienRace/raceRestriction</xpath>
+			<value>
+				<raceRestriction>
+					<whiteWeaponList>
+						<li>BaseWeapongun</li>
+
+						<li>Z-000l</li>
+						<li>S-415l</li>
+						<li>F-96l</li>
+
+						<li>Signalgeneratorsl</li>
+
+						<li>SoulSpriteWeapon-fire</li>
+						<li>SoulSpriteWeapon-fireB</li>
+						<li>SoulSpriteWeapon-fireC</li>
+
+						<li>P-1031l</li>
+						<li>B-231l</li>
+						<li>R-4832l</li>
+
+						<li>S-182Sound</li>
+						<li>tinything</li>
+						<li>N-216Light</li>
+
+						<li>StaffBase</li>
+						<li>StaffEMP</li>
+						<li>StaffFire</li>
+						<li>StaffHigh</li>
+					</whiteWeaponList>
+					<apparelList>
+						<li>NanometreCloth</li>
+						<li>ArkShirt</li>
+						<li>ArkTrousers</li>
+						<li>ArkDress</li>
+						<li>Arkcoat</li>
+						<li>MonkkCloth</li>
+						<li>NonCloth</li>
+
+						<li>BaseArmor</li>
+
+						<li>MYKJArmor</li>
+						<li>RZMArmor</li>
+						<li>YSLArmor</li>
+						<li>AshesArmor</li>
+					</apparelList>
+					<onlyUseRaceRestrictedApparel>false</onlyUseRaceRestrictedApparel>
+					<whiteXenotypeList MayRequire="Ludeon.RimWorld.Biotech">
+						<li>Baseliner</li>
+					</whiteXenotypeList>
+					<onlyUseRaceRestrictedXenotypes>false</onlyUseRaceRestrictedXenotypes>
+					<blackGeneTags MayRequire="Ludeon.RimWorld.Biotech">
+						<li>BodyType</li>
+						<li>Body</li>
+						<li>Bodies</li>
+						<li>Ears</li>
+						<li>Melanin</li>
+						<li>BeardStyle</li>
+						<li>Furskin</li>
+						<li>HairStyle</li>
+						<li>AG_Body</li>
+						<li>AG_BodyType</li>
+						<li>AG_Bodies</li>
+						<li>Head</li>
+						<li>AG_Heads</li>
+						<li>Fur</li>
+					</blackGeneTags>
+					<blackEndoCategories MayRequire="Ludeon.RimWorld.Biotech">
+						<li>BodyType</li>
+						<li>Jaw</li>
+						<li>Ears</li>
+						<li>Head</li>
+					</blackEndoCategories>
+				</raceRestriction>
+			</value>
+		</match>
+		<!-- If the first XPATH does not exist, the original code stands. -->
+	</Operation>
+</Patch>
