@@ -1,15 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 
 <Defs>
-	<ThingCategoryDef>
-		<defName>TSP_RB_Beesearch_Beelievers</defName>
-		<label>TurtleShroom Beesearch</label>
-		<parent>RB_BeeResearch</parent>
-		<iconPath>Things/Pawn/Animal/Bug_Types/Bee/Idr_adbo2</iconPath>
-	</ThingCategoryDef>
-
 	<ThingDef Name="TSP_Beelievers_Beesearch" ParentName="RB_ResearchPapersBase" Abstract="True">
-		<label>Beesearch Files (TurtleShroom Bee-lievers)</label>
+		<label>Beesearch Files (TurtleShroom Bee-lievers Mod)</label>
 		<description>First things first \n I will write all the bees that I have read \n I'm hungry and looking for the honey from hybrids bred \n Honey from hybrids bred \n Second things second \n Don't you tell me how you think I keep my bees \n I'm the one at the hive and I'm getting this honey \n \n BRAIN! \n \n I'll make you a, make you a BEE-liever, BEE-liever! \n \n BRAIN! \n \n I'll make you a, make you a BEE-liever, BEE-liever! \n \n BRAIN \n \n Let the papers fly let them train, \n My money scheme my hive and all these bees \n \n BRAIN!! \n \n I'll make you a, make you a BEE-liever, BEE-liever!</description>
 		<graphicData Inherit="False">
 			<graphicClass>Graphic_Single</graphicClass>
@@ -46,7 +39,7 @@
 
 	<ThingDef ParentName="ResourceBase">
 		<defName>TSP_Beelievers_RB_Beesearch_Randomized</defName>
-		<label>TurtleShroom Beesearch (unfinished)</label>
+		<label>TurtleShroom Bee-lievers Beesearch (unfinished)</label>
 		<description>The bee research documentation is in progress. When the Recipe is complete, a random combination of hybrid bees from the Storytime Mod will be displayed for study.</description>
 		<graphicData Inherit="False">
 			<graphicClass>Graphic_Single</graphicClass>
@@ -65,10 +58,12 @@
 			<li>RB_BeeResearch</li>
 		</thingCategories>
 		<stackLimit>999</stackLimit>
-		<comps>
+		<comps Inherit="False">
+			<!--
 			<li Class="RimBees.CompProperties_RandomResearch">
-				<labelString>TurtleShroom Beesearch Files (Beelievers Mod)</labelString>
+				<labelString>Beesearch Files (TurtleShroom Bee-lievers Mod)</labelString>
 			</li>
+			-->
 			<li Class="RimBees.CompProperties_RandomItemSpawner">
 				<amount>1</amount>
 				<categories>
@@ -116,7 +111,7 @@
 			</thingDefs>
 		</fixedIngredientFilter>
 		<products>
-			<TSP_ST_RB_Beesearch_Randomized>1</TSP_ST_RB_Beesearch_Randomized>
+			<TSP_Beelievers_RB_Beesearch_Randomized>1</TSP_Beelievers_RB_Beesearch_Randomized>
 		</products>
 		<skillRequirements>
 			<!-- <Intellectual>1</Intellectual> -->

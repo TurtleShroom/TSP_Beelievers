@@ -30,9 +30,9 @@
 	</ThingCategoryDef>
 	
 	<ThingCategoryDef>
-		<defName>TSP_RB_Beeliever_Beesearch</defName>
-		<label>TSP Beesearch</label>
+		<defName>TSP_RB_Beesearch_Beelievers</defName>
+		<label>TurtleShroom Beesearch</label>
 		<parent>RB_BeeResearch</parent>
-		<iconPath>Things/Pawn/Animal/Bug_Types/Bee/TSP_Bee_Queen</iconPath>
-	</ThingCategoryDef>	
+		<iconPath>Things/Pawn/Animal/Bug_Types/Bee/Idr_adbo2</iconPath>
+	</ThingCategoryDef>
 </Defs>
