@@ -1,0 +1,228 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<Defs>
+	<ThingDef ParentName="RB_CombBase">
+		<defName>TSP_RB_Beeliever_Fruit_Honeycomb</defName>
+		<label>Fruit Bee honeycomb</label>
+		<description>Fruit Bees harvest nectar from the abundtant berry bushes that grow on most habitable worlds in the galaxy. They mix the sugars from the berries into their honey. By processing these fruity honeycombs, Tasty Honey, ordinary Beeswax, and Berries can be gathered.</description>
+		<descriptionHyperlinks>
+			<!-- <ResearchProjectDef>ST_GnomeCulture</ResearchProjectDef> -->
+			<ThingDef>RB_Bee_Fruit_Queen</ThingDef>
+			<ThingDef>RB_Bee_Fruit_Drone</ThingDef>
+			<!-- <ThingDef>TSP_RB_Beeliever_Fruit_Honeycomb</ThingDef> -->
+			<RecipeDef>TSP_RB_Beeliever_Centrifuge_Fruit_Honeycomb</RecipeDef>
+			<ThingDef>RawBerries</ThingDef>
+			<ThingDef>RB_TastyHoney</ThingDef>
+			<ThingDef>RB_Beeswax</ThingDef>
+			<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+		</descriptionHyperlinks>
+		<graphicData Inherit="False">
+			<texPath>Things/Pawn/Animal/Bug_Types/Bee/Honeycombs/TSP_RB_Fruit_Honeycomb</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<color>(255,255,255)</color>
+		</graphicData>
+		<thingCategories Inherit="False">
+			<li>TSP_RB_Beeliever_Honeycombs</li>
+		</thingCategories>
+		<butcherProducts>
+			<RB_TastyHoney>5</RB_TastyHoney>
+			<RB_Beeswax>5</RB_Beeswax>
+			<RawBerries>15</RawBerries>
+		</butcherProducts>
+	</ThingDef>
+
+	<RecipeDef>
+		<defName>TSP_RB_Beeliever_Centrifuge_Fruit_Honeycomb</defName>
+		<label>extract from Bleary Bee honeycomb</label>
+		<description>Extracts Tasty Honey, ordinary Beeswax, and Berries from a Fruit Bee Honeycomb.</description>
+		<descriptionHyperlinks>
+			<!-- <ResearchProjectDef>ST_GnomeCulture</ResearchProjectDef> -->
+			<ThingDef>RB_Bee_Fruit_Queen</ThingDef>
+			<ThingDef>RB_Bee_Fruit_Drone</ThingDef>
+			<ThingDef>TSP_RB_Beeliever_Fruit_Honeycomb</ThingDef>
+			<!-- <RecipeDef>TSP_RB_Beeliever_Centrifuge_Fruit_Honeycomb</RecipeDef> -->
+			<ThingDef>RB_TastyHoney</ThingDef>
+			<ThingDef>RawBerries</ThingDef>
+			<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+		</descriptionHyperlinks>
+		<uiIconThing>TSP_RB_Beeliever_Fruit_Honeycomb</uiIconThing>
+		<jobString>Extracting from fruity honeycombs.</jobString>
+		<effectWorking>Cremate</effectWorking>
+		<soundWorking>Recipe_Cremate</soundWorking>
+		<workAmount>900</workAmount>
+		<recipeUsers IsNull="True" Inherit="False"></recipeUsers>	
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>TSP_RB_Beeliever_Fruit_Honeycomb</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>TSP_RB_Beeliever_Fruit_Honeycomb</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<specialProducts>
+			<li>Butchery</li>
+		</specialProducts>
+		<skillRequirements></skillRequirements>
+		<researchPrerequisites>
+			<li>RB_BasicBeekeeping</li>
+		</researchPrerequisites>
+	</RecipeDef>
+	
+	<ThingDef ParentName="RB_CombBase">
+		<defName>TSP_RB_Beeliever_GoJuice_Honeycomb</defName>
+		<label>Go-Juice Bee honeycomb</label>
+		<description>Go Bees go fast, feeding on Flake to secrete Go-Juice, which they feed their larvae. By processing these honeycombs, Performance Enhancing Honey, Psychotropic Honey, ordinary Beeswax, and Go-Juice can be gathered.</description>
+		<descriptionHyperlinks>
+			<!-- <ResearchProjectDef>ST_GnomeCulture</ResearchProjectDef> -->
+			<ThingDef>RB_Bee_Go_Queen</ThingDef>
+			<ThingDef>RB_Bee_Go_Drone</ThingDef>
+			<!-- <ThingDef>TSP_RB_Beeliever_GoJuice_Honeycomb</ThingDef> -->
+			<RecipeDef>TSP_RB_Beeliever_Centrifuge_GoJuice_Honeycomb</RecipeDef>
+			<ThingDef>RB_PerformanceEnhancingHoney</ThingDef>
+			<ThingDef>RB_PsychotropicHoney</ThingDef>
+			<ThingDef>RB_Beeswax</ThingDef>
+			<ThingDef>GoJuice</ThingDef>
+			<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+		</descriptionHyperlinks>
+		<graphicData Inherit="False">
+			<texPath>Things/Pawn/Animal/Bug_Types/Bee/Honeycombs/TSP_RB_Mantodean_VariousJelly_Honeycomb</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<color>(84,125,87)</color>
+		</graphicData>
+		<thingCategories Inherit="False">
+			<li>TSP_RB_Beeliever_Honeycombs</li>
+		</thingCategories>
+		<butcherProducts>
+			<RB_PerformanceEnhancingHoney>3</RB_PerformanceEnhancingHoney>
+			<RB_PsychotropicHoney>4</RB_PsychotropicHoney>
+			<RB_Beeswax>6</RB_Beeswax>
+			<GoJuice>1</GoJuice>
+		</butcherProducts>
+	</ThingDef>
+
+	<RecipeDef>
+		<defName>TSP_RB_Beeliever_Centrifuge_GoJuice_Honeycomb</defName>
+		<label>extract from Go-Juice Bee honeycomb</label>
+		<description>Extracts Psychotropic Honey, Performance Enhancing Honey, ordinary Beeswax, and Go-Juice from a Go-Juice Bee Honeycomb.</description>
+		<descriptionHyperlinks>
+			<!-- <ResearchProjectDef>ST_GnomeCulture</ResearchProjectDef> -->
+			<ThingDef>RB_Bee_Go_Queen</ThingDef>
+			<ThingDef>RB_Bee_Go_Drone</ThingDef>
+			<ThingDef>TSP_RB_Beeliever_GoJuice_Honeycomb</ThingDef>
+			<!-- <RecipeDef>TSP_RB_Beeliever_Centrifuge_GoJuice_Honeycomb</RecipeDef> -->
+			<ThingDef>RB_PsychotropicHoney</ThingDef>
+			<ThingDef>RB_PerformanceEnhancingHoney</ThingDef>
+			<ThingDef>GoJuice</ThingDef>
+			<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+		</descriptionHyperlinks>
+		<uiIconThing>GoJuice</uiIconThing>
+		<jobString>Extracting from Go-Juice honeycombs.</jobString>
+		<effectWorking>Cremate</effectWorking>
+		<soundWorking>Recipe_Cremate</soundWorking>
+		<workAmount>900</workAmount>
+		<recipeUsers IsNull="True" Inherit="False"></recipeUsers>	
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>TSP_RB_Beeliever_GoJuice_Honeycomb</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>TSP_RB_Beeliever_GoJuice_Honeycomb</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<specialProducts>
+			<li>Butchery</li>
+		</specialProducts>
+		<skillRequirements></skillRequirements>
+		<researchPrerequisites>
+			<li>RB_BasicBeekeeping</li>
+		</researchPrerequisites>
+	</RecipeDef>
+	
+	<ThingDef ParentName="RB_CombBase">
+		<defName>TSP_RB_Beeliever_WakeUp_Honeycomb</defName>
+		<label>Insomnia (Wake-Up) Bee honeycomb</label>
+		<description>Insomnia Bees negate sleep, both as adults and as larvae, by processing psychite into Wake-Up. By processing these honeycombs, Psychotropic Honey, ordinary Beeswax, and Wake-Up can be gathered.</description>
+		<descriptionHyperlinks>
+			<!-- <ResearchProjectDef>ST_GnomeCulture</ResearchProjectDef> -->
+			<ThingDef>RB_Bee_Insomnia_Queen</ThingDef>
+			<ThingDef>RB_Bee_Insomnia_Drone</ThingDef>
+			<!-- <ThingDef>TSP_RB_Beeliever_WakeUp_Honeycomb</ThingDef> -->
+			<RecipeDef>TSP_RB_Beeliever_Centrifuge_WakeUp_Honeycomb</RecipeDef>
+			<ThingDef>RB_PsychotropicHoney</ThingDef>
+			<ThingDef>RB_Beeswax</ThingDef>
+			<ThingDef>WakeUp</ThingDef>
+			<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+		</descriptionHyperlinks>
+		<graphicData Inherit="False">
+			<texPath>Things/Pawn/Animal/Bug_Types/Bee/Honeycombs/TSP_RB_Mantodean_VariousJelly_Honeycomb</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<color>(189,120,63)</color>
+		</graphicData>
+		<thingCategories Inherit="False">
+			<li>TSP_RB_Beeliever_Honeycombs</li>
+		</thingCategories>
+		<butcherProducts>
+			<RB_PsychotropicHoney>5</RB_PsychotropicHoney>
+			<RB_Beeswax>5</RB_Beeswax>
+			<WakeUp>2</WakeUp>
+		</butcherProducts>
+	</ThingDef>
+
+	<RecipeDef>
+		<defName>TSP_RB_Beeliever_Centrifuge_WakeUp_Honeycomb</defName>
+		<label>extract from Wake-Up Bee honeycomb</label>
+		<description>Extracts Psychotropic Honey, ordinary Beeswax, and Wake Up from an Insomnia Bee Honeycomb.</description>
+		<descriptionHyperlinks>
+			<!-- <ResearchProjectDef>ST_GnomeCulture</ResearchProjectDef> -->
+			<ThingDef>RB_Bee_Insomnia_Queen</ThingDef>
+			<ThingDef>RB_Bee_Insomnia_Drone</ThingDef>
+			<ThingDef>TSP_RB_Beeliever_WakeUp_Honeycomb</ThingDef>
+			<!-- <RecipeDef>TSP_RB_Beeliever_Centrifuge_WakeUp_Honeycomb</RecipeDef> -->
+			<ThingDef>RB_PsychotropicHoney</ThingDef>
+			<ThingDef>WakeUp</ThingDef>
+			<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+		</descriptionHyperlinks>
+		<uiIconThing>WakeUp</uiIconThing>
+		<jobString>Extracting from Wake-Up honeycombs.</jobString>
+		<effectWorking>Cremate</effectWorking>
+		<soundWorking>Recipe_Cremate</soundWorking>
+		<workAmount>900</workAmount>
+		<recipeUsers IsNull="True" Inherit="False"></recipeUsers>	
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>TSP_RB_Beeliever_WakeUp_Honeycomb</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>TSP_RB_Beeliever_WakeUp_Honeycomb</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<specialProducts>
+			<li>Butchery</li>
+		</specialProducts>
+		<skillRequirements></skillRequirements>
+		<researchPrerequisites>
+			<li>RB_BasicBeekeeping</li>
+		</researchPrerequisites>
+	</RecipeDef>
+</Defs>

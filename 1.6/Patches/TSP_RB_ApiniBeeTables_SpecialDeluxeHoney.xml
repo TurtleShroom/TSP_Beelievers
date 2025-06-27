@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<Patch>
+	<!-- Aelanna's Model No-Match Detector and Insertion Code -->
+	<!-- Special thanks to Aelanna for straight-up saving me scores of headaches! -->
+	<!-- Add comps field to Settlement WorldObjectDef if it doesn't exist -->
+	<Operation Class="PatchOperationConditional">
+		<xpath>/Defs/ThingDef[@Name="ApiniHoneyBase"]/thingCategories</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>/Defs/ThingDef[@Name="ApiniHoneyBase"]</xpath>
+			<success>Always</success>
+			<value>
+				<thingCategories></thingCategories>
+			</value>
+		</nomatch>
+	</Operation>
+	
+	<!-- Add comps field to Settlement WorldObjectDef if it doesn't exist -->
+	<Operation Class="PatchOperationConditional">
+		<xpath>/Defs/ThingDef[@Name="ApiniSpecialHoney"]/thingCategories</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>/Defs/ThingDef[@Name="ApiniSpecialHoney"]</xpath>
+			<success>Always</success>
+			<value>
+				<thingCategories></thingCategories>
+			</value>
+		</nomatch>
+	</Operation>	
+
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>/Defs/ThingDef[defName="ApiniHoney"]</xpath>
+		<!-- If it does, add this. -->
+		<match Class="PatchOperationAdd">
+			<xpath>/Defs</xpath>
+			<success>Always</success>
+			<value>
+				<ThingDef ParentName="ResourceBase">
+					<defName>TSP_Apini_DeluxeHoney_Spawner</defName>
+					<label>Apini Deluxe Nectar</label>
+					<description>Deluxe Apini Slaver Bees have mastered the botanical ability of creatinmg exotic forms of honey that are normally unique to the Apini race of bees. Any form of Apini Nectar is capable of being produced by these slave-making bees, but the beekeeper does not have a means of choosing what comes out when he harvests it.</description>
+					<descriptionHyperlinks>
+						<ThingDef>RB_Bee_Apini_Random_Queen</ThingDef>
+						<ThingDef>RB_Bee_Apini_Random_Drone</ThingDef>
+						<ThingDef>TSP_RB_Beeliever_SlaveryOfApini_Random_Honeycomb</ThingDef>
+						<ThingDef>TSP_Apini_DeluxeHoney_Spawner</ThingDef>
+						<ThingDef>ApiniNectar</ThingDef>
+						<ThingDef>ApiniNectar_F</ThingDef>
+						<ThingDef>ApiniNectar_E</ThingDef>
+						<ThingDef>ApiniNectar_M</ThingDef>
+						<ThingDef>ApiniNectar_B</ThingDef>
+						<ThingDef>ApiniNectar_R</ThingDef>
+						<ThingDef>ApiniNectar_W</ThingDef>
+						<ThingDef>ApiniNectar_V</ThingDef>
+						<!-- <ThingDef>NpiniMeatHoney</ThingDef> -->
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<fillPercent>0.01</fillPercent>
+					<rotatable>false</rotatable>
+					<tickerType>Normal</tickerType>
+					<graphicData Inherit="False">
+						<texPath>Things/Item/Resource/Pollen/Pollen</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+						<color>(255,135,0)</color>
+					</graphicData>
+					<altitudeLayer>Building</altitudeLayer>
+					<stackLimit>999</stackLimit>
+					<statBases>
+						<MaxHitPoints>2</MaxHitPoints>
+						<!-- <WorkToBuild>2</WorkToBuild> -->
+						<Flammability>2</Flammability>
+						<Mass>2</Mass>
+					</statBases>
+					<passability>Standable</passability>
+					<pathCost>0</pathCost>
+					<building>
+						<isEdifice>false</isEdifice>
+						<canBuildNonEdificesUnder>true</canBuildNonEdificesUnder>
+						<canPlaceOverWall>true</canPlaceOverWall>
+					</building>
+					<clearBuildingArea>false</clearBuildingArea>
+					<thingCategories Inherit="False"></thingCategories>
+					<comps Inherit="False">
+						<li Class="RimBees.CompProperties_RandomItemSpawner">
+							<amount>7</amount>
+							<categories>
+								<!-- <li>HoneyCategory</li> -->
+								<li>ApiniNectarCategory</li>
+								<!-- <li>ApiniPollenBall</li> -->
+							</categories>
+						</li>
+					</comps>
+				</ThingDef>
+			</value>
+		</match>
+	</Operation>
+</Patch>

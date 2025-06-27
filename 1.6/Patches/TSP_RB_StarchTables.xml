@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<Patch>
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>/Defs/ThingDef[defName="RawStarchSeed"]</xpath>
+		<!-- If it does, add this. -->
+		<match Class="PatchOperationAdd">
+			<xpath>/Defs</xpath>
+			<success>Always</success>
+			<value>
+				<!-- No Branch -->
+				<!-- TIER II -->
+				<!-- Starch Bees: basically Agricultural Bees with unique honey -->
+				<RimBees.BeeListDef>
+					<defName>TSP_RB_Beeliever_Starch</defName>
+					<nameString>Starch</nameString>
+					<beeDroneDef>RB_Bee_Starch_Drone</beeDroneDef>
+					<beeQueenDef>RB_Bee_Starch_Queen</beeQueenDef>
+					<!--
+					<beeQueenTag>RB_Bee_Starch_Queen_Tag</beeQueenTag>
+					<beeDroneTag>RB_Bee_Starch_Drone_Tag</beeDroneTag>
+					-->
+				</RimBees.BeeListDef>
+			
+				<ThingDef ParentName="TSP_RB_Beeliever_MasterBeeBase" Name="TSP_RB_Beeliever_StarchBase" Abstract="True">
+					<!-- <label>Starch Bee</label> -->
+					<description>Starch Bees are closely related to Straw Bees and will gather Starch Seeds from wild Starch Plants within their vicinity. \n\n\n\n\n Bee Traits: \n\n 	Production time: 1 day \n 	Works at Night: No \n 	Works When Raining: Yes \n 	Unusual Sources Needed: No \n 	Minimum Temperature: 0ºF (-17.7778ºC) \n 	Maximum temperature: 97ºF (36.1111ºC)</description>
+					<!--
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/ST_Bee_south</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData>
+					-->
+					<comps>			
+						<li Class="RimBees.CompProperties_Bees" Inherit="False">
+							<species>Starch</species>
+							<comb>TSP_RB_Beeliever_Starch_Honeycomb</comb>
+							<combtimedays>1</combtimedays>
+							<nocturnal>false</nocturnal> <!-- Works at night -->
+							<pluviophile>true</pluviophile> <!-- Works in the rain -->
+							<weirdplantneeded>no</weirdplantneeded>
+							<tempMin>-17.778</tempMin> <!-- Zero degrees -->
+							<tempMax>36.1111</tempMax> <!-- Ninety-seven degrees -->
+						</li>   
+					</comps>
+				</ThingDef>
+				
+				<ThingDef ParentName="TSP_RB_Beeliever_StarchBase">
+					<defName>RB_Bee_Starch_Queen</defName>
+					<label>Starch Bee queen</label>
+					<descriptionHyperlinks>
+						<!-- <ThingDef>RB_Bee_Starch_Queen</ThingDef> -->
+						<ThingDef>RB_Bee_Starch_Drone</ThingDef>
+						<ThingDef>TSP_RB_Beeliever_Starch_Honeycomb</ThingDef>
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_Starch_Honeycomb</RecipeDef>
+						<!--
+						<ThingDef>TSP_ST_RB_WildHive_Gnome</ThingDef>
+						<RecipeDef>TSP_ST_RB_Gneehive_Extract</RecipeDef>
+						-->
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Item/Bees/RB_Bee_Straw_Queen</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+						<color>(116, 149, 0)</color>
+					</graphicData> 		
+				</ThingDef>
+				
+				<ThingDef ParentName="TSP_RB_Beeliever_StarchBase">
+					<defName>RB_Bee_Starch_Drone</defName>
+					<label>Starch Bee drone</label>
+					<descriptionHyperlinks>
+						<ThingDef>RB_Bee_Starch_Queen</ThingDef>
+						<!-- <ThingDef>RB_Bee_Starch_Drone</ThingDef> -->
+						<ThingDef>TSP_RB_Beeliever_Starch_Honeycomb</ThingDef>
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_Starch_Honeycomb</RecipeDef>
+						<!--
+						<ThingDef>TSP_ST_RB_WildHive_Gnome</ThingDef>
+						<RecipeDef>TSP_ST_RB_Gneehive_Extract</RecipeDef>
+						-->
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Item/Bees/RB_Bee_Straw_Drone</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+						<color>(116, 149, 0)</color>
+					</graphicData> 		
+				</ThingDef>
+				
+				<ThingDef ParentName="RB_CombBase">
+					<defName>TSP_RB_Beeliever_Starch_Honeycomb</defName>
+					<label>Starch Bee honeycomb</label>
+					<description>Starch Bees are a varient of Straw Bees that harvest the generally difficult to process Starch Plants and incorporates them into their honey. Their honeycombs produce Starch, Starch Honey, and Heavy Beeswax.</description>
+					<descriptionHyperlinks>
+						<!-- <ResearchProjectDef>ST_GnomeCulture</ResearchProjectDef> -->
+						<ThingDef>RB_Bee_Starch_Queen</ThingDef>
+						<ThingDef>RB_Bee_Starch_Drone</ThingDef>
+						<!-- <ThingDef>TSP_RB_Beeliever_Starch_Honeycomb</ThingDef> -->
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_Starch_Honeycomb</RecipeDef>
+						<!--
+						<ThingDef>TSP_ST_GnomeHoney</ThingDef>
+						<ThingDef>TSP_ST_RB_WildHive_Gnome</ThingDef>
+						<RecipeDef>TSP_ST_RB_Gneehive_Extract</RecipeDef>
+						-->
+						<ThingDef>RawStarchSeed</ThingDef>
+						<ThingDef>StarchSeedJellyMeal</ThingDef>
+						<ThingDef>RB_HeavyWax</ThingDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/Honeycombs/TSP_RB_Mantodean_VariousJelly_Honeycomb</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+						<color>(116, 149, 0)</color>
+					</graphicData>	
+					<thingCategories Inherit="False">
+						<li>TSP_RB_Beeliever_Honeycombs</li>
+					</thingCategories>
+					<butcherProducts>
+						<RawStarchSeed>25</RawStarchSeed>
+						<StarchSeedJellyMeal>2</StarchSeedJellyMeal>
+						<RB_HeavyWax>5</RB_HeavyWax>
+					</butcherProducts>
+				</ThingDef>
+				
+				<RecipeDef>
+					<defName>TSP_RB_Beeliever_Centrifuge_Starch_Honeycomb</defName>
+					<label>extract from Starch honeycomb</label>
+					<description>Extracts Starch Seeds, Starch Honey, and Heavy Wax from Starcb Bee honeycombs.</description>
+					<descriptionHyperlinks>
+						<!-- <ResearchProjectDef>ST_GnomeCulture</ResearchProjectDef> -->
+						<ThingDef>RB_Bee_Starch_Queen</ThingDef>
+						<ThingDef>RB_Bee_Starch_Drone</ThingDef>
+						<ThingDef>TSP_RB_Beeliever_Starch_Honeycomb</ThingDef>
+						<ThingDef>RawStarchSeed</ThingDef>
+						<ThingDef>StarchSeedJellyMeal</ThingDef>
+						<ThingDef>RB_HeavyWax</ThingDef>
+						<!-- <RecipeDef>TSP_RB_Beeliever_Centrifuge_SlaveryOfAdamas_Honeycomb</RecipeDef> -->
+						<!--
+						<ThingDef>TSP_ST_GnomeHoney</ThingDef>
+						<ThingDef>TSP_ST_RB_WildHive_Gnome</ThingDef>
+						<RecipeDef>TSP_ST_RB_Gneehive_Extract</RecipeDef>
+						-->
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<uiIconThing>RawStarchSeed</uiIconThing>
+					<jobString>Extracting starch.</jobString>
+					<effectWorking>Cremate</effectWorking>
+					<soundWorking>Recipe_Cremate</soundWorking>
+					<workAmount>900</workAmount>
+					<recipeUsers></recipeUsers>	
+					<ingredients>
+						<li>
+							<filter>
+								<thingDefs>
+									<li>TSP_RB_Beeliever_Starch_Honeycomb</li>
+								</thingDefs>
+							</filter>
+							<count>1</count>
+						</li>
+					</ingredients>
+					<fixedIngredientFilter>
+						<thingDefs>
+							<li>TSP_RB_Beeliever_Starch_Honeycomb</li>
+						</thingDefs>
+					</fixedIngredientFilter>
+					<specialProducts>
+						<li>Butchery</li>
+					</specialProducts>
+					<skillRequirements></skillRequirements>
+					<researchPrerequisites>
+						
+					</researchPrerequisites>
+				</RecipeDef>
+			</value>
+		</match>
+	</Operation>
+	
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>/Defs/ThingDef[defName="StarchSeedJellyMeal"]/label</xpath>
+		<!-- If it does, do this replacement. -->
+		<match Class="PatchOperationReplace">
+			<success>Always</success>
+			<xpath>/Defs/ThingDef[defName="StarchSeedJellyMeal"]/label</xpath>
+			<value>
+				<label>Starch honey</label>
+			</value>
+		</match>
+		<!-- If the first XPATH does not exist, the original code stands. All according to plan. -->
+	</Operation>
+	
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>/Defs/ThingDef[defName="StarchSeedJellyMeal"]/ingestible/preferability</xpath>
+		<!-- If it does, do this replacement. -->
+		<match Class="PatchOperationReplace">
+			<success>Always</success>
+			<xpath>/Defs/ThingDef[defName="StarchSeedJellyMeal"]/ingestible/preferability</xpath>
+			<value>
+				<preferability>RawTasty</preferability>
+			</value>
+		</match>
+		<!-- If the first XPATH does not exist, the original code stands. All according to plan. -->
+	</Operation>
+	
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>/Defs/ThingDef[defName="StarchSeedJellyMeal"]/statBases/Nutrition</xpath>
+		<!-- If it does, do this replacement. -->
+		<match Class="PatchOperationReplace">
+			<success>Always</success>
+			<xpath>/Defs/ThingDef[defName="StarchSeedJellyMeal"]/statBases/Nutrition</xpath>
+			<value>
+				<Nutrition>0.24</Nutrition>
+			</value>
+		</match>
+		<!-- If the first XPATH does not exist, the original code stands. -->
+	</Operation>
+	
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>/Defs/ThingDef[defName="StarchSeedJellyMeal"]/statBases/Nutrition</xpath>
+		<!-- If it does, do this replacement. -->
+		<match Class="PatchOperationReplace">
+			<success>Always</success>
+			<xpath>/Defs/ThingDef[defName="StarchSeedJellyMeal"]/statBases/Nutrition</xpath>
+			<value>
+				<Nutrition>0.24</Nutrition>
+			</value>
+		</match>
+		<!-- If the first XPATH does not exist, the original code stands. -->
+	</Operation>
+	
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>/Defs/ThingDef[defName="RB_Bee_Starch_Queen"]</xpath>
+		<!-- If it does, add this. -->
+		<match Class="PatchOperationAdd">
+			<success>Always</success>
+			<xpath>/Defs/ThingDef[defName="RB_ResearchPapersAgriWood"]/comps/li/resultingBees</xpath>
+			<value>
+				<li>RB_Bee_Starch_Queen</li>
+			</value>
+		</match>
+		<!-- If the first XPATH does not exist, the original code stands. -->
+	</Operation>
+</Patch>

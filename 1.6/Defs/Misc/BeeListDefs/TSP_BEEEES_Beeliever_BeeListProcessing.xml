@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<Defs>
+	<!-- Slaver Branch -->
+	<!-- Slaver Bees: the source of all other species' honey -->
+	<RimBees.BeeListDef>
+		<defName>TSP_RB_Beeliever_SlaverBee0_Base_List</defName>
+		<nameString>Slaver</nameString>
+		<beeDroneDef>RB_Bee_Slaver_Drone</beeDroneDef>
+		<beeQueenDef>RB_Bee_Slaver_Queen</beeQueenDef>
+		<!--
+		<beeQueenTag>RB_Bee_Slaver_Queen_Tag</beeQueenTag>
+		<beeDroneTag>RB_Bee_Slaver_Drone_Tag</beeDroneTag>
+		-->
+	</RimBees.BeeListDef>
+	
+	<!-- Drug Bee Branch -->
+	<!-- Bleary Bees: administers Anesthetic to attackers -->
+	<RimBees.BeeListDef>
+		<defName>TSP_RB_Beeliever_BlearyBee1_List</defName>
+		<nameString>Bleary</nameString>
+		<beeDroneDef>RB_Bee_Bleary_Drone</beeDroneDef>
+		<beeQueenDef>RB_Bee_Bleary_Queen</beeQueenDef>
+		<!--
+		<beeQueenTag>RB_Bee_Bleary_Queen_Tag</beeQueenTag>
+		<beeDroneTag>RB_Bee_Bleary_Drone_Tag</beeDroneTag>
+		-->
+	</RimBees.BeeListDef>
+	
+	<!-- Adaptive Bee Branch (from base Mod) -->
+	<RimBees.BeeListDef>
+		<defName>TSP_RB_Beeliever_WaterBee1_List</defName>
+		<nameString>Water</nameString>
+		<beeDroneDef>RB_Bee_Water_Drone</beeDroneDef>
+		<beeQueenDef>RB_Bee_Water_Queen</beeQueenDef>
+		<!--
+		<beeQueenTag>RB_Bee_Water_Queen_Tag</beeQueenTag>
+		<beeDroneTag>RB_Bee_Water_Drone_Tag</beeDroneTag>
+		-->
+	</RimBees.BeeListDef>
+	
+	<RimBees.BeeListDef>
+		<defName>TSP_RB_Beeliever_WaterBee2_List</defName>
+		<nameString>Oriental</nameString>
+		<beeDroneDef>RB_Bee_Oriental_Drone</beeDroneDef>
+		<beeQueenDef>RB_Bee_Oriental_Queen</beeQueenDef>
+		<!--
+		<beeQueenTag>RB_Bee_Water_Queen_Tag</beeQueenTag>
+		<beeDroneTag>RB_Bee_Water_Drone_Tag</beeDroneTag>
+		-->
+	</RimBees.BeeListDef>
+	
+	<RimBees.BeeListDef>
+		<defName>TSP_RB_Beeliever_OtherBett1_Fruit_List</defName>
+		<nameString>Fruit</nameString>
+		<beeDroneDef>RB_Bee_Fruit_Drone</beeDroneDef>
+		<beeQueenDef>RB_Bee_Fruit_Queen</beeQueenDef>
+		<!--
+		<beeQueenTag>RB_Bee_Water_Queen_Tag</beeQueenTag>
+		<beeDroneTag>RB_Bee_Water_Drone_Tag</beeDroneTag>
+		-->
+	</RimBees.BeeListDef>
+	
+	<RimBees.BeeListDef>
+		<defName>TSP_RB_Beeliever_OtherBee2_GoJuice_List</defName>
+		<nameString>Go</nameString>
+		<beeDroneDef>RB_Bee_Go_Drone</beeDroneDef>
+		<beeQueenDef>RB_Bee_Go_Queen</beeQueenDef>
+		<!--
+		<beeQueenTag>RB_Bee_Water_Queen_Tag</beeQueenTag>
+		<beeDroneTag>RB_Bee_Water_Drone_Tag</beeDroneTag>
+		-->
+	</RimBees.BeeListDef>
+	
+	<RimBees.BeeListDef>
+		<defName>TSP_RB_Beeliever_OtherBee3_WakeUp_List</defName>
+		<nameString>Insomnia</nameString>
+		<beeDroneDef>RB_Bee_Insomnia_Drone</beeDroneDef>
+		<beeQueenDef>RB_Bee_Insomnia_Queen</beeQueenDef>
+		<!--
+		<beeQueenTag>RB_Bee_Water_Queen_Tag</beeQueenTag>
+		<beeDroneTag>RB_Bee_Water_Drone_Tag</beeDroneTag>
+		-->
+	</RimBees.BeeListDef>
+</Defs>

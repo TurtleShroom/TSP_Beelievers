@@ -1,0 +1,788 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<Patch>
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>/Defs/ThingDef[defName="ApiniHoney"]</xpath>
+		<!-- If it does, add this. -->
+		<match Class="PatchOperationAdd">
+			<xpath>/Defs</xpath>
+			<success>Always</success>
+			<value>
+				<!-- Slaver Branch -->
+				<!-- TIER II -->
+				<!-- Apini Slaver Bees: kidnaps Apini larvae, makes Apini Honey -->
+				<RimBees.BeeListDef>
+					<defName>TSP_RB_Beeliever_SlaverBee1_Apini</defName>
+					<nameString>Apini</nameString>
+					<beeDroneDef>RB_Bee_Apini_Drone</beeDroneDef>
+					<beeQueenDef>RB_Bee_Apini_Queen</beeQueenDef>
+					<!--
+					<beeQueenTag>RB_Bee_Slaver_Queen_Tag</beeQueenTag>
+					<beeDroneTag>RB_Bee_Slaver_Drone_Tag</beeDroneTag>
+					-->
+				</RimBees.BeeListDef>
+				
+				<!--
+				<RimBees.BeeCombinationDef>
+					<defName>TSP_RB_Beelievers_SlaverTables_Apini</defName>
+					<bee1>Slaver</bee1>
+					<bee2>Adaptive</bee2>
+					<result>
+						<li>Apini</li>
+					</result>				
+				</RimBees.BeeCombinationDef>
+				-->
+			
+				<ThingDef ParentName="TSP_RB_Beeliever_SlaverBase" Name="TSP_RB_Beeliever_ApiniBase" Abstract="True">
+					<!-- <label>Apini Slave-Making Bee</label> -->
+					<description>On Old Earth, living beings' ownership of other living beings as chattel did not stop with men owning animals, or even men owning men. Animals are capable of it too! There exists a rare adaption among insects where they will capture animals of other species and compel them to work for them. This is called "dulosis," literally "slave-making," and is a form of facultative, social, brood parasitism. It occurs most commonly among the slave-making ants, of which dozens of species exist. However, dulosis has also beeen recorded in bees. \n \n These slave-making bees exclusively target the larvae of Apini Bees and feed on the Apini Honey of those bees. \n\n\n\n\n Bee Traits: \n\n 	Production time: 1.1 days \n 	Works at Night: Yes \n 	Works When Raining: Yes \n 	Unusual Sources Needed: No \n 	Minimum Temperature: 0ºF (-17.7778ºC) \n 	Maximum temperature: 97ºF (36.1111ºC)</description>
+					<!--
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/ST_Bee_south</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData>
+					-->
+				</ThingDef>
+				
+				<ThingDef ParentName="TSP_RB_Beeliever_SlaverBase" Name="TSP_RB_Beeliever_ApiniBase_Comps" Abstract="True">
+					<comps Inherit="False">
+						<li Class="RimBees.CompProperties_Bees" Inherit="False">
+							<species>Apini</species>
+							<comb>TSP_RB_Beeliever_SlaveryOfApini_Honeycomb</comb>
+							<combtimedays>1.1</combtimedays>
+							<nocturnal>true</nocturnal> <!-- Works at night -->
+							<pluviophile>true</pluviophile> <!-- Works in the rain -->
+							<weirdplantneeded>no</weirdplantneeded>
+							<tempMin>-17.778</tempMin> <!-- Zero degrees -->
+							<tempMax>36.1111</tempMax> <!-- Ninety-seven degrees -->
+						</li>   
+					</comps>
+				</ThingDef>
+				
+				<ThingDef ParentName="TSP_RB_Beeliever_ApiniBase_Comps">
+					<defName>RB_Bee_Apini_Queen</defName>
+					<label>Apini Slaver queen</label>
+					<descriptionHyperlinks>
+						<!-- <ThingDef>RB_Bee_Apini_Queen</ThingDef> -->
+						<ThingDef>RB_Bee_Apini_Drone</ThingDef>
+						<ThingDef>TSP_RB_Beeliever_SlaveryOfApini_Honeycomb</ThingDef>
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_SlaveryOfApini_Honeycomb</RecipeDef>
+						<!--
+						<ThingDef>TSP_ST_RB_WildHive_Gnome</ThingDef>
+						<RecipeDef>TSP_ST_RB_Gneehive_Extract</RecipeDef>
+						-->
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/SlaverBranch/TSP_Bee_Dahomey_Apini_Queen</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData> 		
+				</ThingDef>
+				
+				<ThingDef ParentName="TSP_RB_Beeliever_ApiniBase_Comps">
+					<defName>RB_Bee_Apini_Drone</defName>
+					<label>Apini Slaver drone</label>
+					<descriptionHyperlinks>
+						<ThingDef>RB_Bee_Apini_Queen</ThingDef>
+						<!-- <ThingDef>RB_Bee_Apini_Drone</ThingDef> -->
+						<ThingDef>TSP_RB_Beeliever_SlaveryOfApini_Honeycomb</ThingDef>
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_SlaveryOfApini_Honeycomb</RecipeDef>
+						<!--
+						<ThingDef>TSP_ST_RB_WildHive_Gnome</ThingDef>
+						<RecipeDef>TSP_ST_RB_Gneehive_Extract</RecipeDef>
+						-->
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/SlaverBranch/TSP_Bee_Dahomey_Apini_Drone</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData> 		
+				</ThingDef>
+				
+				<ThingDef ParentName="RB_CombBase">
+					<defName>TSP_RB_Beeliever_SlaveryOfApini_Honeycomb</defName>
+					<label>Apini Slaver Bee honeycomb</label>
+					<description>Slaver Bees are facultative, social, brood parasites that abduct larvae and use them to produce beeswax and honey. Instead of expending effort to feed, house, and construct for new members of the colony, Slaver Bee drones drive the slave species and kidnap new larvae, while the Slaver Queen produces new Slaver Bee drones to continue the cycle, all while she gets fat from her doting chattel. \n \ Apini Slaver Bees parasitize Apini larvae to consume their honey. Reap the harvest of slave labor and enjoy large amounts of Apini Honey, pollen, and ordinary Beeswax.</description>
+					<descriptionHyperlinks>
+						<!-- <ResearchProjectDef>ST_GnomeCulture</ResearchProjectDef> -->
+						<ThingDef>RB_Bee_Apini_Queen</ThingDef>
+						<ThingDef>RB_Bee_Apini_Drone</ThingDef>
+						<!-- <ThingDef>TSP_RB_Beeliever_SlaveryOfApini_Honeycomb</ThingDef> -->
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_SlaveryOfApini_Honeycomb</RecipeDef>
+						<!--
+						<ThingDef>TSP_ST_GnomeHoney</ThingDef>
+						<ThingDef>TSP_ST_RB_WildHive_Gnome</ThingDef>
+						<RecipeDef>TSP_ST_RB_Gneehive_Extract</RecipeDef>
+						-->
+						<ThingDef>ApiniHoney</ThingDef>
+						<ThingDef>RB_Beeswax</ThingDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/Honeycombs/TSP_RB_SlaverBee_Honeycomb</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+						<color>(255,135,0)</color>
+					</graphicData>
+					<thingCategories Inherit="False">
+						<li>TSP_RB_Beeliever_Honeycombs</li>
+					</thingCategories>
+					<butcherProducts>
+						<ApiniHoney>6</ApiniHoney>
+						<RB_Beeswax>12</RB_Beeswax>
+						<ApiniPollenBall>2</ApiniPollenBall>
+						<ApiniPollen>10</ApiniPollen>
+					</butcherProducts>
+				</ThingDef>
+				
+				<RecipeDef>
+					<defName>TSP_RB_Beeliever_Centrifuge_SlaveryOfApini_Honeycomb</defName>
+					<label>extract from Apini Slave-Making Bee honeycomb</label>
+					<description>Extracts Apini Honey and ordinary Beeswax from an Apini Slaver Bee honeycomb. Apini Slaver Bees parasitize Apini larvae to consume their honey. What's wrong with exploiting exploiters, after all?</description>
+					<descriptionHyperlinks>
+						<!-- <ResearchProjectDef>ST_GnomeCulture</ResearchProjectDef> -->
+						<ThingDef>RB_Bee_Apini_Queen</ThingDef>
+						<ThingDef>RB_Bee_Apini_Drone</ThingDef>
+						<ThingDef>TSP_RB_Beeliever_SlaveryOfApini_Honeycomb</ThingDef>
+						<ThingDef>ApiniHoney</ThingDef>
+						<ThingDef>RB_Beeswax</ThingDef>
+						<!-- <RecipeDef>TSP_RB_Beeliever_Centrifuge_SlaveryOfApini_Honeycomb</RecipeDef> -->
+						<!--
+						<ThingDef>TSP_ST_GnomeHoney</ThingDef>
+						<ThingDef>TSP_ST_RB_WildHive_Gnome</ThingDef>
+						<RecipeDef>TSP_ST_RB_Gneehive_Extract</RecipeDef>
+						-->
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<uiIconThing>ApiniHoney</uiIconThing>
+					<jobString>Taking advantage of slave labor.</jobString>
+					<effectWorking>Cremate</effectWorking>
+					<soundWorking>Recipe_Cremate</soundWorking>
+					<workAmount>900</workAmount>
+					<recipeUsers>
+						<li>ApiniNectarStill</li>
+						<!--
+						<li>RB_Honey_Centrifuge</li>
+						<li>RB_Advanced_Honey_Centrifuge</li>
+						<li MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</li>
+						-->
+					</recipeUsers>	
+					<ingredients>
+						<li>
+							<filter>
+								<thingDefs>
+									<li>TSP_RB_Beeliever_SlaveryOfApini_Honeycomb</li>
+								</thingDefs>
+							</filter>
+							<count>1</count>
+						</li>
+					</ingredients>
+					<fixedIngredientFilter>
+						<thingDefs>
+							<li>TSP_RB_Beeliever_SlaveryOfApini_Honeycomb</li>
+						</thingDefs>
+					</fixedIngredientFilter>
+					<specialProducts>
+						<li>Butchery</li>
+					</specialProducts>
+					<skillRequirements></skillRequirements>
+					<researchPrerequisites>
+						
+					</researchPrerequisites>
+				</RecipeDef>
+				
+				
+				
+				<!-- Slaver Branch -->
+				<!-- TIER III -->
+				<RimBees.BeeCombinationDef>
+					<defName>TSP_RB_Beelievers_SlaverTables_ApiniMore</defName>
+					<bee1>Apini</bee1>
+					<bee2>Nutritious</bee2>
+					<result>
+						<li>Apini_Royal</li>
+						<li>Necropini</li>
+					</result>				
+				</RimBees.BeeCombinationDef>
+				
+				<!-- Royal Apini Slaver Bees: kidnaps Apini larvae, makes Apini Royal Honey -->
+				<RimBees.BeeListDef>
+					<defName>TSP_RB_Beeliever_SlaverBee2_Apini</defName>
+					<nameString>Apini_Royal</nameString>
+					<beeDroneDef>RB_Bee_Apini_Royal_Drone</beeDroneDef>
+					<beeQueenDef>RB_Bee_Apini_Royal_Queen</beeQueenDef>
+					<!--
+					<beeQueenTag>RB_Bee_Slaver_Queen_Tag</beeQueenTag>
+					<beeDroneTag>RB_Bee_Slaver_Drone_Tag</beeDroneTag>
+					-->
+				</RimBees.BeeListDef>
+				
+				<ThingDef ParentName="TSP_Beelievers_Beesearch">
+					<defName>TSP_RB_Beelievers_SlaverTables_ApiniMore_Beesearch</defName>
+					<graphicData Inherit="False">
+						<graphicClass>Graphic_Single</graphicClass>
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/Beesearch/Idr_adbo2</texPath>
+					</graphicData>
+					<comps>
+						<li Class="RimBees.CompProperties_BeeResearchData">
+							<firstBee>RB_Bee_Apini_Queen</firstBee>
+							<secondBee>RB_Bee_Nutritious_Queen</secondBee>
+							<resultingBees>
+								<li>RB_Bee_Apini_Royal_Queen</li>
+								<li>RB_Bee_Necropini_Queen</li>
+							</resultingBees>
+						</li>
+					</comps>
+				</ThingDef>
+			
+				<ThingDef ParentName="TSP_RB_Beeliever_ApiniBase" Name="TSP_RB_Beeliever_ApiniBase_Royal" Abstract="True">
+					<!-- <label>Apini Slave-Making Bee</label> -->
+					<description>On Old Earth, living beings' ownership of other living beings as chattel did not stop with men owning animals, or even men owning men. Animals are capable of it too! There exists a rare adaption among insects where they will capture animals of other species and compel them to work for them. This is called "dulosis," literally "slave-making," and is a form of facultative, social, brood parasitism. It occurs most commonly among the slave-making ants, of which dozens of species exist. However, dulosis has also beeen recorded in bees. \n \n These slave-making bees exclusively target the larvae of Apini Bees and feed on the Apini Honey of those bees. However, these specific Apini Slaver Bees mix Insect Jelly into their honeycombs, producing a more potent and nutrituious result. For that reason, in order for them to do this, they must be provided with a source of Insect Jelly. \n\n\n\n\n Bee Traits: \n\n 	Production time: 0.45 days \n 	Works at Night: Yes \n 	Works When Raining: Yes \n 	Unusual Sources Needed: Insect Jelly \n 	Minimum Temperature: 0ºF (-17.7778ºC) \n 	Maximum temperature: 97ºF (36.1111ºC)</description>
+					<!--
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/ST_Bee_south</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData>
+					-->
+					<comps>			
+						<li Class="RimBees.CompProperties_Bees" Inherit="False">
+							<species>Apini_Royal</species>
+							<comb>TSP_RB_Beeliever_SlaveryOfApini_Royal_Honeycomb</comb>
+							<combtimedays>0.45</combtimedays>
+							<nocturnal>true</nocturnal> <!-- Works at night -->
+							<pluviophile>true</pluviophile> <!-- Works in the rain -->
+							<weirdplantneeded>InsectJelly</weirdplantneeded>
+							<tempMin>-17.778</tempMin> <!-- Zero degrees -->
+							<tempMax>36.1111</tempMax> <!-- Ninety-seven degrees -->
+						</li>   
+					</comps>
+				</ThingDef>
+				
+				<ThingDef ParentName="TSP_RB_Beeliever_ApiniBase_Royal">
+					<defName>RB_Bee_Apini_Royal_Queen</defName>
+					<label>Royal Apini Slaver queen</label>
+					<descriptionHyperlinks>
+						<!-- <ThingDef>RB_Bee_Apini_Royal_Queen</ThingDef> -->
+						<ThingDef>RB_Bee_Apini_Royal_Drone</ThingDef>
+						<ThingDef>TSP_RB_Beeliever_SlaveryOfApini_Royal_Honeycomb</ThingDef>
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_SlaveryOfApini_Royal_Honeycomb</RecipeDef>
+						<!--
+						<ThingDef>TSP_ST_RB_WildHive_Gnome</ThingDef>
+						<RecipeDef>TSP_ST_RB_Gneehive_Extract</RecipeDef>
+						-->
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/SlaverBranch/TSP_Bee_GigaChad_Apini_Royal_Queen</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData> 		
+				</ThingDef>
+				
+				<ThingDef ParentName="TSP_RB_Beeliever_ApiniBase_Royal">
+					<defName>RB_Bee_Apini_Royal_Drone</defName>
+					<label>Royal Apini Slaver drone</label>
+					<descriptionHyperlinks>
+						<ThingDef>RB_Bee_Apini_Royal_Queen</ThingDef>
+						<!-- <ThingDef>RB_Bee_Apini_Drone</ThingDef> -->
+						<ThingDef>TSP_RB_Beeliever_SlaveryOfApini_Royal_Honeycomb</ThingDef>
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_SlaveryOfApini_Royal_Honeycomb</RecipeDef>
+						<!--
+						<ThingDef>TSP_ST_RB_WildHive_Gnome</ThingDef>
+						<RecipeDef>TSP_ST_RB_Gneehive_Extract</RecipeDef>
+						-->
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/SlaverBranch/TSP_Bee_GigaChad_Apini_Royal_Drone</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData> 		
+				</ThingDef>
+				
+				<ThingDef ParentName="RB_CombBase">
+					<defName>TSP_RB_Beeliever_SlaveryOfApini_Royal_Honeycomb</defName>
+					<label>Royal Apini Slave-Making Bee honeycomb</label>
+					<description>Slaver Bees are facultative, social, brood parasites that abduct larvae and use them to produce beeswax and honey. Instead of expending effort to feed, house, and construct for new members of the colony, Slaver Bee drones drive the slave species and kidnap new larvae, while the Slaver Queen produces new Slaver Bee drones to continue the cycle, all while she gets fat from her doting chattel. \n \ Apini Slaver Bees parasitize Apini larvae to consume their honey. However, these specific Apini Slaver Bees mix Insect Jelly into their honeycombs, producing a more potent and nutrituious result. Reap the harvest of slave labor and enjoy Apini Royal Jelly, pollen, and White Beeswax.</description>
+					<descriptionHyperlinks>
+						<!-- <ResearchProjectDef>ST_GnomeCulture</ResearchProjectDef> -->
+						<ThingDef>RB_Bee_Apini_Royal_Queen</ThingDef>
+						<ThingDef>RB_Bee_Apini_Royal_Drone</ThingDef>
+						<!-- <ThingDef>TSP_RB_Beeliever_SlaveryOfApini_Royal_Honeycomb</ThingDef> -->
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_SlaveryOfApini_Royal_Honeycomb</RecipeDef>
+						<!--
+						<ThingDef>TSP_ST_GnomeHoney</ThingDef>
+						<ThingDef>TSP_ST_RB_WildHive_Gnome</ThingDef>
+						<RecipeDef>TSP_ST_RB_Gneehive_Extract</RecipeDef>
+						-->
+						<ThingDef>ApiniJelly</ThingDef>
+						<ThingDef>RB_WhiteBeeswax</ThingDef>
+						<ThingDef>ApiniPollen</ThingDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/Honeycombs/TSP_RB_Mantodean_RoyalJelly_Honeycomb</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+						<color>(215,233,88)</color>
+					</graphicData>
+					<thingCategories Inherit="False">
+						<li>TSP_RB_Beeliever_Honeycombs</li>
+					</thingCategories>
+					<butcherProducts>
+						<ApiniJelly>3</ApiniJelly>
+						<RB_WhiteBeeswax>8</RB_WhiteBeeswax>
+						<ApiniPollen>13</ApiniPollen>
+					</butcherProducts>
+				</ThingDef>
+				
+				<RecipeDef>
+					<defName>TSP_RB_Beeliever_Centrifuge_SlaveryOfApini_Royal_Honeycomb</defName>
+					<label>extract from Royal Apini Slave-Making Bee honeycomb</label>
+					<description>Extracts Apini Royal Jelly and White Beeswax from a Royal Apini Slaver Bee honeycomb. Apini Slaver Bees parasitize Apini larvae to consume their honey, but mix that honey with Insect Jelly in order to make it more nutritious. What's wrong with exploiting exploiters, after all?</description>
+					<descriptionHyperlinks>
+						<!-- <ResearchProjectDef>ST_GnomeCulture</ResearchProjectDef> -->
+						<ThingDef>RB_Bee_Apini_Royal_Queen</ThingDef>
+						<ThingDef>RB_Bee_Apini_Royal_Drone</ThingDef>
+						<ThingDef>TSP_RB_Beeliever_SlaveryOfApini_Royal_Honeycomb</ThingDef>
+						<ThingDef>ApiniJelly</ThingDef>
+						<ThingDef>RB_WhiteBeeswax</ThingDef>
+						<ThingDef>ApiniPollen</ThingDef>
+						<!-- <RecipeDef>TSP_RB_Beeliever_Centrifuge_SlaveryOfApini_Honeycomb</RecipeDef> -->
+						<!--
+						<ThingDef>TSP_ST_GnomeHoney</ThingDef>
+						<ThingDef>TSP_ST_RB_WildHive_Gnome</ThingDef>
+						<RecipeDef>TSP_ST_RB_Gneehive_Extract</RecipeDef>
+						-->
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<uiIconThing>ApiniJelly</uiIconThing>
+					<jobString>Taking advantage of slave labor.</jobString>
+					<effectWorking>Cremate</effectWorking>
+					<soundWorking>Recipe_Cremate</soundWorking>
+					<workAmount>900</workAmount>
+					<recipeUsers>
+						<li>ApiniNectarStill</li>
+						<!--
+						<li>RB_Honey_Centrifuge</li>
+						<li>RB_Advanced_Honey_Centrifuge</li>
+						<li MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</li>
+						-->
+					</recipeUsers>	
+					<ingredients>
+						<li>
+							<filter>
+								<thingDefs>
+									<li>TSP_RB_Beeliever_SlaveryOfApini_Royal_Honeycomb</li>
+								</thingDefs>
+							</filter>
+							<count>1</count>
+						</li>
+					</ingredients>
+					<fixedIngredientFilter>
+						<thingDefs>
+							<li>TSP_RB_Beeliever_SlaveryOfApini_Royal_Honeycomb</li>
+						</thingDefs>
+					</fixedIngredientFilter>
+					<specialProducts>
+						<li>Butchery</li>
+					</specialProducts>
+					<skillRequirements></skillRequirements>
+					<researchPrerequisites>
+						
+					</researchPrerequisites>
+				</RecipeDef>
+				
+				
+				
+				
+				<!-- Slaver Branch -->
+				<!-- TIER III -->
+				<!-- Apini Slaver Bees: kidnaps Apini larvae, makes Necropini Meat Honey -->
+				<RimBees.BeeListDef>
+					<defName>TSP_RB_Beeliever_SlaverBee3_Apini</defName>
+					<nameString>Necropini</nameString>
+					<beeDroneDef>RB_Bee_Necropini_Drone</beeDroneDef>
+					<beeQueenDef>RB_Bee_Necropini_Queen</beeQueenDef>
+					<!--
+					<beeQueenTag>RB_Bee_Slaver_Queen_Tag</beeQueenTag>
+					<beeDroneTag>RB_Bee_Slaver_Drone_Tag</beeDroneTag>
+					-->
+				</RimBees.BeeListDef>
+			
+				<ThingDef ParentName="TSP_RB_Beeliever_SlaverBase" Name="TSP_RB_Beeliever_ApiniBase_Necropini" Abstract="True">
+					<!-- <label>Apini Slave-Making Bee</label> -->
+					<description>On Old Earth, living beings' ownership of other living beings as chattel did not stop with men owning animals, or even men owning men. Animals are capable of it too! There exists a rare adaption among insects where they will capture animals of other species and compel them to work for them. This is called "dulosis," literally "slave-making," and is a form of facultative, social, brood parasitism. It occurs most commonly among the slave-making ants, of which dozens of species exist. However, dulosis has also beeen recorded in bees. \n \n These slave-making bees exclusively target the larvae of Necropini Bees and feed on the Necropini Honey of those bees. \n\n\n\n\n Bee Traits: \n\n 	Production time: 1 day \n 	Works at Night: Yes \n 	Works When Raining: No \n 	Unusual Sources Needed: No \n 	Minimum Temperature: 0ºF (-17.7778ºC) \n 	Maximum temperature: 97ºF (36.1111ºC)</description>
+					<!--
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/ST_Bee_south</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData>
+					-->
+					<comps Inherit="False">
+						<li Class="RimBees.CompProperties_Bees" Inherit="False">
+							<species>Necropini</species>
+							<comb>TSP_RB_Beeliever_SlaveryOfApini_Necropini_Honeycomb</comb>
+							<combtimedays>1</combtimedays>
+							<nocturnal>true</nocturnal> <!-- Works at night -->
+							<pluviophile>false</pluviophile> <!-- Works in the rain -->
+							<weirdplantneeded>no</weirdplantneeded>
+							<tempMin>-17.778</tempMin> <!-- Zero degrees -->
+							<tempMax>36.1111</tempMax> <!-- Ninety-seven degrees -->
+						</li>   
+					</comps>
+				</ThingDef>
+				
+				<ThingDef ParentName="TSP_RB_Beeliever_ApiniBase_Necropini">
+					<defName>RB_Bee_Necropini_Queen</defName>
+					<label>Necropini Slaver queen</label>
+					<descriptionHyperlinks>
+						<!-- <ThingDef>RB_Bee_Necropini_Queen</ThingDef> -->
+						<ThingDef>RB_Bee_Necropini_Drone</ThingDef>
+						<ThingDef>TSP_RB_Beeliever_SlaveryOfApini_Necropini_Honeycomb</ThingDef>
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_SlaveryOfApini_Necropini_Honeycomb</RecipeDef>
+						<!--
+						<ThingDef>TSP_ST_RB_WildHive_Gnome</ThingDef>
+						<RecipeDef>TSP_ST_RB_Gneehive_Extract</RecipeDef>
+						-->
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/SlaverBranch/TSP_Bee_Dahomey_Necropini_Queen</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData> 		
+				</ThingDef>
+				
+				<ThingDef ParentName="TSP_RB_Beeliever_ApiniBase_Necropini">
+					<defName>RB_Bee_Necropini_Drone</defName>
+					<label>Necropini Slaver drone</label>
+					<descriptionHyperlinks>
+						<ThingDef>RB_Bee_Necropini_Queen</ThingDef>
+						<!-- <ThingDef>RB_Bee_Necropini_Drone</ThingDef> -->
+						<ThingDef>TSP_RB_Beeliever_SlaveryOfApini_Necropini_Honeycomb</ThingDef>
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_SlaveryOfApini_Necropini_Honeycomb</RecipeDef>
+						<!--
+						<ThingDef>TSP_ST_RB_WildHive_Gnome</ThingDef>
+						<RecipeDef>TSP_ST_RB_Gneehive_Extract</RecipeDef>
+						-->
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/SlaverBranch/TSP_Bee_Dahomey_Necropini_Drone</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData> 		
+				</ThingDef>
+				
+				<ThingDef ParentName="RB_CombBase">
+					<defName>TSP_RB_Beeliever_SlaveryOfApini_Necropini_Honeycomb</defName>
+					<label>Necropini Slaver Bee honeycomb</label>
+					<description>Slaver Bees are facultative, social, brood parasites that abduct larvae and use them to produce beeswax and honey. Instead of expending effort to feed, house, and construct for new members of the colony, Slaver Bee drones drive the slave species and kidnap new larvae, while the Slaver Queen produces new Slaver Bee drones to continue the cycle, all while she gets fat from her doting chattel. \n \ These Apini Slaver Bees parasitize Necropini larvae to consume their honey. Reap the harvest of slave labor and enjoy Necropini Honey, pollen, and Red Beeswax.</description>
+					<descriptionHyperlinks>
+						<!-- <ResearchProjectDef>ST_GnomeCulture</ResearchProjectDef> -->
+						<ThingDef>RB_Bee_Necropini_Queen</ThingDef>
+						<ThingDef>RB_Bee_Necropini_Drone</ThingDef>
+						<!-- <ThingDef>TSP_RB_Beeliever_SlaveryOfApini_Necropini_Honeycomb</ThingDef> -->
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_SlaveryOfApini_Necropini_Honeycomb</RecipeDef>
+						<!--
+						<ThingDef>TSP_ST_GnomeHoney</ThingDef>
+						<ThingDef>TSP_ST_RB_WildHive_Gnome</ThingDef>
+						<RecipeDef>TSP_ST_RB_Gneehive_Extract</RecipeDef>
+						-->
+						<ThingDef>NpiniMeatHoney</ThingDef>
+						<ThingDef>RB_RedBeeswax</ThingDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/Honeycombs/TSP_RB_Necropini_Honeycomb</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData>
+					<thingCategories Inherit="False">
+						<li>TSP_RB_Beeliever_Honeycombs</li>
+					</thingCategories>
+					<butcherProducts>
+						<NpiniMeatHoney>5</NpiniMeatHoney>
+						<RB_RedBeeswax>5</RB_RedBeeswax>
+						<ApiniPollen>13</ApiniPollen>
+					</butcherProducts>
+				</ThingDef>
+				
+				<RecipeDef>
+					<defName>TSP_RB_Beeliever_Centrifuge_SlaveryOfApini_Necropini_Honeycomb</defName>
+					<label>extract from Necropini Slave-Making Bee honeycomb</label>
+					<description>Extracts Necropini Honey and Red Beeswax from a Necropini Slaver Bee honeycomb. Necropini Slaver Bees parasitize Necropini larvae to consume their honey. What's wrong with exploiting exploiters, after all?</description>
+					<descriptionHyperlinks>
+						<!-- <ResearchProjectDef>ST_GnomeCulture</ResearchProjectDef> -->
+						<ThingDef>RB_Bee_Necropini_Queen</ThingDef>
+						<ThingDef>RB_Bee_Necropini_Drone</ThingDef>
+						<ThingDef>TSP_RB_Beeliever_SlaveryOfApini_Necropini_Honeycomb</ThingDef>
+						<ThingDef>NpiniMeatHoney</ThingDef>
+						<ThingDef>RB_RedBeeswax</ThingDef>
+						<!-- <RecipeDef>TSP_RB_Beeliever_Centrifuge_SlaveryOfApini_Necropini_Honeycomb</RecipeDef> -->
+						<!--
+						<ThingDef>TSP_ST_GnomeHoney</ThingDef>
+						<ThingDef>TSP_ST_RB_WildHive_Gnome</ThingDef>
+						<RecipeDef>TSP_ST_RB_Gneehive_Extract</RecipeDef>
+						-->
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<uiIconThing>NpiniMeatHoney</uiIconThing>
+					<jobString>Taking advantage of slave labor.</jobString>
+					<effectWorking>Cremate</effectWorking>
+					<soundWorking>Recipe_Cremate</soundWorking>
+					<workAmount>900</workAmount>
+					<recipeUsers>
+						<li>ApiniNectarStill</li>
+						<!--
+						<li>RB_Honey_Centrifuge</li>
+						<li>RB_Advanced_Honey_Centrifuge</li>
+						<li MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</li>
+						-->
+					</recipeUsers>	
+					<ingredients>
+						<li>
+							<filter>
+								<thingDefs>
+									<li>TSP_RB_Beeliever_SlaveryOfApini_Necropini_Honeycomb</li>
+								</thingDefs>
+							</filter>
+							<count>1</count>
+						</li>
+					</ingredients>
+					<fixedIngredientFilter>
+						<thingDefs>
+							<li>TSP_RB_Beeliever_SlaveryOfApini_Necropini_Honeycomb</li>
+						</thingDefs>
+					</fixedIngredientFilter>
+					<specialProducts>
+						<li>Butchery</li>
+					</specialProducts>
+					<skillRequirements></skillRequirements>
+					<researchPrerequisites>
+						
+					</researchPrerequisites>
+				</RecipeDef>
+				
+				
+				
+				<!-- SLAVER BRANCH -->
+				<!-- TIER IV -->
+				
+				<RimBees.BeeCombinationDef>
+					<defName>TSP_RB_Beelievers_SlaverTables_ApiniDeluxe</defName>
+					<bee1>Necropini</bee1>
+					<bee2>Technological</bee2>
+					<result>
+						<li>Apini_Random</li>
+					</result>				
+				</RimBees.BeeCombinationDef>
+				
+				<!-- Deluxe Apini Slaver Bees: kidnaps Apini larvae, makes any Apini Honey, Nectar, or Pollen -->
+				<RimBees.BeeListDef>
+					<defName>TSP_RB_Beeliever_SlaverBee4_Apini</defName>
+					<nameString>Apini_Random</nameString>
+					<beeDroneDef>RB_Bee_Apini_Random_Drone</beeDroneDef>
+					<beeQueenDef>RB_Bee_Apini_Random_Queen</beeQueenDef>
+					<!--
+					<beeQueenTag>RB_Bee_Slaver_Queen_Tag</beeQueenTag>
+					<beeDroneTag>RB_Bee_Slaver_Drone_Tag</beeDroneTag>
+					-->
+				</RimBees.BeeListDef>
+				
+				<ThingDef ParentName="TSP_Beelievers_Beesearch">
+					<defName>TSP_RB_Beelievers_SlaverTables_ApiniDeluxe_Beesearch</defName>
+					<graphicData Inherit="False">
+						<graphicClass>Graphic_Single</graphicClass>
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/Beesearch/Idr_adbo2</texPath>
+					</graphicData>
+					<comps>
+						<li Class="RimBees.CompProperties_BeeResearchData">
+							<firstBee>RB_Bee_Necropini_Queen</firstBee>
+							<secondBee>RB_Bee_Technological_Queen</secondBee>
+							<resultingBees>
+								<li>RB_Bee_Apini_Random_Queen</li>
+							</resultingBees>
+						</li>
+					</comps>
+				</ThingDef>
+				
+				<ThingDef ParentName="TSP_RB_Beeliever_ApiniBase" Name="TSP_RB_Beeliever_ApiniBase_Random" Abstract="True">
+					<!-- <label>Apini Slave-Making Bee</label> -->
+					<description>On Old Earth, living beings' ownership of other living beings as chattel did not stop with men owning animals, or even men owning men. Animals are capable of it too! There exists a rare adaption among insects where they will capture animals of other species and compel them to work for them. This is called "dulosis," literally "slave-making," and is a form of facultative, social, brood parasitism. It occurs most commonly among the slave-making ants, of which dozens of species exist. However, dulosis has also beeen recorded in bees. \n \n Deluxe Apini Slaver Bees have mastered the botanical ability of creatinmg exotic forms of honey that are normally unique to the Apini race of bees. Any form of Apini Honey or Apini Nectar is capable of being produced by these slave-making bees, but the beekeeper does not have a means of choosing what comes out when he harvests it. As this is considered an extra step in Apini Honey refinement, a base of regular Apini Honey is needed for processing. \n\n\n\n\n Bee Traits: \n\n 	Production time: 0.81 days \n 	Works at Night: Yes \n 	Works When Raining: Yes \n 	Unusual Sources Needed: Apini Honey \n 	Minimum Temperature: 0ºF (-17.7778ºC) \n 	Maximum temperature: 97ºF (36.1111ºC)</description>
+					<descriptionHyperlinks>
+						<ThingDef>ApiniNectar</ThingDef>
+						<ThingDef>ApiniNectar_F</ThingDef>
+						<ThingDef>ApiniNectar_E</ThingDef>
+						<ThingDef>ApiniNectar_M</ThingDef>
+						<ThingDef>ApiniNectar_B</ThingDef>
+						<ThingDef>ApiniNectar_R</ThingDef>
+						<ThingDef>ApiniNectar_W</ThingDef>
+						<ThingDef>ApiniNectar_V</ThingDef>
+					</descriptionHyperlinks>
+					<!--
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/ST_Bee_south</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData>
+					-->
+					<comps Inherit="False">
+						<li Class="RimBees.CompProperties_Bees" Inherit="False">
+							<species>Apini_Random</species>
+							<comb>TSP_RB_Beeliever_SlaveryOfApini_Random_Honeycomb</comb>
+							<combtimedays>0.81</combtimedays>
+							<nocturnal>true</nocturnal> <!-- Works at night -->
+							<pluviophile>true</pluviophile> <!-- Works in the rain -->
+							<weirdplantneeded>ApiniHoney</weirdplantneeded>
+							<tempMin>-17.778</tempMin> <!-- Zero degrees -->
+							<tempMax>36.1111</tempMax> <!-- Ninety-seven degrees -->
+						</li>   
+					</comps>
+				</ThingDef>
+				
+				<ThingDef ParentName="TSP_RB_Beeliever_ApiniBase_Random">
+					<defName>RB_Bee_Apini_Random_Queen</defName>
+					<label>Deluxe Apini Slaver queen</label>
+					<descriptionHyperlinks>
+						<!-- <ThingDef>RB_Bee_Apini_Random_Queen</ThingDef> -->
+						<ThingDef>RB_Bee_Apini_Random_Drone</ThingDef>
+						<ThingDef>TSP_RB_Beeliever_SlaveryOfApini_Random_Honeycomb</ThingDef>
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_SlaveryOfApini_Random_Honeycomb</RecipeDef>
+						<!--
+						<ThingDef>TSP_ST_RB_WildHive_Gnome</ThingDef>
+						<RecipeDef>TSP_ST_RB_Gneehive_Extract</RecipeDef>
+						-->
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Item/Bees/RB_Bee_Casino_Drone</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+						<color>(255,135,0)</color>
+					</graphicData> 		
+				</ThingDef>
+				
+				<ThingDef ParentName="TSP_RB_Beeliever_ApiniBase_Random">
+					<defName>RB_Bee_Apini_Random_Drone</defName>
+					<label>Deluxe Apini Slaver drone</label>
+					<descriptionHyperlinks>
+						<ThingDef>RB_Bee_Apini_Random_Queen</ThingDef>
+						<!-- <ThingDef>RB_Bee_Apini_Random_Drone</ThingDef> -->
+						<ThingDef>TSP_RB_Beeliever_SlaveryOfApini_Random_Honeycomb</ThingDef>
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_SlaveryOfApini_Random_Honeycomb</RecipeDef>
+						<!--
+						<ThingDef>TSP_ST_RB_WildHive_Gnome</ThingDef>
+						<RecipeDef>TSP_ST_RB_Gneehive_Extract</RecipeDef>
+						-->
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Item/Bees/RB_Bee_Casino_Queen</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+						<color>(255,135,0)</color>
+					</graphicData> 		
+				</ThingDef>
+				
+				<ThingDef ParentName="RB_CombBase">
+					<defName>TSP_RB_Beeliever_SlaveryOfApini_Random_Honeycomb</defName>
+					<label>Deluxe Apini Slaver Bee honeycomb</label>
+					<description>Slaver Bees are facultative, social, brood parasites that abduct larvae and use them to produce beeswax and honey. Instead of expending effort to feed, house, and construct for new members of the colony, Slaver Bee drones drive the slave species and kidnap new larvae, while the Slaver Queen produces new Slaver Bee drones to continue the cycle, all while she gets fat from her doting chattel. \n \ Deluxe Apini Slaver Bees have mastered the botanical ability of creatinmg exotic forms of honey that are normally unique to the Apini race of bees. Any form of Apini Honey or Apini Nectar is capable of being produced by these slave-making bees, but the beekeeper does not have a means of choosing what comes out when he harvests it. As this is considered an extra step in Apini Honey refinement, a base of regular Apini Honey is needed for processing.</description>
+					<descriptionHyperlinks>
+						<!-- <ResearchProjectDef>ST_GnomeCulture</ResearchProjectDef> -->
+						<ThingDef>RB_Bee_Apini_Random_Queen</ThingDef>
+						<ThingDef>RB_Bee_Apini_Random_Drone</ThingDef>
+						<!-- <ThingDef>TSP_RB_Beeliever_SlaveryOfApini_Random_Honeycomb</ThingDef> -->
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_SlaveryOfApini_Random_Honeycomb</RecipeDef>
+						<!--
+						<ThingDef>TSP_ST_GnomeHoney</ThingDef>
+						<ThingDef>TSP_ST_RB_WildHive_Gnome</ThingDef>
+						<RecipeDef>TSP_ST_RB_Gneehive_Extract</RecipeDef>
+						-->
+						<ThingDef>TSP_Apini_DeluxeHoney_Spawner</ThingDef>
+						<ThingDef>ApiniNectar</ThingDef>
+						<ThingDef>ApiniNectar_F</ThingDef>
+						<ThingDef>ApiniNectar_E</ThingDef>
+						<ThingDef>ApiniNectar_M</ThingDef>
+						<ThingDef>ApiniNectar_B</ThingDef>
+						<ThingDef>ApiniNectar_R</ThingDef>
+						<ThingDef>ApiniNectar_W</ThingDef>
+						<ThingDef>ApiniNectar_V</ThingDef>
+						<ThingDef>RB_Beeswax</ThingDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/Honeycombs/TSP_RB_SlaverBee_Honeycomb</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+						<color>(255,135,0)</color>
+					</graphicData>
+					<thingCategories Inherit="False">
+						<li>TSP_RB_Beeliever_Honeycombs</li>
+					</thingCategories>
+					<butcherProducts>
+						<TSP_Apini_DeluxeHoney_Spawner>1</TSP_Apini_DeluxeHoney_Spawner>
+						<RB_Beeswax>5</RB_Beeswax>
+						<ApiniPollen>13</ApiniPollen>
+					</butcherProducts>
+				</ThingDef>
+				
+				<RecipeDef>
+					<defName>TSP_RB_Beeliever_Centrifuge_SlaveryOfApini_Random_Honeycomb</defName>
+					<label>extract from Deluxe Apini Slave-Making Bee honeycomb</label>
+					<description>Extracts a random sample of Apini Honey or Apini Nectar from a Deluxe Apini Slaver Bee honeycomb. What's wrong with exploiting exploiters, after all?</description>
+					<descriptionHyperlinks>
+						<!-- <ResearchProjectDef>ST_GnomeCulture</ResearchProjectDef> -->
+						<ThingDef>RB_Bee_Apini_Random_Queen</ThingDef>
+						<ThingDef>RB_Bee_Apini_Random_Drone</ThingDef>
+						<ThingDef>TSP_RB_Beeliever_SlaveryOfApini_Random_Honeycomb</ThingDef>
+						<ThingDef>TSP_Apini_DeluxeHoney_Spawner</ThingDef>
+						<ThingDef>ApiniNectar</ThingDef>
+						<ThingDef>ApiniNectar_F</ThingDef>
+						<ThingDef>ApiniNectar_E</ThingDef>
+						<ThingDef>ApiniNectar_M</ThingDef>
+						<ThingDef>ApiniNectar_B</ThingDef>
+						<ThingDef>ApiniNectar_R</ThingDef>
+						<ThingDef>ApiniNectar_W</ThingDef>
+						<ThingDef>ApiniNectar_V</ThingDef>
+						<ThingDef>RB_Beeswax</ThingDef>
+						<!-- <RecipeDef>TSP_RB_Beeliever_Centrifuge_SlaveryOfApini_Honeycomb</RecipeDef> -->
+						<!--
+						<ThingDef>TSP_ST_GnomeHoney</ThingDef>
+						<ThingDef>TSP_ST_RB_WildHive_Gnome</ThingDef>
+						<RecipeDef>TSP_ST_RB_Gneehive_Extract</RecipeDef>
+						-->
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<uiIconThing>ApiniVat_M</uiIconThing>
+					<jobString>Taking advantage of slave labor.</jobString>
+					<effectWorking>Cremate</effectWorking>
+					<soundWorking>Recipe_Cremate</soundWorking>
+					<workAmount>900</workAmount>
+					<recipeUsers>
+						<li>ApiniNectarStill</li>
+						<!--
+						<li>RB_Honey_Centrifuge</li>
+						<li>RB_Advanced_Honey_Centrifuge</li>
+						<li MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</li>
+						-->
+					</recipeUsers>	
+					<ingredients>
+						<li>
+							<filter>
+								<thingDefs>
+									<li>TSP_RB_Beeliever_SlaveryOfApini_Random_Honeycomb</li>
+								</thingDefs>
+							</filter>
+							<count>1</count>
+						</li>
+					</ingredients>
+					<fixedIngredientFilter>
+						<thingDefs>
+							<li>TSP_RB_Beeliever_SlaveryOfApini_Random_Honeycomb</li>
+						</thingDefs>
+					</fixedIngredientFilter>
+					<products Inherit="False">
+						<TSP_Apini_DeluxeHoney_Spawner>1</TSP_Apini_DeluxeHoney_Spawner>
+					</products>
+					<skillRequirements></skillRequirements>
+					<researchPrerequisites>
+						
+					</researchPrerequisites>
+				</RecipeDef>
+			</value>
+		</match>
+	</Operation>
+</Patch>

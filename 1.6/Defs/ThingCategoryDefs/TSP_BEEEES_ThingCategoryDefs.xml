@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<Defs>
+	<ThingCategoryDef>
+		<defName>TSP_RB_Beeliever_BeesAndQueens</defName>
+		<label>TSP Bees</label>
+		<parent>RB_BeesAndQueens</parent>
+		<iconPath>Things/Pawn/Animal/Bug_Types/Bee/TSP_Bee_Queen</iconPath>
+	</ThingCategoryDef>
+	
+	<ThingCategoryDef>
+		<defName>TSP_RB_Beeliever_BeesAndQueens_Mantodean</defName>
+		<label>TSP Mantodean Bees</label>
+		<parent>TSP_RB_Beeliever_BeesAndQueens</parent>
+		<iconPath>Things/Pawn/Animal/Bug_Types/Bee/TSP_Bee_Queen</iconPath>
+	</ThingCategoryDef>
+	
+	<ThingCategoryDef>
+		<defName>TSP_RB_Beeliever_Honeycombs</defName>
+		<label>TSP Honeycombs</label>
+		<parent>RB_Combs</parent>
+		<iconPath>Things/Pawn/Animal/Bug_Types/Bee/TSP_Bee_Queen</iconPath>
+	</ThingCategoryDef>
+	
+	<ThingCategoryDef>
+		<defName>TSP_RB_Beeliever_Mantodean_Honeycombs</defName>
+		<label>TSP Mantodean Honeycombs</label>
+		<parent>TSP_RB_Beeliever_Honeycombs</parent>
+		<iconPath>Things/Pawn/Animal/Bug_Types/Bee/TSP_Bee_Queen</iconPath>
+	</ThingCategoryDef>
+	
+	<ThingCategoryDef>
+		<defName>TSP_RB_Beesearch_Beelievers</defName>
+		<label>TurtleShroom Beesearch</label>
+		<parent>RB_BeeResearch</parent>
+		<iconPath>Things/Pawn/Animal/Bug_Types/Bee/Idr_adbo2</iconPath>
+	</ThingCategoryDef>
+</Defs>

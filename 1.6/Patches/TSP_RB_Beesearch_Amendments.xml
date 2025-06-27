@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<Patch>
+	<!-- Aelanna's Model No-Match Detector and Insertion Code -->
+	<!-- Special thanks to Aelanna for straight-up saving me scores of headaches! -->
+	<!-- Add comps field to Settlement WorldObjectDef if it doesn't exist -->
+	<Operation Class="PatchOperationConditional">
+		<xpath>/Defs/ThingDef[@Name="RB_ResearchPapersBase"]/tradeTags</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>/Defs/ThingDef[@Name="RB_ResearchPapersBase"]</xpath>
+			<success>Always</success>
+			<value>
+				<tradeTags></tradeTags>
+			</value>
+		</nomatch>
+	</Operation>
+	
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>/Defs/ThingDef[@Name="RB_ResearchPapersBase"]/tradeTags</xpath>
+		<!-- If it does, add this. -->
+		<match Class="PatchOperationAdd">
+			<xpath>/Defs/ThingDef[@Name="RB_ResearchPapersBase"]/tradeTags</xpath>
+			<value>
+				<li>Beesearch</li>
+			</value>
+		</match>
+		<!-- If the first XPATH does not exist, the original code stands. -->
+	</Operation>
+	
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>/Defs/ThingDef[@Name="RB_ResearchPapersBase"]/tradeability</xpath>
+		<match Class="PatchOperationReplace">
+			<xpath>/Defs/ThingDef[@Name="RB_ResearchPapersBase"]/tradeability</xpath>
+			<success>Always</success>
+			<value>
+				<tradeability>All</tradeability>
+			</value>
+		</match>
+		<!-- Add comps field to Settlement WorldObjectDef if it doesn't exist -->
+		<!-- If it DOES NOT, add this instead. -->
+		<nomatch Class="PatchOperationAdd">
+			<xpath>/Defs/ThingDef[@Name="RB_ResearchPapersBase"]</xpath>
+			<success>Always</success>
+			<value>
+				<tradeability>All</tradeability>
+			</value>
+		</nomatch>
+		<!-- If the first XPATH does not exist, the original code stands. -->
+	</Operation>
+
+	<Operation Class="PatchOperationFindMod">
+	<!-- Do any of the following Mods exist? -->
+			<!--
+			<li>Tropi[CKAPP] Rainforest Mod</li>
+			<li>Tropi[CKAPP] Rainforest Mod (Continued)</li>
+			<li>Megabee</li>
+			<li>Megabees</li>
+			-->
+		<mods>
+			<li>Alpha Animals</li>
+			<li>Apini Playable Race, Continued!</li>
+			<li>Apini Playable Race</li>
+			<li>Apini Playable Race, New Age</li>
+			<li>Apini Playable Race, New Age, Continued!</li>
+			<li>Apinis</li>
+			<li>Mantodeans Continued</li>
+			<li>Mantodeans</li>
+			<li>Bees</li>
+			<li>Misc. Bees'n'Honey</li>
+			<li>Vivi Race</li>
+			<li>Vivi - auto rebuild honeycomb wall</li>
+			<li>Vivi Race Hive mind patch</li>
+		</mods>
+		<!-- If it does, add this. -->
+		<match Class="PatchOperationAdd">
+			<success>Always</success>
+			<xpath>/Defs</xpath>
+			<value>
+				<ThingDef ParentName="TSP_Beelievers_Beesearch">
+					<defName>TSP_RB_Beelievers_SlaverTables_OtherHoney_Beesearch</defName>
+					<graphicData Inherit="False">
+						<graphicClass>Graphic_Single</graphicClass>
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/Beesearch/Idr_adbo2</texPath>
+					</graphicData>
+					<comps>
+						<li Class="RimBees.CompProperties_BeeResearchData">
+							<firstBee>RB_Bee_Slaver_Queen</firstBee>
+							<secondBee>RB_Bee_Adaptive_Queen</secondBee>
+							<resultingBees>
+								<li MayRequire="gguake.race.vivi">RB_Bee_Vivi_Queen</li>
+								<li MayRequire="sera.apinialienrace">RB_Bee_Apini_Queen</li>
+								<li MayRequire="haplo.miscellaneous.beesnhoney">RB_Bee_Haplo_Queen</li>
+								<li MayRequire="adamas.bees">RB_Bee_Adamas_Queen</li>
+								<li MayRequire="eltwofour.mantodeanrace">RB_Bee_Mantodean_Queen</li>
+								<li MayRequire="sarg.alphaanimals">RB_Bee_Bumbledrone_Queen</li>
+							</resultingBees>
+						</li>
+					</comps>
+				</ThingDef>
+			</value>
+		</match>
+		<!-- If the first XPATH does not exist, the original code stands. -->
+	</Operation>
+	
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>/Defs/ThingDef[defName="RB_ResearchPapersAgriSwamp"]/comps/li/resultingBees</xpath>
+		<!-- If it does, add this. -->
+		<match Class="PatchOperationAdd">
+			<xpath>/Defs/ThingDef[defName="RB_ResearchPapersAgriSwamp"]/comps/li/resultingBees</xpath>
+			<value>
+				<li>RB_Bee_Oriental_Queen</li>
+			</value>
+		</match>
+		<!-- If the first XPATH does not exist, the original code stands. -->
+	</Operation>
+</Patch>

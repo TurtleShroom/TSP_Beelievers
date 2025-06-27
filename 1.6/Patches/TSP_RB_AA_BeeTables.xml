@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<Patch>
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>/Defs/ThingDef[defName="AA_Bumbledrone"]</xpath>
+		<!-- If it does, add this. -->
+		<match Class="PatchOperationAdd">
+			<xpath>/Defs</xpath>
+			<success>Always</success>
+			<value>
+				<!-- Bumbledrone Branch -->
+				<!-- TIER Bumbledrone -->
+				<!-- BEE DESCRIPTION -->
+				<RimBees.BeeListDef>
+					<defName>TSP_RB_Beelievers_SlaverTables_Bumbledrone</defName>
+					<nameString>Bumbledrone</nameString>
+					<beeDroneDef>RB_Bee_Bumbledrone_Drone</beeDroneDef>
+					<beeQueenDef>RB_Bee_Bumbledrone_Queen</beeQueenDef>
+					<!--
+					<beeQueenTag>RB_Bee_Bumbledrone_Queen_Tag</beeQueenTag>
+					<beeDroneTag>RB_Bee_Bumbledrone_Drone_Tag</beeDroneTag>
+					-->
+				</RimBees.BeeListDef>
+				
+				<!--
+				<RimBees.BeeCombinationDef>
+					<defName>TSP_RB_Beelievers_Bumbledrone_Tables</defName>
+					<bee1>Slaver</bee1>
+					<bee2>Adaptive</bee2>
+					<result>
+						<li>Bumbledrone</li>
+					</result>				
+				</RimBees.BeeCombinationDef>
+				-->
+				
+				<ThingDef ParentName="RB_ResearchPapersBaseAlpha">
+					<defName>TSP_RB_AA_Beelievers_SlaverTables_Bumbledrone_Beesearch</defName>
+					<graphicData Inherit="False">
+						<graphicClass>Graphic_Single</graphicClass>
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/Beesearch/YellowJournal</texPath>
+					</graphicData>
+					<comps>
+						<li Class="RimBees.CompProperties_BeeResearchData">
+							<firstBee>RB_Bee_Slaver_Queen</firstBee>
+							<secondBee>RB_Bee_Adaptive_Queen</secondBee>
+							<resultingBees>
+								<li>RB_Bee_Bumbledrone_Queen</li>
+							</resultingBees>
+						</li>
+					</comps>
+				</ThingDef>
+			
+				<ThingDef ParentName="TSP_RB_Beeliever_MasterBeeBase" Name="TSP_RB_Beeliever_Bumbledrone_Base" Abstract="True">
+					<!-- <label>Bumbledrone Bee</label> -->
+					<description>Bumbledrone caretakers are a special caste of Bumbledrone that never leaves the subterrenean levels of a Bumbledrone Hive. Bumbledrone caretakers produce Bumbledrone honey, allowing for greater Bumbledrone castes to leave and explore the surface world. \n\n\n\n\n Bee Traits: \n\n 	Production time: slightly more than 1 day \n 	Works at Night: No \n 	Works When Raining: No \n 	Unusual Sources Needed: No \n 	Minimum Temperature: 0ºF (-17.7778ºC) \n 	Maximum temperature: 97ºF (36.1111ºC)</description>
+					<!--
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/ST_Bee_south</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData>
+					-->
+					<comps>			
+						<li Class="RimBees.CompProperties_Bees" Inherit="False">
+							<species>Bumbledrone</species>
+							<comb>TSP_RB_Beeliever_Bumbledrone_Honeycomb</comb>
+							<combtimedays>1.1</combtimedays>
+							<nocturnal>false</nocturnal> <!-- Works at night -->
+							<pluviophile>false</pluviophile> <!-- Works in the rain -->
+							<weirdplantneeded>no</weirdplantneeded>
+							<tempMin>-17.778</tempMin> <!-- Zero degrees -->
+							<tempMax>36.1111</tempMax> <!-- Ninety-seven degrees -->
+						</li>   
+					</comps>
+				</ThingDef>
+				
+				<!-- MUST be RB_Bee_YOURNAME_Queen and then RB_Bee_YOURNAME_Drone, no exceptions -->
+				<ThingDef ParentName="TSP_RB_Beeliever_Bumbledrone_Base">
+					<defName>RB_Bee_Bumbledrone_Queen</defName>
+					<label>Bumbledrone caretaker queen</label>
+					<descriptionHyperlinks>
+						<!-- <ThingDef>RB_Bee_Bumbledrone_Queen</ThingDef> -->
+						<ThingDef>RB_Bee_Bumbledrone_Drone</ThingDef>
+						<ThingDef>TSP_RB_Beeliever_Bumbledrone_Honeycomb</ThingDef>
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_Bumbledrone_Honeycomb</RecipeDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+						<ThingDef>AA_Bumbledrone</ThingDef>
+						<ThingDef>AA_BumbledroneHierophant</ThingDef>
+						<ThingDef>AA_BumbledroneQueen</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Art/AA_BumbledroneQueenArt</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData> 		
+				</ThingDef>
+				
+				<ThingDef ParentName="TSP_RB_Beeliever_Bumbledrone_Base">
+					<defName>RB_Bee_Bumbledrone_Drone</defName>
+					<label>Bumbledrone caretaker drone</label>
+					<descriptionHyperlinks>
+						<ThingDef>RB_Bee_Bumbledrone_Queen</ThingDef>
+						<!-- <ThingDef>RB_Bee_Bumbledrone_Drone</ThingDef> -->
+						<ThingDef>TSP_RB_Beeliever_Bumbledrone_Honeycomb</ThingDef>
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_Bumbledrone_Honeycomb</RecipeDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+						<ThingDef>AA_Bumbledrone</ThingDef>
+						<ThingDef>AA_BumbledroneHierophant</ThingDef>
+						<ThingDef>AA_BumbledroneQueen</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Art/AA_BumbledroneArt</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData> 		
+				</ThingDef>
+				
+				<ThingDef ParentName="RB_CombBase">
+					<defName>TSP_RB_Beeliever_Bumbledrone_Honeycomb</defName>
+					<label>Bumbledrone caretaker honeycomb</label>
+					<description>Bumbledrone caretakers are a caste of subterranean Bumbledrones that produce Bumbledrone Honey. Bumbledrone Honey will only appear in the game if you have the Alpha Animals Mod AND the Alpha Biomes Mod. Bumbledrone Honeycombs will otherwise produce Psychotropic Honey and ordinary Beeswax.</description>
+					<descriptionHyperlinks>
+						<ThingDef>RB_Bee_Bumbledrone_Queen</ThingDef>
+						<ThingDef>RB_Bee_Bumbledrone_Drone</ThingDef>
+						<!-- <ThingDef>TSP_RB_Beeliever_Bumbledrone_Honeycomb</ThingDef> -->
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_Bumbledrone_Honeycomb</RecipeDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+						<ThingDef>AA_Bumbledrone</ThingDef>
+						<ThingDef>AA_BumbledroneHierophant</ThingDef>
+						<ThingDef>AA_BumbledroneQueen</ThingDef>
+						<li MayRequire="sarg.alphaanimals,sarg.alphabiomes">AB_BumbledroneFood</li>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<!--
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/Honeycombs/TSP_RB_Mantodean_VariousJelly_Honeycomb</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+						-->
+						<texPath>Things/Item/Resource/AnimalProductRaw/InsectJelly</texPath>
+						<graphicClass>Graphic_StackCount</graphicClass>
+						<color>(189,158,98)</color>
+					</graphicData>	
+					<thingCategories Inherit="False">
+						<li>TSP_RB_Beeliever_Honeycombs</li>
+					</thingCategories>
+					<butcherProducts>
+						<AB_BumbledroneFood MayRequire="sarg.alphaanimals,sarg.alphabiomes">25</AB_BumbledroneFood>
+						<RB_PsychotropicHoney>13</RB_PsychotropicHoney>
+						<RB_Beeswax>7</RB_Beeswax>
+					</butcherProducts>
+				</ThingDef>
+				
+				<RecipeDef>
+					<defName>TSP_RB_Beeliever_Centrifuge_Bumbledrone_Honeycomb</defName>
+					<label>Extract from Bumbledrone caretaker honeycomb</label>
+					<description>Extracts Bumbledrone honey and ordinary beeswax from Bumbledrone Honeycombs if the Alpha Biomes Mod is installed. Otherwise, it extracts Psychotropic Honey.</description>
+					<descriptionHyperlinks>
+						<ThingDef>RB_Bee_Bumbledrone_Queen</ThingDef>
+						<ThingDef>RB_Bee_Bumbledrone_Drone</ThingDef>
+						<ThingDef>TSP_RB_Beeliever_Bumbledrone_Honeycomb</ThingDef>
+						<!-- <RecipeDef>TSP_RB_Beeliever_Centrifuge_Bumbledrone_Honeycomb</RecipeDef> -->
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+						<ThingDef>AA_Bumbledrone</ThingDef>
+						<ThingDef>AA_BumbledroneHierophant</ThingDef>
+						<ThingDef>AA_BumbledroneQueen</ThingDef>
+						<li MayRequire="sarg.alphaanimals,sarg.alphabiomes">AB_BumbledroneFood</li>
+					</descriptionHyperlinks>
+					<!-- <uiIconThing></uiIconThing> -->
+					<jobString>Extracting Bumbledrone honey.</jobString>
+					<effectWorking>Cremate</effectWorking>
+					<soundWorking>Recipe_Cremate</soundWorking>
+					<workAmount>900</workAmount>
+					<recipeUsers Inherit="False"></recipeUsers>	
+					<ingredients>
+						<li>
+							<filter>
+								<thingDefs>
+									<li>TSP_RB_Beeliever_Bumbledrone_Honeycomb</li>
+								</thingDefs>
+							</filter>
+							<count>1</count>
+						</li>
+					</ingredients>
+					<fixedIngredientFilter>
+						<thingDefs>
+							<li>TSP_RB_Beeliever_Bumbledrone_Honeycomb</li>
+						</thingDefs>
+					</fixedIngredientFilter>
+					<specialProducts>
+						<li>Butchery</li>
+					</specialProducts>
+					<skillRequirements></skillRequirements>
+					<researchPrerequisites></researchPrerequisites>
+				</RecipeDef>
+			</value>
+		</match>
+	</Operation>
+</Patch>

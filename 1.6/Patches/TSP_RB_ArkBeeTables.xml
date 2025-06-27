@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<Patch>
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>/Defs/ThingDef[defName="OP_ArkComputer"]</xpath>
+		<!-- If it does, LET'S FASTING GOOOOOOOOOO!!! -->
+		<match Class="PatchOperationSequence">
+			<!-- <success>Always</success> -->
+			<operations>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs</xpath>
+					<success>Always</success>
+					<value>
+						<!-- Ark Branch -->
+						<!-- TIER III -->
+						<!-- BEE DESCRIPTION -->
+						<RimBees.BeeListDef>
+							<defName>TSP_RB_Beeliever_Ark1_ArkLiquid</defName>
+							<nameString>Ark</nameString>
+							<beeDroneDef>RB_Bee_Ark_Drone</beeDroneDef>
+							<beeQueenDef>RB_Bee_Ark_Queen</beeQueenDef>
+							<!--
+							<beeQueenTag>RB_Bee_Ark_Queen_Tag</beeQueenTag>
+							<beeDroneTag>RB_Bee_Ark_Drone_Tag</beeDroneTag>
+							-->
+						</RimBees.BeeListDef>
+						
+						<!-- The Ark Mod makes this stuff out of wood for some reason -->
+						<RimBees.BeeCombinationDef>
+							<defName>TSP_RB_Beelievers_Ark1_Tables</defName>
+							<bee1>Electronic</bee1>
+							<bee2>Woodland</bee2>
+							<result>
+								<li>Ark</li>
+							</result>				
+						</RimBees.BeeCombinationDef>
+					
+						<ThingDef ParentName="TSP_RB_Beeliever_MasterBeeBase" Name="TSP_RB_Beeliever_ArkBase" Abstract="True">
+							<!-- <label>Ark Bee</label> -->
+							<description>Arks are a mechanical race based heavily on the human body plan, with human "essences," called "soulquids," liquified and implanted into them. Ark Bees, like other Technological Bees, are partly mechanical. \n\n\n\n\n Bee Traits: \n\n 	Production time: 1 day \n 	Works at Night: No \n 	Works When Raining: Yes \n 	Unusual Sources Needed: No \n 	Minimum Temperature: 0ºF (-17.7778ºC) \n 	Maximum temperature: 97ºF (36.1111ºC)</description>
+							<!--
+							<graphicData Inherit="False">
+								<texPath>Things/Pawn/Animal/Bug_Types/Bee/ST_Bee_south</texPath>
+								<graphicClass>Graphic_Single</graphicClass>
+							</graphicData>
+							-->
+							<comps>			
+								<li Class="RimBees.CompProperties_Bees" Inherit="False">
+									<species>Ark</species>
+									<comb>TSP_RB_Beeliever_Ark_Honeycomb</comb>
+									<combtimedays>1</combtimedays>
+									<nocturnal>false</nocturnal> <!-- Works at night -->
+									<pluviophile>true</pluviophile> <!-- Works in the rain -->
+									<weirdplantneeded>no</weirdplantneeded>
+									<tempMin>-17.778</tempMin> <!-- Zero degrees -->
+									<tempMax>36.1111</tempMax> <!-- Ninety-seven degrees -->
+								</li>   
+							</comps>
+						</ThingDef>
+						
+						<!-- MUST be RB_Bee_YOURNAME_Queen and then RB_Bee_YOURNAME_Drone, no exceptions -->
+						<ThingDef ParentName="TSP_RB_Beeliever_ArkBase">
+							<defName>RB_Bee_Ark_Queen</defName>
+							<label>Ark Bee queen</label>
+							<descriptionHyperlinks>
+								<!-- <ThingDef>RB_Bee_Ark_Queen</ThingDef> -->
+								<ThingDef>RB_Bee_Ark_Drone</ThingDef>
+								<ThingDef>TSP_RB_Beeliever_Ark_Honeycomb</ThingDef>
+								<RecipeDef>TSP_RB_Beeliever_Centrifuge_Ark_Honeycomb</RecipeDef>
+								<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+							</descriptionHyperlinks>
+							<graphicData Inherit="False">
+								<texPath>Things/Pawn/Animal/Bug_Types/Bee/ArkBranch/TSP_Bee_ArkLiquid_Queen</texPath>
+								<graphicClass>Graphic_Single</graphicClass>
+							</graphicData> 		
+						</ThingDef>
+						
+						<ThingDef ParentName="TSP_RB_Beeliever_ArkBase">
+							<defName>RB_Bee_Ark_Drone</defName>
+							<label>Ark Bee drone</label>
+							<descriptionHyperlinks>
+								<ThingDef>RB_Bee_Ark_Queen</ThingDef>
+								<!-- <ThingDef>RB_Bee_Ark_Drone</ThingDef> -->
+								<ThingDef>TSP_RB_Beeliever_Ark_Honeycomb</ThingDef>
+								<RecipeDef>TSP_RB_Beeliever_Centrifuge_Ark_Honeycomb</RecipeDef>
+								<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+							</descriptionHyperlinks>
+							<graphicData Inherit="False">
+								<texPath>Things/Pawn/Animal/Bug_Types/Bee/ArkBranch/TSP_Bee_ArkLiquid_Drone</texPath>
+								<graphicClass>Graphic_Single</graphicClass>
+							</graphicData> 		
+						</ThingDef>
+					</value>
+				</li>
+						
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs</xpath>
+					<success>Always</success>
+					<value>
+						<ThingDef ParentName="RB_CombBase">
+							<defName>TSP_RB_Beeliever_Ark_Honeycomb</defName>
+							<label>Ark Bee honeycomb</label>
+							<description>Ark Bees are a type of Technological Bee that specialize in producing Soulquid, which is an essence derived from sapient beings that can be used to make Arks. Ark Bee honeycombs produce Steel Wax, Solquids, and regular Honey.</description>
+							<descriptionHyperlinks>
+								<ThingDef>RB_Bee_Ark_Queen</ThingDef>
+								<ThingDef>RB_Bee_Ark_Drone</ThingDef>
+								<!-- <ThingDef>TSP_RB_Beeliever_Ark_Honeycomb</ThingDef> -->
+								<ThingDef>Soul</ThingDef>
+								<ThingDef>RB_BaseHoney</ThingDef>
+								<ThingDef>RB_Steelwax</ThingDef>
+								<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+							</descriptionHyperlinks>
+							<graphicData Inherit="False">
+								<texPath>Things/Pawn/Animal/Bug_Types/Bee/Honeycombs/HoneycombBase</texPath>
+								<graphicClass>Graphic_Single</graphicClass>
+								<color>(255,255,255)</color>
+							</graphicData>	
+							<thingCategories Inherit="False">
+								<li>TSP_RB_Beeliever_Honeycombs</li>
+							</thingCategories>
+							<butcherProducts>
+								<Soul>10</Soul>
+								<RB_Steelwax>5</RB_Steelwax>
+								<RB_BaseHoney>5</RB_BaseHoney>
+							</butcherProducts>
+						</ThingDef>
+					</value>
+				</li>
+					
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs</xpath>
+					<success>Always</success>
+					<value>
+						<RecipeDef>
+							<defName>TSP_RB_Beeliever_Centrifuge_Ark_Honeycomb</defName>
+							<label>Extract from Ark Bee honeycomb</label>
+							<description>Process Ark Bee honeycombs to get Soulquids, Steel Wax, and regular Honey.</description>
+							<descriptionHyperlinks>
+								<ThingDef>RB_Bee_Ark_Queen</ThingDef>
+								<ThingDef>RB_Bee_Ark_Drone</ThingDef>
+								<ThingDef>TSP_RB_Beeliever_Ark_Honeycomb</ThingDef>
+								<!-- <RecipeDef>TSP_RB_Beeliever_Centrifuge_Ark_Honeycomb</RecipeDef> -->
+								<ThingDef>Soul</ThingDef>
+								<ThingDef>RB_Steelwax</ThingDef>
+								<ThingDef>RB_BaseHoney</ThingDef>
+								<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+							</descriptionHyperlinks>
+							<uiIconThing>Soul</uiIconThing>
+							<jobString>Ark.</jobString>
+							<effectWorking>Cremate</effectWorking>
+							<soundWorking>Recipe_Cremate</soundWorking>
+							<workAmount>900</workAmount>
+							<recipeUsers Inherit="False">
+								<li MayRequire="owen.ark">OP_ArkComputer</li>
+								<li MayRequire="owen.ark">OP_ArkBorn</li>
+								<li MayRequire="owen.ark">OP_MagicTable</li>
+								<!--
+								<li>RB_Honey_Centrifuge</li>
+								<li>RB_Advanced_Honey_Centrifuge</li>
+								<li MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</li>
+								-->
+							</recipeUsers>	
+							<ingredients>
+								<li>
+									<filter>
+										<thingDefs>
+											<li>TSP_RB_Beeliever_Ark_Honeycomb</li>
+										</thingDefs>
+									</filter>
+									<count>1</count>
+								</li>
+							</ingredients>
+							<fixedIngredientFilter>
+								<thingDefs>
+									<li>TSP_RB_Beeliever_Ark_Honeycomb</li>
+								</thingDefs>
+							</fixedIngredientFilter>
+							<specialProducts>
+								<li>Butchery</li>
+							</specialProducts>
+							<skillRequirements></skillRequirements>
+							<researchPrerequisites>
+								<li MayRequire="owen.ark">SoulProduction</li>
+							</researchPrerequisites>
+						</RecipeDef>
+					</value>
+				</li>
+				
+				<li Class="PatchOperationReplace">
+					<success>Always</success>
+					<xpath>/Defs/ThingDef[defName="Soul"]/label</xpath>
+					<value>
+						<label>Soulquid</label>
+					</value>
+				</li>
+				
+				<li Class="PatchOperationReplace">
+					<success>Always</success>
+					<xpath>/Defs/ResearchProjectDef[defName="SoulProduction"]/label</xpath>
+					<value>
+						<label>Soulquid Engineering</label>
+					</value>
+				</li>
+				
+				<li Class="PatchOperationReplace">
+					<success>Always</success>
+					<xpath>/Defs/RecipeDef[defName="SoulP"]/label</xpath>
+					<value>
+						<label>Engineer Soulquid</label>
+					</value>
+				</li>
+				
+				<li Class="PatchOperationReplace">
+					<success>Always</success>
+					<xpath>/Defs/RecipeDef[defName="SoulP"]/ingredients/li[1]/count</xpath>
+					<value>
+						<count>550</count>
+					</value>
+				</li>
+				
+				<li Class="PatchOperationAdd">
+					<success>Always</success>
+					<xpath>/Defs</xpath>
+					<value>
+						<ThingDef ParentName="TSP_Beelievers_Beesearch">
+							<defName>TSP_RB_Beelievers_Ark1_Tables_Beesearch</defName>
+							<graphicData Inherit="False">
+								<graphicClass>Graphic_Single</graphicClass>
+								<texPath>Things/Pawn/Animal/Bug_Types/Bee/Beesearch/Idr_adbo2</texPath>
+							</graphicData>
+							<comps>
+								<li Class="RimBees.CompProperties_BeeResearchData">
+									<firstBee>RB_Bee_Electronic_Queen</firstBee>
+									<secondBee>RB_Bee_Woodland_Queen</secondBee>
+									<resultingBees>
+										<li>RB_Bee_Ark_Queen</li>
+									</resultingBees>
+								</li>
+							</comps>
+						</ThingDef>
+					</value>
+				</li>
+			</operations>
+		</match>
+		<!-- If the first XPATH does not exist, the original code stands. -->
+	</Operation>
+	
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>/Defs/ThingDef[defName="FoodGenerator"]/comps/li/fuelFilter/thingDefs</xpath>
+		<!-- If it does, add this. -->
+		<match Class="PatchOperationAdd">
+			<xpath>/Defs/ThingDef[defName="FoodGenerator"]/comps/li/fuelFilter/thingDefs</xpath>
+			<value>
+				<li MayRequire="GarbageDayIsHereToStay.Watermelons.GDIHTSWM">RAW_WATERMELON_RESOURCE_DEF</li>
+				<li MayRequire="sarg.rimbees">RB_SimpleHoney</li>
+				<li MayRequire="sarg.rimbees">RB_FineHoney</li>
+				<li MayRequire="sarg.rimbees">RB_LavishHoney</li>
+				<li MayRequire="sarg.rimbees">RB_HoneyedIcePop</li>
+				<li MayRequire="sarg.rimbees">RB_HoneyPreservedMeat</li>
+				<li MayRequire="sera.apinialienrace">ApiniHoney</li>
+				<li MayRequire="sera.apinialienrace">ApiniHoney_F</li>
+				<li MayRequire="sera.apinialienrace">ApiniHoney_M</li>
+				<li MayRequire="sera.apinialienrace">ApiniHoney_B</li>
+				<li MayRequire="sera.apinialienrace">ApiniHoney_R</li>
+				<li MayRequire="sera.apinialienrace">ApiniHoney_W</li>
+				<li MayRequire="sera.apinialienrace">ApiniHoney_V</li>
+				<li MayRequire="sarg.rimbees">NpiniMeatHoney</li>
+				<li MayRequire="sumika.nanohana">L24_Manto_MantodeanJelly</li>
+				<li MayRequire="sarg.alphaanimals,sarg.alphabiomes">AB_BumbledroneFood</li>
+				<li MayRequire="zoura3025.megabees">MegabeeTallow</li>
+				<li MayRequire="sera.apinialienrace">ApiniJelly</li>
+				<li MayRequire="oskarpotocki.vfe.vikings">VFEV_Sweetroll</li>
+				<li MayRequire="higgs.cozarkian.entomophagy">Insect_MealSimple</li>
+				<li MayRequire="higgs.cozarkian.entomophagy">Insect_MealFine</li>
+				<li MayRequire="higgs.cozarkian.entomophagy">Insect_MealLavish</li>
+				<li MayRequire="higgs.cozarkian.entomophagy">Insect_MealSurvivalPack</li>
+				<li MayRequire="higgs.cozarkian.entomophagy">Insect_Pemmican</li>
+				<li MayRequire="higgs.cozarkian.entomophagy,vanillaexpanded.vcooke">Insect_CookedSoupSimple</li>
+				<li MayRequire="higgs.cozarkian.entomophagy,vanillaexpanded.vcooke">Insect_CookedSoupFine</li>
+				<li MayRequire="higgs.cozarkian.entomophagy,vanillaexpanded.vcooke">Insect_CookedSoupLavish</li>
+				<li MayRequire="higgs.cozarkian.entomophagy,vanillaexpanded.vcooke">Insect_CookedSoupGourmet</li>
+				<li MayRequire="higgs.cozarkian.entomophagy,vanillaexpanded.vcooke">Insect_SimpleBake</li>
+				<li MayRequire="higgs.cozarkian.entomophagy,vanillaexpanded.vcooke">Insect_FineBake</li>
+				<li MayRequire="higgs.cozarkian.entomophagy,vanillaexpanded.vcooke">Insect_LavishBake</li>
+				<li MayRequire="higgs.cozarkian.entomophagy,vanillaexpanded.vcooke">Insect_GourmetBake</li>
+				<li MayRequire="higgs.cozarkian.entomophagy,vanillaexpanded.vcooke">Insect_CannedMeat</li>
+				<li MayRequire="higgs.cozarkian.entomophagy,vanillaexpanded.vcooke">Insect_DeepFriedInsectMeat</li>
+				<li MayRequire="higgs.cozarkian.entomophagy,vanillaexpanded.vcooke">Insect_MealGourmet</li>
+				<li MayRequire="higgs.cozarkian.entomophagy,vanillaexpanded.vcooke">Insect_SimpleDessert</li>
+				<li MayRequire="higgs.cozarkian.entomophagy,vanillaexpanded.vcooke">Insect_FineDessert</li>
+				<li MayRequire="higgs.cozarkian.entomophagy,vanillaexpanded.vcooke">Insect_LavishDessert</li>
+				<li MayRequire="higgs.cozarkian.entomophagy,vanillaexpanded.vcooke">Insect_GourmetDessert</li>
+				<li MayRequire="higgs.cozarkian.entomophagy,vanillaexpanded.vcooke">Insect_SimpleGrill</li>
+				<li MayRequire="higgs.cozarkian.entomophagy,vanillaexpanded.vcooke">Insect_RuinedSimpleGrill</li>
+				<li MayRequire="higgs.cozarkian.entomophagy,vanillaexpanded.vcooke">Insect_FineGrill</li>
+				<li MayRequire="higgs.cozarkian.entomophagy,vanillaexpanded.vcooke">Insect_RuinedFineGrill</li>
+				<li MayRequire="higgs.cozarkian.entomophagy,vanillaexpanded.vcooke">Insect_LavishGrill</li>
+				<li MayRequire="higgs.cozarkian.entomophagy,vanillaexpanded.vcooke">Insect_RuinedLavishGrill</li>
+				<li MayRequire="higgs.cozarkian.entomophagy,vanillaexpanded.vcooke">Insect_GourmetGrill</li>
+				<li MayRequire="higgs.cozarkian.entomophagy,vanillaexpanded.vcooke">Insect_RuinedGourmetGrill</li>
+			</value>
+		</match>
+		<!-- If the first XPATH does not exist, the original code stands. -->
+	</Operation>
+</Patch>
