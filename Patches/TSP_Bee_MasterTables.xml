@@ -10,6 +10,7 @@
 			<li>Megabees</li>
 			-->
 		<mods>
+			<li>Alpha Animals</li>
 			<li>Apini Playable Race, Continued!</li>
 			<li>Apini Playable Race</li>
 			<li>Apini Playable Race, New Age</li>
@@ -38,6 +39,7 @@
 						<li MayRequire="haplo.miscellaneous.beesnhoney">Haplo</li>
 						<li MayRequire="adamas.bees">Adamas</li>
 						<li MayRequire="eltwofour.mantodeanrace">Mantodean</li>
+						<li MayRequire="sarg.alphaanimals">Bumbledrone</li>
 					</result>
 				</RimBees.BeeCombinationDef>
 				

@@ -59,6 +59,7 @@
 			<li>Megabees</li>
 			-->
 		<mods>
+			<li>Alpha Animals</li>
 			<li>Apini Playable Race, Continued!</li>
 			<li>Apini Playable Race</li>
 			<li>Apini Playable Race, New Age</li>
@@ -93,6 +94,7 @@
 								<li MayRequire="haplo.miscellaneous.beesnhoney">RB_Bee_Haplo_Queen</li>
 								<li MayRequire="adamas.bees">RB_Bee_Adamas_Queen</li>
 								<li MayRequire="eltwofour.mantodeanrace">RB_Bee_Mantodean_Queen</li>
+								<li MayRequire="sarg.alphaanimals">RB_Bee_Bumbledrone_Queen</li>
 							</resultingBees>
 						</li>
 					</comps>
