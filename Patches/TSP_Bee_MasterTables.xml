@@ -196,5 +196,19 @@
 			</value>
 		</match>
 		<!-- If the first XPATH does not exist, the original code stands. -->
-	</Operation>	
+	</Operation>
+
+	<Operation Class="PatchOperationConditional">
+		<!-- Does this exist? -->
+		<xpath>/Defs/ThingDef[defName="RB_Bee_Asbeestos_Queen"]</xpath>
+		<!-- If it does, add this. -->
+		<match Class="PatchOperationAdd">
+			<success>Always</success>
+			<xpath>/Defs/RimBees.BeeCombinationDef[defName="RB_CombinationTier_Quarry_Tech"]/result</xpath>
+			<value>
+				<li>Asbeestos</li>
+			</value>
+		</match>
+		<!-- If the first XPATH does not exist, the original code stands. -->
+	</Operation>
 </Patch>

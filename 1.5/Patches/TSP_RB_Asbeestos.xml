@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Patch>
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>/Defs/ThingDef[defName="Asbestos_Fiber"]</xpath>
+		<!-- If it does, add this. -->
+		<match Class="PatchOperationAdd">
+			<xpath>/Defs</xpath>
+			<success>Always</success>
+			<value>
+				<!-- Asbestos Branch -->
+				<!-- TIER III -->
+				<!-- BEE DESCRIPTION -->
+				<RimBees.BeeListDef>
+					<defName>TSP_RB_Beeliever_Asbestos</defName>
+					<nameString>Asbeestos</nameString>
+					<beeDroneDef>RB_Bee_Asbeestos_Drone</beeDroneDef>
+					<beeQueenDef>RB_Bee_Asbeestos_Queen</beeQueenDef>
+					<!--
+					<beeQueenTag>RB_Bee_Asbeestos_Queen_Tag</beeQueenTag>
+					<beeDroneTag>RB_Bee_Asbeestos_Drone_Tag</beeDroneTag>
+					-->
+				</RimBees.BeeListDef>
+				
+				<!--
+				<RimBees.BeeCombinationDef>
+					<defName>TSP_RB_Beelievers_Asbeestos_Tables</defName>
+					<bee1>Technological</bee1>
+					<bee2>Quarry</bee2>
+					<result>
+						<li>Asbeestos</li>
+					</result>				
+				</RimBees.BeeCombinationDef>
+				-->
+			
+				<ThingDef ParentName="TSP_RB_Beeliever_MasterBeeBase" Name="TSP_RB_Beeliever_Asbestos_Base" Abstract="True">
+					<!-- <label>Asbestos Bee</label> -->
+					<description>Asbestos Bees are bees that adapted to live among and within veins of asbestos that were exposed in caves, thriving in cliffs and caverns next to asbestos deposits. In the process of building their hives, Asbestos Bees naturally collect microscopic asbestos fibers on their bodies in the same manner they collect pollen, making them both fireproof and itchy to the touch. Asbestos Bees will automatically extinguish fires near them. \n\n\n\n\n Bee Traits: \n\n 	Production time: 1 day \n 	Works at Night: No \n 	Works When Raining: No \n 	Unusual Sources Needed: No \n 	Minimum Temperature: 0ºF (-17.7778ºC) \n 	Maximum temperature: 212ºF (100ºC)</description>
+					<!--
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/ST_Bee_south</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData>
+					-->
+					<statBases>
+						<Flammability>0</Flammability>
+					</statBases>
+					<comps>			
+						<li Class="RimBees.CompProperties_Bees" Inherit="False">
+							<species>Asbeestos</species>
+							<comb>TSP_RB_Beeliever_Asbeestos_Honeycomb</comb>
+							<combtimedays>1</combtimedays>
+							<nocturnal>false</nocturnal> <!-- Works at night -->
+							<pluviophile>false</pluviophile> <!-- Works in the rain -->
+							<weirdplantneeded>no</weirdplantneeded>
+							<tempMin>-17.778</tempMin> <!-- Zero degrees -->
+							<tempMax>100</tempMax> <!-- Two hundred twelve degrees -->
+							<additionalBeeEffects>
+								<li Class="RimBees.AdditionalBeeEffects_Firefoam"></li>
+							</additionalBeeEffects>
+						</li>   
+					</comps>
+				</ThingDef>
+				
+				<!-- MUST be RB_Bee_YOURNAME_Queen and then RB_Bee_YOURNAME_Drone, no exceptions -->
+				<ThingDef ParentName="TSP_RB_Beeliever_Asbestos_Base">
+					<defName>RB_Bee_Asbeestos_Queen</defName>
+					<label>Asbestos Bee queen</label>
+					<descriptionHyperlinks>
+						<!-- <ThingDef>RB_Bee_Asbeestos_Queen</ThingDef> -->
+						<ThingDef>RB_Bee_Asbeestos_Drone</ThingDef>
+						<ThingDef>TSP_RB_Beeliever_Asbeestos_Honeycomb</ThingDef>
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_Asbeestos_Honeycomb</RecipeDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/OtherBranch/TSP_Bee_Asbestos_Queen</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+						<color>(145,157,118)</color>
+					</graphicData> 		
+				</ThingDef>
+				
+				<ThingDef ParentName="TSP_RB_Beeliever_Asbestos_Base">
+					<defName>RB_Bee_Asbeestos_Drone</defName>
+					<label>Asbestos Bee drone</label>
+					<descriptionHyperlinks>
+						<ThingDef>RB_Bee_Asbeestos_Queen</ThingDef>
+						<!-- <ThingDef>RB_Bee_Asbeestos_Drone</ThingDef> -->
+						<ThingDef>TSP_RB_Beeliever_Asbeestos_Honeycomb</ThingDef>
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_Asbeestos_Honeycomb</RecipeDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/OtherBranch/TSP_Bee_Asbestos_Drone</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+						<color>(145,157,118)</color>
+					</graphicData> 		
+				</ThingDef>
+				
+				<ThingDef ParentName="RB_CombBase">
+					<defName>TSP_RB_Beeliever_Asbeestos_Honeycomb</defName>
+					<label>Asbestos Bee honeycomb</label>
+					<description>Asbestos Bees live in cliffs and caves rich in asbestos, and they naturally gather asbestos fibers on their bodies in the same way they gather pollen. Processing their honeycombs yields a large amount of normal honey, normal beeswax... and asbestos...</description>
+					<descriptionHyperlinks>
+						<ThingDef>RB_Bee_Asbeestos_Queen</ThingDef>
+						<ThingDef>RB_Bee_Asbeestos_Drone</ThingDef>
+						<!-- <ThingDef>TSP_RB_Beeliever_Asbeestos_Honeycomb</ThingDef> -->
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_Asbeestos_Honeycomb</RecipeDef>
+						<li>Asbestos_Fiber</li>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/Honeycombs/TSP_RB_DiddyBee_Honeycomb</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+						<color>(145,157,118)</color>
+					</graphicData>
+					<statBases>
+						<Flammability>0</Flammability>
+					</statBases>
+					<thingCategories Inherit="False">
+						<li>TSP_RB_Beeliever_Honeycombs</li>
+					</thingCategories>
+					<butcherProducts>
+						<RB_BaseHoney>9</RB_BaseHoney>
+						<RB_Beeswax>6</RB_Beeswax>
+						<Asbestos_Fiber>13</Asbestos_Fiber>
+					</butcherProducts>
+				</ThingDef>
+				
+				<RecipeDef>
+					<defName>TSP_RB_Beeliever_Centrifuge_Asbeestos_Honeycomb</defName>
+					<label>Extract from Asbestos Bee honeycomb</label>
+					<description>Extracts asbestos fibers and large amounts of normal honey from Asbestos Bees.</description>
+					<descriptionHyperlinks>
+						<ThingDef>RB_Bee_Asbeestos_Queen</ThingDef>
+						<ThingDef>RB_Bee_Asbeestos_Drone</ThingDef>
+						<ThingDef>TSP_RB_Beeliever_Asbeestos_Honeycomb</ThingDef>
+						<!-- <RecipeDef>TSP_RB_Beeliever_Centrifuge_Asbeestos_Honeycomb</RecipeDef> -->
+						<li>Asbestos_Fiber</li>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<uiIconThing>Asbestos_Fiber</uiIconThing>
+					<jobString>Asbeestos.</jobString>
+					<effectWorking>Cremate</effectWorking>
+					<soundWorking>Recipe_Cremate</soundWorking>
+					<workAmount>900</workAmount>
+					<recipeUsers Inherit="False"></recipeUsers>	
+					<ingredients>
+						<li>
+							<filter>
+								<thingDefs>
+									<li>TSP_RB_Beeliever_Asbeestos_Honeycomb</li>
+								</thingDefs>
+							</filter>
+							<count>1</count>
+						</li>
+					</ingredients>
+					<fixedIngredientFilter>
+						<thingDefs>
+							<li>TSP_RB_Beeliever_Asbeestos_Honeycomb</li>
+						</thingDefs>
+					</fixedIngredientFilter>
+					<specialProducts>
+						<li>Butchery</li>
+					</specialProducts>
+					<skillRequirements></skillRequirements>
+					<researchPrerequisites></researchPrerequisites>
+				</RecipeDef>
+				
+				<!--
+				<ThingDef ParentName="TSP_Beelievers_Beesearch">
+					<defName>TSP_RB_Beelievers_Asbestos_Beesearch</defName>
+					<graphicData Inherit="False">
+						<graphicClass>Graphic_Single</graphicClass>
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/Beesearch/Idr_adbo2</texPath>
+					</graphicData>
+					<comps>
+						<li Class="RimBees.CompProperties_BeeResearchData">
+							<firstBee>RB_Bee_Technological_Queen</firstBee>
+							<secondBee>RB_Bee_Quarry_Queen</secondBee>
+							<resultingBees>
+								<li>RB_Bee_Asbeestos_Queen</li>
+							</resultingBees>
+						</li>
+					</comps>
+				</ThingDef>
+				-->
+			</value>
+		</match>
+	</Operation>
+</Patch>

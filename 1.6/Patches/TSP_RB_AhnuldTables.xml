@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<Patch>
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>/Defs/ThingDef[defName="Mech_CJTerminator"]</xpath>
+		<!-- If it does, add this. -->
+		<match Class="PatchOperationAdd">
+			<xpath>/Defs</xpath>
+			<success>Always</success>
+			<value>
+				<!-- Ahnuld Branch -->
+				<!-- TIER IV -->
+				<!-- BEE DESCRIPTION -->
+				<RimBees.BeeListDef>
+					<defName>TSP_RB_Beeliever_Ahnuld1_Core</defName>
+					<nameString>Ahnuld_Core</nameString>
+					<beeDroneDef>RB_Bee_Ahnuld_Core_Drone</beeDroneDef>
+					<beeQueenDef>RB_Bee_Ahnuld_Core_Queen</beeQueenDef>
+					<!--
+					<beeQueenTag>RB_Bee_Ahnuld1_Queen_Tag</beeQueenTag>
+					<beeDroneTag>RB_Bee_Ahnuld1_Drone_Tag</beeDroneTag>
+					-->
+				</RimBees.BeeListDef>
+				
+				<RimBees.BeeCombinationDef>
+					<defName>TSP_RB_Beelievers_Ahnuld1_Tables</defName>
+					<bee1>Commando</bee1>
+					<bee2>Synthetic</bee2>
+					<result>
+						<li>Ahnuld_Core</li>
+					</result>				
+				</RimBees.BeeCombinationDef>
+				
+				<ThingDef ParentName="TSP_Beelievers_Beesearch">
+					<defName>TSP_RB_Beelievers_Ahnuld_Core_Beesearch</defName>
+					<description>I'll bee back.</description>
+					<descriptionHyperlinks>
+						<ThingDef>RB_Bee_Ahnuld_Core_Queen</ThingDef>
+						<ThingDef>RB_Bee_Ahnuld_Core_Drone</ThingDef>
+						<ThingDef>TSP_RB_Beeliever_Ahnuld_Core_Honeycomb</ThingDef>
+						<ThingDef>CJ_Powercell</ThingDef>
+						<!-- <RecipeDef>TSP_RB_Beeliever_Centrifuge_Ahnuld_Core_Honeycomb</RecipeDef> -->
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<graphicClass>Graphic_Single</graphicClass>
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/Beesearch/CyberdyneJournal</texPath>
+					</graphicData>
+					<comps>
+						<li Class="RimBees.CompProperties_BeeResearchData">
+							<firstBee>RB_Bee_Commando_Queen</firstBee>
+							<secondBee>RB_Bee_Synthetic_Queen</secondBee>
+							<resultingBees>
+								<li>RB_Bee_Ahnuld_Core_Queen</li>
+							</resultingBees>
+						</li>
+					</comps>
+				</ThingDef>
+			
+				<ThingDef ParentName="TSP_RB_Beeliever_MasterBeeBase" Name="TSP_RB_Beeliever_Ahnuld_Core_Base" Abstract="True">
+					<!-- <label>Ahnuld_Core Bee</label> -->
+					<description>Ahnuld Bees are extremely advanced, mechanical insects that are closely related to Synthetic and Fabricated Bees. They produce powerful nuclear fuel cells used for the most advanced and deadly robotics. To do so, they will need a stockpile of Uranium nearby. \n\n\n\n\n Bee Traits: \n\n 	Production time: 4 days \n 	Works at Night: Yes \n 	Works When Raining: Yes \n 	Unusual Sources Needed: Uranium \n 	Minimum Temperature: -148ºF (-100ºC) \n 	Maximum temperature: 212ºF (100ºC)</description>
+					<techLevel>Ultra</techLevel>
+					<!--
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/ST_Bee_south</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData>
+					-->
+					<intricate>true</intricate>
+					<comps>			
+						<li Class="RimBees.CompProperties_Bees" Inherit="False">
+							<species>Ahnuld_Core</species>
+							<comb>TSP_RB_Beeliever_Ahnuld_Core_Honeycomb</comb>
+							<combtimedays>4</combtimedays>
+							<nocturnal>true</nocturnal> <!-- Works at night -->
+							<pluviophile>true</pluviophile> <!-- Works in the rain -->
+							<weirdplantneeded>Uranium</weirdplantneeded>
+							<tempMin>-100</tempMin> <!-- Negative one hundred forty-eight degrees -->
+							<tempMax>100</tempMax> <!-- Two hundred twelve degrees -->
+						</li>   
+					</comps>
+				</ThingDef>
+				
+				<!-- MUST be RB_Bee_YOURNAME_Queen and then RB_Bee_YOURNAME_Drone, no exceptions -->
+				<ThingDef ParentName="TSP_RB_Beeliever_Ahnuld_Core_Base">
+					<defName>RB_Bee_Ahnuld_Core_Queen</defName>
+					<label>Ahnuld Bee queen</label>
+					<description>Ahnuld Bees are extremely advanced, mechanical insects that are closely related to Synthetic and Fabricated Bees. They produce powerful nuclear fuel cells used for the most advanced and deadly robotics. To do so, they will need a stockpile of Uranium nearby. The queens of this "breed" of mechanical bee are absolutely shredded, and their enormous front legs do not inhibit their flight. \n\n\n\n\n Bee Traits: \n\n 	Production time: 4 days \n 	Works at Night: Yes \n 	Works When Raining: Yes \n 	Unusual Sources Needed: Uranium \n 	Minimum Temperature: -148ºF (-100ºC) \n 	Maximum temperature: 212ºF (100ºC)</description>
+					<descriptionHyperlinks>
+						<!-- <ThingDef>RB_Bee_Ahnuld_Core_Queen</ThingDef> -->
+						<ThingDef>RB_Bee_Ahnuld_Core_Drone</ThingDef>
+						<ThingDef>TSP_RB_Beeliever_Ahnuld_Core_Honeycomb</ThingDef>
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_Ahnuld_Core_Honeycomb</RecipeDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/AhnuldBranch/TSP_Bee_Ahnuld_Queen</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData> 		
+				</ThingDef>
+				
+				<ThingDef ParentName="TSP_RB_Beeliever_Ahnuld_Core_Base">
+					<defName>RB_Bee_Ahnuld_Core_Drone</defName>
+					<label>Ahnuld Bee drone</label>
+					<description>Ahnuld Bees are extremely advanced, mechanical insects that are closely related to Synthetic and Fabricated Bees. They produce powerful nuclear fuel cells used for the most advanced and deadly robotics. To do so, they will need a stockpile of Uranium nearby. \n\n\n\n\n Bee Traits: \n\n 	Production time: 4 days \n 	Works at Night: Yes \n 	Works When Raining: Yes \n 	Unusual Sources Needed: Uranium \n 	Minimum Temperature: -148ºF (-100ºC) \n 	Maximum temperature: 212ºF (100ºC)</description>
+					<descriptionHyperlinks>
+						<ThingDef>RB_Bee_Ahnuld_Core_Queen</ThingDef>
+						<!-- <ThingDef>RB_Bee_Ahnuld_Core_Drone</ThingDef> -->
+						<ThingDef>TSP_RB_Beeliever_Ahnuld_Core_Honeycomb</ThingDef>
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_Ahnuld_Core_Honeycomb</RecipeDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/AhnuldBranch/TSP_Bee_Ahnuld_Drone</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData> 		
+				</ThingDef>
+				
+				<ThingDef ParentName="RB_CombBase">
+					<defName>TSP_RB_Beeliever_Ahnuld_Core_Honeycomb</defName>
+					<label>Ahnuld_Core Bee honeycomb</label>
+					<description>I'll bee back.</description>
+					<descriptionHyperlinks>
+						<ThingDef>RB_Bee_Ahnuld_Core_Queen</ThingDef>
+						<ThingDef>RB_Bee_Ahnuld_Core_Drone</ThingDef>
+						<!-- <ThingDef>TSP_RB_Beeliever_Ahnuld_Core_Honeycomb</ThingDef> -->
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_Ahnuld_Core_Honeycomb</RecipeDef>
+						<ThingDef>CJ_Powercell</ThingDef>
+						<ThingDef>RB_Steelwax</ThingDef>
+						<ThingDef MayRequire="apitec.plus">ApiPlus_ShinyWax</ThingDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<!-- <texPath>Things/Pawn/Animal/Bug_Types/Bee/Honeycombs/TSP_RB_Hexacore_Honeycomb</texPath> -->
+						<texPath>Terminator/Gestator/T880_Growing</texPath>
+						<drawSize>2</drawSize>
+						<graphicClass>Graphic_Single</graphicClass>
+						<color>(255,255,255)</color>
+					</graphicData>	
+					<thingCategories Inherit="False">
+						<li>TSP_RB_Beeliever_Honeycombs</li>
+					</thingCategories>
+					<butcherProducts>
+						<CJ_Powercell>1</CJ_Powercell>
+						<RB_Steelwax>7</RB_Steelwax>
+						<RB_PerformanceEnhancingHoney>8</RB_PerformanceEnhancingHoney>
+						<ApiPlus_ShinyWax MayRequire="apitec.plus">2</ApiPlus_ShinyWax>
+					</butcherProducts>
+				</ThingDef>
+				
+				<RecipeDef>
+					<defName>TSP_RB_Beeliever_Centrifuge_Ahnuld_Core_Honeycomb</defName>
+					<label>Extract from Ahnuld_Core Bee honeycomb</label>
+					<description>I'll bee back.</description>
+					<descriptionHyperlinks>
+						<ThingDef>RB_Bee_Ahnuld_Core_Queen</ThingDef>
+						<ThingDef>RB_Bee_Ahnuld_Core_Drone</ThingDef>
+						<ThingDef>TSP_RB_Beeliever_Ahnuld_Core_Honeycomb</ThingDef>
+						<ThingDef>CJ_Powercell</ThingDef>
+						<ThingDef>RB_Steelwax</ThingDef>
+						<ThingDef MayRequire="apitec.plus">ApiPlus_ShinyWax</ThingDef>
+						<!-- <RecipeDef>TSP_RB_Beeliever_Centrifuge_Ahnuld_Core_Honeycomb</RecipeDef> -->
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<!-- <uiIconThing></uiIconThing> -->
+					<jobString>I'll bee back.</jobString>
+					<effectWorking>Cremate</effectWorking>
+					<soundWorking>Recipe_Cremate</soundWorking>
+					<workAmount>900</workAmount>
+					<recipeUsers Inherit="False">
+						<li>T800_Mech_workbench</li>
+					</recipeUsers>	
+					<ingredients>
+						<li>
+							<filter>
+								<thingDefs>
+									<li>TSP_RB_Beeliever_Ahnuld_Core_Honeycomb</li>
+								</thingDefs>
+							</filter>
+							<count>1</count>
+						</li>
+					</ingredients>
+					<fixedIngredientFilter>
+						<thingDefs>
+							<li>TSP_RB_Beeliever_Ahnuld_Core_Honeycomb</li>
+						</thingDefs>
+					</fixedIngredientFilter>
+					<specialProducts>
+						<li>Butchery</li>
+					</specialProducts>
+					<skillRequirements></skillRequirements>
+					<researchPrerequisites></researchPrerequisites>
+				</RecipeDef>
+				
+				
+				
+				
+				
+				
+				
+				<!-- Ahnuld Branch -->
+				<!-- TIER V -->
+				<!-- BEE DESCRIPTION -->
+				<RimBees.BeeListDef>
+					<defName>TSP_RB_Beeliever_Ahnuld2_Chip</defName>
+					<nameString>Ahnuld_Chip</nameString>
+					<beeDroneDef>RB_Bee_Ahnuld_Chip_Drone</beeDroneDef>
+					<beeQueenDef>RB_Bee_Ahnuld_Chip_Queen</beeQueenDef>
+					<!--
+					<beeQueenTag>RB_Bee_Ahnuld1_Queen_Tag</beeQueenTag>
+					<beeDroneTag>RB_Bee_Ahnuld1_Drone_Tag</beeDroneTag>
+					-->
+				</RimBees.BeeListDef>
+				
+				<RimBees.BeeCombinationDef>
+					<defName>TSP_RB_Beelievers_Ahnuld2_Tables</defName>
+					<bee1>Ahnuld_Core</bee1>
+					<bee2>Fabricated</bee2>
+					<result>
+						<li>Ahnuld_Chip</li>
+					</result>				
+				</RimBees.BeeCombinationDef>
+				
+				<ThingDef ParentName="TSP_Beelievers_Beesearch">
+					<defName>TSP_RB_Beelievers_Ahnuld_Chip_Beesearch</defName>
+					<description>I'll bee back.</description>
+					<descriptionHyperlinks>
+						<ThingDef>RB_Bee_Ahnuld_Chip_Queen</ThingDef>
+						<ThingDef>RB_Bee_Ahnuld_Chip_Drone</ThingDef>
+						<ThingDef>TSP_RB_Beeliever_Ahnuld_Chip_Honeycomb</ThingDef>
+						<ThingDef>CJ_Powercell</ThingDef>
+						<!-- <RecipeDef>TSP_RB_Beeliever_Centrifuge_Ahnuld_Chip_Honeycomb</RecipeDef> -->
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<graphicClass>Graphic_Single</graphicClass>
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/Beesearch/CyberdyneJournal</texPath>
+					</graphicData>
+					<comps>
+						<li Class="RimBees.CompProperties_BeeResearchData">
+							<firstBee>RB_Bee_Ahnuld_Core_Queen</firstBee>
+							<secondBee>RB_Bee_Fabricated_Queen</secondBee>
+							<resultingBees>
+								<li>RB_Bee_Ahnuld_Chip_Queen</li>
+							</resultingBees>
+						</li>
+					</comps>
+				</ThingDef>
+			
+				<ThingDef ParentName="TSP_RB_Beeliever_MasterBeeBase" Name="TSP_RB_Beeliever_Ahnuld_Chip_Base" Abstract="True">
+					<!-- <label>Ahnuld_Chip Bee</label> -->
+					<description>Ahnuld Bees are extremely advanced, mechanical insects that are closely related to Synthetic and Fabricated Bees. This extremely advanced, rare breed of Ahnuld Bee synthesizes the equipment necessary to make Terminators. To do so, they will need a stockpile of Uranium nearby. \n\n\n\n\n Bee Traits: \n\n 	Production time: 7 days \n 	Works at Night: Yes \n 	Works When Raining: Yes \n 	Unusual Sources Needed: Uranium \n 	Minimum Temperature: -148ºF (-100ºC) \n 	Maximum temperature: 212ºF (100ºC)</description>
+					<techLevel>Ultra</techLevel>
+					<!--
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/ST_Bee_south</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData>
+					-->
+					<intricate>true</intricate>
+					<comps>			
+						<li Class="RimBees.CompProperties_Bees" Inherit="False">
+							<species>Ahnuld_Chip</species>
+							<comb>TSP_RB_Beeliever_Ahnuld_Chip_Honeycomb</comb>
+							<combtimedays>7</combtimedays>
+							<nocturnal>true</nocturnal> <!-- Works at night -->
+							<pluviophile>true</pluviophile> <!-- Works in the rain -->
+							<weirdplantneeded>Uranium</weirdplantneeded>
+							<tempMin>-100</tempMin> <!-- Negative one hundred forty-eight degrees -->
+							<tempMax>100</tempMax> <!-- Two hundred twelve degrees -->
+						</li>   
+					</comps>
+				</ThingDef>
+				
+				<!-- MUST be RB_Bee_YOURNAME_Queen and then RB_Bee_YOURNAME_Drone, no exceptions -->
+				<ThingDef ParentName="TSP_RB_Beeliever_Ahnuld_Chip_Base">
+					<defName>RB_Bee_Ahnuld_Chip_Queen</defName>
+					<label>Ahnuld Bee queen</label>
+					<description>Ahnuld Bees are extremely advanced, mechanical insects that are closely related to Synthetic and Fabricated Bees. They produce powerful nuclear fuel cells used for the most advanced and deadly robotics. To do so, they will need a stockpile of Uranium nearby. The queens of this "breed" of mechanical bee are absolutely shredded, and their enormous front legs do not inhibit their flight. \n\n\n\n\n Bee Traits: \n\n 	Production time: 4 days \n 	Works at Night: Yes \n 	Works When Raining: Yes \n 	Unusual Sources Needed: Uranium \n 	Minimum Temperature: -148ºF (-100ºC) \n 	Maximum temperature: 212ºF (100ºC)</description>
+					<descriptionHyperlinks>
+						<!-- <ThingDef>RB_Bee_Ahnuld_Chip_Queen</ThingDef> -->
+						<ThingDef>RB_Bee_Ahnuld_Chip_Drone</ThingDef>
+						<ThingDef>TSP_RB_Beeliever_Ahnuld_Chip_Honeycomb</ThingDef>
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_Ahnuld_Chip_Honeycomb</RecipeDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/AhnuldBranch/TSP_Bee_Ahnuld_Chip_Queen</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData> 		
+				</ThingDef>
+				
+				<ThingDef ParentName="TSP_RB_Beeliever_Ahnuld_Chip_Base">
+					<defName>RB_Bee_Ahnuld_Chip_Drone</defName>
+					<label>Ahnuld Bee drone</label>
+					<description>Ahnuld Bees are extremely advanced, mechanical insects that are closely related to Synthetic and Fabricated Bees. They produce powerful nuclear fuel cells used for the most advanced and deadly robotics. To do so, they will need a stockpile of Uranium nearby. \n\n\n\n\n Bee Traits: \n\n 	Production time: 4 days \n 	Works at Night: Yes \n 	Works When Raining: Yes \n 	Unusual Sources Needed: Uranium \n 	Minimum Temperature: -148ºF (-100ºC) \n 	Maximum temperature: 212ºF (100ºC)</description>
+					<descriptionHyperlinks>
+						<ThingDef>RB_Bee_Ahnuld_Chip_Queen</ThingDef>
+						<!-- <ThingDef>RB_Bee_Ahnuld_Chip_Drone</ThingDef> -->
+						<ThingDef>TSP_RB_Beeliever_Ahnuld_Chip_Honeycomb</ThingDef>
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_Ahnuld_Chip_Honeycomb</RecipeDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/AhnuldBranch/TSP_Bee_Ahnuld_Chip_Drone</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData> 		
+				</ThingDef>
+				
+				<ThingDef ParentName="RB_CombBase">
+					<defName>TSP_RB_Beeliever_Ahnuld_Chip_Honeycomb</defName>
+					<label>Ahnuld_Chip Bee honeycomb</label>
+					<description>I'll bee back.</description>
+					<descriptionHyperlinks>
+						<ThingDef>RB_Bee_Ahnuld_Chip_Queen</ThingDef>
+						<ThingDef>RB_Bee_Ahnuld_Chip_Drone</ThingDef>
+						<!-- <ThingDef>TSP_RB_Beeliever_Ahnuld_Chip_Honeycomb</ThingDef> -->
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_Ahnuld_Chip_Honeycomb</RecipeDef>
+						<ThingDef>SkynetCPUBasic</ThingDef>
+						<ThingDef>RB_Steelwax</ThingDef>
+						<ThingDef MayRequire="apitec.plus">ApiPlus_ShinyWax</ThingDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<!-- <texPath>Things/Pawn/Animal/Bug_Types/Bee/Honeycombs/TSP_RB_HexaChip_Honeycomb</texPath> -->
+						<texPath>Terminator/Gestator/T880_Growing</texPath>
+						<drawSize>2</drawSize>
+						<graphicClass>Graphic_Single</graphicClass>
+						<color>(255,255,255)</color>
+					</graphicData>	
+					<thingCategories Inherit="False">
+						<li>TSP_RB_Beeliever_Honeycombs</li>
+					</thingCategories>
+					<butcherProducts>
+						<SkynetCPUBasic>1</SkynetCPUBasic>
+						<RB_Steelwax>9</RB_Steelwax>
+						<RB_PerformanceEnhancingHoney>14</RB_PerformanceEnhancingHoney>
+						<ApiPlus_ShinyWax MayRequire="apitec.plus">5</ApiPlus_ShinyWax>
+					</butcherProducts>
+				</ThingDef>
+				
+				<RecipeDef>
+					<defName>TSP_RB_Beeliever_Centrifuge_Ahnuld_Chip_Honeycomb</defName>
+					<label>Extract from Ahnuld_Chip Bee honeycomb</label>
+					<description>I'll bee back.</description>
+					<descriptionHyperlinks>
+						<ThingDef>RB_Bee_Ahnuld_Chip_Queen</ThingDef>
+						<ThingDef>RB_Bee_Ahnuld_Chip_Drone</ThingDef>
+						<ThingDef>TSP_RB_Beeliever_Ahnuld_Chip_Honeycomb</ThingDef>
+						<ThingDef>SkynetCPUBasic</ThingDef>
+						<ThingDef>RB_Steelwax</ThingDef>
+						<ThingDef MayRequire="apitec.plus">ApiPlus_ShinyWax</ThingDef>
+						<!-- <RecipeDef>TSP_RB_Beeliever_Centrifuge_Ahnuld_Chip_Honeycomb</RecipeDef> -->
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<!-- <uiIconThing></uiIconThing> -->
+					<jobString>I'll bee back.</jobString>
+					<effectWorking>Cremate</effectWorking>
+					<soundWorking>Recipe_Cremate</soundWorking>
+					<workAmount>900</workAmount>
+					<recipeUsers Inherit="False">
+						<li>T800_Mech_workbench</li>
+					</recipeUsers>	
+					<ingredients>
+						<li>
+							<filter>
+								<thingDefs>
+									<li>TSP_RB_Beeliever_Ahnuld_Chip_Honeycomb</li>
+								</thingDefs>
+							</filter>
+							<count>1</count>
+						</li>
+					</ingredients>
+					<fixedIngredientFilter>
+						<thingDefs>
+							<li>TSP_RB_Beeliever_Ahnuld_Chip_Honeycomb</li>
+						</thingDefs>
+					</fixedIngredientFilter>
+					<specialProducts>
+						<li>Butchery</li>
+					</specialProducts>
+					<skillRequirements></skillRequirements>
+					<researchPrerequisites></researchPrerequisites>
+				</RecipeDef>
+			</value>
+		</match>
+	</Operation>
+</Patch>

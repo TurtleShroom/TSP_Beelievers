@@ -192,4 +192,192 @@
 			</value>
 		</match>
 	</Operation>
+	
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>/Defs/ThingDef[defName="RB_Bee_Aero_Queen"]</xpath>
+		<!-- If it does, add this. -->
+		<match Class="PatchOperationAdd">
+			<xpath>/Defs</xpath>
+			<success>Always</success>
+			<value>
+				<!-- Hexacore Branch -->
+				<!-- TIER Hexacore -->
+				<!-- BEE DESCRIPTION -->
+				<RimBees.BeeListDef>
+					<defName>TSP_RB_AA_Beeliever_Hexacore</defName>
+					<nameString>Hexacore</nameString>
+					<beeDroneDef>RB_Bee_Hexacore_Drone</beeDroneDef>
+					<beeQueenDef>RB_Bee_Hexacore_Queen</beeQueenDef>
+					<!--
+					<beeQueenTag>RB_Bee_Hexacore_Queen_Tag</beeQueenTag>
+					<beeDroneTag>RB_Bee_Hexacore_Drone_Tag</beeDroneTag>
+					-->
+				</RimBees.BeeListDef>
+				
+				<RimBees.BeeCombinationDef>
+					<defName>TSP_RB_AA_Beelievers_Hexacore1_Tables</defName>
+					<bee1>Aero</bee1>
+					<bee2>Electronic</bee2>
+					<result>
+						<li>Hexacore</li>
+					</result>				
+				</RimBees.BeeCombinationDef>
+				
+				<RimBees.BeeCombinationDef>
+					<defName>TSP_RB_AA_Beelievers_Hexacore2_Tables</defName>
+					<bee1>Aero</bee1>
+					<bee2>Synthetic</bee2>
+					<result>
+						<li>Hexacore</li>
+					</result>				
+				</RimBees.BeeCombinationDef>
+				
+				<ThingDef ParentName="RB_ResearchPapersBaseAlpha">
+					<defName>TSP_RB_AA_Beelievers_Hexacore_Beesearch</defName>
+					<descriptionHyperlinks>
+						<ThingDef>AA_HexagelCore</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<graphicClass>Graphic_Single</graphicClass>
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/Beesearch/YellowJournal</texPath>
+					</graphicData>
+					<comps>
+						<li Class="RimBees.CompProperties_BeeResearchData">
+							<firstBee>RB_Bee_Aero_Queen</firstBee>
+							<secondBee>RB_Bee_Electronic_Queen</secondBee>
+							<resultingBees>
+								<li>RB_Bee_Bumbledrone_Queen</li>
+							</resultingBees>
+						</li>
+					</comps>
+				</ThingDef>
+			
+				<ThingDef ParentName="TSP_RB_Beeliever_MasterBeeBase" Name="TSP_RB_Beeliever_Hexacore_Base" Abstract="True">
+					<!-- <label>Hexacore Bee</label> -->
+					<description>Hexacore Bees are advanced, partially mechanical insects, closely related to Electronic Bees, that refine Aero Gel into metallic honeycombs, which boast miniature machines that feed their larvae. To do this, they will need a stockpile of Components nearby. \n\n\n\n\n Bee Traits: \n\n 	Production time: 3 days \n 	Works at Night: No \n 	Works When Raining: Yes \n 	Unusual Sources Needed: Component \n 	Minimum Temperature: -50ºF (-45.5556ºC) \n 	Maximum temperature: 212ºF (100ºC)</description>
+					<!--
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/ST_Bee_south</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData>
+					-->
+					<comps>			
+						<li Class="RimBees.CompProperties_Bees" Inherit="False">
+							<species>Hexacore</species>
+							<comb>TSP_RB_Beeliever_Hexacore_Honeycomb</comb>
+							<combtimedays>1</combtimedays>
+							<nocturnal>false</nocturnal> <!-- Works at night -->
+							<pluviophile>true</pluviophile> <!-- Works in the rain -->
+							<weirdplantneeded>ComponentIndustrial</weirdplantneeded>
+							<tempMin>-45.5556</tempMin> <!-- Negative fifty degrees -->
+							<tempMax>100</tempMax> <!-- Two hundred twelve degrees -->
+						</li>   
+					</comps>
+				</ThingDef>
+				
+				<!-- MUST be RB_Bee_YOURNAME_Queen and then RB_Bee_YOURNAME_Drone, no exceptions -->
+				<ThingDef ParentName="TSP_RB_Beeliever_Hexacore_Base">
+					<defName>RB_Bee_Hexacore_Queen</defName>
+					<label>Hexacore Bee queen</label>
+					<descriptionHyperlinks>
+						<!-- <ThingDef>RB_Bee_Hexacore_Queen</ThingDef> -->
+						<ThingDef>RB_Bee_Hexacore_Drone</ThingDef>
+						<ThingDef>TSP_RB_Beeliever_Hexacore_Honeycomb</ThingDef>
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_Hexacore_Honeycomb</RecipeDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/AlphaAnimalsBranch/TSP_Bee_Hexacore_Queen</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData> 		
+				</ThingDef>
+				
+				<ThingDef ParentName="TSP_RB_Beeliever_Hexacore_Base">
+					<defName>RB_Bee_Hexacore_Drone</defName>
+					<label>Hexacore Bee drone</label>
+					<descriptionHyperlinks>
+						<ThingDef>RB_Bee_Hexacore_Queen</ThingDef>
+						<!-- <ThingDef>RB_Bee_Hexacore_Drone</ThingDef> -->
+						<ThingDef>TSP_RB_Beeliever_Hexacore_Honeycomb</ThingDef>
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_Hexacore_Honeycomb</RecipeDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/AlphaAnimalsBranch/TSP_Bee_Hexacore_Drone</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData> 		
+				</ThingDef>
+				
+				<ThingDef ParentName="RB_CombBase">
+					<defName>TSP_RB_Beeliever_Hexacore_Honeycomb</defName>
+					<label>Hexacore Bee honeycomb</label>
+					<description>Extract Aero Hexagel Cores, Steel Wax, Blue Beeswax, and Blue Honey from Hexacore Bee honeycombs.</description>
+					<descriptionHyperlinks>
+						<ThingDef>RB_Bee_Hexacore_Queen</ThingDef>
+						<ThingDef>RB_Bee_Hexacore_Drone</ThingDef>
+						<!-- <ThingDef>TSP_RB_Beeliever_Hexacore_Honeycomb</ThingDef> -->
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_Hexacore_Honeycomb</RecipeDef>
+						<ThingDef>AA_HexagelCore</ThingDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/Honeycombs/TSP_RB_Hexacore_Honeycomb</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+						<color>(27,97,104)</color>
+						<drawSize>2</drawSize>
+					</graphicData>	
+					<thingCategories Inherit="False">
+						<li>TSP_RB_Beeliever_Honeycombs</li>
+					</thingCategories>
+					<butcherProducts>
+						<AA_HexagelCore>2</AA_HexagelCore>
+						<RB_Steelwax>3</RB_Steelwax>
+						<RB_BlueBeeswax>4</RB_BlueBeeswax>
+						<RB_BlueHoney>6</RB_BlueHoney>
+					</butcherProducts>
+				</ThingDef>
+				
+				<RecipeDef>
+					<defName>TSP_RB_Beeliever_Centrifuge_Hexacore_Honeycomb</defName>
+					<label>Extract from Hexacore Bee honeycomb</label>
+					<description>Extract Aero Hexagel Cores, Steel Wax, and Blue Honey from Hexacore Bee honeycombs.</description>
+					<descriptionHyperlinks>
+						<ThingDef>RB_Bee_Hexacore_Queen</ThingDef>
+						<ThingDef>RB_Bee_Hexacore_Drone</ThingDef>
+						<ThingDef>TSP_RB_Beeliever_Hexacore_Honeycomb</ThingDef>
+						<!-- <RecipeDef>TSP_RB_Beeliever_Centrifuge_Hexacore_Honeycomb</RecipeDef> -->
+						<ThingDef>AA_HexagelCore</ThingDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<uiIconThing>AA_HexagelCore</uiIconThing>
+					<jobString>Hexacore.</jobString>
+					<effectWorking>Cremate</effectWorking>
+					<soundWorking>Recipe_Cremate</soundWorking>
+					<workAmount>900</workAmount>
+					<recipeUsers Inherit="False"></recipeUsers>	
+					<ingredients>
+						<li>
+							<filter>
+								<thingDefs>
+									<li>TSP_RB_Beeliever_Hexacore_Honeycomb</li>
+								</thingDefs>
+							</filter>
+							<count>1</count>
+						</li>
+					</ingredients>
+					<fixedIngredientFilter>
+						<thingDefs>
+							<li>TSP_RB_Beeliever_Hexacore_Honeycomb</li>
+						</thingDefs>
+					</fixedIngredientFilter>
+					<specialProducts>
+						<li>Butchery</li>
+					</specialProducts>
+					<skillRequirements></skillRequirements>
+					<researchPrerequisites></researchPrerequisites>
+				</RecipeDef>
+			</value>
+		</match>
+	</Operation>
 </Patch>

@@ -120,7 +120,7 @@
 					<butcherProducts>
 						<RB_WhiteHoney>15</RB_WhiteHoney>
 						<RB_WhiteBeeswax>13</RB_WhiteBeeswax>
-						<BOG_Baby_Oil>2</BOG_Baby_Oil>
+						<BOG_Baby_Oil>3</BOG_Baby_Oil>
 					</butcherProducts>
 				</ThingDef>
 				
@@ -169,9 +169,7 @@
 						<li>Butchery</li>
 					</specialProducts>
 					<skillRequirements></skillRequirements>
-					<researchPrerequisites>
-						
-					</researchPrerequisites>
+					<researchPrerequisites></researchPrerequisites>
 				</RecipeDef>
 			</value>
 		</match>
