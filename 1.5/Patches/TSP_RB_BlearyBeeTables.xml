@@ -54,8 +54,8 @@
 							<nocturnal>true</nocturnal> <!-- Works at night -->
 							<pluviophile>false</pluviophile> <!-- Works in the rain -->
 							<weirdplantneeded>no</weirdplantneeded>
-							<tempMin>-17.778</tempMin> <!-- Zero degrees -->
-							<tempMax>36.1111</tempMax> <!-- Ninety-seven degrees -->
+							<tempMin>-18</tempMin> <!-- Zero degrees, rounded up -->
+							<tempMax>37</tempMax> <!-- Ninety-seven degrees, rounded up-->
 						</li>   
 					</comps>
 				</ThingDef>

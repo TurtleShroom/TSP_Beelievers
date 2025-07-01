@@ -54,8 +54,8 @@
 							<nocturnal>true</nocturnal> <!-- Works at night -->
 							<pluviophile>true</pluviophile> <!-- Works in the rain -->
 							<weirdplantneeded>no</weirdplantneeded>
-							<tempMin>-17.778</tempMin> <!-- Zero degrees -->
-							<tempMax>36.1111</tempMax> <!-- Ninety-seven degrees -->
+							<tempMin>-18</tempMin> <!-- Zero degrees, rounded up -->
+							<tempMax>37</tempMax> <!-- Ninety-seven degrees, rounded up-->
 						</li>   
 					</comps>
 				</ThingDef>
@@ -252,8 +252,8 @@
 							<nocturnal>true</nocturnal> <!-- Works at night -->
 							<pluviophile>true</pluviophile> <!-- Works in the rain -->
 							<weirdplantneeded>InsectJelly</weirdplantneeded>
-							<tempMin>-17.778</tempMin> <!-- Zero degrees -->
-							<tempMax>36.1111</tempMax> <!-- Ninety-seven degrees -->
+							<tempMin>-18</tempMin> <!-- Zero degrees, rounded up -->
+							<tempMax>37</tempMax> <!-- Ninety-seven degrees, rounded up-->
 						</li>   
 					</comps>
 				</ThingDef>
@@ -424,8 +424,8 @@
 							<nocturnal>true</nocturnal> <!-- Works at night -->
 							<pluviophile>false</pluviophile> <!-- Works in the rain -->
 							<weirdplantneeded>no</weirdplantneeded>
-							<tempMin>-17.778</tempMin> <!-- Zero degrees -->
-							<tempMax>36.1111</tempMax> <!-- Ninety-seven degrees -->
+							<tempMin>-18</tempMin> <!-- Zero degrees, rounded up -->
+							<tempMax>37</tempMax> <!-- Ninety-seven degrees, rounded up-->
 						</li>   
 					</comps>
 				</ThingDef>
@@ -492,6 +492,7 @@
 					<graphicData Inherit="False">
 						<texPath>Things/Pawn/Animal/Bug_Types/Bee/Honeycombs/TSP_RB_Necropini_Honeycomb</texPath>
 						<graphicClass>Graphic_Single</graphicClass>
+						<shaderType>CutoutComplex</shaderType>
 					</graphicData>
 					<thingCategories Inherit="False">
 						<li>TSP_RB_Beeliever_Honeycombs</li>
@@ -629,8 +630,8 @@
 							<nocturnal>true</nocturnal> <!-- Works at night -->
 							<pluviophile>true</pluviophile> <!-- Works in the rain -->
 							<weirdplantneeded>ApiniHoney</weirdplantneeded>
-							<tempMin>-17.778</tempMin> <!-- Zero degrees -->
-							<tempMax>36.1111</tempMax> <!-- Ninety-seven degrees -->
+							<tempMin>-18</tempMin> <!-- Zero degrees, rounded up -->
+							<tempMax>37</tempMax> <!-- Ninety-seven degrees, rounded up-->
 						</li>   
 					</comps>
 				</ThingDef>

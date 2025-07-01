@@ -39,10 +39,10 @@
 	
 	<Operation Class="PatchOperationConditional">
 	<!-- Does this exist? -->
-		<xpath>/Defs/ThingDef/defName="RB_BunkerBeehouse"]/building/disableImpassableShotOverConfigError</xpath>
+		<xpath>/Defs/ThingDef[defName="RB_BunkerBeehouse"]/disableImpassableShotOverConfigError</xpath>
 		<!-- If it does, do this replacement. -->
 		<match Class="PatchOperationReplace">
-			<xpath>/Defs/ThingDef/defName="RB_BunkerBeehouse"]/building/disableImpassableShotOverConfigError</xpath>
+			<xpath>/Defs/ThingDefdefName="RB_BunkerBeehouse"]/disableImpassableShotOverConfigError</xpath>
 			<success>Always</success>
 			<value>
 				<disableImpassableShotOverConfigError>true</disableImpassableShotOverConfigError>
@@ -50,7 +50,7 @@
 		</match>
 		<!-- If it DOES NOT, add this instead. -->
 		<nomatch Class="PatchOperationAdd">
-			<xpath>/Defs/ThingDef/defName="RB_BunkerBeehouse"]/building</xpath>
+			<xpath>/Defs/ThingDef[defName="RB_BunkerBeehouse"]</xpath>
 			<success>Always</success>
 			<value>
 				<disableImpassableShotOverConfigError>true</disableImpassableShotOverConfigError>

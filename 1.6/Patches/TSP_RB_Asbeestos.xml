@@ -54,7 +54,7 @@
 							<nocturnal>false</nocturnal> <!-- Works at night -->
 							<pluviophile>false</pluviophile> <!-- Works in the rain -->
 							<weirdplantneeded>no</weirdplantneeded>
-							<tempMin>-17.778</tempMin> <!-- Zero degrees -->
+							<tempMin>-18</tempMin> <!-- Zero degrees, rounded up -->
 							<tempMax>100</tempMax> <!-- Two hundred twelve degrees -->
 							<additionalBeeEffects>
 								<li Class="RimBees.AdditionalBeeEffects_Firefoam"></li>

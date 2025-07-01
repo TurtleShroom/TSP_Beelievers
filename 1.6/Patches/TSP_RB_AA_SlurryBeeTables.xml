@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Patch>
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>/Defs/ThingDef[defName="HydroponicNutrientSolution"]</xpath>
+		<!-- If it does, add this. -->
+		<match Class="PatchOperationAdd">
+			<xpath>/Defs</xpath>
+			<success>Always</success>
+			<value>
+				<!-- Ancient_Hydroponic Branch -->
+				<!-- TIER Ancient_Hydroponic -->
+				<!-- BEE DESCRIPTION -->
+				<RimBees.BeeListDef>
+					<defName>TSP_RB_Beeliever_SlurryBee2_AncientHydroponic_List</defName>
+					<nameString>Ancient_Hydroponic</nameString>
+					<beeDroneDef>RB_Bee_Ancient_Hydroponic_Drone</beeDroneDef>
+					<beeQueenDef>RB_Bee_Ancient_Hydroponic_Queen</beeQueenDef>
+					<!--
+					<beeQueenTag>RB_Bee_Slurry_Queen_Tag</beeQueenTag>
+					<beeDroneTag>RB_Bee_Slurry_Drone_Tag</beeDroneTag>
+					-->
+				</RimBees.BeeListDef>
+				
+				<!--
+				<RimBees.BeeCombinationDef>
+					<defName>TSP_RB_Beelievers_Ancient_Hydroponic_Tables</defName>
+					<bee1>Slurry</bee1>
+					<bee2>Nutritious</bee2>
+					<result>
+						<li>Ancient_Hydroponic</li>
+					</result>				
+				</RimBees.BeeCombinationDef>
+				-->
+			
+				<ThingDef ParentName="TSP_RB_Beeliever_MasterBeeBase" Name="TSP_RB_Beeliever_Ancient_Hydroponic_Base" Abstract="True">
+					<!-- <label>Ancient_Hydroponic Bee</label> -->
+					<description>Ancient Hydroponic Solution Bees are advanced, mechanical Slurry Bees engineered to make the ingredients necessary to fuel massive Spacer hydroponic complexes of old. As other means of creating these have long been lost, these bees are a lifeline to those who need to farm lots of food fast. \n\n\n\n\n Bee Traits: \n\n 	Production time: 1 day \n 	Works at Night: No \n 	Works When Raining: Yes \n 	Unusual Sources Needed: No \n 	Minimum Temperature: 0ºF (-17.7778ºC) \n 	Maximum temperature: 114ºF (51.1111ºC)</description>
+					<!--
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/ST_Bee_south</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData>
+					-->
+					<comps>			
+						<li Class="RimBees.CompProperties_Bees" Inherit="False">
+							<species>Ancient_Hydroponic</species>
+							<comb>TSP_RB_Beeliever_Ancient_Hydroponic_Honeycomb</comb>
+							<combtimedays>1</combtimedays>
+							<nocturnal>false</nocturnal> <!-- Works at night -->
+							<pluviophile>true</pluviophile> <!-- Works in the rain -->
+							<weirdplantneeded>no</weirdplantneeded>
+							<tempMin>-18</tempMin> <!-- Zero degrees, rounded up -->
+							<tempMax>52</tempMax> <!-- One hundred fourteen degrees, rounded up -->
+						</li>   
+					</comps>
+				</ThingDef>
+				
+				<!-- MUST be RB_Bee_YOURNAME_Queen and then RB_Bee_YOURNAME_Drone, no exceptions -->
+				<ThingDef ParentName="TSP_RB_Beeliever_Ancient_Hydroponic_Base">
+					<defName>RB_Bee_Ancient_Hydroponic_Queen</defName>
+					<label>Ancient Hydroponic Solution Bee queen</label>
+					<descriptionHyperlinks>
+						<!-- <ThingDef>RB_Bee_Ancient_Hydroponic_Queen</ThingDef> -->
+						<ThingDef>RB_Bee_Ancient_Hydroponic_Drone</ThingDef>
+						<ThingDef>TSP_RB_Beeliever_Ancient_Hydroponic_Honeycomb</ThingDef>
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_Ancient_Hydroponic_Honeycomb</RecipeDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/SlurryBranch/TSP_Bee_AncientHydroponic_Queen</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData> 		
+				</ThingDef>
+				
+				<ThingDef ParentName="TSP_RB_Beeliever_Ancient_Hydroponic_Base">
+					<defName>RB_Bee_Ancient_Hydroponic_Drone</defName>
+					<label>Ancient Hydroponic Solution Bee drone</label>
+					<descriptionHyperlinks>
+						<ThingDef>RB_Bee_Ancient_Hydroponic_Queen</ThingDef>
+						<!-- <ThingDef>RB_Bee_Ancient_Hydroponic_Drone</ThingDef> -->
+						<ThingDef>TSP_RB_Beeliever_Ancient_Hydroponic_Honeycomb</ThingDef>
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_Ancient_Hydroponic_Honeycomb</RecipeDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/SlurryBranch/TSP_Bee_AncientHydroponic_Drone</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData> 		
+				</ThingDef>
+				
+				<ThingDef ParentName="RB_CombBase">
+					<defName>TSP_RB_Beeliever_Ancient_Hydroponic_Honeycomb</defName>
+					<label>Ancient Hydroponic Solution Bee honeycomb</label>
+					<description>Ancient Hydroponic Solution Bees are advanced versions of the mechanical Slurry Bees; these were developed to fuel massive Spacer farming operations. Their honeycombs yield Hydroponic Nutrient Solution chemicals and Survival Nutrient Packs, plus Adaptive Honey and ordinary Beeswax.</description>
+					<descriptionHyperlinks>
+						<ThingDef>RB_Bee_Ancient_Hydroponic_Queen</ThingDef>
+						<ThingDef>RB_Bee_Ancient_Hydroponic_Drone</ThingDef>
+						<!-- <ThingDef>TSP_RB_Beeliever_Ancient_Hydroponic_Honeycomb</ThingDef> -->
+						<ThingDef>HydroponicNutrientSolution</ThingDef>
+						<ThingDef>SurvivalNutrientPack</ThingDef>
+						<ThingDef>RB_AdaptiveHoney</ThingDef>
+						<ThingDef>RB_Beeswax</ThingDef>
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_Ancient_Hydroponic_Honeycomb</RecipeDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/Honeycombs/TSP_RB_Mantodean_VariousJelly_Honeycomb</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+						<color>(136,186,51)</color>
+					</graphicData>	
+					<thingCategories Inherit="False">
+						<li>TSP_RB_Beeliever_Honeycombs</li>
+					</thingCategories>
+					<butcherProducts>
+						<HydroponicNutrientSolution>15</HydroponicNutrientSolution>
+						<SurvivalNutrientPack>5</SurvivalNutrientPack>
+						<RB_AdaptiveHoney>3</RB_AdaptiveHoney>
+						<RB_Beeswax>4</RB_Beeswax>
+					</butcherProducts>
+				</ThingDef>
+				
+				<RecipeDef>
+					<defName>TSP_RB_Beeliever_Centrifuge_Ancient_Hydroponic_Honeycomb</defName>
+					<label>Extract from Ancient Hydroponic Solution Bee honeycomb</label>
+					<description>Extract Adaptive Honey, ordinary Beeswax, Hydroponic Nutrient Solution chemicals, and Survival Nutrient Packs from Ancient Hydroponic Solution Bees.</description>
+					<descriptionHyperlinks>
+						<ThingDef>RB_Bee_Ancient_Hydroponic_Queen</ThingDef>
+						<ThingDef>RB_Bee_Ancient_Hydroponic_Drone</ThingDef>
+						<ThingDef>TSP_RB_Beeliever_Ancient_Hydroponic_Honeycomb</ThingDef>
+						<ThingDef>HydroponicNutrientSolution</ThingDef>
+						<ThingDef>SurvivalNutrientPack</ThingDef>
+						<ThingDef>RB_AdaptiveHoney</ThingDef>
+						<ThingDef>RB_Beeswax</ThingDef>
+						<!-- <RecipeDef>TSP_RB_Beeliever_Centrifuge_Ancient_Hydroponic_Honeycomb</RecipeDef> -->
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<uiIconThing>HydroponicNutrientSolution</uiIconThing>
+					<jobString>Ancient_Hydroponic.</jobString>
+					<effectWorking>Cremate</effectWorking>
+					<soundWorking>Recipe_Cremate</soundWorking>
+					<workAmount>900</workAmount>
+					<recipeUsers>
+						<li>RB_Honey_Centrifuge</li>
+						<li>RB_Advanced_Honey_Centrifuge</li>
+						<li MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</li>
+					</recipeUsers>	
+					<ingredients>
+						<li>
+							<filter>
+								<thingDefs>
+									<li>TSP_RB_Beeliever_Ancient_Hydroponic_Honeycomb</li>
+								</thingDefs>
+							</filter>
+							<count>1</count>
+						</li>
+					</ingredients>
+					<fixedIngredientFilter>
+						<thingDefs>
+							<li>TSP_RB_Beeliever_Ancient_Hydroponic_Honeycomb</li>
+						</thingDefs>
+					</fixedIngredientFilter>
+					<specialProducts>
+						<li>Butchery</li>
+					</specialProducts>
+					<skillRequirements></skillRequirements>
+					<researchPrerequisites>
+						<li>AncientHydroponicTechniques</li>
+					</researchPrerequisites>
+				</RecipeDef>
+			</value>
+		</match>
+	</Operation>
+	
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>/Defs/ThingDef[defName="MealSoylentGreen"]</xpath>
+		<!-- If it does, add this. -->
+		<match Class="PatchOperationAdd">
+			<xpath>/Defs</xpath>
+			<success>Always</success>
+			<value>
+				<!-- Soylent Branch -->
+				<!-- TIER Soylent -->
+				<!-- BEE DESCRIPTION -->
+				<RimBees.BeeListDef>
+					<defName>TSP_RB_Beeliever_SlurryBee3_SoylentGreen_List</defName>
+					<nameString>Soylent</nameString>
+					<beeDroneDef>RB_Bee_Soylent_Drone</beeDroneDef>
+					<beeQueenDef>RB_Bee_Soylent_Queen</beeQueenDef>
+					<!--
+					<beeQueenTag>RB_Bee_Slurry_Queen_Tag</beeQueenTag>
+					<beeDroneTag>RB_Bee_Slurry_Drone_Tag</beeDroneTag>
+					-->
+				</RimBees.BeeListDef>
+				
+				<!--
+				<RimBees.BeeCombinationDef>
+					<defName>TSP_RB_Beelievers_Soylent_Tables</defName>
+					<bee1>Slurry</bee1>
+					<bee2>Nutritious</bee2>
+					<result>
+						<li>Soylent</li>
+					</result>				
+				</RimBees.BeeCombinationDef>
+				-->
+			
+				<ThingDef ParentName="TSP_RB_Beeliever_MasterBeeBase" Name="TSP_RB_Beeliever_Soylent_Base" Abstract="True">
+					<!-- <label>Soylent Bee</label> -->
+					<description>SOYLENT MAKER IS BEES! SOYLENT GREEN IS PAWNS!! \n\n\n\n\n Bee Traits: \n\n 	Production time: 1 day \n 	Works at Night: Yes \n 	Works When Raining: Yes \n 	Unusual Sources Needed: No \n 	Minimum Temperature: 0ºF (-17.7778ºC) \n 	Maximum temperature: 97ºF (36.1111ºC)</description>
+					<!--
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/ST_Bee_south</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData>
+					-->
+					<comps>			
+						<li Class="RimBees.CompProperties_Bees" Inherit="False">
+							<species>Soylent</species>
+							<comb>TSP_RB_Beeliever_SoylentGreen_Honeycomb</comb>
+							<combtimedays>1</combtimedays>
+							<nocturnal>false</nocturnal> <!-- Works at night -->
+							<pluviophile>true</pluviophile> <!-- Works in the rain -->
+							<weirdplantneeded>no</weirdplantneeded>
+							<tempMin>-18</tempMin> <!-- Zero degrees, rounded up -->
+							<tempMax>37</tempMax> <!-- Ninety-seven degrees, rounded up-->
+						</li>   
+					</comps>
+				</ThingDef>
+				
+				<!-- MUST be RB_Bee_YOURNAME_Queen and then RB_Bee_YOURNAME_Drone, no exceptions -->
+				<ThingDef ParentName="TSP_RB_Beeliever_Soylent_Base">
+					<defName>RB_Bee_Soylent_Queen</defName>
+					<label>Soylent Bee queen</label>
+					<descriptionHyperlinks>
+						<!-- <ThingDef>RB_Bee_Soylent_Queen</ThingDef> -->
+						<ThingDef>RB_Bee_Soylent_Drone</ThingDef>
+						<ThingDef>TSP_RB_Beeliever_SoylentGreen_Honeycomb</ThingDef>
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_SoylentGreen_Honeycomb</RecipeDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/SlurryBranch/TSP_Bee_SoylentGreen_Queen</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+						<color>(89, 133, 94)</color>
+					</graphicData> 		
+				</ThingDef>
+				
+				<ThingDef ParentName="TSP_RB_Beeliever_Soylent_Base">
+					<defName>RB_Bee_Soylent_Drone</defName>
+					<label>Soylent Bee drone</label>
+					<descriptionHyperlinks>
+						<ThingDef>RB_Bee_Soylent_Queen</ThingDef>
+						<!-- <ThingDef>RB_Bee_Soylent_Drone</ThingDef> -->
+						<ThingDef>TSP_RB_Beeliever_SoylentGreen_Honeycomb</ThingDef>
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_SoylentGreen_Honeycomb</RecipeDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/SlurryBranch/TSP_Bee_SoylentGreen_Drone</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+						<color>(89, 133, 94)</color>
+					</graphicData> 		
+				</ThingDef>
+				
+				<ThingDef ParentName="RB_CombBase">
+					<defName>TSP_RB_Beeliever_SoylentGreen_Honeycomb</defName>
+					<label>Soylent Bee honeycomb</label>
+					<description>SOYLENT MAKER IS BEES! SOYLENT GREEN IS PAWNS!!</description>
+					<descriptionHyperlinks>
+						<ThingDef>RB_Bee_Soylent_Queen</ThingDef>
+						<ThingDef>RB_Bee_Soylent_Drone</ThingDef>
+						<!-- <ThingDef>TSP_RB_Beeliever_SoylentGreen_Honeycomb</ThingDef> -->
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_SoylentGreen_Honeycomb</RecipeDef>
+						<ThingDef>MealSoylentGreen</ThingDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/Honeycombs/TSP_RB_Honeycomb_Fork</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+						<shaderType>CutoutComplex</shaderType>
+						<color>(89, 133, 94)</color>
+					</graphicData>	
+					<thingCategories Inherit="False">
+						<li>TSP_RB_Beeliever_Honeycombs</li>
+					</thingCategories>
+					<butcherProducts>
+						<MealSoylentGreen>5</MealSoylentGreen>
+					</butcherProducts>
+				</ThingDef>
+				
+				<RecipeDef>
+					<defName>TSP_RB_Beeliever_Centrifuge_SoylentGreen_Honeycomb</defName>
+					<label>Extract from Soylent Bee honeycomb</label>
+					<description>SOYLENT MAKER IS BEES! SOYLENT GREEN IS PAWNS!!</description>
+					<descriptionHyperlinks>
+						<ThingDef>RB_Bee_Soylent_Queen</ThingDef>
+						<ThingDef>RB_Bee_Soylent_Drone</ThingDef>
+						<ThingDef>TSP_RB_Beeliever_SoylentGreen_Honeycomb</ThingDef>
+						<ThingDef>MealSoylentGreen</ThingDef>
+						<!-- <RecipeDef>TSP_RB_Beeliever_Centrifuge_SoylentGreen_Honeycomb</RecipeDef> -->
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<uiIconThing>MealSoylentGreen</uiIconThing>
+					<jobString>SOYLENT GREEN IS PAWNS!</jobString>
+					<effectWorking>Cremate</effectWorking>
+					<soundWorking>Recipe_Cremate</soundWorking>
+					<workAmount>900</workAmount>
+					<recipeUsers></recipeUsers>
+					<ingredients>
+						<li>
+							<filter>
+								<thingDefs>
+									<li>TSP_RB_Beeliever_SoylentGreen_Honeycomb</li>
+								</thingDefs>
+							</filter>
+							<count>1</count>
+						</li>
+					</ingredients>
+					<fixedIngredientFilter>
+						<thingDefs>
+							<li>TSP_RB_Beeliever_SoylentGreen_Honeycomb</li>
+						</thingDefs>
+					</fixedIngredientFilter>
+					<specialProducts>
+						<li>Butchery</li>
+					</specialProducts>
+					<skillRequirements></skillRequirements>
+					<researchPrerequisites>
+						<li>SoylentGreenResearch</li>
+					</researchPrerequisites>
+				</RecipeDef>
+			</value>
+		</match>
+	</Operation>
+</Patch>

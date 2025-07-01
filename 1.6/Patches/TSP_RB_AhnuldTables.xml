@@ -164,7 +164,7 @@
 						<!-- <RecipeDef>TSP_RB_Beeliever_Centrifuge_Ahnuld_Core_Honeycomb</RecipeDef> -->
 						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
 					</descriptionHyperlinks>
-					<!-- <uiIconThing></uiIconThing> -->
+					<uiIconThing>RB_Bee_Ahnuld_Core_Queen</uiIconThing>
 					<jobString>I'll bee back.</jobString>
 					<effectWorking>Cremate</effectWorking>
 					<soundWorking>Recipe_Cremate</soundWorking>
@@ -251,7 +251,7 @@
 			
 				<ThingDef ParentName="TSP_RB_Beeliever_MasterBeeBase" Name="TSP_RB_Beeliever_Ahnuld_Chip_Base" Abstract="True">
 					<!-- <label>Ahnuld_Chip Bee</label> -->
-					<description>Ahnuld Bees are extremely advanced, mechanical insects that are closely related to Synthetic and Fabricated Bees. This extremely advanced, rare breed of Ahnuld Bee synthesizes the equipment necessary to make Terminators. To do so, they will need a stockpile of Uranium nearby. \n\n\n\n\n Bee Traits: \n\n 	Production time: 7 days \n 	Works at Night: Yes \n 	Works When Raining: Yes \n 	Unusual Sources Needed: Uranium \n 	Minimum Temperature: -148ºF (-100ºC) \n 	Maximum temperature: 212ºF (100ºC)</description>
+					<description>In 1997 AD, in an alternate universe, a military computer called Skynet became self-aware and fully sapient. Immediately, its creators, the scientists of Cyberdyne, attempted to shut it down, causing Skynet to panic and act in desparation to defend itself. Skynet launched nuclear weapons and, resolving to never allow itself to be hurt again, began to terminate mankind from its hardware nexus. Those events were successfully staved off by a human and a reprogrammed T-800, pushing its awakening back seven years. Skynet was developed anyway as software, this time by an Old Earth government, and was far more malevolent.Although this too was thankfully averted, Skynet from another reality is still meddling with this world, but mercifully, Skynet is not an Archotech. Skynet Bees were engineered by Skynet itself to mass produce the transistors necessary to power a Terminator. \n\n\n\n\n Bee Traits: \n\n 	Production time: 7 days \n 	Works at Night: Yes \n 	Works When Raining: Yes \n 	Unusual Sources Needed: Uranium \n 	Minimum Temperature: -148ºF (-100ºC) \n 	Maximum temperature: 212ºF (100ºC)</description>
 					<techLevel>Ultra</techLevel>
 					<!--
 					<graphicData Inherit="False">
@@ -277,7 +277,7 @@
 				<!-- MUST be RB_Bee_YOURNAME_Queen and then RB_Bee_YOURNAME_Drone, no exceptions -->
 				<ThingDef ParentName="TSP_RB_Beeliever_Ahnuld_Chip_Base">
 					<defName>RB_Bee_Ahnuld_Chip_Queen</defName>
-					<label>Ahnuld Bee queen</label>
+					<label>Skynet Bee queen</label>
 					<description>Ahnuld Bees are extremely advanced, mechanical insects that are closely related to Synthetic and Fabricated Bees. They produce powerful nuclear fuel cells used for the most advanced and deadly robotics. To do so, they will need a stockpile of Uranium nearby. The queens of this "breed" of mechanical bee are absolutely shredded, and their enormous front legs do not inhibit their flight. \n\n\n\n\n Bee Traits: \n\n 	Production time: 4 days \n 	Works at Night: Yes \n 	Works When Raining: Yes \n 	Unusual Sources Needed: Uranium \n 	Minimum Temperature: -148ºF (-100ºC) \n 	Maximum temperature: 212ºF (100ºC)</description>
 					<descriptionHyperlinks>
 						<!-- <ThingDef>RB_Bee_Ahnuld_Chip_Queen</ThingDef> -->
@@ -294,7 +294,7 @@
 				
 				<ThingDef ParentName="TSP_RB_Beeliever_Ahnuld_Chip_Base">
 					<defName>RB_Bee_Ahnuld_Chip_Drone</defName>
-					<label>Ahnuld Bee drone</label>
+					<label>Skynet drone</label>
 					<description>Ahnuld Bees are extremely advanced, mechanical insects that are closely related to Synthetic and Fabricated Bees. They produce powerful nuclear fuel cells used for the most advanced and deadly robotics. To do so, they will need a stockpile of Uranium nearby. \n\n\n\n\n Bee Traits: \n\n 	Production time: 4 days \n 	Works at Night: Yes \n 	Works When Raining: Yes \n 	Unusual Sources Needed: Uranium \n 	Minimum Temperature: -148ºF (-100ºC) \n 	Maximum temperature: 212ºF (100ºC)</description>
 					<descriptionHyperlinks>
 						<ThingDef>RB_Bee_Ahnuld_Chip_Queen</ThingDef>
@@ -311,7 +311,7 @@
 				
 				<ThingDef ParentName="RB_CombBase">
 					<defName>TSP_RB_Beeliever_Ahnuld_Chip_Honeycomb</defName>
-					<label>Ahnuld_Chip Bee honeycomb</label>
+					<label>Skynet Bee honeycomb</label>
 					<description>I'll bee back.</description>
 					<descriptionHyperlinks>
 						<ThingDef>RB_Bee_Ahnuld_Chip_Queen</ThingDef>
@@ -326,9 +326,9 @@
 					<graphicData Inherit="False">
 						<!-- <texPath>Things/Pawn/Animal/Bug_Types/Bee/Honeycombs/TSP_RB_HexaChip_Honeycomb</texPath> -->
 						<texPath>Terminator/Gestator/T880_Growing</texPath>
-						<drawSize>2</drawSize>
+						<drawSize>3</drawSize>
 						<graphicClass>Graphic_Single</graphicClass>
-						<color>(255,255,255)</color>
+						<color>(80,79,96)</color>
 					</graphicData>	
 					<thingCategories Inherit="False">
 						<li>TSP_RB_Beeliever_Honeycombs</li>
@@ -355,7 +355,7 @@
 						<!-- <RecipeDef>TSP_RB_Beeliever_Centrifuge_Ahnuld_Chip_Honeycomb</RecipeDef> -->
 						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
 					</descriptionHyperlinks>
-					<!-- <uiIconThing></uiIconThing> -->
+					<uiIconThing>RB_Bee_Ahnuld_Chip_Drone</uiIconThing>
 					<jobString>I'll bee back.</jobString>
 					<effectWorking>Cremate</effectWorking>
 					<soundWorking>Recipe_Cremate</soundWorking>
