@@ -40,6 +40,9 @@
 						<graphicClass>Graphic_Single</graphicClass>
 						<texPath>Things/Pawn/Animal/Bug_Types/Bee/Beesearch/YellowJournal</texPath>
 					</graphicData>
+					<thingCategories Inherit="False">
+						<li>RB_BeeResearchTierAlpha</li>
+					</thingCategories>
 					<comps>
 						<li Class="RimBees.CompProperties_BeeResearchData">
 							<firstBee>RB_Bee_Slaver_Queen</firstBee>
@@ -68,8 +71,8 @@
 							<nocturnal>false</nocturnal> <!-- Works at night -->
 							<pluviophile>false</pluviophile> <!-- Works in the rain -->
 							<weirdplantneeded>no</weirdplantneeded>
-							<tempMin>-17.778</tempMin> <!-- Zero degrees -->
-							<tempMax>36.1111</tempMax> <!-- Ninety-seven degrees -->
+							<tempMin>-18</tempMin> <!-- Zero degrees, rounded up -->
+							<tempMax>37</tempMax> <!-- Ninety-seven degrees, rounded up-->
 						</li>   
 					</comps>
 				</ThingDef>
@@ -142,7 +145,7 @@
 					</thingCategories>
 					<butcherProducts>
 						<AB_BumbledroneFood MayRequire="sarg.alphaanimals,sarg.alphabiomes">25</AB_BumbledroneFood>
-						<RB_PsychotropicHoney>13</RB_PsychotropicHoney>
+						<RB_PsychotropicHoney>6</RB_PsychotropicHoney>
 						<RB_Beeswax>7</RB_Beeswax>
 					</butcherProducts>
 				</ThingDef>
@@ -242,6 +245,9 @@
 						<graphicClass>Graphic_Single</graphicClass>
 						<texPath>Things/Pawn/Animal/Bug_Types/Bee/Beesearch/YellowJournal</texPath>
 					</graphicData>
+					<thingCategories Inherit="False">
+						<li>RB_BeeResearchTierAlpha</li>
+					</thingCategories>
 					<comps>
 						<li Class="RimBees.CompProperties_BeeResearchData">
 							<firstBee>RB_Bee_Aero_Queen</firstBee>
@@ -379,5 +385,172 @@
 				</RecipeDef>
 			</value>
 		</match>
+	</Operation>
+	
+	<!-- Aelanna's Model No-Match Detector and Insertion Code -->
+	<!-- Special thanks to Aelanna for straight-up saving me scores of headaches! -->
+	<!-- Add comps field to Settlement WorldObjectDef if it doesn't exist -->
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>/Defs/ThingDef[defName="RB_Bee_Slurry_Queen"]</xpath>
+		<!-- If it DOES NOT, add this. -->
+		<nomatch Class="PatchOperationAdd">
+			<xpath>/Defs</xpath>
+			<success>Always</success>
+			<value>
+				<RimBees.BeeListDef>
+					<defName>RB_SlurryBeeList</defName>
+					<nameString>Slurry</nameString>
+					<beeDroneDef>RB_Bee_Slurry_Drone</beeDroneDef>
+					<beeQueenDef>RB_Bee_Slurry_Queen</beeQueenDef>
+				</RimBees.BeeListDef>
+				
+				<RimBees.BeeCombinationDef>
+					<defName>RB_CombinationTier3_AlphaAnimals_11</defName>
+					<bee1>Agricultural</bee1>
+					<bee2>Electronic</bee2>
+					<result>
+						<li>Slurry</li>
+					</result>
+				</RimBees.BeeCombinationDef>
+				
+				<ThingDef ParentName="RB_BeeBase" Name="RB_SlurryBeeBase" Abstract="True">
+					<description>Slurry bees are tiny mechanoid bees that consume practically anything in the vicinity and transform it into obscene amounts of a refined paste meal that is unbelievably disgusting for sapient beings, and sometimes an industrial component.\n\nBee Traits:\n\nProduction time: 1 day \nNocturnal: No\Works in rain: No\nUnusual items needed: None\nMinimum Temperature: 32ºF (0ºC) \nMaximum temperature: 86ºF (30ºC)</description>
+					<graphicData>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData>
+					<tradeability>All</tradeability>
+					<comps>
+						<li Class="RimBees.CompProperties_Bees">
+							<species>Slurry</species>
+							<comb>RB_Slurry_Honeycomb</comb>
+							<combtimedays>1</combtimedays>
+							<nocturnal>true</nocturnal>
+							<pluviophile>true</pluviophile>
+							<weirdplantneeded>no</weirdplantneeded>
+							<tempMin>0</tempMin>
+							<tempMax>30</tempMax>
+						</li>
+					</comps>
+				</ThingDef>
+				
+				<ThingDef ParentName="RB_SlurryBeeBase">
+					<defName>RB_Bee_Slurry_Drone</defName>
+					<label>Slurry Bee drone</label>
+					<graphicData>
+						<texPath>Things/Item/Bees/RB_Bee_Slurry_Drone</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData>
+				</ThingDef>
+				
+				<ThingDef ParentName="RB_SlurryBeeBase">
+					<defName>RB_Bee_Slurry_Queen</defName>
+					<label>Slurry Bee queen</label>
+					<graphicData>
+						<texPath>Things/Item/Bees/RB_Bee_Slurry_Queen</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData>
+				</ThingDef>
+				
+				<ThingDef ParentName="RB_CombBase">
+					<defName>RB_Slurry_Honeycomb</defName>
+					<label>Slurry Bee honeycomb</label>
+					<description>This is a honeycomb produced by Slurry Bees. They are tiny Mechanoid bees that consume practically anything in the vicinity and transform it into obscene amounts of a refined paste meal that is unbelievably disgusting for sapient beings, and sometimes an industrial component. Honeycombs can be procesed in a Honey Extractor to get a lot of disgusting nutrient paste meals and industrial components.</description>
+					<graphicData>
+						<graphicClass>Graphic_Single</graphicClass>
+						<texPath>Things/Item/Combs/RB_Slurry_Honeycomb</texPath>
+					</graphicData>
+					<butcherProducts>
+						<AA_DisgustingMealNutrientPaste MayRequire="sarg.rimbees">20</AA_DisgustingMealNutrientPaste>
+						<NutrientPaste>5</NutrientPaste>
+						<RB_Brittlewax>5</RB_Brittlewax>
+						<ComponentIndustrial>2</ComponentIndustrial>
+					</butcherProducts>
+				</ThingDef>
+			</value>
+		</nomatch>
+	</Operation>
+	
+	<Operation Class="PatchOperationConditional">
+		<!-- Does this exist? -->
+		<xpath>/Defs/ThingDef[defName="RB_Bee_Slurry_Queen"]</xpath>
+		<!-- If it does, add this. -->
+		<match Class="PatchOperationAdd">
+			<success>Always</success>
+			<xpath>/Defs</xpath>
+			<value>				
+				<RimBees.BeeCombinationDef>
+					<defName>TSP_RB_AA_CombinationTier3_AlphaAnimals_11_1</defName>
+					<bee1>Agricultural</bee1>
+					<bee2>Technological</bee2>
+					<result>
+						<li>Slurry</li>
+					</result>
+				</RimBees.BeeCombinationDef>
+				
+				<RimBees.BeeCombinationDef>
+					<defName>TSP_RB_AA_CombinationTier3_AlphaAnimals_11_2</defName>
+					<bee1>Water</bee1>
+					<bee2>Technological</bee2>
+					<result>
+						<li>Slurry</li>
+					</result>
+				</RimBees.BeeCombinationDef>
+				
+				<ThingDef ParentName="TSP_Beelievers_Beesearch">
+					<defName>TSP_RB_AA_Research_Slurry1_Alternate</defName>
+					<graphicData Inherit="False">
+						<graphicClass>Graphic_Single</graphicClass>
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/Beesearch/Idr_adbo2</texPath>
+					</graphicData>
+					<comps>
+						<li Class="RimBees.CompProperties_BeeResearchData">
+							<firstBee>RB_Bee_Water_Queen</firstBee>
+							<secondBee>RB_Bee_Technological_Queen</secondBee>
+							<resultingBees>
+								<li>RB_Bee_Slurry_Queen</li>
+							</resultingBees>
+						</li>
+					</comps>
+					<thingCategories Inherit="False">
+						<li MayRequire="sarg.alphaanimals">RB_BeeResearchTierAlpha</li>
+						<li>TSP_RB_Beesearch_Beelievers</li>
+					</thingCategories>
+				</ThingDef>
+				
+				<ThingDef ParentName="TSP_Beelievers_Beesearch">
+					<defName>TSP_RB_AA_Research_Slurry2_Alternate</defName>
+					<graphicData Inherit="False">
+						<graphicClass>Graphic_Single</graphicClass>
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/Beesearch/Idr_adbo2</texPath>
+					</graphicData>
+					<comps>
+						<li Class="RimBees.CompProperties_BeeResearchData">
+							<firstBee>RB_Bee_Agricultural_Queen</firstBee>
+							<secondBee>RB_Bee_Technological_Queen</secondBee>
+							<resultingBees>
+								<li>RB_Bee_Slurry_Queen</li>
+							</resultingBees>
+						</li>
+					</comps>
+					<thingCategories Inherit="False">
+						<li MayRequire="sarg.alphaanimals">RB_BeeResearchTierAlpha</li>
+						<li>TSP_RB_Beesearch_Beelievers</li>
+					</thingCategories>
+				</ThingDef>
+			</value>
+		</match>
+		<!-- If the first XPATH does not exist, the original code stands. -->
+	</Operation>
+	
+	<Operation Class="PatchOperationConditional">
+		<!-- DO THE GENTILES KNOW? -->
+		<xpath>/Defs/ThingDef[defName="AA_DisgustingMealNutrientPaste"]</xpath>
+		<!-- If they do, SHUT IT DOWN. -->
+		<match Class="PatchOperationRemove">
+			<success>Always</success>
+			<xpath>/Defs/ThingDef[defName="RB_Slurry_Honeycomb"]/butcherProducts/NutrientPaste</xpath>
+		</match>
+		<!-- If the first XPATH does not exist, the original code stands. -->
 	</Operation>
 </Patch>

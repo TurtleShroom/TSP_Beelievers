@@ -328,8 +328,9 @@
 		<description>It appears to be an empty folder.</description>
 		<graphicData Inherit="False">
 			<graphicClass>Graphic_Single</graphicClass>
-			<texPath>Things/Pawn/Animal/Bug_Types/Bee/Beesearch/Idr_adbo2</texPath>
+			<texPath>Things/Pawn/Animal/Bug_Types/Bee/Beesearch/Idr_adbo</texPath>
 		</graphicData>
+		<tradeability>None</tradeability>
 		<comps Inherit="False"></comps>
 		<thingCategories Inherit="False" IsNull="True"></thingCategories>
 		<tradeTags Inherit="False" IsNull="True"></tradeTags>
@@ -339,7 +340,7 @@
 		<defName>TSP_RB_Beelievers_SlaverHybridTables_Beesearch</defName>
 		<graphicData Inherit="False">
 			<graphicClass>Graphic_Single</graphicClass>
-			<texPath>Things/Pawn/Animal/Bug_Types/Bee/Beesearch/Idr_adbo2</texPath>
+			<texPath>Things/Pawn/Animal/Bug_Types/Bee/Beesearch/Idr_adbo</texPath>
 		</graphicData>
 		<comps>
 			<li Class="RimBees.CompProperties_BeeResearchData">
@@ -356,7 +357,7 @@
 		<defName>TSP_RB_Beelievers_GoJuice_HybridTables_Beesearch</defName>
 		<graphicData Inherit="False">
 			<graphicClass>Graphic_Single</graphicClass>
-			<texPath>Things/Pawn/Animal/Bug_Types/Bee/Beesearch/Idr_adbo2</texPath>
+			<texPath>Things/Pawn/Animal/Bug_Types/Bee/Beesearch/Idr_adbo</texPath>
 		</graphicData>
 		<comps>
 			<li Class="RimBees.CompProperties_BeeResearchData">
@@ -373,7 +374,7 @@
 		<defName>TSP_RB_Beelievers_WakeUp_HybridTables_Beesearch</defName>
 		<graphicData Inherit="False">
 			<graphicClass>Graphic_Single</graphicClass>
-			<texPath>Things/Pawn/Animal/Bug_Types/Bee/Beesearch/Idr_adbo2</texPath>
+			<texPath>Things/Pawn/Animal/Bug_Types/Bee/Beesearch/Idr_adbo</texPath>
 		</graphicData>
 		<comps>
 			<li Class="RimBees.CompProperties_BeeResearchData">
@@ -390,7 +391,7 @@
 		<defName>TSP_RB_Beelievers_Oriental_HybridTables_Beesearch</defName>
 		<graphicData Inherit="False">
 			<graphicClass>Graphic_Single</graphicClass>
-			<texPath>Things/Pawn/Animal/Bug_Types/Bee/Beesearch/Idr_adbo2</texPath>
+			<texPath>Things/Pawn/Animal/Bug_Types/Bee/Beesearch/Idr_adbo</texPath>
 		</graphicData>
 		<comps>
 			<li Class="RimBees.CompProperties_BeeResearchData">
@@ -407,7 +408,7 @@
 		<defName>TSP_RB_Beelievers_Bleary_Beesearch</defName>
 		<graphicData Inherit="False">
 			<graphicClass>Graphic_Single</graphicClass>
-			<texPath>Things/Pawn/Animal/Bug_Types/Bee/Beesearch/Idr_adbo2</texPath>
+			<texPath>Things/Pawn/Animal/Bug_Types/Bee/Beesearch/Idr_adbo</texPath>
 		</graphicData>
 		<comps>
 			<li Class="RimBees.CompProperties_BeeResearchData">
@@ -415,6 +416,23 @@
 				<secondBee>RB_Bee_Neutro_Queen</secondBee>
 				<resultingBees>
 					<li>RB_Bee_Bleary_Queen</li>
+				</resultingBees>
+			</li>
+		</comps>
+	</ThingDef>
+	
+	<ThingDef ParentName="TSP_Beelievers_Beesearch">
+		<defName>TSP_RB_Beelievers_NutrientPaste_Beesearch</defName>
+		<graphicData Inherit="False">
+			<graphicClass>Graphic_Single</graphicClass>
+			<texPath>Things/Pawn/Animal/Bug_Types/Bee/Beesearch/Idr_adbo2</texPath>
+		</graphicData>
+		<comps>
+			<li Class="RimBees.CompProperties_BeeResearchData">
+				<firstBee>RB_Bee_Slurry_Queen</firstBee>
+				<secondBee>RB_Bee_Nutritious_Queen</secondBee>
+				<resultingBees>
+					<li>RB_Bee_Paste_Queen</li>
 				</resultingBees>
 			</li>
 		</comps>

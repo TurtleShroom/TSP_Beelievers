@@ -130,4 +130,32 @@
 		</match>
 		<!-- If the first XPATH does not exist, the original code stands. -->
 	</Operation>
+	
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>/Defs/ThingDef[defName="RB_Bee_Ancient_Hydroponic_Queen"]</xpath>
+		<!-- If it does, add this. -->
+		<match Class="PatchOperationAdd">
+			<xpath>/Defs/ThingDef[defName="TSP_RB_Beelievers_NutrientPaste_Beesearch"]/comps/li/resultingBees</xpath>
+			<success>Always</success>
+			<value>
+				<li MayRequire="xmb.ancienthydroponicfarmfacilities.mo">RB_Bee_Ancient_Hydroponic_Queen</li>
+			</value>
+		</match>
+		<!-- If the first XPATH does not exist, the original code stands. -->
+	</Operation>
+	
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>/Defs/ThingDef[defName="RB_Bee_Soylent_Queen"]</xpath>
+		<!-- If it does, add this. -->
+		<match Class="PatchOperationAdd">
+			<xpath>/Defs/ThingDef[defName="TSP_RB_Beelievers_NutrientPaste_Beesearch"]/comps/li/resultingBees</xpath>
+			<success>Always</success>
+			<value>
+				<li MayRequire="grubious.soylentgreen">RB_Bee_Soylent_Queen</li>
+			</value>
+		</match>
+		<!-- If the first XPATH does not exist, the original code stands. -->
+	</Operation>
 </Patch>

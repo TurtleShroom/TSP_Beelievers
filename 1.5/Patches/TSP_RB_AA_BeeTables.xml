@@ -71,8 +71,8 @@
 							<nocturnal>false</nocturnal> <!-- Works at night -->
 							<pluviophile>false</pluviophile> <!-- Works in the rain -->
 							<weirdplantneeded>no</weirdplantneeded>
-							<tempMin>-17.778</tempMin> <!-- Zero degrees -->
-							<tempMax>36.1111</tempMax> <!-- Ninety-seven degrees -->
+							<tempMin>-18</tempMin> <!-- Zero degrees, rounded up -->
+							<tempMax>37</tempMax> <!-- Ninety-seven degrees, rounded up-->
 						</li>   
 					</comps>
 				</ThingDef>
@@ -391,7 +391,7 @@
 	<!-- Special thanks to Aelanna for straight-up saving me scores of headaches! -->
 	<!-- Add comps field to Settlement WorldObjectDef if it doesn't exist -->
 	<Operation Class="PatchOperationConditional">
-	<!-- Does this exist? -->?
+	<!-- Does this exist? -->
 		<xpath>/Defs/ThingDef[defName="RB_Bee_Slurry_Queen"]</xpath>
 		<!-- If it DOES NOT, add this. -->
 		<nomatch Class="PatchOperationAdd">
@@ -497,11 +497,11 @@
 					</result>
 				</RimBees.BeeCombinationDef>
 				
-				<ThingDef ParentName="RB_ResearchPapersBaseAlpha">
+				<ThingDef ParentName="TSP_Beelievers_Beesearch">
 					<defName>TSP_RB_AA_Research_Slurry1_Alternate</defName>
 					<graphicData Inherit="False">
 						<graphicClass>Graphic_Single</graphicClass>
-						<texPath>Things/Pawn/Animal/Bug_Types/Bee/Beesearch/YellowJournal</texPath>
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/Beesearch/Idr_adbo2</texPath>
 					</graphicData>
 					<comps>
 						<li Class="RimBees.CompProperties_BeeResearchData">
@@ -512,17 +512,17 @@
 							</resultingBees>
 						</li>
 					</comps>
-					<thingCategories>
-						<li>RB_BeeResearchTierAlpha</li>
+					<thingCategories Inherit="False">
+						<li MayRequire="sarg.alphaanimals">RB_BeeResearchTierAlpha</li>
 						<li>TSP_RB_Beesearch_Beelievers</li>
 					</thingCategories>
 				</ThingDef>
 				
-				<ThingDef ParentName="RB_ResearchPapersBaseAlpha">
+				<ThingDef ParentName="TSP_Beelievers_Beesearch">
 					<defName>TSP_RB_AA_Research_Slurry2_Alternate</defName>
 					<graphicData Inherit="False">
 						<graphicClass>Graphic_Single</graphicClass>
-						<texPath>Things/Pawn/Animal/Bug_Types/Bee/Beesearch/YellowJournal</texPath>
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/Beesearch/Idr_adbo2</texPath>
 					</graphicData>
 					<comps>
 						<li Class="RimBees.CompProperties_BeeResearchData">
@@ -533,8 +533,8 @@
 							</resultingBees>
 						</li>
 					</comps>
-					<thingCategories>
-						<li>RB_BeeResearchTierAlpha</li>
+					<thingCategories Inherit="False">
+						<li MayRequire="sarg.alphaanimals">RB_BeeResearchTierAlpha</li>
 						<li>TSP_RB_Beesearch_Beelievers</li>
 					</thingCategories>
 				</ThingDef>

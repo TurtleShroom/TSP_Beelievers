@@ -62,4 +62,13 @@
 		</result>				
 	</RimBees.BeeCombinationDef>
 	-->
+	
+	<RimBees.BeeCombinationDef>
+		<defName>TSP_RB_Beelievers_NutrientPaste_HybridTables_Base</defName>
+		<bee1>Slurry</bee1>
+		<bee2>Nutritious</bee2>
+		<result>
+			<li>Paste</li>
+		</result>
+	</RimBees.BeeCombinationDef>
 </Defs>
