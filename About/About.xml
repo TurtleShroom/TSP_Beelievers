@@ -98,6 +98,7 @@
 		<li>3hstltd.foods.instanoodles</li>
 		<li>inertialmage.toxicplants</li>
 		<li>grubious.soylentgreen</li>
+		<li>lat.rimstro</li>
 	</loadAfter>
 	<loadBefore>
 		<li>zal.patchhoney</li>

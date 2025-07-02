@@ -9,7 +9,7 @@
 			<xpath>/Defs</xpath>
 			<success>Always</success>
 			<value>
-				<!-- Ancient_Hydroponic Branch -->
+				<!-- Slurry Branch -->
 				<!-- TIER Ancient_Hydroponic -->
 				<!-- BEE DESCRIPTION -->
 				<RimBees.BeeListDef>
@@ -181,7 +181,7 @@
 			<xpath>/Defs</xpath>
 			<success>Always</success>
 			<value>
-				<!-- Soylent Branch -->
+				<!-- Slurry Branch -->
 				<!-- TIER Soylent -->
 				<!-- BEE DESCRIPTION -->
 				<RimBees.BeeListDef>
@@ -274,6 +274,8 @@
 						<!-- <ThingDef>TSP_RB_Beeliever_SoylentGreen_Honeycomb</ThingDef> -->
 						<RecipeDef>TSP_RB_Beeliever_Centrifuge_SoylentGreen_Honeycomb</RecipeDef>
 						<ThingDef>MealSoylentGreen</ThingDef>
+						<ThingDef>RB_AdaptiveHoney</ThingDef>
+						<ThingDef>RB_RedBeeswax</ThingDef>
 						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
 					</descriptionHyperlinks>
 					<graphicData Inherit="False">
@@ -287,6 +289,8 @@
 					</thingCategories>
 					<butcherProducts>
 						<MealSoylentGreen>5</MealSoylentGreen>
+						<RB_AdaptiveHoney>5</RB_AdaptiveHoney>
+						<RB_RedBeeswax>5</RB_RedBeeswax>
 					</butcherProducts>
 				</ThingDef>
 				
@@ -308,7 +312,8 @@
 					<soundWorking>Recipe_Cremate</soundWorking>
 					<workAmount>900</workAmount>
 					<recipeUsers Inherit="False">
-						
+						<li MayRequire="zal.witchinghour">Cauldron</li>
+						<li MayRequire="vanillaexpanded.vcooke">VCE_CanningMachine</li>
 					</recipeUsers>
 					<ingredients>
 						<li>
@@ -332,6 +337,173 @@
 					<researchPrerequisites>
 						<li>SoylentGreenResearch</li>
 					</researchPrerequisites>
+				</RecipeDef>
+			</value>
+		</match>
+	</Operation>
+	
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>/Defs/ThingDef[defName="RS_LogisticsBox"]</xpath>
+		<!-- If it does, add this. -->
+		<match Class="PatchOperationAdd">
+			<xpath>/Defs</xpath>
+			<success>Always</success>
+			<value>
+				<!-- Slurry Branch -->
+				<!-- TIER Vendor -->
+				<!-- BEE DESCRIPTION -->
+				<RimBees.BeeListDef>
+					<defName>TSP_RB_Beeliever_SlurryBee4_Rimstro_List</defName>
+					<nameString>Vendor</nameString>
+					<beeDroneDef>RB_Bee_Vendor_Drone</beeDroneDef>
+					<beeQueenDef>RB_Bee_Vendor_Queen</beeQueenDef>
+					<!--
+					<beeQueenTag>RB_Bee_Slurry_Queen_Tag</beeQueenTag>
+					<beeDroneTag>RB_Bee_Slurry_Drone_Tag</beeDroneTag>
+					-->
+				</RimBees.BeeListDef>
+				
+				<!--
+				<RimBees.BeeCombinationDef>
+					<defName>TSP_RB_Beelievers_Vendor_Tables</defName>
+					<bee1>Slurry</bee1>
+					<bee2>Nutritious</bee2>
+					<result>
+						<li>Vendor</li>
+					</result>				
+				</RimBees.BeeCombinationDef>
+				-->
+			
+				<ThingDef ParentName="TSP_RB_Beeliever_MasterBeeBase" Name="TSP_RB_Beeliever_Vendor_Base" Abstract="True">
+					<!-- <label>Vendor Bee</label> -->
+					<description>In the process of pollination, alongside honey, Vendor Bees create food indistinguishable from the necessary fuel that allow Rimstro Vending Machines to function, and feed that directly to their larvae. The products that Vendor Bees create to their larvae is astonishingly similar to the fuel needed to run a Rimstro Vending Machine, to the point it being able to be pumped directly into vending machines without issue. Vendor Bees \n\n\n\n\n Bee Traits: \n\n 	Production time: 21.6 hours \n 	Works at Night: No \n 	Works When Raining: Yes \n 	Unusual Sources Needed: No \n 	Minimum Temperature: 0ºF (-17.7778ºC) \n 	Maximum temperature: 112ºF (44.4444ºC)</description>
+					<!--
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/ST_Bee_south</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData>
+					-->
+					<comps>			
+						<li Class="RimBees.CompProperties_Bees" Inherit="False">
+							<species>Vendor</species>
+							<comb>TSP_RB_Beeliever_RimstroVendor_Honeycomb</comb>
+							<combtimedays>0.9</combtimedays>
+							<nocturnal>false</nocturnal> <!-- Works at night -->
+							<pluviophile>true</pluviophile> <!-- Works in the rain -->
+							<weirdplantneeded>no</weirdplantneeded>
+							<tempMin>-18</tempMin> <!-- Zero degrees, rounded up -->
+							<tempMax>45</tempMax> <!-- One hundred twelve degrees, rounded up -->
+						</li>   
+					</comps>
+				</ThingDef>
+				
+				<!-- MUST be RB_Bee_YOURNAME_Queen and then RB_Bee_YOURNAME_Drone, no exceptions -->
+				<ThingDef ParentName="TSP_RB_Beeliever_Vendor_Base">
+					<defName>RB_Bee_Vendor_Queen</defName>
+					<label>Vendor Bee queen</label>
+					<descriptionHyperlinks>
+						<!-- <ThingDef>RB_Bee_Vendor_Queen</ThingDef> -->
+						<ThingDef>RB_Bee_Vendor_Drone</ThingDef>
+						<ThingDef>TSP_RB_Beeliever_RimstroVendor_Honeycomb</ThingDef>
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_RimstroVendor_Honeycomb</RecipeDef>
+						<ThingDef>RS_VendingMachineTypeA</ThingDef>
+						<ThingDef>RS_VendingMachineTypeB</ThingDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/SlurryBranch/RB_Bee_Slurry_Queen</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData> 		
+				</ThingDef>
+				
+				<ThingDef ParentName="TSP_RB_Beeliever_Vendor_Base">
+					<defName>RB_Bee_Vendor_Drone</defName>
+					<label>Vendor Bee drone</label>
+					<descriptionHyperlinks>
+						<ThingDef>RB_Bee_Vendor_Queen</ThingDef>
+						<!-- <ThingDef>RB_Bee_Vendor_Drone</ThingDef> -->
+						<ThingDef>TSP_RB_Beeliever_RimstroVendor_Honeycomb</ThingDef>
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_RimstroVendor_Honeycomb</RecipeDef>
+						<ThingDef>RS_VendingMachineTypeA</ThingDef>
+						<ThingDef>RS_VendingMachineTypeB</ThingDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/SlurryBranch/RB_Bee_Slurry_Drone</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData> 		
+				</ThingDef>
+				
+				<ThingDef ParentName="RB_CombBase">
+					<defName>TSP_RB_Beeliever_RimstroVendor_Honeycomb</defName>
+					<label>Vendor Bee honeycomb</label>
+					<description>The products that Vendor Bees create to their larvae is astonishingly similar to the fuel needed to run a Rimstro Vending Machine, to the point of being interchangable. By this, one can extract Rimstro Vendor Logistics Supplies, Tasty Honey, and Black Beeswax from the bees' honeycombs.</description>
+					<descriptionHyperlinks>
+						<ThingDef>RB_Bee_Vendor_Queen</ThingDef>
+						<ThingDef>RB_Bee_Vendor_Drone</ThingDef>
+						<!-- <ThingDef>TSP_RB_Beeliever_RimstroVendor_Honeycomb</ThingDef> -->
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_RimstroVendor_Honeycomb</RecipeDef>
+						<ThingDef>RS_LogisticsBox</ThingDef>
+						<ThingDef>RS_VendingMachineTypeA</ThingDef>
+						<ThingDef>RS_VendingMachineTypeB</ThingDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/Honeycombs/HoneycombBase</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+						<color>(255,255,255)</color>
+					</graphicData>	
+					<thingCategories Inherit="False">
+						<li>TSP_RB_Beeliever_Honeycombs</li>
+					</thingCategories>
+					<butcherProducts>
+						<RS_LogisticsBox>25</RS_LogisticsBox>
+						<RB_TastyHoney>5</RB_TastyHoney>
+						<RB_BlackBeeswax>5</RB_BlackBeeswax>
+					</butcherProducts>
+				</ThingDef>
+				
+				<RecipeDef>
+					<defName>TSP_RB_Beeliever_Centrifuge_RimstroVendor_Honeycomb</defName>
+					<label>Extract from Vendor Bee honeycomb</label>
+					<description>Vendor.</description>
+					<descriptionHyperlinks>
+						<ThingDef>RB_Bee_Vendor_Queen</ThingDef>
+						<ThingDef>RB_Bee_Vendor_Drone</ThingDef>
+						<ThingDef>TSP_RB_Beeliever_RimstroVendor_Honeycomb</ThingDef>
+						<!-- <RecipeDef>TSP_RB_Beeliever_Centrifuge_RimstroVendor_Honeycomb</RecipeDef> -->
+						<ThingDef>RS_LogisticsBox</ThingDef>
+						<ThingDef>RS_VendingMachineTypeA</ThingDef>
+						<ThingDef>RS_VendingMachineTypeB</ThingDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<uiIconThing>RS_LogisticsBox</uiIconThing>
+					<jobString>Extracting vending machine fuel.</jobString>
+					<effectWorking>Cremate</effectWorking>
+					<soundWorking>Recipe_Cremate</soundWorking>
+					<workAmount>900</workAmount>
+					<recipeUsers Inherit="False" IsNull="True"></recipeUsers>	
+					<ingredients>
+						<li>
+							<filter>
+								<thingDefs>
+									<li>TSP_RB_Beeliever_RimstroVendor_Honeycomb</li>
+								</thingDefs>
+							</filter>
+							<count>1</count>
+						</li>
+					</ingredients>
+					<fixedIngredientFilter>
+						<thingDefs>
+							<li>TSP_RB_Beeliever_RimstroVendor_Honeycomb</li>
+						</thingDefs>
+					</fixedIngredientFilter>
+					<specialProducts>
+						<li>Butchery</li>
+					</specialProducts>
+					<skillRequirements></skillRequirements>
+					<researchPrerequisites></researchPrerequisites>
 				</RecipeDef>
 			</value>
 		</match>
