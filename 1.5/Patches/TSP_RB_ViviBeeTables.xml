@@ -107,18 +107,14 @@
 				<ThingDef ParentName="RB_CombBase">
 					<defName>TSP_RB_Beeliever_SlaveryOfVivi_Honeycomb</defName>
 					<label>Vivi Slaver Bee honeycomb</label>
-					<description>Slaver Bees are facultative, social, brood parasites that abduct larvae and use them to produce beeswax and honey. Instead of expending effort to feed, house, and construct for new members of the colony, Slaver Bee drones drive the slave species and kidnap new larvae, while the Slaver Queen produces new Slaver Bee drones to continue the cycle, all while she gets fat from her doting chattel. \n \ Vivi Slaver Bees parasitize Vivi larvae (they deserve it) to consume their honey. Reap the harvest of slave labor and enjoy large amounts of Vivi Honey and Vivi Wax.</description>
+					<description>Slaver Bees are facultative, social, brood parasites that abduct larvae and use them to produce beeswax and honey. Instead of expending effort to feed, house, and construct for new members of the colony, Slaver Bee drones drive the slave species and kidnap new larvae, while the Slaver Queen produces new Slaver Bee drones to continue the cycle, all while she gets fat from her doting chattel. \n \n Vivi Slaver Bees parasitize Vivi larvae (they deserve it) to consume their honey. Reap the harvest of slave labor and enjoy large amounts of Vivi Honey and Vivi Wax.</description>
 					<descriptionHyperlinks>
 						<!-- <ResearchProjectDef>ST_GnomeCulture</ResearchProjectDef> -->
 						<ThingDef>RB_Bee_Vivi_Queen</ThingDef>
 						<ThingDef>RB_Bee_Vivi_Drone</ThingDef>
 						<!-- <ThingDef>TSP_RB_Beeliever_SlaveryOfVivi_Honeycomb</ThingDef> -->
 						<RecipeDef>TSP_RB_Beeliever_Centrifuge_SlaveryOfVivi_Honeycomb</RecipeDef>
-						<!--
-						<ThingDef>TSP_ST_GnomeHoney</ThingDef>
-						<ThingDef>TSP_ST_RB_WildHive_Gnome</ThingDef>
-						<RecipeDef>TSP_ST_RB_Gneehive_Extract</RecipeDef>
-						-->
+						<ThingDef>VV_RawHoney</ThingDef>
 						<ThingDef>VV_FilteredHoney</ThingDef>
 						<ThingDef>VV_Viviwax</ThingDef>
 						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
@@ -134,7 +130,7 @@
 						<li>VV_ViviResource</li>
 					</thingCategories>
 					<butcherProducts>
-						<VV_FilteredHoney>5</VV_FilteredHoney>
+						<VV_RawHoney>6</VV_RawHoney>
 						<VV_Viviwax>5</VV_Viviwax>
 						<VV_FilthPollen>5</VV_FilthPollen>
 						<VV_Pollen>2</VV_Pollen>
@@ -147,13 +143,14 @@
 				<RecipeDef>
 					<defName>TSP_RB_Beeliever_Centrifuge_SlaveryOfVivi_Honeycomb</defName>
 					<label>extract from Vivi Slave-Making Bee honeycomb</label>
-					<description>Extracts Vivi Honey and ordianary Beeswax from an Vivi Slaver Bee honeycomb. Adamas Slaver Bees parasitize Miscellaneous Bee larvae to consume their food instead of honey. What's wrong with exploiting exploiters, after all?</description>
+					<description>Extracts Vivi Honey and ordianary Beeswax from a Vivi Slaver Bee honeycomb. Vivi Slaver Bees parasitize Vivi larvae to consume their food instead of honey. What's wrong with exploiting exploiters, after all?</description>
 					<descriptionHyperlinks>
 						<!-- <ResearchProjectDef>ST_GnomeCulture</ResearchProjectDef> -->
 						<ThingDef>RB_Bee_Vivi_Queen</ThingDef>
 						<ThingDef>RB_Bee_Vivi_Drone</ThingDef>
 						<ThingDef>TSP_RB_Beeliever_SlaveryOfVivi_Honeycomb</ThingDef>
 						<ThingDef>VV_FilteredHoney</ThingDef>
+						<ThingDef>VV_RawHoney</ThingDef>
 						<ThingDef>VV_Viviwax</ThingDef>
 						<!-- <RecipeDef>TSP_RB_Beeliever_Centrifuge_SlaveryOfVivi_Honeycomb</RecipeDef> -->
 						<!--
@@ -196,9 +193,7 @@
 						<li>Butchery</li>
 					</specialProducts>
 					<skillRequirements></skillRequirements>
-					<researchPrerequisites>
-						
-					</researchPrerequisites>
+					<researchPrerequisites></researchPrerequisites>
 				</RecipeDef>
 
 
@@ -338,7 +333,8 @@
 						<li>VV_ViviResource</li>
 					</thingCategories>
 					<butcherProducts>
-						<VV_Vivicream>20</VV_Vivicream>
+						<VV_Vivicream>25</VV_Vivicream>
+						<VV_FilteredHoney>2</VV_FilteredHoney>
 						<VV_Viviwax>5</VV_Viviwax>
 						<VV_FilthPollen>2</VV_FilthPollen>
 						<VV_Pollen>1</VV_Pollen>
@@ -359,6 +355,7 @@
 						<ThingDef>TSP_RB_Beeliever_SlaveryOfVivicream_Honeycomb</ThingDef>
 						<ThingDef>VV_Vivicream</ThingDef>
 						<ThingDef>VV_Viviwax</ThingDef>
+						<ThingDef>VV_FilteredHoney</ThingDef>
 						<!-- <RecipeDef>TSP_RB_Beeliever_Centrifuge_SlaveryOfVivicream_Honeycomb</RecipeDef> -->
 						<!--
 						<ThingDef>TSP_ST_GnomeHoney</ThingDef>
@@ -400,9 +397,7 @@
 						<li>Butchery</li>
 					</specialProducts>
 					<skillRequirements></skillRequirements>
-					<researchPrerequisites>
-						
-					</researchPrerequisites>
+					<researchPrerequisites></researchPrerequisites>
 				</RecipeDef>
 				
 				
@@ -515,20 +510,16 @@
 				<ThingDef ParentName="RB_CombBase">
 					<defName>TSP_RB_Beeliever_SlaveryOfVivi_Royal_Honeycomb</defName>
 					<label>Slaver Vivi Royal Bee honeycomb</label>
-					<description>Slaver Bees are facultative, social, brood parasites that abduct larvae and use them to produce beeswax and honey. Instead of expending effort to feed, house, and construct for new members of the colony, Slaver Bee drones drive the slave species and kidnap new larvae, while the Slaver Queen produces new Slaver Bee drones to continue the cycle, all while she gets fat from her doting chattel. \n \ Vivi Cream Slaver Bees parasitize Vivi larvae (they deserve it) to consume their Vivi Honey, which they further refine into Vivi Royal Jelly. Reap the harvest of slave labor and enjoy large amounts of Vivi Wax, alongside a prized stash of Vivi Royal Jelly. This requires a nearby stash of Vivi Cream to accomplish.</description>
+					<description>Slaver Bees are facultative, social, brood parasites that abduct larvae and use them to produce beeswax and honey. Instead of expending effort to feed, house, and construct for new members of the colony, Slaver Bee drones drive the slave species and kidnap new larvae, while the Slaver Queen produces new Slaver Bee drones to continue the cycle, all while she gets fat from her doting chattel. \n \ Vivi Royal Slaver Bees parasitize Vivi larvae (they deserve it) to consume their Vivi Honey, which they further refine into Vivi Royal Jelly. Reap the harvest of slave labor and enjoy large amounts of Vivi Wax, alongside a prized stash of Vivi Royal Jelly. This requires a nearby stash of Vivi Cream to accomplish.</description>
 					<descriptionHyperlinks>
 						<!-- <ResearchProjectDef>ST_GnomeCulture</ResearchProjectDef> -->
 						<ThingDef>RB_Bee_Vivi_Royal_Queen</ThingDef>
 						<ThingDef>RB_Bee_Vivi_Royal_Drone</ThingDef>
 						<!-- <ThingDef>TSP_RB_Beeliever_SlaveryOfVivi_Royal_Honeycomb</ThingDef> -->
 						<RecipeDef>TSP_RB_Beeliever_Centrifuge_SlaveryOfVivi_Royal_Honeycomb</RecipeDef>
-						<!--
-						<ThingDef>TSP_ST_GnomeHoney</ThingDef>
-						<ThingDef>TSP_ST_RB_WildHive_Gnome</ThingDef>
-						<RecipeDef>TSP_ST_RB_Gneehive_Extract</RecipeDef>
-						-->
 						<ThingDef>VV_RoyalJelly</ThingDef>
 						<ThingDef>VV_Viviwax</ThingDef>
+						<ThingDef>VV_FilteredHoney</ThingDef>
 						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
 					</descriptionHyperlinks>
 					<graphicData Inherit="False">
@@ -541,7 +532,8 @@
 						<li>VV_ViviResource</li>
 					</thingCategories>
 					<butcherProducts>
-						<VV_RoyalJelly>2</VV_RoyalJelly>
+						<VV_RoyalJelly>5</VV_RoyalJelly>
+						<VV_FilteredHoney>4</VV_FilteredHoney>
 						<VV_Viviwax>14</VV_Viviwax>
 						<VV_FilthPollen>14</VV_FilthPollen>
 						<VV_Pollen>10</VV_Pollen>
@@ -603,9 +595,7 @@
 						<li>Butchery</li>
 					</specialProducts>
 					<skillRequirements></skillRequirements>
-					<researchPrerequisites>
-						
-					</researchPrerequisites>
+					<researchPrerequisites></researchPrerequisites>
 				</RecipeDef>
 			</value>
 		</match>
