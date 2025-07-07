@@ -438,7 +438,7 @@
 				<ThingDef ParentName="RB_CombBase">
 					<defName>TSP_RB_Beeliever_RimstroVendor_Honeycomb</defName>
 					<label>Vendor Bee honeycomb</label>
-					<description>The products that Vendor Bees create to their larvae is astonishingly similar to the fuel needed to run a Rimstro Vending Machine, to the point of being interchangable. By this, one can extract Rimstro Vendor Logistics Supplies, Tasty Honey, and Black Beeswax from the bees' honeycombs.</description>
+					<description>The products that Vendor Bees create to their larvae is astonishingly similar to the fuel needed to run a Rimstro Vending Machine, to the point of being interchangable. By this, one can extract Rimstro Vending Machine Logistics Supplies, Tasty Honey, and Black Beeswax from the bees' honeycombs.</description>
 					<descriptionHyperlinks>
 						<ThingDef>RB_Bee_Vendor_Queen</ThingDef>
 						<ThingDef>RB_Bee_Vendor_Drone</ThingDef>
