@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<Patch>
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>/Defs/ThingDef[@Name="RS_VendingMachineBase"]/designationCategory</xpath>
+		<!-- If it DOES NOT, add this. -->
+		<nomatch Class="PatchOperationAdd">
+			<xpath>/Defs/ThingDef[@Name="RS_VendingMachineBase"]</xpath>
+			<success>Always</success>
+			<value>
+				<designationCategory>RS_Category</designationCategory>
+			</value>
+		</nomatch>
+		<!-- If the first XPATH does not exist, the original code stands. -->
+    </Operation>
+	
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>/Defs/ThingDef[@Name="RS_VendingMachineBase"]/constructionSkillPrerequisite</xpath>
+		<!-- If it DOES NOT, add this. -->
+		<nomatch Class="PatchOperationAdd">
+			<xpath>/Defs/ThingDef[@Name="RS_VendingMachineBase"]</xpath>
+			<success>Always</success>
+			<value>
+				<constructionSkillPrerequisite>7</constructionSkillPrerequisite>
+			</value>
+		</nomatch>
+		<!-- If the first XPATH does not exist, the original code stands. -->
+    </Operation>
+	
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>/Defs/ThingDef[@Name="RS_VendingMachineBase"]/costList</xpath>
+		<!-- If it DOES, do this replacement. -->
+		<match Class="PatchOperationReplace">
+			<xpath>/Defs/ThingDef[@Name="RS_VendingMachineBase"]/costList</xpath>
+			<success>Always</success>
+			<value>
+				<costList Inherit="False">
+					<ComponentIndustrial>7</ComponentIndustrial>
+				</costList>
+			</value>
+		</match>
+		<!-- If it DOES NOT, add this. -->
+		<nomatch Class="PatchOperationAdd">
+			<xpath>/Defs/ThingDef[@Name="RS_VendingMachineBase"]</xpath>
+			<success>Always</success>
+			<value>
+				<costList Inherit="False">
+					<ComponentIndustrial>7</ComponentIndustrial>
+				</costList>
+			</value>
+		</nomatch>
+		<!-- If the first XPATH does not exist, the original code stands. -->
+    </Operation>
+	
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>/Defs/ThingDef[@Name="RS_VendingMachineBase"]/stuffCategories</xpath>
+		<!-- If it DOES NOT, add this. -->
+		<nomatch Class="PatchOperationAdd">
+			<xpath>/Defs/ThingDef[@Name="RS_VendingMachineBase"]</xpath>
+			<success>Always</success>
+			<value>
+				<costStuffCount>40</costStuffCount>
+			</value>
+		</nomatch>
+		<!-- If the first XPATH does not exist, the original code stands. -->
+    </Operation>
+	
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>/Defs/ThingDef[@Name="RS_VendingMachineBase"]/stuffCategories</xpath>
+		<!-- If it DOES NOT, add this. -->
+		<nomatch Class="PatchOperationAdd">
+			<xpath>/Defs/ThingDef[@Name="RS_VendingMachineBase"]</xpath>
+			<success>Always</success>
+			<value>
+				<stuffCategories>
+					<li>Stony</li>
+					<li>Metallic</li>
+					<li>Woody</li>
+
+					<!-- Support for Mod Stuff -->
+					<li MayRequire="Dubwise.Rimefeller">Plastic</li>
+					<li MayRequire="Dubwise.Rimefeller">Composite</li>
+					<li MayRequire="sarg.alphabiomes">AB_ExoticMetals</li>
+				</stuffCategories>
+			</value>
+		</nomatch>
+		<!-- If the first XPATH does not exist, the original code stands. -->
+    </Operation>
+	
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>/Defs/ThingDef[@Name="RS_VendingMachineBase"]/researchPrerequisites</xpath>
+		<!-- If it does, do this replacement. -->
+		<match Class="PatchOperationReplace">
+			<xpath>/Defs/ThingDef[@Name="RS_VendingMachineBase"]/researchPrerequisites</xpath>
+			<success>Always</success>
+			<value>
+				<researchPrerequisites Inherit="False">
+					<li>Electricity</li>
+					<li>AirConditioning</li>
+				</researchPrerequisites>
+			</value>
+		</match>
+		<!-- If it DOES NOT, add this. -->
+		<nomatch Class="PatchOperationAdd">
+			<xpath>/Defs/ThingDef[@Name="RS_VendingMachineBase"]</xpath>
+			<success>Always</success>
+			<value>
+				<researchPrerequisites Inherit="False">
+					<li>Electricity</li>
+					<li>AirConditioning</li>
+				</researchPrerequisites>
+			</value>
+		</nomatch>
+		<!-- If the first XPATH does not exist, the original code stands. -->
+    </Operation>
+	
+	<Operation Class="PatchOperationConditional">
+	<!-- DO THE GENTILES KNOW? -->
+		<xpath>/Defs/ThingDef[@Name="RS_VendingMachineBase"]/constructEffect</xpath>
+		<!-- If they do, SHUT IT DOWN. -->
+		<match Class="PatchOperationRemove">
+			<xpath>/Defs/ThingDef[@Name="RS_VendingMachineBase"]/constructEffect</xpath>
+			<success>Always</success>
+		</match>
+	</Operation>
+	
+	<Operation Class="PatchOperationConditional">
+	<!-- DO THE GENTILES KNOW? -->
+		<xpath>/Defs/ThingDef[defName="RS_VendingMachineBase"]/constructEffect</xpath>
+		<!-- If they do, SHUT IT DOWN. -->
+		<match Class="PatchOperationRemove">
+			<xpath>/Defs/ThingDef[defName="RS_VendingMachineBase"]/constructEffect</xpath>
+			<success>Always</success>
+		</match>
+	</Operation>
+</Patch>
