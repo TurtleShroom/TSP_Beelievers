@@ -190,7 +190,7 @@
 						<ThingDef>TSP_RB_Beeliever_Gravy_Honeycomb</ThingDef>
 						<ThingDef>AC_Gravy</ThingDef>
 						<ThingDef>RB_RedBeeswax</ThingDef>
-						<!-- <RecipeDef>TSP_RB_Beeliever_Centrifuge_SlaveryOfHaplo_Honeycomb</RecipeDef> -->
+						<!-- <RecipeDef>TSP_RB_Beeliever_Centrifuge_Gravy_Honeycomb</RecipeDef> -->
 						<!--
 						<ThingDef>TSP_ST_GnomeHoney</ThingDef>
 						<ThingDef>TSP_ST_RB_WildHive_Gnome</ThingDef>
@@ -229,9 +229,7 @@
 						<li>Butchery</li>
 					</specialProducts>
 					<skillRequirements></skillRequirements>
-					<researchPrerequisites>
-						
-					</researchPrerequisites>
+					<researchPrerequisites></researchPrerequisites>
 				</RecipeDef>
 				
 				
@@ -437,9 +435,7 @@
 						<li>Butchery</li>
 					</specialProducts>
 					<skillRequirements></skillRequirements>
-					<researchPrerequisites>
-						
-					</researchPrerequisites>
+					<researchPrerequisites></researchPrerequisites>
 				</RecipeDef>
 			</value>
 		</match>

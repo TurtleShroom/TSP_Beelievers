@@ -12,7 +12,7 @@
 				<!-- Slaver Branch -->
 				<!-- TIER II -->
 				<!-- Haplo Slaver Bees: kidnaps Haplo (Miscellaneous Bees Mod) larvae, makes Haplo Honey -->
-				<RimBees.BeeListDef>
+				<RimBees.BeeListDef MayRequire="haplo.miscellaneous.beesnhoney">
 					<defName>TSP_RB_Beeliever_SlaverBee1_Haplo</defName>
 					<nameString>Haplo</nameString>
 					<beeDroneDef>RB_Bee_Haplo_Drone</beeDroneDef>
@@ -24,17 +24,17 @@
 				</RimBees.BeeListDef>
 				
 				<!--
-				<RimBees.BeeCombinationDef>
+				<RimBees.BeeCombinationDef MayRequire="haplo.miscellaneous.beesnhoney">
 					<defName>TSP_RB_Beelievers_SlaverTables_Haplo</defName>
 					<bee1>Slaver</bee1>
 					<bee2>Adaptive</bee2>
 					<result>
-						<li>Haplo</li>
+						<li MayRequire="haplo.miscellaneous.beesnhoney">Haplo</li>
 					</result>				
 				</RimBees.BeeCombinationDef>
 				-->
 			
-				<ThingDef ParentName="TSP_RB_Beeliever_SlaverBase" Name="TSP_RB_Beeliever_HaploBase" Abstract="True">
+				<ThingDef ParentName="TSP_RB_Beeliever_SlaverBase" Name="TSP_RB_Beeliever_HaploBase" Abstract="True" MayRequire="haplo.miscellaneous.beesnhoney">
 					<!-- <label>Haplo Slave-Making Bee</label> -->
 					<description>On Old Earth, living beings' ownership of other living beings as chattel did not stop with men owning animals, or even men owning men. Animals are capable of it too! There exists a rare adaption among insects where they will capture animals of other species and compel them to work for them. This is called "dulosis," literally "slave-making," and is a form of facultative, social, brood parasitism. It occurs most commonly among the slave-making ants, of which dozens of species exist. However, dulosis has also beeen recorded in bees. \n \n These slave-making bees exclusively target the larvae of Miscellaneous (Haplo) Bees, a special breed, and feed on the Haplo Honey of those bees. \n\n\n\n\n Bee Traits: \n\n 	Production time: 12 hours \n 	Works at Night: No \n 	Works When Raining: Yes \n 	Unusual Sources Needed: No \n 	Minimum Temperature: 0ºF (-17.7778ºC) \n 	Maximum temperature: 97ºF (36.1111ºC)</description>
 					<!--
@@ -57,17 +57,17 @@
 					</comps>
 				</ThingDef>
 				
-				<ThingDef ParentName="TSP_RB_Beeliever_HaploBase">
+				<ThingDef ParentName="TSP_RB_Beeliever_HaploBase" MayRequire="haplo.miscellaneous.beesnhoney">
 					<defName>RB_Bee_Haplo_Queen</defName>
 					<label>Haplo Slaver queen</label>
 					<descriptionHyperlinks>
-						<!-- <ThingDef>RB_Bee_Haplo_Queen</ThingDef> -->
-						<ThingDef>RB_Bee_Haplo_Drone</ThingDef>
-						<ThingDef>TSP_RB_Beeliever_SlaveryOfHaplo_Honeycomb</ThingDef>
-						<RecipeDef>TSP_RB_Beeliever_Centrifuge_SlaveryOfHaplo_Honeycomb</RecipeDef>
+						<!-- <ThingDef MayRequire="haplo.miscellaneous.beesnhoney">RB_Bee_Haplo_Queen</ThingDef> -->
+						<ThingDef MayRequire="haplo.miscellaneous.beesnhoney">RB_Bee_Haplo_Drone</ThingDef>
+						<ThingDef MayRequire="haplo.miscellaneous.beesnhoney">TSP_RB_Beeliever_SlaveryOfHaplo_Honeycomb</ThingDef>
+						<RecipeDef MayRequire="haplo.miscellaneous.beesnhoney">TSP_RB_Beeliever_Centrifuge_SlaveryOfHaplo_Honeycomb</RecipeDef>
 						<!--
-						<ThingDef>TSP_ST_RB_WildHive_Gnome</ThingDef>
-						<RecipeDef>TSP_ST_RB_Gneehive_Extract</RecipeDef>
+						<ThingDef MayRequire="haplo.miscellaneous.beesnhoney">TSP_ST_RB_WildHive_Gnome</ThingDef>
+						<RecipeDef MayRequire="haplo.miscellaneous.beesnhoney">TSP_ST_RB_Gneehive_Extract</RecipeDef>
 						-->
 						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
 					</descriptionHyperlinks>
@@ -77,18 +77,14 @@
 					</graphicData> 		
 				</ThingDef>
 				
-				<ThingDef ParentName="TSP_RB_Beeliever_HaploBase">
+				<ThingDef ParentName="TSP_RB_Beeliever_HaploBase" MayRequire="haplo.miscellaneous.beesnhoney">
 					<defName>RB_Bee_Haplo_Drone</defName>
 					<label>Haplo Slaver drone</label>
 					<descriptionHyperlinks>
-						<ThingDef>RB_Bee_Haplo_Queen</ThingDef>
-						<!-- <ThingDef>RB_Bee_Haplo_Drone</ThingDef> -->
-						<ThingDef>TSP_RB_Beeliever_SlaveryOfHaplo_Honeycomb</ThingDef>
-						<RecipeDef>TSP_RB_Beeliever_Centrifuge_SlaveryOfHaplo_Honeycomb</RecipeDef>
-						<!--
-						<ThingDef>TSP_ST_RB_WildHive_Gnome</ThingDef>
-						<RecipeDef>TSP_ST_RB_Gneehive_Extract</RecipeDef>
-						-->
+						<ThingDef MayRequire="haplo.miscellaneous.beesnhoney">RB_Bee_Haplo_Queen</ThingDef>
+						<!-- <ThingDef MayRequire="haplo.miscellaneous.beesnhoney">RB_Bee_Haplo_Drone</ThingDef> -->
+						<ThingDef MayRequire="haplo.miscellaneous.beesnhoney">TSP_RB_Beeliever_SlaveryOfHaplo_Honeycomb</ThingDef>
+						<RecipeDef MayRequire="haplo.miscellaneous.beesnhoney">TSP_RB_Beeliever_Centrifuge_SlaveryOfHaplo_Honeycomb</RecipeDef>
 						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
 					</descriptionHyperlinks>
 					<graphicData Inherit="False">
@@ -97,22 +93,16 @@
 					</graphicData> 		
 				</ThingDef>
 				
-				<ThingDef ParentName="RB_CombBase">
+				<ThingDef ParentName="RB_CombBase" MayRequire="haplo.miscellaneous.beesnhoney">
 					<defName>TSP_RB_Beeliever_SlaveryOfHaplo_Honeycomb</defName>
 					<label>Haplo Slaver Bee honeycomb</label>
 					<description>Slaver Bees are facultative, social, brood parasites that abduct larvae and use them to produce beeswax and honey. Instead of expending effort to feed, house, and construct for new members of the colony, Slaver Bee drones drive the slave species and kidnap new larvae, while the Slaver Queen produces new Slaver Bee drones to continue the cycle, all while she gets fat from her doting chattel. \n \ Haplo Slaver Bees parasitize the special Miscellaneous Bee breed's larvae to consume their honey. Reap the harvest of slave labor and enjoy large amounts of Haplo Honey and ordinary Beeswax.</description>
 					<descriptionHyperlinks>
-						<!-- <ResearchProjectDef>ST_GnomeCulture</ResearchProjectDef> -->
-						<ThingDef>RB_Bee_Haplo_Queen</ThingDef>
-						<ThingDef>RB_Bee_Haplo_Drone</ThingDef>
-						<!-- <ThingDef>TSP_RB_Beeliever_SlaveryOfHaplo_Honeycomb</ThingDef> -->
-						<RecipeDef>TSP_RB_Beeliever_Centrifuge_SlaveryOfHaplo_Honeycomb</RecipeDef>
-						<!--
-						<ThingDef>TSP_ST_GnomeHoney</ThingDef>
-						<ThingDef>TSP_ST_RB_WildHive_Gnome</ThingDef>
-						<RecipeDef>TSP_ST_RB_Gneehive_Extract</RecipeDef>
-						-->
-						<ThingDef>Honey</ThingDef> <!-- Seriously dude, give it a better name -->
+						<ThingDef MayRequire="haplo.miscellaneous.beesnhoney">RB_Bee_Haplo_Queen</ThingDef>
+						<ThingDef MayRequire="haplo.miscellaneous.beesnhoney">RB_Bee_Haplo_Drone</ThingDef>
+						<!-- <ThingDef MayRequire="haplo.miscellaneous.beesnhoney">TSP_RB_Beeliever_SlaveryOfHaplo_Honeycomb</ThingDef> -->
+						<RecipeDef MayRequire="haplo.miscellaneous.beesnhoney">TSP_RB_Beeliever_Centrifuge_SlaveryOfHaplo_Honeycomb</RecipeDef>
+						<ThingDef MayRequire="haplo.miscellaneous.beesnhoney">Honey</ThingDef> <!-- Seriously dude, give it a better name -->
 						<ThingDef>RB_Beeswax</ThingDef>
 						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
 					</descriptionHyperlinks>
@@ -137,18 +127,18 @@
 					</butcherProducts>
 				</ThingDef>
 				
-				<RecipeDef>
+				<RecipeDef MayRequire="haplo.miscellaneous.beesnhoney">
 					<defName>TSP_RB_Beeliever_Centrifuge_SlaveryOfHaplo_Honeycomb</defName>
 					<label>extract from Haplo Slave-Making Bee honeycomb</label>
 					<description>Extracts Haplo Honey and ordianary Beeswax from an Haplo Slaver Bee honeycomb. Haplo Slaver Bees parasitize Miscellaneous Bee larvae to consume their food instead of honey. What's wrong with exploiting exploiters, after all?</description>
 					<descriptionHyperlinks>
 						<!-- <ResearchProjectDef>ST_GnomeCulture</ResearchProjectDef> -->
-						<ThingDef>RB_Bee_Haplo_Queen</ThingDef>
-						<ThingDef>RB_Bee_Haplo_Drone</ThingDef>
-						<ThingDef>TSP_RB_Beeliever_SlaveryOfHaplo_Honeycomb</ThingDef>
-						<ThingDef>Honey</ThingDef>
+						<ThingDef MayRequire="haplo.miscellaneous.beesnhoney">RB_Bee_Haplo_Queen</ThingDef>
+						<ThingDef MayRequire="haplo.miscellaneous.beesnhoney">RB_Bee_Haplo_Drone</ThingDef>
+						<ThingDef MayRequire="haplo.miscellaneous.beesnhoney">TSP_RB_Beeliever_SlaveryOfHaplo_Honeycomb</ThingDef>
+						<ThingDef MayRequire="haplo.miscellaneous.beesnhoney">Honey</ThingDef>
 						<ThingDef>RB_Beeswax</ThingDef>
-						<!-- <RecipeDef>TSP_RB_Beeliever_Centrifuge_SlaveryOfHaplo_Honeycomb</RecipeDef> -->
+						<!-- <RecipeDef MayRequire="haplo.miscellaneous.beesnhoney">TSP_RB_Beeliever_Centrifuge_SlaveryOfHaplo_Honeycomb</RecipeDef> -->
 						<!--
 						<ThingDef>TSP_ST_GnomeHoney</ThingDef>
 						<ThingDef>TSP_ST_RB_WildHive_Gnome</ThingDef>
@@ -187,9 +177,7 @@
 						<li>Butchery</li>
 					</specialProducts>
 					<skillRequirements></skillRequirements>
-					<researchPrerequisites>
-						
-					</researchPrerequisites>
+					<researchPrerequisites></researchPrerequisites>
 				</RecipeDef>
 			</value>
 		</match>

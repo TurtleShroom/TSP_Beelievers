@@ -461,8 +461,8 @@
 						<texPath>Things/Item/Combs/RB_Slurry_Honeycomb</texPath>
 					</graphicData>
 					<butcherProducts>
-						<AA_DisgustingMealNutrientPaste MayRequire="sarg.rimbees">20</AA_DisgustingMealNutrientPaste>
-						<NutrientPaste>5</NutrientPaste>
+						<AA_DisgustingMealNutrientPaste MayRequire="sarg.rimbees,sarg.alphaanimals">20</AA_DisgustingMealNutrientPaste>
+						<MealNutrientPaste>5</MealNutrientPaste>
 						<RB_Brittlewax>5</RB_Brittlewax>
 						<ComponentIndustrial>2</ComponentIndustrial>
 					</butcherProducts>
@@ -549,7 +549,7 @@
 		<!-- If they do, SHUT IT DOWN. -->
 		<match Class="PatchOperationRemove">
 			<success>Always</success>
-			<xpath>/Defs/ThingDef[defName="RB_Slurry_Honeycomb"]/butcherProducts/NutrientPaste</xpath>
+			<xpath>/Defs/ThingDef[defName="RB_Slurry_Honeycomb"]/butcherProducts/MealNutrientPaste</xpath>
 		</match>
 		<!-- If the first XPATH does not exist, the original code stands. -->
 	</Operation>
