@@ -107,7 +107,7 @@
 						<ThingDef>RB_Bee_Asbeestos_Drone</ThingDef>
 						<!-- <ThingDef>TSP_RB_Beeliever_Asbeestos_Honeycomb</ThingDef> -->
 						<RecipeDef>TSP_RB_Beeliever_Centrifuge_Asbeestos_Honeycomb</RecipeDef>
-						<li>Asbestos_Fiber</li>
+						<ThingDef>Asbestos_Fiber</ThingDef>
 						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
 					</descriptionHyperlinks>
 					<graphicData Inherit="False">
@@ -137,7 +137,7 @@
 						<ThingDef>RB_Bee_Asbeestos_Drone</ThingDef>
 						<ThingDef>TSP_RB_Beeliever_Asbeestos_Honeycomb</ThingDef>
 						<!-- <RecipeDef>TSP_RB_Beeliever_Centrifuge_Asbeestos_Honeycomb</RecipeDef> -->
-						<li>Asbestos_Fiber</li>
+						<ThingDef>Asbestos_Fiber</ThingDef>
 						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
 					</descriptionHyperlinks>
 					<uiIconThing>Asbestos_Fiber</uiIconThing>
