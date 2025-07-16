@@ -106,7 +106,7 @@
 						<ThingDef>RB_Bee_Northern_Queen</ThingDef>
 						<ThingDef>RB_Bee_Northern_Drone</ThingDef>
 						<!-- <ThingDef>TSP_RB_Beeliever_Starch_Honeycomb</ThingDef> -->
-						<RecipeDef>TSP_RB_Beeliever_Centrifuge_Starch_Honeycomb</RecipeDef>
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_Northern_Honeycomb</RecipeDef>
 						<!--
 						<ThingDef>TSP_ST_GnomeHoney</ThingDef>
 						<ThingDef>TSP_ST_RB_WildHive_Gnome</ThingDef>

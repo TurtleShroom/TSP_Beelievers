@@ -46,7 +46,7 @@
 					<statBases>
 						<Flammability>0</Flammability>
 					</statBases>
-					<comps>			
+					<comps Inherit="False">
 						<li Class="RimBees.CompProperties_Bees" Inherit="False">
 							<species>Asbeestos</species>
 							<comb>TSP_RB_Beeliever_Asbeestos_Honeycomb</comb>

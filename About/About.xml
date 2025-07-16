@@ -99,11 +99,13 @@
 		<li>inertialmage.toxicplants</li>
 		<li>grubious.soylentgreen</li>
 		<li>lat.rimstro</li>
+		<li>oskarpotocki.vfe.medieval2</li>
 	</loadAfter>
 	<loadBefore>
 		<li>zal.patchhoney</li>
 		<li>tsp.zal.patchhoney2</li>
 		<li>TSP.Isengriff.Storytime</li>
+		<li>tsp.velcroboy333.medievalfestival.banquet</li>
 	</loadBefore>
 	<description>
 		[H2]TURTLESHROOM PRODUCTIONS PRESENTS: I CANNOT BEE-LIEVE IT!![/H2]

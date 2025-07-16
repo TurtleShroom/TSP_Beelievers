@@ -70,7 +70,7 @@
 					</graphicData>
 					-->
 					<intricate>true</intricate>
-					<comps>			
+					<comps Inherit="False">
 						<li Class="RimBees.CompProperties_Bees" Inherit="False">
 							<species>Ahnuld_Core</species>
 							<comb>TSP_RB_Beeliever_Ahnuld_Core_Honeycomb</comb>
@@ -265,7 +265,7 @@
 					</graphicData>
 					-->
 					<intricate>true</intricate>
-					<comps>			
+					<comps Inherit="False">
 						<li Class="RimBees.CompProperties_Bees" Inherit="False">
 							<species>Ahnuld_Chip</species>
 							<comb>TSP_RB_Beeliever_Ahnuld_Chip_Honeycomb</comb>

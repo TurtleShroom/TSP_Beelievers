@@ -135,7 +135,7 @@
 						<ThingDef>RawStarchSeed</ThingDef>
 						<ThingDef>StarchSeedJellyMeal</ThingDef>
 						<ThingDef>RB_HeavyWax</ThingDef>
-						<!-- <RecipeDef>TSP_RB_Beeliever_Centrifuge_SlaveryOfAdamas_Honeycomb</RecipeDef> -->
+						<!-- <RecipeDef>TSP_RB_Beeliever_Centrifuge_Starch_Honeycomb</RecipeDef> -->
 						<!--
 						<ThingDef>TSP_ST_GnomeHoney</ThingDef>
 						<ThingDef>TSP_ST_RB_WildHive_Gnome</ThingDef>

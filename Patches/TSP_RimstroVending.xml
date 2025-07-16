@@ -2,6 +2,39 @@
 
 <Patch>
 	<Operation Class="PatchOperationConditional">
+	<!-- DO THE GENTILES KNOW? -->
+		<xpath>/Defs/ThingDef[@Name="RS_VendingMachineBase"]/stuffCategories</xpath>
+		<!-- If they do, SHUT IT DOWN. -->
+		<match Class="PatchOperationRemove">
+			<success>Always</success>
+			<xpath>/Defs/ThingDef[@Name="RS_VendingMachineBase"]/stuffCategories</xpath>
+		</match>
+		<!-- If the original XPATH does not exist, the original code stands. All according to plan. -->
+	</Operation>
+	
+	<Operation Class="PatchOperationConditional">
+	<!-- DO THE GENTILES KNOW? -->
+		<xpath>/Defs/ThingDef[@Name="RS_VendingMachineBase"]/costStuffCount</xpath>
+		<!-- If they do, SHUT IT DOWN. -->
+		<match Class="PatchOperationRemove">
+			<success>Always</success>
+			<xpath>/Defs/ThingDef[@Name="RS_VendingMachineBase"]/costStuffCount</xpath>
+		</match>
+		<!-- If the original XPATH does not exist, the original code stands. All according to plan. -->
+	</Operation>
+	
+	<Operation Class="PatchOperationConditional">
+	<!-- DO THE GENTILES KNOW? -->
+		<xpath>/Defs/ThingDef[@Name="RS_VendingMachineBase"]/researchPrerequisite</xpath>
+		<!-- If they do, SHUT IT DOWN. -->
+		<match Class="PatchOperationRemove">
+			<success>Always</success>
+			<xpath>/Defs/ThingDef[@Name="RS_VendingMachineBase"]/researchPrerequisite</xpath>
+		</match>
+		<!-- If the original XPATH does not exist, the original code stands. All according to plan. -->
+	</Operation>
+
+	<Operation Class="PatchOperationConditional">
 	<!-- Does this exist? -->
 		<xpath>/Defs/ThingDef[@Name="RS_VendingMachineBase"]/designationCategory</xpath>
 		<!-- If it DOES NOT, add this. -->
@@ -23,7 +56,7 @@
 			<xpath>/Defs/ThingDef[@Name="RS_VendingMachineBase"]</xpath>
 			<success>Always</success>
 			<value>
-				<constructionSkillPrerequisite>7</constructionSkillPrerequisite>
+				<constructionSkillPrerequisite>5</constructionSkillPrerequisite>
 			</value>
 		</nomatch>
 		<!-- If the first XPATH does not exist, the original code stands. -->
@@ -38,7 +71,7 @@
 			<success>Always</success>
 			<value>
 				<costList Inherit="False">
-					<ComponentIndustrial>7</ComponentIndustrial>
+					<ComponentIndustrial>5</ComponentIndustrial>
 				</costList>
 			</value>
 		</match>

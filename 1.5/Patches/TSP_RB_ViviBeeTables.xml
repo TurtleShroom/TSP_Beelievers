@@ -44,7 +44,7 @@
 					</graphicData>
 					-->
 					<thingCategories>
-						<li>VV_ViviResource</li>
+						<li MayRequire="gguake.race.vivi">VV_ViviResource</li>
 					</thingCategories>
 					<tradeTags></tradeTags>
 				</ThingDef>
@@ -127,16 +127,16 @@
 					</graphicData>
 					<thingCategories Inherit="False">
 						<li>TSP_RB_Beeliever_Honeycombs</li>
-						<li>VV_ViviResource</li>
+						<li MayRequire="gguake.race.vivi">VV_ViviResource</li>
 					</thingCategories>
 					<butcherProducts>
 						<VV_RawHoney>6</VV_RawHoney>
 						<VV_Viviwax>5</VV_Viviwax>
-						<VV_FilthPollen>5</VV_FilthPollen>
-						<VV_Pollen>2</VV_Pollen>
+						<VV_FilthPollen MayRequire="gguake.race.vivi">5</VV_FilthPollen>
+						<VV_Pollen MayRequire="gguake.race.vivi">2</VV_Pollen>
 					</butcherProducts>
 					<tradeTags>
-						<li>VV_ViviResource</li>
+						<li MayRequire="gguake.race.vivi">VV_ViviResource</li>
 					</tradeTags>
 				</ThingDef>
 				
@@ -248,7 +248,7 @@
 					-->
 					<thingCategories></thingCategories> <!-- Inherits from the Base -->
 					<tradeTags>
-						<li>VV_ViviResource</li>
+						<li MayRequire="gguake.race.vivi">VV_ViviResource</li>
 					</tradeTags>
 					<comps>			
 						<li Class="RimBees.CompProperties_Bees" Inherit="False">
@@ -330,17 +330,17 @@
 					</graphicData>
 					<thingCategories Inherit="False">
 						<li>TSP_RB_Beeliever_Honeycombs</li>
-						<li>VV_ViviResource</li>
+						<li MayRequire="gguake.race.vivi">VV_ViviResource</li>
 					</thingCategories>
 					<butcherProducts>
 						<VV_Vivicream>25</VV_Vivicream>
 						<VV_FilteredHoney>2</VV_FilteredHoney>
 						<VV_Viviwax>5</VV_Viviwax>
-						<VV_FilthPollen>2</VV_FilthPollen>
-						<VV_Pollen>1</VV_Pollen>
+						<VV_FilthPollen MayRequire="gguake.race.vivi">2</VV_FilthPollen>
+						<VV_Pollen MayRequire="gguake.race.vivi">1</VV_Pollen>
 					</butcherProducts>
 					<tradeTags>
-						<li>VV_ViviResource</li>
+						<li MayRequire="gguake.race.vivi">VV_ViviResource</li>
 					</tradeTags>
 				</ThingDef>
 				
@@ -529,17 +529,17 @@
 					</graphicData>
 					<thingCategories Inherit="False">
 						<li>TSP_RB_Beeliever_Honeycombs</li>
-						<li>VV_ViviResource</li>
+						<li MayRequire="gguake.race.vivi">VV_ViviResource</li>
 					</thingCategories>
 					<butcherProducts>
 						<VV_RoyalJelly>5</VV_RoyalJelly>
 						<VV_FilteredHoney>4</VV_FilteredHoney>
 						<VV_Viviwax>14</VV_Viviwax>
-						<VV_FilthPollen>14</VV_FilthPollen>
-						<VV_Pollen>10</VV_Pollen>
+						<VV_FilthPollen MayRequire="gguake.race.vivi">14</VV_FilthPollen>
+						<VV_Pollen MayRequire="gguake.race.vivi">10</VV_Pollen>
 					</butcherProducts>
 					<tradeTags>
-						<li>VV_ViviResource</li>
+						<li MayRequire="gguake.race.vivi">VV_ViviResource</li>
 					</tradeTags>
 				</ThingDef>
 				
