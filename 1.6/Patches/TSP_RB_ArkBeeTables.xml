@@ -266,8 +266,8 @@
 				<li MayRequire="sera.apinialienrace">ApiniHoney_R</li>
 				<li MayRequire="sera.apinialienrace">ApiniHoney_W</li>
 				<li MayRequire="sera.apinialienrace">ApiniHoney_V</li>
-				<li MayRequire="sarg.rimbees">NpiniMeatHoney</li>
-				<li MayRequire="sumika.nanohana">L24_Manto_MantodeanJelly</li>
+				<li MayRequire="sera.apinialienrace">NpiniMeatHoney</li>
+				<li MayRequire="eltwofour.mantodeanrace">L24_Manto_MantodeanJelly</li>
 				<li MayRequire="sarg.alphaanimals,sarg.alphabiomes">AB_BumbledroneFood</li>
 				<li MayRequire="zoura3025.megabees">MegabeeTallow</li>
 				<li MayRequire="sera.apinialienrace">ApiniJelly</li>

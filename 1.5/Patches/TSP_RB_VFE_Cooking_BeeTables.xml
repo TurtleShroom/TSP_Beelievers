@@ -484,7 +484,7 @@
 						<!-- <ThingDef>TSP_RB_Beeliever_Cheese_Honeycomb</ThingDef> -->
 						<RecipeDef>TSP_RB_Beeliever_Centrifuge_Cheese_Honeycomb</RecipeDef>
 						<ThingDef>VCE_Cheese</ThingDef>
-						<ThingDef>VCE_BeeCheese</ThingDef>
+						<!-- <ThingDef>VCE_BeeCheese</ThingDef> -->
 						<ThingDef>RB_BeeMilk</ThingDef>
 						<ThingDef>RB_Beeswax</ThingDef>
 						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
@@ -498,8 +498,8 @@
 						<li>TSP_RB_Beeliever_Honeycombs</li>
 					</thingCategories>
 					<butcherProducts>
-						<VCE_Cheese>2</VCE_Cheese>
-						<VCE_BeeCheese>2</VCE_BeeCheese>
+						<VCE_Cheese>5</VCE_Cheese>
+						<!-- <VCE_BeeCheese>2</VCE_BeeCheese> -->
 						<RB_BeeMilk>1</RB_BeeMilk>
 						<RB_Beeswax>5</RB_Beeswax>
 					</butcherProducts>
@@ -515,13 +515,13 @@
 						<ThingDef>TSP_RB_Beeliever_Cheese_Honeycomb</ThingDef>
 						<!-- <RecipeDef>TSP_RB_Beeliever_Centrifuge_Cheese_Honeycomb</RecipeDef> -->
 						<ThingDef>VCE_Cheese</ThingDef>
-						<ThingDef>VCE_BeeCheese</ThingDef>
+						<!-- <ThingDef>VCE_BeeCheese</ThingDef> -->
 						<ThingDef>RB_BeeMilk</ThingDef>
 						<ThingDef>RB_Beeswax</ThingDef>
 						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
 					</descriptionHyperlinks>
-					<uiIconThing>VCE_BeeCheese</uiIconThing>
-					<jobString>Cheese.</jobString>
+					<uiIconThing>VCE_Cheese</uiIconThing>
+					<jobString>Say cheese!</jobString>
 					<effectWorking>Cremate</effectWorking>
 					<soundWorking>Recipe_Cremate</soundWorking>
 					<workAmount>900</workAmount>

@@ -191,7 +191,7 @@
 							<Beauty>3</Beauty>
 							<PawnBeauty>3</PawnBeauty>
 						</statOffsets>
-						<forgetMemoryThoughtMtbDays>1</forgetMemoryThoughtMtbDays>
+						<forgetMemoryThoughtMtbDays>0.85</forgetMemoryThoughtMtbDays>
 						<pctConditionalThoughtsNullified>0.5</pctConditionalThoughtsNullified>
 						<capMods>
 							<!--
@@ -304,7 +304,7 @@
 			<success>Always</success>
 			<xpath>/Defs/ThingDef[defName="BOG_Baby_Oil"]/description</xpath>
 			<value>
-				<description>Baby oil is a fragrant, inert, mineral oil used to moisturize human skin. A newborn infant's skin is fragile, thin, and his epidermal barrier is not finioshed. If not dealt with, this can lead to extensive infections and blisters on baby's skin, but baby oil is used to prevent this. \n \n Or, that's what baby oil is supposed to be. Something is VERY wrong with THIS baby oil. Looking at it fills individuals with a nervous, but exciting, desire to consume it, and the ingestion of it sends its consumers on quite a ride. This baby oil is a cure for bleariness, but those who drink it find that what happens next can never be communicated. Prepare to FREAK OUT! \n \n Written on the back of the bottle are the words "DIDDY'S FAVORITE."</description>
+				<description>Baby oil is a fragrant, inert, mineral oil used to moisturize human skin. A newborn infant's skin is fragile, thin, and his epidermal barrier is not finioshed. If not dealt with, this can lead to extensive infections and blisters on baby's skin, but baby oil is used to prevent this. \n \n Or, that's what baby oil is supposed to be. Something is VERY wrong with THIS baby oil. Looking at it fills individuals with a nervous, but exciting, desire to consume it, and the ingestion of it sends its consumers on quite a ride. This baby oil is a cure for bleariness, but those who drink it find that what happens next can never be communicated. Prepare to FREAK OUT! \n \n Scrawled on the bottle are the words "DIDDY'S FAVORITE."</description>
 			</value>
 		</match>
 		<!-- If the first XPATH does not exist, the original code stands. -->
@@ -319,54 +319,6 @@
 			<xpath>/Defs/HediffDef[defName="BOG_BabyOilHigh"]/description</xpath>
 			<value>
 				<description>The strange and unnatural additives of ingested, highly suspect baby oil, present in the blood stream. This baby oil is a cure for bleariness, but those who drink it find that what happens next can never be communicated.</description>
-			</value>
-		</match>
-		<!-- If the first XPATH does not exist, the original code stands. -->
-	</Operation>
-
-	<Operation Class="PatchOperationConditional" MayRequire="goo.babyoilgojuice">
-		<!-- Does this exist? -->
-		<xpath MayRequire="goo.babyoilgojuice">/Defs/JoyGiverDef[defName="TSP_Diddy_FreakOff"]</xpath>
-		<!-- If it DOES NOT, add this. -->
-		<nomatch Class="PatchOperationAdd" MayRequire="goo.babyoilgojuice">
-			<success MayRequire="goo.babyoilgojuice">Always</success>
-			<xpath MayRequire="goo.babyoilgojuice">/Defs</xpath>
-			<value MayRequire="goo.babyoilgojuice">
-				<JoyGiverDef MayRequire="goo.babyoilgojuice">
-					<defName MayRequire="goo.babyoilgojuice">TSP_Diddy_FreakOff</defName>
-					<giverClass MayRequire="goo.babyoilgojuice">JoyGiver_TakeDrug</giverClass>
-					<baseChance MayRequire="goo.babyoilgojuice">2.53</baseChance>
-					<joyKind MayRequire="goo.babyoilgojuice">Chemical</joyKind>
-					<thingDefs MayRequire="goo.babyoilgojuice">
-						<li MayRequire="goo.babyoilgojuice">BOG_Baby_Oil</li>
-					</thingDefs>
-				</JoyGiverDef>
-			</value>
-		</nomatch>
-		<!-- If the first XPATH does not exist, the original code stands. -->
-	</Operation>
-	
-	<Operation Class="PatchOperationConditional">
-		<!-- Does this exist? -->
-		<xpath>/Defs/ThingDef[defName="BOG_Baby_Oil"]/comps</xpath>
-		<!-- If it does, do this replacement. -->
-		<match Class="PatchOperationReplace">
-			<success>Always</success>
-			<xpath>/Defs/ThingDef[defName="BOG_Baby_Oil"]/comps</xpath>
-			<value>
-				<comps>
-					<li Class="CompProperties_Drug">
-						<chemical>BOG_BabyOil</chemical>
-						<addictiveness>0.1</addictiveness>
-						<minToleranceToAddict>0</minToleranceToAddict>
-						<existingAddictionSeverityOffset>0.20</existingAddictionSeverityOffset>
-						<needLevelOffset>1</needLevelOffset>
-						<isCombatEnhancingDrug>true</isCombatEnhancingDrug>
-						<listOrder>200</listOrder>
-						<overdoseSeverityOffset>0.008~0.015</overdoseSeverityOffset>
-						<largeOverdoseChance>0</largeOverdoseChance>
-					</li>
-				</comps>
 			</value>
 		</match>
 		<!-- If the first XPATH does not exist, the original code stands. -->
@@ -388,11 +340,11 @@
 	
 	<Operation Class="PatchOperationConditional">
 		<!-- Does this exist? -->
-		<xpath>/Defs/ChemicalDef[defName="BOG_BabyOil"]/addictionHediff</xpath>
+		<xpath>/Defs/ChemicalDef[defName="BOG_Chemical_BabyOil"]/addictionHediff</xpath>
 		<!-- If it does, do this replacement. -->
 		<match Class="PatchOperationReplace">
 			<success>Always</success>
-			<xpath>/Defs/ChemicalDef[defName="BOG_BabyOil"]/addictionHediff</xpath>
+			<xpath>/Defs/ChemicalDef[defName="BOG_Chemical_BabyOil"]/addictionHediff</xpath>
 			<value>
 				<addictionHediff>BOG_BabyOilAddiction</addictionHediff>
 			</value>

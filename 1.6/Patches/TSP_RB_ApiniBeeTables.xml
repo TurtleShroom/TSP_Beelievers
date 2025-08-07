@@ -485,7 +485,7 @@
 						<ThingDef>TSP_ST_RB_WildHive_Gnome</ThingDef>
 						<RecipeDef>TSP_ST_RB_Gneehive_Extract</RecipeDef>
 						-->
-						<ThingDef>NpiniMeatHoney</ThingDef>
+						<ThingDef MayRequire="sera.apinialienrace">NpiniMeatHoney</ThingDef>
 						<ThingDef>RB_RedBeeswax</ThingDef>
 						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
 					</descriptionHyperlinks>
@@ -513,7 +513,7 @@
 						<ThingDef>RB_Bee_Necropini_Queen</ThingDef>
 						<ThingDef>RB_Bee_Necropini_Drone</ThingDef>
 						<ThingDef>TSP_RB_Beeliever_SlaveryOfApini_Necropini_Honeycomb</ThingDef>
-						<ThingDef>NpiniMeatHoney</ThingDef>
+						<ThingDef MayRequire="sera.apinialienrace">NpiniMeatHoney</ThingDef>
 						<ThingDef>RB_RedBeeswax</ThingDef>
 						<!-- <RecipeDef>TSP_RB_Beeliever_Centrifuge_SlaveryOfApini_Necropini_Honeycomb</RecipeDef> -->
 						<!--

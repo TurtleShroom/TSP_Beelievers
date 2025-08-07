@@ -44,15 +44,15 @@
 						<ThingDef>RB_Bee_Apini_Random_Drone</ThingDef>
 						<ThingDef>TSP_RB_Beeliever_SlaveryOfApini_Random_Honeycomb</ThingDef>
 						<ThingDef>TSP_Apini_DeluxeHoney_Spawner</ThingDef>
-						<ThingDef>ApiniNectar</ThingDef>
-						<ThingDef>ApiniNectar_F</ThingDef>
-						<ThingDef>ApiniNectar_E</ThingDef>
-						<ThingDef>ApiniNectar_M</ThingDef>
-						<ThingDef>ApiniNectar_B</ThingDef>
-						<ThingDef>ApiniNectar_R</ThingDef>
-						<ThingDef>ApiniNectar_W</ThingDef>
-						<ThingDef>ApiniNectar_V</ThingDef>
-						<!-- <ThingDef>NpiniMeatHoney</ThingDef> -->
+						<ThingDef MayRequire="sera.apinialienrace">ApiniNectar</ThingDef>
+						<ThingDef MayRequire="sera.apinialienrace">ApiniNectar_F</ThingDef>
+						<ThingDef MayRequire="sera.apinialienrace">ApiniNectar_E</ThingDef>
+						<ThingDef MayRequire="sera.apinialienrace">ApiniNectar_M</ThingDef>
+						<ThingDef MayRequire="sera.apinialienrace">ApiniNectar_B</ThingDef>
+						<ThingDef MayRequire="sera.apinialienrace">ApiniNectar_R</ThingDef>
+						<ThingDef MayRequire="sera.apinialienrace">ApiniNectar_W</ThingDef>
+						<ThingDef MayRequire="sera.apinialienrace">ApiniNectar_V</ThingDef>
+						<!-- <ThingDef MayRequire="sera.apinialienrace">NpiniMeatHoney</ThingDef> -->
 						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
 					</descriptionHyperlinks>
 					<fillPercent>0.01</fillPercent>

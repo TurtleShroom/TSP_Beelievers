@@ -100,6 +100,13 @@
 		<li>grubious.soylentgreen</li>
 		<li>lat.rimstro</li>
 		<li>oskarpotocki.vfe.medieval2</li>
+		<li>vanillaexpanded.vcookehaute</li>
+		<li>dankpyon.medieval.overhaul</li>
+		<li>vanillaexpanded.vcookestews</li>
+		<li>ferny.progressionkitchen</li>
+		<li>ferny.progressionproduction</li>
+		<li>rince.gaulishgojuice</li>
+		<li>vr.mopatches</li>
 	</loadAfter>
 	<loadBefore>
 		<li>zal.patchhoney</li>

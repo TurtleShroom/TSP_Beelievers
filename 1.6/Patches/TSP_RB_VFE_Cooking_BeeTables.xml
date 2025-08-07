@@ -367,6 +367,188 @@
 					<skillRequirements></skillRequirements>
 					<researchPrerequisites></researchPrerequisites>
 				</RecipeDef>
+				
+				
+				
+				
+				<!-- Cheese Branch -->
+				<!-- TIER Cheese -->
+				<!-- BEE DESCRIPTION -->
+				<RimBees.BeeListDef>
+					<defName>TSP_RB_Beeliever_VFE_Cook_Bee3_Cheese</defName>
+					<nameString>Cheese</nameString>
+					<beeDroneDef>RB_Bee_Cheese_Drone</beeDroneDef>
+					<beeQueenDef>RB_Bee_Cheese_Queen</beeQueenDef>
+					<!--
+					<beeQueenTag>RB_Bee_Cheese_Queen_Tag</beeQueenTag>
+					<beeDroneTag>RB_Bee_Cheese_Drone_Tag</beeDroneTag>
+					-->
+				</RimBees.BeeListDef>
+				
+				<RimBees.BeeCombinationDef>
+					<defName>TSP_RB_Beelievers_VFE_Cook2_Tables</defName>
+					<bee1>Lactic</bee1>
+					<bee2>Agricultural</bee2>
+					<result>
+						<li>Cheese</li>
+					</result>				
+				</RimBees.BeeCombinationDef>
+				
+				<RimBees.BeeCombinationDef>
+					<defName>TSP_RB_Beelievers_VFE_Cook3_Tables</defName>
+					<bee1>Lactic</bee1>
+					<bee2>Nutritious</bee2>
+					<result>
+						<li>Cheese</li>
+					</result>				
+				</RimBees.BeeCombinationDef>
+				
+				<ThingDef ParentName="TSP_Beelievers_Beesearch">
+					<defName>TSP_RB_Beeliever_VFE_Cook_Beesearch_Cheese</defName>
+					<graphicData Inherit="False">
+						<graphicClass>Graphic_Single</graphicClass>
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/Beesearch/Idr_adbo2</texPath>
+					</graphicData>
+					<comps>
+						<li Class="RimBees.CompProperties_BeeResearchData">
+							<firstBee>RB_Bee_Lactic_Queen</firstBee>
+							<secondBee>RB_Bee_Agricultural_Queen</secondBee>
+							<resultingBees>
+								<li>RB_Bee_Cheese_Queen</li>
+							</resultingBees>
+						</li>
+					</comps>
+				</ThingDef>
+			
+				<ThingDef ParentName="TSP_RB_Beeliever_MasterBeeBase" Name="TSP_RB_Beeliever_Cheese_Base" Abstract="True">
+					<!-- <label>Cheese Bee</label> -->
+					<description>Cheese Bees are advanced Lactic Bees that further ferment their honey into cheese. This highly nutritious cheese feeds Cheese Bee larvae in lieu of royal jelly. \n\n\n\n\n Bee Traits: \n\n 	Production time: 1 day \n 	Works at Night: No \n 	Works When Raining: No \n 	Unusual Sources Needed: No \n 	Minimum Temperature: 0ºF (-17.7778ºC) \n 	Maximum temperature: 97ºF (36.1111ºC)</description>
+					<!--
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/ST_Bee_south</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData>
+					-->
+					<comps>			
+						<li Class="RimBees.CompProperties_Bees" Inherit="False">
+							<species>Cheese</species>
+							<comb>TSP_RB_Beeliever_Cheese_Honeycomb</comb>
+							<combtimedays>1</combtimedays>
+							<nocturnal>false</nocturnal> <!-- Works at night -->
+							<pluviophile>true</pluviophile> <!-- Works in the rain -->
+							<weirdplantneeded>no</weirdplantneeded>
+							<tempMin>-18</tempMin> <!-- Zero degrees, rounded up -->
+							<tempMax>37</tempMax> <!-- Ninety-seven degrees, rounded up -->
+						</li>   
+					</comps>
+				</ThingDef>
+				
+				<!-- MUST be RB_Bee_YOURNAME_Queen and then RB_Bee_YOURNAME_Drone, no exceptions -->
+				<ThingDef ParentName="TSP_RB_Beeliever_Cheese_Base">
+					<defName>RB_Bee_Cheese_Queen</defName>
+					<label>Cheese Bee queen</label>
+					<descriptionHyperlinks>
+						<!-- <ThingDef>RB_Bee_Cheese_Queen</ThingDef> -->
+						<ThingDef>RB_Bee_Cheese_Drone</ThingDef>
+						<ThingDef>TSP_RB_Beeliever_Cheese_Honeycomb</ThingDef>
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_Cheese_Honeycomb</RecipeDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/VFE_CookBranch/TSP_Bee_Cheese_Queen</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData> 		
+				</ThingDef>
+				
+				<ThingDef ParentName="TSP_RB_Beeliever_Cheese_Base">
+					<defName>RB_Bee_Cheese_Drone</defName>
+					<label>Cheese Bee drone</label>
+					<descriptionHyperlinks>
+						<ThingDef>RB_Bee_Cheese_Queen</ThingDef>
+						<!-- <ThingDef>RB_Bee_Cheese_Drone</ThingDef> -->
+						<ThingDef>TSP_RB_Beeliever_Cheese_Honeycomb</ThingDef>
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_Cheese_Honeycomb</RecipeDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/VFE_CookBranch/TSP_Bee_Cheese_Drone</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData> 		
+				</ThingDef>
+				
+				<ThingDef ParentName="RB_CombBase">
+					<defName>TSP_RB_Beeliever_Cheese_Honeycomb</defName>
+					<label>Cheese Bee honeycomb</label>
+					<description>Cheese Bees are advanced Lactic Bees that further refine Bee Milk into cheese. This highly nutritious cheese feeds Cheese Bee larvae in lieu of royal jelly. By processing Cheese Bee honeycombs, cheese, a small amount of Bee Milk, and regular beeswax can be extracted.</description>
+					<descriptionHyperlinks>
+						<ThingDef>RB_Bee_Cheese_Queen</ThingDef>
+						<ThingDef>RB_Bee_Cheese_Drone</ThingDef>
+						<!-- <ThingDef>TSP_RB_Beeliever_Cheese_Honeycomb</ThingDef> -->
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_Cheese_Honeycomb</RecipeDef>
+						<ThingDef>VCE_Cheese</ThingDef>
+						<!-- <ThingDef>VCE_BeeCheese</ThingDef> -->
+						<ThingDef>RB_BeeMilk</ThingDef>
+						<ThingDef>RB_Beeswax</ThingDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/Honeycombs/TSP_RB_Cheese_Honeycomb</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+						<color>(239,137,69)</color>
+					</graphicData>	
+					<thingCategories Inherit="False">
+						<li>TSP_RB_Beeliever_Honeycombs</li>
+					</thingCategories>
+					<butcherProducts>
+						<VCE_Cheese>5</VCE_Cheese>
+						<!-- <VCE_BeeCheese>2</VCE_BeeCheese> -->
+						<RB_BeeMilk>1</RB_BeeMilk>
+						<RB_Beeswax>5</RB_Beeswax>
+					</butcherProducts>
+				</ThingDef>
+				
+				<RecipeDef>
+					<defName>TSP_RB_Beeliever_Centrifuge_Cheese_Honeycomb</defName>
+					<label>Extract from Cheese Bee honeycomb</label>
+					<description>Cheese Bees are advanced Lactic Bees that further refine Bee Milk into cheese. This highly nutritious cheese feeds Cheese Bee larvae in lieu of royal jelly.</description>
+					<descriptionHyperlinks>
+						<ThingDef>RB_Bee_Cheese_Queen</ThingDef>
+						<ThingDef>RB_Bee_Cheese_Drone</ThingDef>
+						<ThingDef>TSP_RB_Beeliever_Cheese_Honeycomb</ThingDef>
+						<!-- <RecipeDef>TSP_RB_Beeliever_Centrifuge_Cheese_Honeycomb</RecipeDef> -->
+						<ThingDef>VCE_Cheese</ThingDef>
+						<!-- <ThingDef>VCE_BeeCheese</ThingDef> -->
+						<ThingDef>RB_BeeMilk</ThingDef>
+						<ThingDef>RB_Beeswax</ThingDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<uiIconThing>VCE_Cheese</uiIconThing>
+					<jobString>Say cheese!</jobString>
+					<effectWorking>Cremate</effectWorking>
+					<soundWorking>Recipe_Cremate</soundWorking>
+					<workAmount>900</workAmount>
+					<recipeUsers Inherit="False"></recipeUsers>	
+					<ingredients>
+						<li>
+							<filter>
+								<thingDefs>
+									<li>TSP_RB_Beeliever_Cheese_Honeycomb</li>
+								</thingDefs>
+							</filter>
+							<count>1</count>
+						</li>
+					</ingredients>
+					<fixedIngredientFilter>
+						<thingDefs>
+							<li>TSP_RB_Beeliever_Cheese_Honeycomb</li>
+						</thingDefs>
+					</fixedIngredientFilter>
+					<specialProducts>
+						<li>Butchery</li>
+					</specialProducts>
+					<skillRequirements></skillRequirements>
+					<researchPrerequisites></researchPrerequisites>
+				</RecipeDef>
 			</value>
 		</match>
 	</Operation>
