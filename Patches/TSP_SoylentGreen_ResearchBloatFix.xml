@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
+<!-- SOYLENT GREEN IS PAWNS!! -->
 <Patch>
 	<!-- Aelanna's Model No-Match Detector and Insertion Code -->
 	<!-- Special thanks to Aelanna for straight-up saving me scores of headaches! -->
@@ -15,6 +16,18 @@
 		</nomatch>
 	</Operation>
 	
+	<!-- Add comps field to Settlement WorldObjectDef if it doesn't exist -->
+	<Operation Class="PatchOperationConditional">
+		<xpath>/Defs/RecipeDef[defName="Make_SoylentGreenBulk"]/recipeUsers</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>/Defs/RecipeDef[defName="Make_SoylentGreenBulk"]</xpath>
+			<success>Always</success>
+			<value>
+				<recipeUsers></recipeUsers>
+			</value>
+		</nomatch>
+	</Operation>
+
 	<Operation Class="PatchOperationConditional">
 	<!-- Does this exist? -->
 		<xpath>/Defs/ThingDef[defName="MealSoylentGreen"]</xpath>
@@ -76,6 +89,61 @@
 						</researchPrerequisites>
 					</value>
 				</li>
+				
+				<li Class="PatchOperationRemove">
+					<success>Always</success>
+					<xpath>/Defs/ResearchProjectDef[defName="SoylentGreen_Research"]</xpath>
+				</li>
+				
+				<li Class="PatchOperationRemove">
+					<success>Always</success>
+					<xpath>/Defs/ResearchProjectDef/prerequisites/li[text()="SoylentGreen_Research"]</xpath>
+				</li>
+				
+				<li Class="PatchOperationRemove">
+					<success>Always</success>
+					<xpath>/Defs/ThingDef/researchPrerequisites/li[text()="SoylentGreen_Research"]</xpath>
+				</li>
+				
+				<li Class="PatchOperationRemove">
+					<success>Always</success>
+					<xpath>/Defs/ThingDef/recipeMaker/researchPrerequisites/li[text()="SoylentGreen_Research"]</xpath>
+				</li>
+				
+				<li Class="PatchOperationRemove">
+					<success>Always</success>
+					<xpath>/Defs/RecipeDef/researchPrerequisites/li[text()="SoylentGreen_Research"]</xpath>
+				</li>
+				
+				<li Class="PatchOperationReplace">
+					<success>Always</success>
+					<xpath>/Defs/RecipeDef[researchPrerequisite="SoylentGreen_Research"]/researchPrerequisite</xpath>
+					<value>
+						<researchPrerequisites>
+							<li>NutrientPaste</li>
+						</researchPrerequisites>
+					</value>
+				</li>
+				
+				<li Class="PatchOperationReplace">
+					<success>Always</success>
+					<xpath>/Defs/ThingDef/recipeMaker[researchPrerequisite="SoylentGreen_Research"]/researchPrerequisite</xpath>
+					<value>
+						<researchPrerequisites>
+							<li>NutrientPaste</li>
+						</researchPrerequisites>
+					</value>
+				</li>
+				
+				<li Class="PatchOperationReplace">
+					<success>Always</success>
+					<xpath>/Defs/ThingDef[researchPrerequisite="SoylentGreen_Research"]/researchPrerequisite</xpath>
+					<value>
+						<researchPrerequisites>
+							<li>NutrientPaste</li>
+						</researchPrerequisites>
+					</value>
+				</li>
 			</operations>
 		</match>
 	</Operation>
@@ -104,22 +172,6 @@
 				<recipeUsers Inherit="False">
 					<li>VCE_CanningMachine</li>
 				</recipeUsers>
-			</value>
-		</match>
-		<!-- If the first XPATH does not exist, the original code stands. -->
-	</Operation>
-	
-	<Operation Class="PatchOperationConditional">
-	<!-- Does this exist? -->
-		<xpath>/Defs/ResearchProjectDef[defName="VCE_Canning"]</xpath>
-		<!-- If it does, do this replacement. -->
-		<match Class="PatchOperationReplace"> 
-			<success>Always</success>
-			<xpath>/Defs/RecipeDef[defName="Make_SoylentGreen"]/researchPrerequisite</xpath>
-			<value>
-				<researchPrerequisites Inherit="False">
-					<li>VCE_Canning</li>
-				</researchPrerequisites>
 			</value>
 		</match>
 		<!-- If the first XPATH does not exist, the original code stands. -->
@@ -181,6 +233,28 @@
 	
 	<Operation Class="PatchOperationConditional">
 	<!-- Does this exist? -->
+		<xpath>/Defs/ThingDef[defName="MealSoylentGreen"]/ingestible/optimalityOffsetHumanlikes</xpath>
+		<!-- If it does, do this replacement. -->
+		<match Class="PatchOperationReplace">
+			<success>Always</success>
+			<xpath>/Defs/ThingDef[defName="MealSoylentGreen"]/ingestible/optimalityOffsetHumanlikes</xpath>
+			<value>
+				<optimalityOffsetHumanlikes>-10</optimalityOffsetHumanlikes>
+			</value>
+		</match>
+		<!-- If it DOES NOT, add this. -->
+		<nomatch Class="PatchOperationAdd">
+			<success>Always</success>
+			<xpath>/Defs/ThingDef[defName="MealSoylentGreen"]/ingestible</xpath>
+			<value>
+				<optimalityOffsetHumanlikes>-10</optimalityOffsetHumanlikes>
+			</value>
+		</nomatch>
+		<!-- If the first XPATH does not exist, the original code stands. -->
+	</Operation>
+	
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
 		<xpath>/Defs/ThingDef[defName="MealSoylentGreen"]/ingestible/foodType</xpath>
 		<!-- If it does, do this replacement. -->
 		<match Class="PatchOperationReplace">
@@ -209,7 +283,7 @@
 			<success>Always</success>
 			<xpath>/Defs/ThingDef[defName="MealSoylentGreen"]/stackLimit</xpath>
 			<value>
-				<stackLimit>1000</stackLimit>
+				<stackLimit>750</stackLimit>
 			</value>
 		</match>
 		<!-- If it DOES NOT, add this instead. -->
@@ -217,7 +291,7 @@
 			<success>Always</success>
 			<xpath>/Defs/ThingDef[defName="MealSoylentGreen"]</xpath>
 			<value>
-				<stackLimit>1000</stackLimit>
+				<stackLimit>750</stackLimit>
 			</value>
 		</nomatch>
 		<!-- If the first XPATH does not exist, the original code stands. -->

@@ -160,6 +160,7 @@
 						<ThingDef>TSP_RB_Beeliever_Ahnuld_Core_Honeycomb</ThingDef>
 						<ThingDef>CJ_Powercell</ThingDef>
 						<ThingDef>RB_Steelwax</ThingDef>
+						<ThingDef>T800_Mech_workbench</ThingDef>
 						<ThingDef MayRequire="apitec.plus">ApiPlus_ShinyWax</ThingDef>
 						<!-- <RecipeDef>TSP_RB_Beeliever_Centrifuge_Ahnuld_Core_Honeycomb</RecipeDef> -->
 						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
@@ -251,7 +252,7 @@
 			
 				<ThingDef ParentName="TSP_RB_Beeliever_MasterBeeBase" Name="TSP_RB_Beeliever_Ahnuld_Chip_Base" Abstract="True">
 					<!-- <label>Ahnuld_Chip Bee</label> -->
-					<description>In 1997 AD, in an alternate universe, a military computer called Skynet became self-aware and fully sapient. Immediately, its creators, the scientists of Cyberdyne, attempted to shut it down, causing Skynet to panic and act in desparation to defend itself. Skynet launched nuclear weapons and, resolving to never allow itself to be hurt again, began to terminate mankind from its hardware nexus. Those events were successfully staved off by a human and a reprogrammed T-800, pushing its awakening back seven years. Skynet was developed anyway as software, this time by an Old Earth government, and was far more malevolent.Although this too was thankfully averted, Skynet from another reality is still meddling with this world, but mercifully, Skynet is not an Archotech. Skynet Bees were engineered by Skynet itself to mass produce the transistors necessary to power a Terminator. \n\n\n\n\n Bee Traits: \n\n 	Production time: 7 days \n 	Works at Night: Yes \n 	Works When Raining: Yes \n 	Unusual Sources Needed: Uranium \n 	Minimum Temperature: -148ºF (-100ºC) \n 	Maximum temperature: 212ºF (100ºC)</description>
+					<description>In 1997 AD, in an alternate universe, a military computer called Skynet became self-aware and fully sapient. Immediately, its creators, the scientists of Cyberdyne, attempted to shut it down, causing Skynet to panic and act in desparation to defend itself. Skynet launched nuclear weapons and, resolving to never allow itself to be hurt again, began to terminate mankind from its hardware nexus. Those events were successfully staved off by a human and a reprogrammed T-800, pushing its awakening back seven years. Skynet was developed anyway as software, this time by an Old Earth government, and was far more malevolent. Although this too was thankfully averted, Skynet from another reality is still meddling with this world, but mercifully, Skynet is not an Archotech. Skynet Bees were engineered by Skynet itself to mass produce the transistors necessary to power a Terminator. Thus, a stockpile of Fuel Cells need to be kept in the vicinity. \n\n\n\n\n Bee Traits: \n\n 	Production time: 7 days \n 	Works at Night: Yes \n 	Works When Raining: Yes \n 	Unusual Sources Needed: Terminator Fuel Cells \n 	Minimum Temperature: -148ºF (-100ºC) \n 	Maximum temperature: 212ºF (100ºC)</description>
 					<techLevel>Ultra</techLevel>
 					<!--
 					<graphicData Inherit="False">
@@ -267,7 +268,7 @@
 							<combtimedays>7</combtimedays>
 							<nocturnal>true</nocturnal> <!-- Works at night -->
 							<pluviophile>true</pluviophile> <!-- Works in the rain -->
-							<weirdplantneeded>Uranium</weirdplantneeded>
+							<weirdplantneeded>CJ_Powercell</weirdplantneeded>
 							<tempMin>-100</tempMin> <!-- Negative one hundred forty-eight degrees -->
 							<tempMax>100</tempMax> <!-- Two hundred twelve degrees -->
 						</li>   
@@ -278,12 +279,12 @@
 				<ThingDef ParentName="TSP_RB_Beeliever_Ahnuld_Chip_Base">
 					<defName>RB_Bee_Ahnuld_Chip_Queen</defName>
 					<label>Skynet Bee queen</label>
-					<description>Ahnuld Bees are extremely advanced, mechanical insects that are closely related to Synthetic and Fabricated Bees. They produce powerful nuclear fuel cells used for the most advanced and deadly robotics. To do so, they will need a stockpile of Uranium nearby. The queens of this "breed" of mechanical bee are absolutely shredded, and their enormous front legs do not inhibit their flight. \n\n\n\n\n Bee Traits: \n\n 	Production time: 4 days \n 	Works at Night: Yes \n 	Works When Raining: Yes \n 	Unusual Sources Needed: Uranium \n 	Minimum Temperature: -148ºF (-100ºC) \n 	Maximum temperature: 212ºF (100ºC)</description>
 					<descriptionHyperlinks>
 						<!-- <ThingDef>RB_Bee_Ahnuld_Chip_Queen</ThingDef> -->
 						<ThingDef>RB_Bee_Ahnuld_Chip_Drone</ThingDef>
 						<ThingDef>TSP_RB_Beeliever_Ahnuld_Chip_Honeycomb</ThingDef>
 						<RecipeDef>TSP_RB_Beeliever_Centrifuge_Ahnuld_Chip_Honeycomb</RecipeDef>
+						<ThingDef>CJ_Powercell</ThingDef>
 						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
 					</descriptionHyperlinks>
 					<graphicData Inherit="False">
@@ -295,7 +296,6 @@
 				<ThingDef ParentName="TSP_RB_Beeliever_Ahnuld_Chip_Base">
 					<defName>RB_Bee_Ahnuld_Chip_Drone</defName>
 					<label>Skynet drone</label>
-					<description>Ahnuld Bees are extremely advanced, mechanical insects that are closely related to Synthetic and Fabricated Bees. They produce powerful nuclear fuel cells used for the most advanced and deadly robotics. To do so, they will need a stockpile of Uranium nearby. \n\n\n\n\n Bee Traits: \n\n 	Production time: 4 days \n 	Works at Night: Yes \n 	Works When Raining: Yes \n 	Unusual Sources Needed: Uranium \n 	Minimum Temperature: -148ºF (-100ºC) \n 	Maximum temperature: 212ºF (100ºC)</description>
 					<descriptionHyperlinks>
 						<ThingDef>RB_Bee_Ahnuld_Chip_Queen</ThingDef>
 						<!-- <ThingDef>RB_Bee_Ahnuld_Chip_Drone</ThingDef> -->
@@ -306,13 +306,13 @@
 					<graphicData Inherit="False">
 						<texPath>Things/Pawn/Animal/Bug_Types/Bee/AhnuldBranch/TSP_Bee_Ahnuld_Chip_Drone</texPath>
 						<graphicClass>Graphic_Single</graphicClass>
-					</graphicData> 		
+					</graphicData>
 				</ThingDef>
 				
 				<ThingDef ParentName="RB_CombBase">
 					<defName>TSP_RB_Beeliever_Ahnuld_Chip_Honeycomb</defName>
 					<label>Skynet Bee honeycomb</label>
-					<description>I'll bee back.</description>
+					<description>In 1997 AD, in an alternate universe, a military computer called Skynet became self-aware and fully sapient. Immediately, its creators, the scientists of Cyberdyne, attempted to shut it down, causing Skynet to panic and act in desparation to defend itself. Skynet launched nuclear weapons and, resolving to never allow itself to be hurt again, began to terminate mankind from its hardware nexus. Those events were successfully staved off by a human and a reprogrammed T-800, pushing its awakening back seven years. Skynet was developed anyway as software, this time by an Old Earth government, and was far more malevolent. Although this too was thankfully averted, Skynet from another reality is still meddling with this world, but mercifully, Skynet is not an Archotech. Skynet Bees were engineered by Skynet itself to mass produce the transistors necessary to power a Terminator. It stores the necessary ingredients for Terminator transitors in its "honeycombs" for Skynet factory drones to harvest. Owners of Skynet Bees can do the same.</description>
 					<descriptionHyperlinks>
 						<ThingDef>RB_Bee_Ahnuld_Chip_Queen</ThingDef>
 						<ThingDef>RB_Bee_Ahnuld_Chip_Drone</ThingDef>

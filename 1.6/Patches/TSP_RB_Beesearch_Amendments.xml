@@ -154,6 +154,7 @@
 			<success>Always</success>
 			<value>
 				<li MayRequire="grubious.soylentgreen">RB_Bee_Soylent_Queen</li>
+				<li MayRequire="grubious.soylentgreenv2">RB_Bee_Soylent_Queen</li>
 			</value>
 		</match>
 		<!-- If the first XPATH does not exist, the original code stands. -->

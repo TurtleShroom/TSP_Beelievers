@@ -300,6 +300,15 @@
 				<li MayRequire="higgs.cozarkian.entomophagy,vanillaexpanded.vcooke">Insect_RuinedLavishGrill</li>
 				<li MayRequire="higgs.cozarkian.entomophagy,vanillaexpanded.vcooke">Insect_GourmetGrill</li>
 				<li MayRequire="higgs.cozarkian.entomophagy,vanillaexpanded.vcooke">Insect_RuinedGourmetGrill</li>
+				<li MayRequire="vanillaexpanded.vcooke">VCE_CookedSoupSimple</li>
+				<li MayRequire="vanillaexpanded.vcooke">VCE_CookedSoupFine</li>
+				<li MayRequire="vanillaexpanded.vcooke">VCE_CookedSoupLavish</li>
+				<li MayRequire="vanillaexpanded.vcooke">VCE_DeepFriedBigMeat</li>
+				<li MayRequire="vanillaexpanded.vcooke">VCE_DeepFriedVegetables</li>
+				<li MayRequire="vanillaexpanded.vcooke">VCE_DeepFriedFish</li>
+				<li MayRequire="vanillaexpanded.vcooke">VCE_RuinedSimpleGrill</li>
+				<li MayRequire="vanillaexpanded.vcooke">VCE_RuinedFineGrill</li>
+				<li MayRequire="vanillaexpanded.vcooke">VCE_RuinedLavishGrill</li>
 			</value>
 		</match>
 		<!-- If the first XPATH does not exist, the original code stands. -->
