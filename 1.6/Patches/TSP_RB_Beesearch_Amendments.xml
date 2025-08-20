@@ -5,9 +5,9 @@
 	<!-- Special thanks to Aelanna for straight-up saving me scores of headaches! -->
 	<!-- Add comps field to Settlement WorldObjectDef if it doesn't exist -->
 	<Operation Class="PatchOperationConditional">
-		<xpath>/Defs/ThingDef[@Name="RB_ResearchPapersBase"]/tradeTags</xpath>
+		<xpath>Defs/ThingDef[@Name="RB_ResearchPapersBase"]/tradeTags</xpath>
 		<nomatch Class="PatchOperationAdd">
-			<xpath>/Defs/ThingDef[@Name="RB_ResearchPapersBase"]</xpath>
+			<xpath>Defs/ThingDef[@Name="RB_ResearchPapersBase"]</xpath>
 			<success>Always</success>
 			<value>
 				<tradeTags></tradeTags>
@@ -17,10 +17,10 @@
 	
 	<Operation Class="PatchOperationConditional">
 	<!-- Does this exist? -->
-		<xpath>/Defs/ThingDef[@Name="RB_ResearchPapersBase"]/tradeTags</xpath>
+		<xpath>Defs/ThingDef[@Name="RB_ResearchPapersBase"]/tradeTags</xpath>
 		<!-- If it does, add this. -->
 		<match Class="PatchOperationAdd">
-			<xpath>/Defs/ThingDef[@Name="RB_ResearchPapersBase"]/tradeTags</xpath>
+			<xpath>Defs/ThingDef[@Name="RB_ResearchPapersBase"]/tradeTags</xpath>
 			<value>
 				<li>Beesearch</li>
 			</value>
@@ -30,9 +30,9 @@
 	
 	<Operation Class="PatchOperationConditional">
 	<!-- Does this exist? -->
-		<xpath>/Defs/ThingDef[@Name="RB_ResearchPapersBase"]/tradeability</xpath>
+		<xpath>Defs/ThingDef[@Name="RB_ResearchPapersBase"]/tradeability</xpath>
 		<match Class="PatchOperationReplace">
-			<xpath>/Defs/ThingDef[@Name="RB_ResearchPapersBase"]/tradeability</xpath>
+			<xpath>Defs/ThingDef[@Name="RB_ResearchPapersBase"]/tradeability</xpath>
 			<success>Always</success>
 			<value>
 				<tradeability>All</tradeability>
@@ -41,7 +41,7 @@
 		<!-- Add comps field to Settlement WorldObjectDef if it doesn't exist -->
 		<!-- If it DOES NOT, add this instead. -->
 		<nomatch Class="PatchOperationAdd">
-			<xpath>/Defs/ThingDef[@Name="RB_ResearchPapersBase"]</xpath>
+			<xpath>Defs/ThingDef[@Name="RB_ResearchPapersBase"]</xpath>
 			<success>Always</success>
 			<value>
 				<tradeability>All</tradeability>
@@ -106,10 +106,10 @@
 	
 	<Operation Class="PatchOperationConditional">
 	<!-- Does this exist? -->
-		<xpath>/Defs/ThingDef[defName="RB_ResearchPapersAgriSwamp"]/comps/li/resultingBees</xpath>
+		<xpath>Defs/ThingDef[defName="RB_ResearchPapersAgriSwamp"]/comps/li/resultingBees</xpath>
 		<!-- If it does, add this. -->
 		<match Class="PatchOperationAdd">
-			<xpath>/Defs/ThingDef[defName="RB_ResearchPapersAgriSwamp"]/comps/li/resultingBees</xpath>
+			<xpath>Defs/ThingDef[defName="RB_ResearchPapersAgriSwamp"]/comps/li/resultingBees</xpath>
 			<value>
 				<li>RB_Bee_Oriental_Queen</li>
 			</value>
@@ -119,10 +119,10 @@
 	
 	<Operation Class="PatchOperationConditional">
 	<!-- Does this exist? -->
-		<xpath>/Defs/ThingDef[defName="RB_Bee_Asbeestos_Queen"]</xpath>
+		<xpath>Defs/ThingDef[defName="RB_Bee_Asbeestos_Queen"]</xpath>
 		<!-- If it does, add this. -->
 		<match Class="PatchOperationAdd">
-			<xpath>/Defs/ThingDef[defName="RB_ResearchPapersQuarryTech"]/comps/li/resultingBees</xpath>
+			<xpath>Defs/ThingDef[defName="RB_ResearchPapersQuarryTech"]/comps/li/resultingBees</xpath>
 			<success>Always</success>
 			<value>
 				<li>RB_Bee_Asbeestos_Queen</li>
@@ -133,10 +133,10 @@
 	
 	<Operation Class="PatchOperationConditional">
 	<!-- Does this exist? -->
-		<xpath>/Defs/ThingDef[defName="RB_Bee_Ancient_Hydroponic_Queen"]</xpath>
+		<xpath>Defs/ThingDef[defName="RB_Bee_Ancient_Hydroponic_Queen"]</xpath>
 		<!-- If it does, add this. -->
 		<match Class="PatchOperationAdd">
-			<xpath>/Defs/ThingDef[defName="TSP_RB_Beelievers_NutrientPaste_Beesearch"]/comps/li/resultingBees</xpath>
+			<xpath>Defs/ThingDef[defName="TSP_RB_Beelievers_NutrientPaste_Beesearch"]/comps/li/resultingBees</xpath>
 			<success>Always</success>
 			<value>
 				<li MayRequire="xmb.ancienthydroponicfarmfacilities.mo">RB_Bee_Ancient_Hydroponic_Queen</li>
@@ -147,10 +147,10 @@
 	
 	<Operation Class="PatchOperationConditional">
 	<!-- Does this exist? -->
-		<xpath>/Defs/ThingDef[defName="RB_Bee_Soylent_Queen"]</xpath>
+		<xpath>Defs/ThingDef[defName="RB_Bee_Soylent_Queen"]</xpath>
 		<!-- If it does, add this. -->
 		<match Class="PatchOperationAdd">
-			<xpath>/Defs/ThingDef[defName="TSP_RB_Beelievers_NutrientPaste_Beesearch"]/comps/li/resultingBees</xpath>
+			<xpath>Defs/ThingDef[defName="TSP_RB_Beelievers_NutrientPaste_Beesearch"]/comps/li/resultingBees</xpath>
 			<success>Always</success>
 			<value>
 				<li MayRequire="grubious.soylentgreen">RB_Bee_Soylent_Queen</li>
@@ -162,10 +162,10 @@
 	
 	<Operation Class="PatchOperationConditional">
 	<!-- Does this exist? -->
-		<xpath>/Defs/ThingDef[defName="RB_Bee_Vendor_Queen"]</xpath>
+		<xpath>Defs/ThingDef[defName="RB_Bee_Vendor_Queen"]</xpath>
 		<!-- If it does, add this. -->
 		<match Class="PatchOperationAdd">
-			<xpath>/Defs/ThingDef[defName="TSP_RB_Beelievers_NutrientPaste_Beesearch"]/comps/li/resultingBees</xpath>
+			<xpath>Defs/ThingDef[defName="TSP_RB_Beelievers_NutrientPaste_Beesearch"]/comps/li/resultingBees</xpath>
 			<success>Always</success>
 			<value>
 				<li MayRequire="lat.rimstro">RB_Bee_Vendor_Queen</li>

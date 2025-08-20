@@ -3,7 +3,7 @@
 <Patch>
 	<Operation Class="PatchOperationConditional">
 	<!-- Does this exist? -->
-		<xpath>/Defs/ThingDef[defName="Megabee"]</xpath>
+		<xpath>Defs/ThingDef[defName="Megabee"]</xpath>
 		<!-- If it does, add this. -->
 		<match Class="PatchOperationAdd">
 			<xpath>/Defs</xpath>
@@ -387,11 +387,11 @@
 	
 	<Operation Class="PatchOperationConditional">
 	<!-- Does this exist? -->
-		<xpath>/Defs/ThingDef[defName="Megabee"]</xpath>
+		<xpath>Defs/ThingDef[defName="Megabee"]</xpath>
 		<!-- If it does, do this replacement. -->
 		<match Class="PatchOperationReplace">
 			<success>Always</success>
-			<xpath>/Defs/ThingDef[defName="MegabeeTallow"]/label</xpath>
+			<xpath>Defs/ThingDef[defName="MegabeeTallow"]/label</xpath>
 			<value>
 				<label>Mega Bee honey</label>
 			</value>
@@ -401,11 +401,11 @@
 	
 	<Operation Class="PatchOperationConditional">
 	<!-- Does this exist? -->
-		<xpath>/Defs/ThingDef[defName="MegabeeTallow"]/ingestible/preferability</xpath>
+		<xpath>Defs/ThingDef[defName="MegabeeTallow"]/ingestible/preferability</xpath>
 		<!-- If it does, do this replacement. -->
 		<match Class="PatchOperationReplace">
 			<success>Always</success>
-			<xpath>/Defs/ThingDef[defName="MegabeeTallow"]/ingestible/preferability</xpath>
+			<xpath>Defs/ThingDef[defName="MegabeeTallow"]/ingestible/preferability</xpath>
 			<value>
 				<preferability>RawTasty</preferability>
 			</value>
@@ -415,11 +415,11 @@
 	
 	<Operation Class="PatchOperationConditional">
 	<!-- Does this exist? -->
-		<xpath>/Defs/ThingDef[defName="MegabeeTallow"]/stackLimit</xpath>
+		<xpath>Defs/ThingDef[defName="MegabeeTallow"]/stackLimit</xpath>
 		<!-- If it does, do this replacement. -->
 		<match Class="PatchOperationReplace">
 			<success>Always</success>
-			<xpath>/Defs/ThingDef[defName="MegabeeTallow"]/stackLimit</xpath>
+			<xpath>Defs/ThingDef[defName="MegabeeTallow"]/stackLimit</xpath>
 			<value>
 				<stackLimit>500</stackLimit>
 			</value>
@@ -427,7 +427,7 @@
 		<!-- If it DOES NOT, add this instead. -->
 		<nomatch Class="PatchOperationAdd">
 			<success>Always</success>
-			<xpath>/Defs/ThingDef[defName="MegabeeTallow"]</xpath>
+			<xpath>Defs/ThingDef[defName="MegabeeTallow"]</xpath>
 			<value>
 				<stackLimit>500</stackLimit>
 			</value>
@@ -437,11 +437,11 @@
 	
 	<Operation Class="PatchOperationConditional">
 	<!-- Does this exist? -->
-		<xpath>/Defs/ThingDef[defName="WoolMegabee"]/stackLimit</xpath>
+		<xpath>Defs/ThingDef[defName="WoolMegabee"]/stackLimit</xpath>
 		<!-- If it does, do this replacement. -->
 		<match Class="PatchOperationReplace">
 			<success>Always</success>
-			<xpath>/Defs/ThingDef[defName="WoolMegabee"]/stackLimit</xpath>
+			<xpath>Defs/ThingDef[defName="WoolMegabee"]/stackLimit</xpath>
 			<value>
 				<stackLimit>300</stackLimit>
 			</value>
@@ -449,7 +449,7 @@
 		<!-- If it DOES NOT, add this instead. -->
 		<nomatch Class="PatchOperationAdd">
 			<success>Always</success>
-			<xpath>/Defs/ThingDef[defName="WoolMegabee"]</xpath>
+			<xpath>Defs/ThingDef[defName="WoolMegabee"]</xpath>
 			<value>
 				<stackLimit>300</stackLimit>
 			</value>

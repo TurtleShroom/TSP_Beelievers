@@ -8,7 +8,7 @@
 
 	<Operation Class="PatchOperationConditional">
 	<!-- Does this exist? -->
-		<xpath>/Defs/ThingDef[defName="BOG_Baby_Oil"]</xpath>
+		<xpath>Defs/ThingDef[defName="BOG_Baby_Oil"]</xpath>
 		<!-- If it does, add this. -->
 		<match Class="PatchOperationAdd">
 			<xpath>/Defs</xpath>
@@ -177,11 +177,11 @@
 	
 	<Operation Class="PatchOperationConditional">
 		<!-- Does this exist? -->
-		<xpath>/Defs/HediffDef[defName="BOG_BabyOilHigh"]/stages</xpath>
+		<xpath>Defs/HediffDef[defName="BOG_BabyOilHigh"]/stages</xpath>
 		<!-- If it does, do this replacement. -->
 		<match Class="PatchOperationReplace">
 			<success>Always</success>
-			<xpath>/Defs/HediffDef[defName="BOG_BabyOilHigh"]/stages</xpath>
+			<xpath>Defs/HediffDef[defName="BOG_BabyOilHigh"]/stages</xpath>
 			<value>
 				<stages>
 					<li>
@@ -222,11 +222,11 @@
 	
 	<Operation Class="PatchOperationConditional">
 		<!-- Does this exist? -->
-		<xpath>/Defs/ThingDef[defName="BOG_Baby_Oil"]/ingestible/outcomeDoers</xpath>
+		<xpath>Defs/ThingDef[defName="BOG_Baby_Oil"]/ingestible/outcomeDoers</xpath>
 		<!-- If it does, do this replacement. -->
 		<match Class="PatchOperationReplace">
 			<success>Always</success>
-			<xpath>/Defs/ThingDef[defName="BOG_Baby_Oil"]/ingestible/outcomeDoers</xpath>
+			<xpath>Defs/ThingDef[defName="BOG_Baby_Oil"]/ingestible/outcomeDoers</xpath>
 			<value>
 				<outcomeDoers>
 					<li Class="IngestionOutcomeDoer_GiveHediff">
@@ -250,11 +250,11 @@
 	
 	<Operation Class="PatchOperationConditional">
 		<!-- Does this exist? -->
-		<xpath>/Defs/ThingDef[defName="BOG_Baby_Oil"]/ingestible/drugCategory</xpath>
+		<xpath>Defs/ThingDef[defName="BOG_Baby_Oil"]/ingestible/drugCategory</xpath>
 		<!-- If it does, do this replacement. -->
 		<match Class="PatchOperationReplace">
 			<success>Always</success>
-			<xpath>/Defs/ThingDef[defName="BOG_Baby_Oil"]/ingestible/drugCategory</xpath>
+			<xpath>Defs/ThingDef[defName="BOG_Baby_Oil"]/ingestible/drugCategory</xpath>
 			<value>
 				<drugCategory>Medical</drugCategory>
 			</value>
@@ -264,11 +264,11 @@
 	
 	<Operation Class="PatchOperationConditional">
 		<!-- Does this exist? -->
-		<xpath>/Defs/ThoughtDef[defName="BOG_BabyOilHigh"]/stages</xpath>
+		<xpath>Defs/ThoughtDef[defName="BOG_BabyOilHigh"]/stages</xpath>
 		<!-- If it does, do this replacement. -->
 		<match Class="PatchOperationReplace">
 			<success>Always</success>
-			<xpath>/Defs/ThoughtDef[defName="BOG_BabyOilHigh"]/stages</xpath>
+			<xpath>Defs/ThoughtDef[defName="BOG_BabyOilHigh"]/stages</xpath>
 			<value>
 				<stages>
 					<li>
@@ -284,11 +284,11 @@
 
 	<Operation Class="PatchOperationConditional">
 		<!-- Does this exist? -->
-		<xpath>/Defs/ThingDef[defName="BOG_Baby_Oil"]/label</xpath>
+		<xpath>Defs/ThingDef[defName="BOG_Baby_Oil"]/label</xpath>
 		<!-- If it does, do this replacement. -->
 		<match Class="PatchOperationReplace">
 			<success>Always</success>
-			<xpath>/Defs/ThingDef[defName="BOG_Baby_Oil"]/label</xpath>
+			<xpath>Defs/ThingDef[defName="BOG_Baby_Oil"]/label</xpath>
 			<value>
 				<label>suspicious baby oil</label>
 			</value>
@@ -298,11 +298,11 @@
 	
 	<Operation Class="PatchOperationConditional">
 		<!-- Does this exist? -->
-		<xpath>/Defs/ThingDef[defName="BOG_Baby_Oil"]/description</xpath>
+		<xpath>Defs/ThingDef[defName="BOG_Baby_Oil"]/description</xpath>
 		<!-- If it does, do this replacement. -->
 		<match Class="PatchOperationReplace">
 			<success>Always</success>
-			<xpath>/Defs/ThingDef[defName="BOG_Baby_Oil"]/description</xpath>
+			<xpath>Defs/ThingDef[defName="BOG_Baby_Oil"]/description</xpath>
 			<value>
 				<description>Baby oil is a fragrant, inert, mineral oil used to moisturize human skin. A newborn infant's skin is fragile, thin, and his epidermal barrier is not finioshed. If not dealt with, this can lead to extensive infections and blisters on baby's skin, but baby oil is used to prevent this. \n \n Or, that's what baby oil is supposed to be. Something is VERY wrong with THIS baby oil. Looking at it fills individuals with a nervous, but exciting, desire to consume it, and the ingestion of it sends its consumers on quite a ride. This baby oil is a cure for bleariness, but those who drink it find that what happens next can never be communicated. Prepare to FREAK OUT! \n \n Scrawled on the bottle are the words "DIDDY'S FAVORITE."</description>
 			</value>
@@ -312,11 +312,11 @@
 	
 	<Operation Class="PatchOperationConditional">
 		<!-- Does this exist? -->
-		<xpath>/Defs/HediffDef[defName="BOG_BabyOilHigh"]/description</xpath>
+		<xpath>Defs/HediffDef[defName="BOG_BabyOilHigh"]/description</xpath>
 		<!-- If it does, do this replacement. -->
 		<match Class="PatchOperationReplace">
 			<success>Always</success>
-			<xpath>/Defs/HediffDef[defName="BOG_BabyOilHigh"]/description</xpath>
+			<xpath>Defs/HediffDef[defName="BOG_BabyOilHigh"]/description</xpath>
 			<value>
 				<description>The strange and unnatural additives of ingested, highly suspect baby oil, present in the blood stream. This baby oil is a cure for bleariness, but those who drink it find that what happens next can never be communicated.</description>
 			</value>
@@ -326,11 +326,11 @@
 	
 	<Operation Class="PatchOperationConditional">
 		<!-- Does this exist? -->
-		<xpath>/Defs/ThoughtDef[defName="BOG_BabyOilHigh"]/hediff</xpath>
+		<xpath>Defs/ThoughtDef[defName="BOG_BabyOilHigh"]/hediff</xpath>
 		<!-- If it does, do this replacement. -->
 		<match Class="PatchOperationReplace">
 			<success>Always</success>
-			<xpath>/Defs/ThoughtDef[defName="BOG_BabyOilHigh"]/hediff</xpath>
+			<xpath>Defs/ThoughtDef[defName="BOG_BabyOilHigh"]/hediff</xpath>
 			<value>
 				<hediff>BOG_BabyOilHigh</hediff>
 			</value>
@@ -340,11 +340,11 @@
 	
 	<Operation Class="PatchOperationConditional">
 		<!-- Does this exist? -->
-		<xpath>/Defs/ChemicalDef[defName="BOG_Chemical_BabyOil"]/addictionHediff</xpath>
+		<xpath>Defs/ChemicalDef[defName="BOG_Chemical_BabyOil"]/addictionHediff</xpath>
 		<!-- If it does, do this replacement. -->
 		<match Class="PatchOperationReplace">
 			<success>Always</success>
-			<xpath>/Defs/ChemicalDef[defName="BOG_Chemical_BabyOil"]/addictionHediff</xpath>
+			<xpath>Defs/ChemicalDef[defName="BOG_Chemical_BabyOil"]/addictionHediff</xpath>
 			<value>
 				<addictionHediff>BOG_BabyOilAddiction</addictionHediff>
 			</value>
@@ -354,11 +354,11 @@
 	
 	<Operation Class="PatchOperationConditional">
 		<!-- Does this exist? -->
-		<xpath>/Defs/ThingDef[defName="BOG_BabyOil"]/ingestible/ingestCommandString</xpath>
+		<xpath>Defs/ThingDef[defName="BOG_BabyOil"]/ingestible/ingestCommandString</xpath>
 		<!-- If it does, do this replacement. -->
 		<match Class="PatchOperationReplace">
 			<success>Always</success>
-			<xpath>/Defs/ThingDef[defName="BOG_BabyOil"]/ingestible/ingestCommandString</xpath>
+			<xpath>Defs/ThingDef[defName="BOG_BabyOil"]/ingestible/ingestCommandString</xpath>
 			<value>
 				<ingestCommandString>Drink {0}</ingestCommandString>
 			</value>
@@ -368,11 +368,11 @@
 	
 	<Operation Class="PatchOperationConditional">
 		<!-- Does this exist? -->
-		<xpath>/Defs/ThingDef[defName="BOG_BabyOil"]/ingestible/ingestReportString</xpath>
+		<xpath>Defs/ThingDef[defName="BOG_BabyOil"]/ingestible/ingestReportString</xpath>
 		<!-- If it does, do this replacement. -->
 		<match Class="PatchOperationReplace">
 			<success>Always</success>
-			<xpath>/Defs/ThingDef[defName="BOG_BabyOil"]/ingestible/ingestReportString</xpath>
+			<xpath>Defs/ThingDef[defName="BOG_BabyOil"]/ingestible/ingestReportString</xpath>
 			<value>
 				<ingestReportString>Freaking off.</ingestReportString>
 			</value>
@@ -382,11 +382,11 @@
 	
 	<Operation Class="PatchOperationConditional">
 		<!-- Does this exist? -->
-		<xpath>/Defs/ThingDef[defName="BOG_BabyOil"]/ingestible/ingestSound</xpath>
+		<xpath>Defs/ThingDef[defName="BOG_BabyOil"]/ingestible/ingestSound</xpath>
 		<!-- If it does, do this replacement. -->
 		<match Class="PatchOperationReplace">
 			<success>Always</success>
-			<xpath>/Defs/ThingDef[defName="BOG_BabyOil"]/ingestible/ingestSound</xpath>
+			<xpath>Defs/ThingDef[defName="BOG_BabyOil"]/ingestible/ingestSound</xpath>
 			<value>
 				<ingestSound>Ingest_Drink</ingestSound>
 			</value>

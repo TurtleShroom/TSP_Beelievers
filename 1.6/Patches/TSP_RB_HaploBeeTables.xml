@@ -197,11 +197,11 @@
 	
 	<Operation Class="PatchOperationConditional">
 	<!-- Does this exist? -->
-		<xpath>/Defs/ThingDef[defName="Honey"]/label</xpath>
+		<xpath>Defs/ThingDef[defName="Honey"]/label</xpath>
 		<!-- If it does, do this replacement. -->
 		<match Class="PatchOperationReplace">
 			<success>Always</success>
-			<xpath>/Defs/ThingDef[defName="Honey"]/label</xpath>
+			<xpath>Defs/ThingDef[defName="Honey"]/label</xpath>
 			<value>
 				<label>Haplo honey</label>
 			</value>
@@ -211,11 +211,11 @@
 	
 	<Operation Class="PatchOperationConditional">
 	<!-- Does this exist? -->
-		<xpath>/Defs/ThingDef[defName="Honey"]/description</xpath>
+		<xpath>Defs/ThingDef[defName="Honey"]/description</xpath>
 		<!-- If it does, do this replacement. -->
 		<match Class="PatchOperationReplace">
 			<success>Always</success>
-			<xpath>/Defs/ThingDef[defName="Honey"]/description</xpath>
+			<xpath>Defs/ThingDef[defName="Honey"]/description</xpath>
 			<value>
 				<description>A delicious sweet from our friend the Haplo Bee. Haplo Bees are a special breed of bee that are fostered in unique, handmade beehouses. Their honey is a fine delicacy.</description>
 			</value>
@@ -225,11 +225,11 @@
 	
 	<Operation Class="PatchOperationConditional">
 	<!-- Does this exist? -->
-		<xpath>/Defs/ThingDef[defName="Honey"]/ingestible/preferability</xpath>
+		<xpath>Defs/ThingDef[defName="Honey"]/ingestible/preferability</xpath>
 		<!-- If it does, do this replacement. -->
 		<match Class="PatchOperationReplace">
 			<success>Always</success>
-			<xpath>/Defs/ThingDef[defName="Honey"]/ingestible/preferability</xpath>
+			<xpath>Defs/ThingDef[defName="Honey"]/ingestible/preferability</xpath>
 			<value>
 				<preferability>RawTasty</preferability>
 			</value>

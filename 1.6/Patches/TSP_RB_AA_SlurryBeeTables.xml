@@ -3,7 +3,7 @@
 <Patch>
 	<Operation Class="PatchOperationConditional">
 	<!-- Does this exist? -->
-		<xpath>/Defs/ThingDef[defName="HydroponicNutrientSolution"]</xpath>
+		<xpath>Defs/ThingDef[defName="HydroponicNutrientSolution"]</xpath>
 		<!-- If it does, add this. -->
 		<match Class="PatchOperationAdd">
 			<xpath>/Defs</xpath>
@@ -175,7 +175,7 @@
 	
 	<Operation Class="PatchOperationConditional">
 	<!-- Does this exist? -->
-		<xpath>/Defs/ThingDef[defName="MealSoylentGreen"]</xpath>
+		<xpath>Defs/ThingDef[defName="MealSoylentGreen"]</xpath>
 		<!-- If it does, add this. -->
 		<match Class="PatchOperationAdd">
 			<xpath>/Defs</xpath>
@@ -344,7 +344,7 @@
 	
 	<Operation Class="PatchOperationConditional">
 	<!-- Does this exist? -->
-		<xpath>/Defs/ThingDef[defName="RS_LogisticsBox"]</xpath>
+		<xpath>Defs/ThingDef[defName="RS_LogisticsBox"]</xpath>
 		<!-- If it does, add this. -->
 		<match Class="PatchOperationAdd">
 			<xpath>/Defs</xpath>
@@ -511,11 +511,11 @@
 	
 	<Operation Class="PatchOperationConditional">
 	<!-- Does this exist? -->
-		<xpath>/Defs/ThingDef[defName="MealNutrientPaste"]/stackLimit</xpath>
+		<xpath>Defs/ThingDef[defName="MealNutrientPaste"]/stackLimit</xpath>
 		<!-- If it does, do this replacement. -->
 		<match Class="PatchOperationReplace">
 			<success>Always</success>
-			<xpath>/Defs/ThingDef[defName="MealNutrientPaste"]/stackLimit</xpath>
+			<xpath>Defs/ThingDef[defName="MealNutrientPaste"]/stackLimit</xpath>
 			<value>
 				<stackLimit>1000</stackLimit>
 			</value>
@@ -523,7 +523,7 @@
 		<!-- If it DOES NOT, add this instead. -->
 		<nomatch Class="PatchOperationAdd">
 			<success>Always</success>
-			<xpath>/Defs/ThingDef[defName="MealNutrientPaste"]</xpath>
+			<xpath>Defs/ThingDef[defName="MealNutrientPaste"]</xpath>
 			<value>
 				<stackLimit>1000</stackLimit>
 			</value>

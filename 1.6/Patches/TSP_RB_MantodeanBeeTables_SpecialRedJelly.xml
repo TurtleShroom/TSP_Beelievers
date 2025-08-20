@@ -5,9 +5,9 @@
 	<!-- Special thanks to Aelanna for straight-up saving me scores of headaches! -->
 	<!-- Add comps field to Settlement WorldObjectDef if it doesn't exist -->
 	<Operation Class="PatchOperationConditional">
-		<xpath>/Defs/ThingDef[defName="L24_Manto_RedJelly"]/thingCategories</xpath>
+		<xpath>Defs/ThingDef[defName="L24_Manto_RedJelly"]/thingCategories</xpath>
 		<nomatch Class="PatchOperationAdd">
-			<xpath>/Defs/ThingDef[defName="L24_Manto_RedJelly"]</xpath>
+			<xpath>Defs/ThingDef[defName="L24_Manto_RedJelly"]</xpath>
 			<success>Always</success>
 			<value>
 				<thingCategories></thingCategories>
@@ -17,9 +17,9 @@
 	
 	<!-- Add comps field to Settlement WorldObjectDef if it doesn't exist -->
 	<Operation Class="PatchOperationConditional">
-		<xpath>/Defs/ThingDef[defName="RB_RedBeeswax"]/thingCategories</xpath>
+		<xpath>Defs/ThingDef[defName="RB_RedBeeswax"]/thingCategories</xpath>
 		<nomatch Class="PatchOperationAdd">
-			<xpath>/Defs/ThingDef[defName="RB_RedBeeswax"]</xpath>
+			<xpath>Defs/ThingDef[defName="RB_RedBeeswax"]</xpath>
 			<success>Always</success>
 			<value>
 				<thingCategories></thingCategories>
@@ -29,9 +29,9 @@
 	
 	<!-- Add comps field to Settlement WorldObjectDef if it doesn't exist -->
 	<Operation Class="PatchOperationConditional">
-		<xpath>/Defs/ThingDef[defName="RB_PerformanceEnhancingHoney"]/thingCategories</xpath>
+		<xpath>Defs/ThingDef[defName="RB_PerformanceEnhancingHoney"]/thingCategories</xpath>
 		<nomatch Class="PatchOperationAdd">
-			<xpath>/Defs/ThingDef[defName="RB_PerformingEnhancingHoney"]</xpath>
+			<xpath>Defs/ThingDef[defName="RB_PerformingEnhancingHoney"]</xpath>
 			<success>Always</success>
 			<value>
 				<thingCategories></thingCategories>
@@ -41,9 +41,9 @@
 	
 	<!-- Add comps field to Settlement WorldObjectDef if it doesn't exist -->
 	<Operation Class="PatchOperationConditional">
-		<xpath>/Defs/ThingDef[defName="L24_Meat_Mantodean"]/thingCategories</xpath>
+		<xpath>Defs/ThingDef[defName="L24_Meat_Mantodean"]/thingCategories</xpath>
 		<nomatch Class="PatchOperationAdd">
-			<xpath>/Defs/ThingDef[defName="L24_Meat_Mantodean"]</xpath>
+			<xpath>Defs/ThingDef[defName="L24_Meat_Mantodean"]</xpath>
 			<success>Always</success>
 			<value>
 				<thingCategories></thingCategories>
@@ -54,9 +54,9 @@
 
 	<!-- Add comps field to Settlement WorldObjectDef if it doesn't exist -->
 	<Operation Class="PatchOperationConditional">
-		<xpath>/Defs/ThingDef[defName="L24_Egg_Unfert"]/thingCategories</xpath>
+		<xpath>Defs/ThingDef[defName="L24_Egg_Unfert"]/thingCategories</xpath>
 		<nomatch Class="PatchOperationAdd">
-			<xpath>/Defs/ThingDef[defName="L24_Egg_Unfert"]</xpath>
+			<xpath>Defs/ThingDef[defName="L24_Egg_Unfert"]</xpath>
 			<success>Always</success>
 			<value>
 				<thingCategories></thingCategories>
@@ -66,7 +66,7 @@
 
 	<Operation Class="PatchOperationConditional">
 	<!-- Does this exist? -->
-		<xpath>/Defs/ThingDef[defName="L24_Manto_RedJelly"]</xpath>
+		<xpath>Defs/ThingDef[defName="L24_Manto_RedJelly"]</xpath>
 		<!-- If it does, add this. -->
 		<match Class="PatchOperationAdd">
 			<xpath>/Defs</xpath>
@@ -84,10 +84,10 @@
 	
 	<Operation Class="PatchOperationConditional">
 	<!-- Does this exist? -->
-		<xpath>/Defs/ThingDef[defName="L24_Manto_RedJelly"]</xpath>
+		<xpath>Defs/ThingDef[defName="L24_Manto_RedJelly"]</xpath>
 		<!-- If it does, add this. -->
 		<match Class="PatchOperationAdd">
-			<xpath>/Defs/ThingDef[defName = "L24_Manto_RedJelly" or defName = "RB_PerformanceEnhancingHoney" or defName = "L24_Meat_Mantodean" or defName = "L24_Egg_Unfert"]/thingCategories</xpath>
+			<xpath>Defs/ThingDef[defName = "L24_Manto_RedJelly" or defName = "RB_PerformanceEnhancingHoney" or defName = "L24_Meat_Mantodean" or defName = "L24_Egg_Unfert"]/thingCategories</xpath>
 			<success>Always</success>
 			<value>
 				<li>TSP_RB_Beeliever_HiddenCategorySpawn_RedJelly</li>
@@ -98,7 +98,7 @@
 
 	<Operation Class="PatchOperationConditional">
 	<!-- Does this exist? -->
-		<xpath>/Defs/ThingDef[defName="L24_Manto_RedJelly"]</xpath>
+		<xpath>Defs/ThingDef[defName="L24_Manto_RedJelly"]</xpath>
 		<!-- If it does, add this. -->
 		<match Class="PatchOperationAdd">
 			<xpath>/Defs</xpath>
@@ -165,9 +165,9 @@
 	
 	<!-- Add comps field to Settlement WorldObjectDef if it doesn't exist -->
 	<Operation Class="PatchOperationConditional">
-		<xpath>/Defs/ThingDef[defName="L24_Manto_RedJelly"]/thingCategories</xpath>
+		<xpath>Defs/ThingDef[defName="L24_Manto_RedJelly"]/thingCategories</xpath>
 		<nomatch Class="PatchOperationAdd">
-			<xpath>/Defs/ThingDef[defName="L24_Manto_RedJelly"]</xpath>
+			<xpath>Defs/ThingDef[defName="L24_Manto_RedJelly"]</xpath>
 			<success>Always</success>
 			<value>
 				<thingCategories></thingCategories>
@@ -177,11 +177,11 @@
 	
 	<Operation Class="PatchOperationConditional">
 		<!-- Does this exist? -->
-		<xpath>/Defs/ThingDef[defName="L24_Manto_RedJelly"]/thingCategories</xpath>
+		<xpath>Defs/ThingDef[defName="L24_Manto_RedJelly"]/thingCategories</xpath>
 		<!-- If it does, do this replacement. -->
 		<match Class="PatchOperationReplace">
 			<success>Always</success>
-			<xpath>/Defs/ThingDef[defName="L24_Manto_RedJelly"]/thingCategories</xpath>
+			<xpath>Defs/ThingDef[defName="L24_Manto_RedJelly"]/thingCategories</xpath>
 			<value>
 				<thingCategories Inherit="False">
 					<li>L24_Manto_Drug</li>

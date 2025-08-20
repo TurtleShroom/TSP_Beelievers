@@ -5,9 +5,9 @@
 	<!-- Special thanks to Aelanna for straight-up saving me scores of headaches! -->
 	<!-- Add comps field to Settlement WorldObjectDef if it doesn't exist -->
 	<Operation Class="PatchOperationConditional">
-		<xpath>/Defs/ThingDef[defName="DankPyon_QueenBee"]/comps</xpath>
+		<xpath>Defs/ThingDef[defName="DankPyon_QueenBee"]/comps</xpath>
 		<nomatch Class="PatchOperationAdd">
-			<xpath>/Defs/ThingDef[defName="DankPyon_QueenBee"]</xpath>
+			<xpath>Defs/ThingDef[defName="DankPyon_QueenBee"]</xpath>
 			<success>Always</success>
 			<value>
 				<comps></comps>
@@ -17,9 +17,9 @@
 	
 	<!-- Add comps field to Settlement WorldObjectDef if it doesn't exist -->
 	<Operation Class="PatchOperationConditional">
-		<xpath>/Defs/ThingDef[defName="DankPyon_BeeHive"]/comps</xpath>
+		<xpath>Defs/ThingDef[defName="DankPyon_BeeHive"]/comps</xpath>
 		<nomatch Class="PatchOperationAdd">
-			<xpath>/Defs/ThingDef[defName="DankPyon_BeeHive"]</xpath>
+			<xpath>Defs/ThingDef[defName="DankPyon_BeeHive"]</xpath>
 			<success>Always</success>
 			<value>
 				<comps></comps>
@@ -28,9 +28,9 @@
 	</Operation>
 	
 	<Operation Class="PatchOperationConditional">
-		<xpath>/Defs/ThingDef[defName="DankPyon_QueenBee"]/descriptionHyperlinks</xpath>
+		<xpath>Defs/ThingDef[defName="DankPyon_QueenBee"]/descriptionHyperlinks</xpath>
 		<match Class="PatchOperationReplace">
-			<xpath>/Defs/ThingDef[defName="DankPyon_QueenBee"]/descriptionHyperlinks</xpath>
+			<xpath>Defs/ThingDef[defName="DankPyon_QueenBee"]/descriptionHyperlinks</xpath>
 			<success>Always</success>
 			<value>
 				<descriptionHyperlinks>
@@ -49,7 +49,7 @@
 			</value>
 		</match>
 		<nomatch Class="PatchOperationAdd">
-			<xpath>/Defs/ThingDef[defName="DankPyon_QueenBee"]</xpath>
+			<xpath>Defs/ThingDef[defName="DankPyon_QueenBee"]</xpath>
 			<success>Always</success>
 			<value>
 				<descriptionHyperlinks>
@@ -70,9 +70,9 @@
 	</Operation>
 	
 	<Operation Class="PatchOperationConditional">
-		<xpath>/Defs/ThingDef[defName="DankPyon_BeeHive"]/descriptionHyperlinks</xpath>
+		<xpath>Defs/ThingDef[defName="DankPyon_BeeHive"]/descriptionHyperlinks</xpath>
 		<match Class="PatchOperationReplace">
-			<xpath>/Defs/ThingDef[defName="DankPyon_BeeHive"]/descriptionHyperlinks</xpath>
+			<xpath>Defs/ThingDef[defName="DankPyon_BeeHive"]/descriptionHyperlinks</xpath>
 			<success>Always</success>
 			<value>
 				<descriptionHyperlinks>
@@ -90,7 +90,7 @@
 			</value>
 		</match>
 		<nomatch Class="PatchOperationAdd">
-			<xpath>/Defs/ThingDef[defName="DankPyon_BeeHive"]</xpath>
+			<xpath>Defs/ThingDef[defName="DankPyon_BeeHive"]</xpath>
 			<success>Always</success>
 			<value>
 				<descriptionHyperlinks>
@@ -111,7 +111,7 @@
 
 	<Operation Class="PatchOperationConditional">
 	<!-- Does this exist? -->
-		<xpath>/Defs/ThingDef[defName="VFEM2_Honey"]</xpath>
+		<xpath>Defs/ThingDef[defName="VFEM2_Honey"]</xpath>
 		<!-- If it does, add this. -->
 		<match Class="PatchOperationAdd">
 			<xpath>/Defs</xpath>
@@ -491,11 +491,11 @@
 	
 	<Operation Class="PatchOperationConditional">
 	<!-- Does this exist? -->
-		<xpath>/Defs/ThingDef[defName="VFEM2_Honey"]/label</xpath>
+		<xpath>Defs/ThingDef[defName="VFEM2_Honey"]/label</xpath>
 		<!-- If it does, do this replacement. -->
 		<match Class="PatchOperationReplace">
 			<success>Always</success>
-			<xpath>/Defs/ThingDef[defName="VFEM2_Honey"]/label</xpath>
+			<xpath>Defs/ThingDef[defName="VFEM2_Honey"]/label</xpath>
 			<value>
 				<label>thick honey</label>
 			</value>
@@ -505,11 +505,11 @@
 	
 	<Operation Class="PatchOperationConditional">
 	<!-- Does this exist? -->
-		<xpath>/Defs/ThingDef[defName="VFEM2_Honey"]/ingestible/preferability</xpath>
+		<xpath>Defs/ThingDef[defName="VFEM2_Honey"]/ingestible/preferability</xpath>
 		<!-- If it does, do this replacement. -->
 		<match Class="PatchOperationReplace">
 			<success>Always</success>
-			<xpath>/Defs/ThingDef[defName="VFEM2_Honey"]/ingestible/preferability</xpath>
+			<xpath>Defs/ThingDef[defName="VFEM2_Honey"]/ingestible/preferability</xpath>
 			<value>
 				<preferability>RawTasty</preferability>
 			</value>
@@ -519,11 +519,11 @@
 	
 	<Operation Class="PatchOperationConditional">
 		<!-- Does this exist? -->
-		<xpath>/Defs/ThingDef[defName="RB_Bee_Northern_Queen"]</xpath>
+		<xpath>Defs/ThingDef[defName="RB_Bee_Northern_Queen"]</xpath>
 		<!-- If it does, add this. -->
 		<match Class="PatchOperationAdd">
 			<success>Always</success>
-			<xpath>/Defs/RimBees.BeeCombinationDef[defName="RB_CombinationTier2_1"]/result</xpath>
+			<xpath>Defs/RimBees.BeeCombinationDef[defName="RB_CombinationTier2_1"]/result</xpath>
 			<value>
 				<li>Northern</li>
 			</value>
@@ -539,7 +539,7 @@
 	
 	<Operation Class="PatchOperationConditional">
 	<!-- Does this exist? -->
-		<xpath>/Defs/ThingDef[defName="DankPyon_QueenBee"]</xpath>
+		<xpath>Defs/ThingDef[defName="DankPyon_QueenBee"]</xpath>
 		<!-- If it does, add this. -->
 		<match Class="PatchOperationAdd">
 			<xpath>/Defs</xpath>
@@ -722,10 +722,10 @@
 	
 	<Operation Class="PatchOperationConditional">
 	<!-- Does this exist? -->
-		<xpath>/Defs/ThingDef[defName="DankPyon_QueenBee"]/comps</xpath>
+		<xpath>Defs/ThingDef[defName="DankPyon_QueenBee"]/comps</xpath>
 		<!-- If it does, add this. -->
 		<match Class="PatchOperationAdd">
-			<xpath>/Defs/ThingDef[defName="DankPyon_QueenBee"]/comps</xpath>
+			<xpath>Defs/ThingDef[defName="DankPyon_QueenBee"]/comps</xpath>
 			<success>Always</success>
 			<value>
 				<li Class="VEF.Cooking.CompProperties_TempTransforms" MayRequire="oskarpotocki.vanillafactionsexpanded.core">
@@ -740,10 +740,10 @@
 	
 	<Operation Class="PatchOperationConditional">
 	<!-- Does this exist? -->
-		<xpath>/Defs/ThingDef[defName="DankPyon_QueenBee"]/label</xpath>
+		<xpath>Defs/ThingDef[defName="DankPyon_QueenBee"]/label</xpath>
 		<!-- If it does, do this replacement. -->
 		<match Class="PatchOperationReplace">
-			<xpath>/Defs/ThingDef[defName="DankPyon_QueenBee"]/label</xpath>
+			<xpath>Defs/ThingDef[defName="DankPyon_QueenBee"]/label</xpath>
 			<success>Always</success>
 			<value>
 				<label>Vulture bee (wild)</label>
@@ -753,10 +753,10 @@
 
 	<Operation Class="PatchOperationConditional">
 	<!-- Does this exist? -->
-		<xpath>/Defs/ThingDef[defName="DankPyon_QueenBee"]/description</xpath>
+		<xpath>Defs/ThingDef[defName="DankPyon_QueenBee"]/description</xpath>
 		<!-- If it does, do this replacement. -->
 		<match Class="PatchOperationReplace">
-			<xpath>/Defs/ThingDef[defName="DankPyon_QueenBee"]/description</xpath>
+			<xpath>Defs/ThingDef[defName="DankPyon_QueenBee"]/description</xpath>
 			<success>Always</success>
 			<value>
 				<description>The wild matriarch of a Vulture Bee colony originating from the regions of House Oswin. Unlike typical bees, they consume carrion and produce a smokey and savory honey. She will not inhabit an Alpha Rim Bees Mod Beehouse without first being tamed. A wild Vulture Bee can be tamed at a Beekeeping Workbench. This will produce Oswin Bees, which can be put into Alpha Rim Bee Mod Beehouses.</description>
@@ -766,10 +766,10 @@
 	
 	<Operation Class="PatchOperationConditional">
 	<!-- Does this exist? -->
-		<xpath>/Defs/ThingDef[defName="DankPyon_QueenBee"]/thingCategories</xpath>
+		<xpath>Defs/ThingDef[defName="DankPyon_QueenBee"]/thingCategories</xpath>
 		<!-- If it does, do this replacement. -->
 		<match Class="PatchOperationReplace">
-			<xpath>/Defs/ThingDef[defName="DankPyon_QueenBee"]/thingCategories</xpath>
+			<xpath>Defs/ThingDef[defName="DankPyon_QueenBee"]/thingCategories</xpath>
 			<success>Always</success>
 			<value>
 				<thingCategories Inherit="False">
@@ -781,7 +781,7 @@
 	
 	<Operation Class="PatchOperationConditional">
 	<!-- Does this exist? -->
-		<xpath>/Defs/ThingDef[defName="DankPyon_Apiary"]</xpath>
+		<xpath>Defs/ThingDef[defName="DankPyon_Apiary"]</xpath>
 		<!-- If it does, add this. -->
 		<match Class="PatchOperationAdd">
 			<xpath>/Defs</xpath>
@@ -840,10 +840,10 @@
 	
 	<Operation Class="PatchOperationConditional">
 	<!-- Does this exist? -->
-		<xpath>/Defs/ThingDef[defName="DankPyon_Apiary"]/stuffCategories</xpath>
+		<xpath>Defs/ThingDef[defName="DankPyon_Apiary"]/stuffCategories</xpath>
 		<!-- If it does, add this. -->
 		<match Class="PatchOperationAdd">
-			<xpath>/Defs/ThingDef[defName="DankPyon_Apiary"]/stuffCategories</xpath>
+			<xpath>Defs/ThingDef[defName="DankPyon_Apiary"]/stuffCategories</xpath>
 			<success>Always</success>
 			<value>
 				<li>Woody</li>
@@ -864,10 +864,10 @@
 	
 	<Operation Class="PatchOperationConditional">
 	<!-- Does this exist? -->
-		<xpath>/Defs/ThingDef[defName="DankPyon_Apiary"]/costList</xpath>
+		<xpath>Defs/ThingDef[defName="DankPyon_Apiary"]/costList</xpath>
 		<!-- If it does, add this. -->
 		<match Class="PatchOperationReplace">
-			<xpath>/Defs/ThingDef[defName="DankPyon_Apiary"]/costList</xpath>
+			<xpath>Defs/ThingDef[defName="DankPyon_Apiary"]/costList</xpath>
 			<success>Always</success>
 			<value>
 				<costList>

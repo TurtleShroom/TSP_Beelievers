@@ -3,7 +3,7 @@
 <Patch>
 	<Operation Class="PatchOperationConditional">
 	<!-- Does this exist? -->
-		<xpath>/Defs/ThingDef[defName="AA_Bumbledrone"]</xpath>
+		<xpath>Defs/ThingDef[defName="AA_Bumbledrone"]</xpath>
 		<!-- If it does, add this. -->
 		<match Class="PatchOperationAdd">
 			<xpath>/Defs</xpath>
@@ -198,7 +198,7 @@
 	
 	<Operation Class="PatchOperationConditional">
 	<!-- Does this exist? -->
-		<xpath>/Defs/ThingDef[defName="RB_Bee_Aero_Queen"]</xpath>
+		<xpath>Defs/ThingDef[defName="RB_Bee_Aero_Queen"]</xpath>
 		<!-- If it does, add this. -->
 		<match Class="PatchOperationAdd">
 			<xpath>/Defs</xpath>
@@ -392,7 +392,7 @@
 	<!-- Add comps field to Settlement WorldObjectDef if it doesn't exist -->
 	<Operation Class="PatchOperationConditional">
 	<!-- Does this exist? -->
-		<xpath>/Defs/ThingDef[defName="RB_Bee_Slurry_Queen"]</xpath>
+		<xpath>Defs/ThingDef[defName="RB_Bee_Slurry_Queen"]</xpath>
 		<!-- If it DOES NOT, add this. -->
 		<nomatch Class="PatchOperationAdd">
 			<xpath>/Defs</xpath>
@@ -473,7 +473,7 @@
 	
 	<Operation Class="PatchOperationConditional">
 		<!-- Does this exist? -->
-		<xpath>/Defs/ThingDef[defName="RB_Bee_Slurry_Queen"]</xpath>
+		<xpath>Defs/ThingDef[defName="RB_Bee_Slurry_Queen"]</xpath>
 		<!-- If it does, add this. -->
 		<match Class="PatchOperationAdd">
 			<success>Always</success>
@@ -545,11 +545,11 @@
 	
 	<Operation Class="PatchOperationConditional">
 		<!-- DO THE GENTILES KNOW? -->
-		<xpath>/Defs/ThingDef[defName="AA_DisgustingMealNutrientPaste"]</xpath>
+		<xpath>Defs/ThingDef[defName="AA_DisgustingMealNutrientPaste"]</xpath>
 		<!-- If they do, SHUT IT DOWN. -->
 		<match Class="PatchOperationRemove">
 			<success>Always</success>
-			<xpath>/Defs/ThingDef[defName="RB_Slurry_Honeycomb"]/butcherProducts/MealNutrientPaste</xpath>
+			<xpath>Defs/ThingDef[defName="RB_Slurry_Honeycomb"]/butcherProducts/MealNutrientPaste</xpath>
 		</match>
 		<!-- If the first XPATH does not exist, the original code stands. -->
 	</Operation>

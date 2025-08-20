@@ -3,7 +3,7 @@
 <Patch>
 	<Operation Class="PatchOperationConditional">
 	<!-- Does this exist? -->
-		<xpath>/Defs/ThingDef[defName="OP_ArkComputer"]</xpath>
+		<xpath>Defs/ThingDef[defName="OP_ArkComputer"]</xpath>
 		<!-- If it does, LET'S FASTING GOOOOOOOOOO!!! -->
 		<match Class="PatchOperationSequence">
 			<!-- <success>Always</success> -->
@@ -189,7 +189,7 @@
 				
 				<li Class="PatchOperationReplace">
 					<success>Always</success>
-					<xpath>/Defs/ThingDef[defName="Soul"]/label</xpath>
+					<xpath>Defs/ThingDef[defName="Soul"]/label</xpath>
 					<value>
 						<label>Soulquid</label>
 					</value>
@@ -197,7 +197,7 @@
 				
 				<li Class="PatchOperationReplace">
 					<success>Always</success>
-					<xpath>/Defs/ResearchProjectDef[defName="SoulProduction"]/label</xpath>
+					<xpath>Defs/ResearchProjectDef[defName="SoulProduction"]/label</xpath>
 					<value>
 						<label>Soulquid Engineering</label>
 					</value>
@@ -205,7 +205,7 @@
 				
 				<li Class="PatchOperationReplace">
 					<success>Always</success>
-					<xpath>/Defs/RecipeDef[defName="SoulP"]/label</xpath>
+					<xpath>Defs/RecipeDef[defName="SoulP"]/label</xpath>
 					<value>
 						<label>Engineer Soulquid</label>
 					</value>
@@ -213,7 +213,7 @@
 				
 				<li Class="PatchOperationReplace">
 					<success>Always</success>
-					<xpath>/Defs/RecipeDef[defName="SoulP"]/ingredients/li[1]/count</xpath>
+					<xpath>Defs/RecipeDef[defName="SoulP"]/ingredients/li[1]/count</xpath>
 					<value>
 						<count>550</count>
 					</value>
@@ -248,10 +248,10 @@
 	
 	<Operation Class="PatchOperationConditional">
 	<!-- Does this exist? -->
-		<xpath>/Defs/ThingDef[defName="FoodGenerator"]/comps/li/fuelFilter/thingDefs</xpath>
+		<xpath>Defs/ThingDef[defName="FoodGenerator"]/comps/li/fuelFilter/thingDefs</xpath>
 		<!-- If it does, add this. -->
 		<match Class="PatchOperationAdd">
-			<xpath>/Defs/ThingDef[defName="FoodGenerator"]/comps/li/fuelFilter/thingDefs</xpath>
+			<xpath>Defs/ThingDef[defName="FoodGenerator"]/comps/li/fuelFilter/thingDefs</xpath>
 			<value>
 				<li MayRequire="GarbageDayIsHereToStay.Watermelons.GDIHTSWM">RAW_WATERMELON_RESOURCE_DEF</li>
 				<li MayRequire="sarg.rimbees">RB_SimpleHoney</li>

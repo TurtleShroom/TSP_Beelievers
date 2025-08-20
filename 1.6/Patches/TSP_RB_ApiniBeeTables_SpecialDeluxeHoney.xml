@@ -5,9 +5,9 @@
 	<!-- Special thanks to Aelanna for straight-up saving me scores of headaches! -->
 	<!-- Add comps field to Settlement WorldObjectDef if it doesn't exist -->
 	<Operation Class="PatchOperationConditional">
-		<xpath>/Defs/ThingDef[@Name="ApiniHoneyBase"]/thingCategories</xpath>
+		<xpath>Defs/ThingDef[@Name="ApiniHoneyBase"]/thingCategories</xpath>
 		<nomatch Class="PatchOperationAdd">
-			<xpath>/Defs/ThingDef[@Name="ApiniHoneyBase"]</xpath>
+			<xpath>Defs/ThingDef[@Name="ApiniHoneyBase"]</xpath>
 			<success>Always</success>
 			<value>
 				<thingCategories></thingCategories>
@@ -17,9 +17,9 @@
 	
 	<!-- Add comps field to Settlement WorldObjectDef if it doesn't exist -->
 	<Operation Class="PatchOperationConditional">
-		<xpath>/Defs/ThingDef[@Name="ApiniSpecialHoney"]/thingCategories</xpath>
+		<xpath>Defs/ThingDef[@Name="ApiniSpecialHoney"]/thingCategories</xpath>
 		<nomatch Class="PatchOperationAdd">
-			<xpath>/Defs/ThingDef[@Name="ApiniSpecialHoney"]</xpath>
+			<xpath>Defs/ThingDef[@Name="ApiniSpecialHoney"]</xpath>
 			<success>Always</success>
 			<value>
 				<thingCategories></thingCategories>
@@ -29,7 +29,7 @@
 
 	<Operation Class="PatchOperationConditional">
 	<!-- Does this exist? -->
-		<xpath>/Defs/ThingDef[defName="ApiniHoney"]</xpath>
+		<xpath>Defs/ThingDef[defName="ApiniHoney"]</xpath>
 		<!-- If it does, add this. -->
 		<match Class="PatchOperationAdd">
 			<xpath>/Defs</xpath>

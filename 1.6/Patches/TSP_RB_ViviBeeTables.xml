@@ -3,7 +3,7 @@
 <Patch>
 	<Operation Class="PatchOperationConditional">
 	<!-- Does this exist? -->
-		<xpath>/Defs/ThingDef[defName="VV_Viviwax"]</xpath>
+		<xpath>Defs/ThingDef[defName="VV_Viviwax"]</xpath>
 		<!-- If it does, add this. -->
 		<match Class="PatchOperationAdd">
 			<xpath>/Defs</xpath>
@@ -613,11 +613,11 @@
 	
 	<Operation Class="PatchOperationConditional">
 	<!-- Does this exist? -->
-		<xpath>/Defs/ThingDef[defName="VV_RoyalJelly"]/label</xpath>
+		<xpath>Defs/ThingDef[defName="VV_RoyalJelly"]/label</xpath>
 		<!-- If it does, do this replacement. -->
 		<match Class="PatchOperationReplace">
 			<success>Always</success>
-			<xpath>/Defs/ThingDef[defName="VV_RoyalJelly"]/label</xpath>
+			<xpath>Defs/ThingDef[defName="VV_RoyalJelly"]/label</xpath>
 			<value>
 				<label>Vivi royal jelly</label>
 			</value>

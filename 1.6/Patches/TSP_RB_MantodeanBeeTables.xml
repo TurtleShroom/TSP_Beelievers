@@ -3,7 +3,7 @@
 <Patch>
 	<Operation Class="PatchOperationConditional">
 	<!-- Does this exist? -->
-		<xpath>/Defs/ThingDef[defName="L24_Manto_MantodeanJelly"]</xpath>
+		<xpath>Defs/ThingDef[defName="L24_Manto_MantodeanJelly"]</xpath>
 		<!-- If it does, add this. -->
 		<match Class="PatchOperationAdd">
 			<xpath>/Defs</xpath>
@@ -1951,7 +1951,7 @@
 	
 	<Operation Class="PatchOperationConditional">
 	<!-- Does this exist? -->
-		<xpath>/Defs/ThingDef[defName="L24_Manto_TwistedJelly"]</xpath>
+		<xpath>Defs/ThingDef[defName="L24_Manto_TwistedJelly"]</xpath>
 		<!-- If it does, add this. -->
 		<match Class="PatchOperationAdd">
 			<xpath>/Defs</xpath>
@@ -2145,7 +2145,7 @@
 	
 	<Operation Class="PatchOperationConditional">
 	<!-- Does this exist? -->
-		<xpath>/Defs/ThingDef[defName="L24_Manto_BlackJelly"]</xpath>
+		<xpath>Defs/ThingDef[defName="L24_Manto_BlackJelly"]</xpath>
 		<!-- If it does, add this. -->
 		<match Class="PatchOperationAdd">
 			<xpath>/Defs</xpath>
@@ -2333,18 +2333,18 @@
 	
 	<Operation Class="PatchOperationConditional">
 		<!-- Does this exist? -->
-		<xpath>/Defs/ThingDef[defName="L24_Manto_TwistedJelly"]/ingestible/foodType</xpath>
+		<xpath>Defs/ThingDef[defName="L24_Manto_TwistedJelly"]/ingestible/foodType</xpath>
 		<!-- If it does, do this replacement. -->
 		<match Class="PatchOperationReplace">
 			<success>Always</success>
-			<xpath>/Defs/ThingDef[defName="L24_Manto_TwistedJelly"]/ingestible/foodType</xpath>
+			<xpath>Defs/ThingDef[defName="L24_Manto_TwistedJelly"]/ingestible/foodType</xpath>
 			<value>
 				<foodType>Meat, CarnivoreAnimal, CarnivoreAnimalStrict, Corpse, Liquor, AnimalProduct, Kibble</foodType>
 			</value>
 		</match>
 		<!-- If it DOES NOT, add this instead. -->
 		<nomatch Class="PatchOperationAdd">
-			<xpath>/Defs/ThingDef[defName="L24_Manto_TwistedJelly"]/ingestible</xpath>
+			<xpath>Defs/ThingDef[defName="L24_Manto_TwistedJelly"]/ingestible</xpath>
 			<success>Always</success>
 			<value>
 				<foodType>Meat, CarnivoreAnimal, CarnivoreAnimalStrict, Corpse, Liquor, AnimalProduct, Kibble</foodType>
@@ -2355,18 +2355,18 @@
 	
 	<Operation Class="PatchOperationConditional">
 		<!-- Does this exist? -->
-		<xpath>/Defs/ThingDef[defName="L24_Manto_TwistedJelly"]/statBases/Mass</xpath>
+		<xpath>Defs/ThingDef[defName="L24_Manto_TwistedJelly"]/statBases/Mass</xpath>
 		<!-- If it does, do this replacement. -->
 		<match Class="PatchOperationReplace">
 			<success>Always</success>
-			<xpath>/Defs/ThingDef[defName="L24_Manto_TwistedJelly"]/statBases/Mass</xpath>
+			<xpath>Defs/ThingDef[defName="L24_Manto_TwistedJelly"]/statBases/Mass</xpath>
 			<value>
 				<Mass>0.045</Mass>
 			</value>
 		</match>
 		<!-- If it DOES NOT, add this instead. -->
 		<nomatch Class="PatchOperationAdd">
-			<xpath>/Defs/ThingDef[defName="L24_Manto_TwistedJelly"]/statBases</xpath>
+			<xpath>Defs/ThingDef[defName="L24_Manto_TwistedJelly"]/statBases</xpath>
 			<success>Always</success>
 			<value>
 				<Mass>0.045</Mass>
@@ -2377,18 +2377,18 @@
 	
 	<Operation Class="PatchOperationConditional">
 		<!-- Does this exist? -->
-		<xpath>/Defs/ThingDef[defName="L24_Manto_TwistedJelly"]/statBases/Nutrition</xpath>
+		<xpath>Defs/ThingDef[defName="L24_Manto_TwistedJelly"]/statBases/Nutrition</xpath>
 		<!-- If it does, do this replacement. -->
 		<match Class="PatchOperationReplace">
 			<success>Always</success>
-			<xpath>/Defs/ThingDef[defName="L24_Manto_TwistedJelly"]/statBases/Nutrition</xpath>
+			<xpath>Defs/ThingDef[defName="L24_Manto_TwistedJelly"]/statBases/Nutrition</xpath>
 			<value>
 				<Nutrition>0.22</Nutrition>
 			</value>
 		</match>
 		<!-- If it DOES NOT, add this instead. -->
 		<nomatch Class="PatchOperationAdd">
-			<xpath>/Defs/ThingDef[defName="L24_Manto_TwistedJelly"]/statBases</xpath>
+			<xpath>Defs/ThingDef[defName="L24_Manto_TwistedJelly"]/statBases</xpath>
 			<success>Always</success>
 			<value>
 				<Nutrition>0.22</Nutrition>
@@ -2399,10 +2399,10 @@
 	
 	<Operation Class="PatchOperationConditional">
 	<!-- Does this exist? -->
-		<xpath>/Defs/ThingDef[defName="L24_Manto_TwistedJelly"]</xpath>
+		<xpath>Defs/ThingDef[defName="L24_Manto_TwistedJelly"]</xpath>
 		<!-- If it does, add this. -->
 		<match Class="PatchOperationAdd">
-			<xpath>/Defs/ThingDef/comps/li/customThingToEat</xpath>
+			<xpath>Defs/ThingDef/comps/li/customThingToEat</xpath>
 			<success>Always</success>
 			<value>
 				<li MayRequire="ludeon.rimworld.anomaly,eltwofour.mantodeanrace">L24_Manto_TwistedJelly</li>
@@ -2413,11 +2413,11 @@
 	
 	<Operation Class="PatchOperationConditional">
 		<!-- Does this exist? -->
-		<xpath>/Defs/ThingDef[defName="L24_Manto_TwistedJelly"]/thingCategories</xpath>
+		<xpath>Defs/ThingDef[defName="L24_Manto_TwistedJelly"]/thingCategories</xpath>
 		<!-- If it does, do this replacement. -->
 		<match Class="PatchOperationReplace">
 			<success>Always</success>
-			<xpath>/Defs/ThingDef[defName="L24_Manto_TwistedJelly"]/thingCategories</xpath>
+			<xpath>Defs/ThingDef[defName="L24_Manto_TwistedJelly"]/thingCategories</xpath>
 			<value>
 				<thingCategories Inherit="False">
 					<li MayRequire="tsp.zal.patchhoney2,eltwofour.mantodeanrace">TSP_Mantodean_Honey_Category</li>
