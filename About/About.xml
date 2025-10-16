@@ -107,6 +107,8 @@
 		<li>ferny.progressionproduction</li>
 		<li>rince.gaulishgojuice</li>
 		<li>vr.mopatches</li>
+		<li>van.hornetkeeping</li>
+		<li>gz.ysbg</li>
 	</loadAfter>
 	<loadBefore>
 		<li>zal.patchhoney</li>

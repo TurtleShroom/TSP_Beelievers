@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<Patch>
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>/Defs/ThingDef[defName="CompressedCookie"]</xpath>
+		<!-- If it does, add this. -->
+		<match Class="PatchOperationAdd">
+			<xpath>/Defs</xpath>
+			<success>Always</success>
+			<value>
+				<!-- CompressCookie Branch -->
+				<!-- TIER II -->
+				<!-- BEE DESCRIPTION -->
+				<RimBees.BeeListDef>
+					<defName>TSP_RB_Beeliever_CompressCookie</defName>
+					<nameString>CompressCookie</nameString>
+					<beeDroneDef>RB_Bee_CompressCookie_Drone</beeDroneDef>
+					<beeQueenDef>RB_Bee_CompressCookie_Queen</beeQueenDef>
+					<!--
+					<beeQueenTag>RB_Bee_CompressCookie_Queen_Tag</beeQueenTag>
+					<beeDroneTag>RB_Bee_CompressCookie_Drone_Tag</beeDroneTag>
+					-->
+				</RimBees.BeeListDef>
+				
+				<RimBees.BeeCombinationDef>
+					<defName>TSP_RB_Beelievers_CompressCookie1_Tables</defName>
+					<bee1>Oriental</bee1>
+					<bee2>Culinary</bee2>
+					<result>
+						<li>CompressCookie</li>
+					</result>				
+				</RimBees.BeeCombinationDef>
+				
+				<RimBees.BeeCombinationDef>
+					<defName>TSP_RB_Beelievers_CompressCookie2_Tables</defName>
+					<bee1>Oriental</bee1>
+					<bee2>Chef</bee2>
+					<result>
+						<li>CompressCookie</li>
+					</result>				
+				</RimBees.BeeCombinationDef>
+				
+				<RimBees.BeeCombinationDef>
+					<defName>TSP_RB_Beelievers_CompressCookie2_Tables</defName>
+					<bee1>Oriental</bee1>
+					<bee2>Nutritious</bee2>
+					<result>
+						<li>CompressCookie</li>
+					</result>				
+				</RimBees.BeeCombinationDef>
+				
+				<ThingDef ParentName="TSP_Beelievers_Beesearch">
+					<defName>TSP_RB_Beelievers_CompressCookie1_Beesearch</defName>
+					<graphicData Inherit="False">
+						<graphicClass>Graphic_Single</graphicClass>
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/Beesearch/Idr_adbo2</texPath>
+					</graphicData>
+					<comps>
+						<li Class="RimBees.CompProperties_BeeResearchData">
+							<firstBee>RB_Bee_Oriental_Queen</firstBee>
+							<secondBee>RB_Bee_Culinary_Queen</secondBee>
+							<resultingBees>
+								<li>RB_Bee_CompressCookie_Queen</li>
+							</resultingBees>
+						</li>
+					</comps>
+				</ThingDef>
+
+				<ThingDef ParentName="TSP_Beelievers_Beesearch">
+					<defName>TSP_RB_Beelievers_CompressCookie2_Beesearch</defName>
+					<graphicData Inherit="False">
+						<graphicClass>Graphic_Single</graphicClass>
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/Beesearch/Idr_adbo2</texPath>
+					</graphicData>
+					<comps>
+						<li Class="RimBees.CompProperties_BeeResearchData">
+							<firstBee>RB_Bee_Oriental_Queen</firstBee>
+							<secondBee>RB_Bee_Nutritious_Queen</secondBee>
+							<resultingBees>
+								<li>RB_Bee_CompressCookie_Queen</li>
+							</resultingBees>
+						</li>
+					</comps>
+				</ThingDef>
+			
+				<ThingDef ParentName="TSP_RB_Beeliever_MasterBeeBase" Name="TSP_RB_Beeliever_CompressCookie_Base" Abstract="True">
+					<!-- <label>CompressCookie Bee</label> -->
+					<description>Using pollen, sugars, and nectar, Compression Cookie Bees make simple, delicious wafers, coated in honey, for their larvae. \n\n\n\n\n Bee Traits: \n\n 	Production time: 1 day \n 	Works at Night: No \n 	Works When Raining: Yes \n 	Unusual Sources Needed: No \n 	Minimum Temperature: 0ºF (-17.7778ºC) \n 	Maximum temperature: 97ºF (36.1111ºC)</description>
+					<!--
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/ST_Bee_south</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData>
+					-->
+					<comps>			
+						<li Class="RimBees.CompProperties_Bees" Inherit="False">
+							<species>CompressCookie</species>
+							<comb>TSP_RB_Beeliever_CompressCookie_Honeycomb</comb>
+							<combtimedays>1</combtimedays>
+							<nocturnal>false</nocturnal> <!-- Works at night -->
+							<pluviophile>true</pluviophile> <!-- Works in the rain -->
+							<weirdplantneeded>no</weirdplantneeded>
+							<tempMin>-18</tempMin> <!-- Zero degrees, rounded -->
+							<tempMax>36</tempMax> <!-- Ninety-seven degrees, rounded -->
+						</li>   
+					</comps>
+				</ThingDef>
+				
+				<!-- MUST be RB_Bee_YOURNAME_Queen and then RB_Bee_YOURNAME_Drone, no exceptions -->
+				<ThingDef ParentName="TSP_RB_Beeliever_CompressCookie_Base">
+					<defName>RB_Bee_CompressCookie_Queen</defName>
+					<label>Compression Cookie Bee queen</label>
+					<descriptionHyperlinks>
+						<!-- <ThingDef>RB_Bee_CompressCookie_Queen</ThingDef> -->
+						<ThingDef>RB_Bee_CompressCookie_Drone</ThingDef>
+						<ThingDef>TSP_RB_Beeliever_CompressCookie_Honeycomb</ThingDef>
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_CompressCookie_Honeycomb</RecipeDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/OrientalBranch/TSP_Bee_ChinaCompressedCookie_Queen</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+						<color>(254,221,137)</color>
+					</graphicData> 		
+				</ThingDef>
+				
+				<ThingDef ParentName="TSP_RB_Beeliever_CompressCookie_Base">
+					<defName>RB_Bee_CompressCookie_Drone</defName>
+					<label>Compression Cookie Bee drone</label>
+					<descriptionHyperlinks>
+						<ThingDef>RB_Bee_CompressCookie_Queen</ThingDef>
+						<!-- <ThingDef>RB_Bee_CompressCookie_Drone</ThingDef> -->
+						<ThingDef>TSP_RB_Beeliever_CompressCookie_Honeycomb</ThingDef>
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_CompressCookie_Honeycomb</RecipeDef>
+						<ThingDef>CompressedCookie</ThingDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/OrientalBranch/TSP_Bee_ChinaCompressedCookie_Drone</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+						<color>(254,221,137)</color>
+					</graphicData> 		
+				</ThingDef>
+				
+				<ThingDef ParentName="RB_CombBase">
+					<defName>TSP_RB_Beeliever_CompressCookie_Honeycomb</defName>
+					<label>Compression Cookie Bee honeycomb</label>
+					<description>Compressed cookies are a more efficient means of producing food for bee larvae. Compression Cookie Bees efficiently pack pollen, honey, and other plant-baased ingredients into delicious wafers, which they then feed to their larvae. By extracting the contents of Compression Cookie Bee honeycombs, normal beeswax, a small amount of normal honey, and Compressed Cookies can be garnered.</description>
+					<descriptionHyperlinks>
+						<ThingDef>RB_Bee_CompressCookie_Queen</ThingDef>
+						<ThingDef>RB_Bee_CompressCookie_Drone</ThingDef>
+						<!-- <ThingDef>TSP_RB_Beeliever_CompressCookie_Honeycomb</ThingDef> -->
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_CompressCookie_Honeycomb</RecipeDef>
+						<ThingDef>CompressedCookie</ThingDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/Honeycombs/TSP_RB_CompressedCookie_Honeycomb</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+						<color>(254,221,137)</color>
+					</graphicData>	
+					<thingCategories Inherit="False">
+						<li>TSP_RB_Beeliever_Honeycombs</li>
+					</thingCategories>
+					<butcherProducts>
+						<CompressedCookie>25</CompressedCookie>
+						<RB_Beeswax>6</RB_Beeswax>
+						<RB_BaseHoney>1</RB_BaseHoney>
+					</butcherProducts>
+				</ThingDef>
+				
+				<RecipeDef>
+					<defName>TSP_RB_Beeliever_Centrifuge_CompressCookie_Honeycomb</defName>
+					<label>Extract from Compression Cookie Bee honeycomb</label>
+					<description>Compression Cookie Bees efficiently pack pollen, honey, and other plant-based ingredients into delicious wafers, which they then feed to their larvae. By extracting the contents of Compression Cookie Bee honeycombs, normal beeswax, a small amount of normal honey, and Compressed Cookies can be garnered.</description>
+					<descriptionHyperlinks>
+						<ThingDef>RB_Bee_CompressCookie_Queen</ThingDef>
+						<ThingDef>RB_Bee_CompressCookie_Drone</ThingDef>
+						<ThingDef>TSP_RB_Beeliever_CompressCookie_Honeycomb</ThingDef>
+						<ThingDef>CompressedCookie</ThingDef>
+						<!-- <RecipeDef>TSP_RB_Beeliever_Centrifuge_CompressCookie_Honeycomb</RecipeDef> -->
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<uiIconThing>CompressedCookie</uiIconThing>
+					<jobString>Compressing the cookies.</jobString>
+					<effectWorking>Cremate</effectWorking>
+					<soundWorking>Recipe_Cremate</soundWorking>
+					<workAmount>900</workAmount>
+					<recipeUsers Inherit="False"></recipeUsers>
+					<ingredients>
+						<li>
+							<filter>
+								<thingDefs>
+									<li>TSP_RB_Beeliever_CompressCookie_Honeycomb</li>
+								</thingDefs>
+							</filter>
+							<count>1</count>
+						</li>
+					</ingredients>
+					<fixedIngredientFilter>
+						<thingDefs>
+							<li>TSP_RB_Beeliever_CompressCookie_Honeycomb</li>
+						</thingDefs>
+					</fixedIngredientFilter>
+					<specialProducts>
+						<li>Butchery</li>
+					</specialProducts>
+					<skillRequirements></skillRequirements>
+					<researchPrerequisites></researchPrerequisites>
+				</RecipeDef>
+			</value>
+		</match>
+	</Operation>
+	
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>Defs/ThingDef[defName="CompressedCookie"]/stackLimit</xpath>
+		<!-- If it does, do this replacement. -->
+		<match Class="PatchOperationReplace">
+			<xpath>Defs/ThingDef[defName="CompressedCookie"]/stackLimit</xpath>
+			<success>Always</success>
+			<value>
+				<stackLimit>500</stackLimit>
+			</value>
+		</match>
+		<!-- If it DOES NOT, add this instead. -->
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/ThingDef[defName="CompressedCookie"]</xpath>
+			<success>Always</success>
+			<value>
+				<stackLimit>500</stackLimit>
+			</value>
+		</nomatch>
+		<!-- If the first XPATH does not exist, the original code stands. -->
+	</Operation>
+</Patch>

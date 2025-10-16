@@ -9,7 +9,7 @@
 			<graphicClass>Graphic_Single</graphicClass>
 		</graphicData>
 		-->
-		<description>Water Bees are resistant to getting wet and can take off and fly, even in the rain. They will not deteriorate outdoors unless they freeze, as they are extremely sensitive to cold. Water Bees love the rain and thrive in moist environments. \n\n\n\n\n Bee Traits: \n\n 	Production time: 12 hours \n 	Works at Night: Yes \n 	Works When Raining: Yes \n 	Unusual Sources Needed: No \n 	Minimum Temperature: 32ºF (0ºC) \n 	Maximum temperature: 97ºF (36.1111ºC) \n \n (A player with the Dubs Bad Hygiene Mod can use Water Bees and Water Bee Honeycombs to satiate the thirst of his Pawns!)</description>
+		<description>Water Bees are resistant to getting wet and can take off and fly, even in the rain. They will not deteriorate outdoors unless they freeze, as they are extremely sensitive to cold. Water Bees love the rain and thrive in moist environments. \n\n\n\n\n Bee Traits: \n\n 	Production time: 12 hours \n 	Works at Night: Yes \n 	Works When Raining: Yes \n 	Unusual Sources Needed: No \n 	Minimum Temperature: 32ºF (0ºC) \n 	Maximum temperature: 212ºF (100ºC) \n \n (A player with the Dubs Bad Hygiene Mod can use Water Bees and Water Bee Honeycombs to satiate the thirst of his Pawns!)</description>
 		<statBases>
 			<DeteriorationRate>0</DeteriorationRate>
 		</statBases>
@@ -17,8 +17,8 @@
 			<li Class="CompProperties_Forbiddable"></li>
 			<li Class="RimBees.CompProperties_TempRuinableAndDestroy" Inherit="False">
 				<minSafeTemperature>0</minSafeTemperature> <!-- Zero degrees Farenheit -->
-				<maxSafeTemperature>36.1111</maxSafeTemperature> <!-- Ninety-seven degrees Farenheit -->
-				<progressPerDegreePerTick>0.02</progressPerDegreePerTick>
+				<maxSafeTemperature>212</maxSafeTemperature> <!-- Ninety-seven degrees Farenheit, boiling -->
+				<progressPerDegreePerTick>0.1</progressPerDegreePerTick>
 			</li>
 			<li Class="RimBees.CompProperties_Bees" Inherit="False">
 				<species>Water</species>
@@ -28,7 +28,7 @@
 				<pluviophile>true</pluviophile> <!-- Works in the rain -->
 				<weirdplantneeded>no</weirdplantneeded>
 				<tempMin>0</tempMin> <!-- Freezing -->
-				<tempMax>36.1111</tempMax> <!-- Ninety-seven degrees. -->
+				<tempMax>100</tempMax> <!-- Two hundred twelve degrees, boiling. -->
 			</li>
 			<li>
 				<compClass>RimBees.CompDangerBee</compClass>
@@ -97,7 +97,7 @@
 				<pluviophile>true</pluviophile> <!-- Works in the rain -->
 				<weirdplantneeded>no</weirdplantneeded>
 				<tempMin>-5</tempMin> <!-- Twenty-three degrees Farenheit -->
-				<tempMax>36.1111</tempMax> <!-- Ninety-seven degrees. -->
+				<tempMax>37</tempMax> <!-- Ninety-seven degrees, rounded. -->
 			</li>
 		</comps>
 	</ThingDef>
@@ -117,7 +117,7 @@
 			<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
 		</descriptionHyperlinks>
 		<graphicData Inherit="False">
-			<texPath>Things/Pawn/Animal/Bug_Types/Bee/WaterBranch/TSP_Bee_Oriental_Queen</texPath>
+			<texPath>Things/Pawn/Animal/Bug_Types/Bee/OrientalBranch/TSP_Bee_Oriental_Queen</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
 		</graphicData> 		
 	</ThingDef>
@@ -137,7 +137,7 @@
 			<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
 		</descriptionHyperlinks>
 		<graphicData Inherit="False">
-			<texPath>Things/Pawn/Animal/Bug_Types/Bee/WaterBranch/TSP_Bee_Oriental_Drone</texPath>
+			<texPath>Things/Pawn/Animal/Bug_Types/Bee/OrientalBranch/TSP_Bee_Oriental_Drone</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
 		</graphicData> 		
 	</ThingDef>

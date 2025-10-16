@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Patch>
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>/Defs/ThingDef[defName="BlocksVacstone"]</xpath>
+		<!-- If it does, add this. -->
+		<match Class="PatchOperationAdd">
+			<xpath>/Defs</xpath>
+			<success>Always</success>
+			<value>
+				<!-- Vacstone Branch -->
+				<!-- TIER Vacstone -->
+				<!-- BEE DESCRIPTION -->
+				<RimBees.BeeListDef>
+					<defName>TSP_RB_Beeliever_Odyssey1_Vacstone</defName>
+					<nameString>Vacstone</nameString>
+					<beeDroneDef>RB_Bee_Vacstone_Drone</beeDroneDef>
+					<beeQueenDef>RB_Bee_Vacstone_Queen</beeQueenDef>
+					<!--
+					<beeQueenTag>RB_Bee_Odyssey_Queen_Tag</beeQueenTag>
+					<beeDroneTag>RB_Bee_Odyssey_Drone_Tag</beeDroneTag>
+					-->
+				</RimBees.BeeListDef>
+				
+				<RimBees.BeeCombinationDef>
+					<defName>TSP_RB_Beelievers_Odyssey1_Tables</defName>
+					<bee1>Quarry</bee1>
+					<bee2>Agricultural</bee2>
+					<result>
+						<li>Vacstone</li>
+					</result>				
+				</RimBees.BeeCombinationDef>
+				
+				<ThingDef ParentName="TSP_Beelievers_Beesearch">
+					<defName>TSP_RB_Beelievers_Odyssey1_Tables_Beesearch</defName>
+					<graphicData Inherit="False">
+						<graphicClass>Graphic_Single</graphicClass>
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/Beesearch/Idr_adbo2</texPath>
+					</graphicData>
+					<comps>
+						<li Class="RimBees.CompProperties_BeeResearchData">
+							<firstBee>RB_Bee_Quarry_Queen</firstBee>
+							<secondBee>RB_Bee_Agricultural_Queen</secondBee>
+							<resultingBees>
+								<li>RB_Bee_Vacstone_Queen</li>
+							</resultingBees>
+						</li>
+					</comps>
+				</ThingDef>
+			
+				<ThingDef ParentName="TSP_RB_Beeliever_MasterBeeBase" Name="TSP_RB_Beeliever_Vacstone_Base" Abstract="True">
+					<!-- <label>Vacstone Bee</label> -->
+					<description>Bees bred to survive the vacuum of space on asteroid mining sites. They pollinate crops of the greenhouses used by space miner colonies. They feed on the mineral deposits of the asteroids themselves, creating a highly efficient, self-sustaining cycle for sustainable space habitation. Due to the fact that they consume minerals to stay alive alongside honey, small amounts of Vacstone can be derived from their honeycombs. \n\n\n\n\n Bee Traits: \n\n 	Production time: 1 day \n 	Works at Night: Yes \n 	Works When Raining: No \n 	Unusual Sources Needed: No \n 	Minimum Temperature: -455ºF (-270ºC) \n 	Maximum temperature: -455°F (270ºC)</description>
+					<statBases>
+						<DeteriorationRate>0</DeteriorationRate>
+						<VacuumResistance MayRequire="ludeon.rimworld.odyssey">2</VacuumResistance>
+					</statBases>
+					<!--
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/ST_Bee_south</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData>
+					-->
+					<comps>			
+						<li Class="RimBees.CompProperties_Bees" Inherit="False">
+							<species>Vacstone</species>
+							<comb>TSP_RB_Beeliever_Vacstone_Honeycomb</comb>
+							<combtimedays>1</combtimedays>
+							<nocturnal>true</nocturnal> <!-- Works at night -->
+							<pluviophile>false</pluviophile> <!-- Works in the rain -->
+							<weirdplantneeded>no</weirdplantneeded>
+							<tempMin>-270</tempMin> <!-- Negative four hundred fifty-five degrees, this is the temperature of outer space-->
+							<tempMax>36</tempMax> <!-- Ninety-seven degrees, rounded -->
+						</li>
+						<li Class="RimBees.CompProperties_TempRuinableAndDestroy" Inherit="False">
+							<minSafeTemperature>-270</minSafeTemperature>
+							<maxSafeTemperature>36</maxSafeTemperature>
+							<progressPerDegreePerTick>0.000001</progressPerDegreePerTick>
+						</li>
+						<li Inherit="False">
+							<compClass>RimBees.CompDangerBee</compClass>
+						</li>
+					</comps>
+				</ThingDef>
+				
+				<!-- MUST be RB_Bee_YOURNAME_Queen and then RB_Bee_YOURNAME_Drone, no exceptions -->
+				<ThingDef ParentName="TSP_RB_Beeliever_Vacstone_Base">
+					<defName>RB_Bee_Vacstone_Queen</defName>
+					<label>Vacstone Bee queen</label>
+					<descriptionHyperlinks>
+						<!-- <ThingDef>RB_Bee_Vacstone_Queen</ThingDef> -->
+						<ThingDef>RB_Bee_Vacstone_Drone</ThingDef>
+						<ThingDef>TSP_RB_Beeliever_Vacstone_Honeycomb</ThingDef>
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_Vacstone_Honeycomb</RecipeDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/OdysseyBranch/TSP_Bee_Queen_Vacstone</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+						<color>(115,106,98)</color>
+					</graphicData> 		
+				</ThingDef>
+				
+				<ThingDef ParentName="TSP_RB_Beeliever_Vacstone_Base">
+					<defName>RB_Bee_Vacstone_Drone</defName>
+					<label>Vacstone Bee drone</label>
+					<descriptionHyperlinks>
+						<ThingDef>RB_Bee_Vacstone_Queen</ThingDef>
+						<!-- <ThingDef>RB_Bee_Vacstone_Drone</ThingDef> -->
+						<ThingDef>TSP_RB_Beeliever_Vacstone_Honeycomb</ThingDef>
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_Vacstone_Honeycomb</RecipeDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/OdysseyBranch/TSP_Bee_Drone_Vacstone</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+						<color>(115,106,98)</color>
+					</graphicData> 		
+				</ThingDef>
+				
+				<ThingDef ParentName="RB_CombBase">
+					<defName>TSP_RB_Beeliever_Vacstone_Honeycomb</defName>
+					<label>Vacstone Bee honeycomb</label>
+					<description>Vacstone Bees' main purpose is to pollinate the crops of hydroponic growing stations. However, due to the fact that they consume minerals to stay alive alongside honey, small amounts of Vacstone can be derived from their honeycombs. Processing Vacstone Bee Honeycombs yields Vacstone, Black Honey, and a small amount of Black Beeswax.</description>
+					<descriptionHyperlinks>
+						<ThingDef>RB_Bee_Vacstone_Queen</ThingDef>
+						<ThingDef>RB_Bee_Vacstone_Drone</ThingDef>
+						<!-- <ThingDef>TSP_RB_Beeliever_Vacstone_Honeycomb</ThingDef> -->
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_Vacstone_Honeycomb</RecipeDef>
+						<ThingDef>BlocksVacstone</ThingDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<!--
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/Honeycombs/HoneycombBase</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+						-->
+						<graphicClass>Graphic_StackCount</graphicClass>
+						<texPath>Things/Item/Resource/Gravcore</texPath>
+						<color>(115,106,98)</color>
+					</graphicData>	
+					<thingCategories Inherit="False">
+						<li>TSP_RB_Beeliever_Honeycombs</li>
+					</thingCategories>
+					<butcherProducts>
+						<BlocksVacstone>3</BlocksVacstone>
+						<RB_BlackHoney>5</RB_BlackHoney>
+						<RB_BlackBeeswax>3</RB_BlackBeeswax>
+					</butcherProducts>
+				</ThingDef>
+				
+				<RecipeDef>
+					<defName>TSP_RB_Beeliever_Centrifuge_Vacstone_Honeycomb</defName>
+					<label>Extract from Vacstone Bee honeycomb</label>
+					<description>Vacstone.</description>
+					<descriptionHyperlinks>
+						<ThingDef>RB_Bee_Vacstone_Queen</ThingDef>
+						<ThingDef>RB_Bee_Vacstone_Drone</ThingDef>
+						<ThingDef>TSP_RB_Beeliever_Vacstone_Honeycomb</ThingDef>
+						<!-- <RecipeDef>TSP_RB_Beeliever_Centrifuge_Vacstone_Honeycomb</RecipeDef> -->
+						<ThingDef>BlocksVacstone</ThingDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<uiIconThing>BlocksVacstone</uiIconThing>
+					<jobString>Vacstone.</jobString>
+					<effectWorking>Cremate</effectWorking>
+					<soundWorking>Recipe_Cremate</soundWorking>
+					<workAmount>900</workAmount>
+					<recipeUsers>
+						<li>RB_Honey_Centrifuge</li>
+						<li>RB_Advanced_Honey_Centrifuge</li>
+						<li MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</li>
+					</recipeUsers>	
+					<ingredients>
+						<li>
+							<filter>
+								<thingDefs>
+									<li>TSP_RB_Beeliever_Vacstone_Honeycomb</li>
+								</thingDefs>
+							</filter>
+							<count>1</count>
+						</li>
+					</ingredients>
+					<fixedIngredientFilter>
+						<thingDefs>
+							<li>TSP_RB_Beeliever_Vacstone_Honeycomb</li>
+						</thingDefs>
+					</fixedIngredientFilter>
+					<specialProducts>
+						<li>Butchery</li>
+					</specialProducts>
+					<skillRequirements></skillRequirements>
+					<researchPrerequisites></researchPrerequisites>
+				</RecipeDef>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				<!-- Gravlite Branch -->
+				<!-- TIER Gravlite -->
+				<!-- BEE DESCRIPTION -->
+				<RimBees.BeeListDef>
+					<defName>TSP_RB_Beeliever_Odyssey2_Gravlite</defName>
+					<nameString>Gravlite</nameString>
+					<beeDroneDef>RB_Bee_Gravlite_Drone</beeDroneDef>
+					<beeQueenDef>RB_Bee_Gravlite_Queen</beeQueenDef>
+					<!--
+					<beeQueenTag>RB_Bee_Odyssey_Queen_Tag</beeQueenTag>
+					<beeDroneTag>RB_Bee_Odyssey_Drone_Tag</beeDroneTag>
+					-->
+				</RimBees.BeeListDef>
+				
+				<RimBees.BeeCombinationDef>
+					<defName>TSP_RB_Beelievers_Odyssey2_Tables</defName>
+					<bee1>Vacstone</bee1>
+					<bee2>Electronic</bee2>
+					<result>
+						<li>Gravlite</li>
+					</result>				
+				</RimBees.BeeCombinationDef>
+				
+				<ThingDef ParentName="TSP_Beelievers_Beesearch">
+					<defName>TSP_RB_Beelievers_Odyssey2_Tables_Beesearch</defName>
+					<graphicData Inherit="False">
+						<graphicClass>Graphic_Single</graphicClass>
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/Beesearch/Idr_adbo2</texPath>
+					</graphicData>
+					<comps>
+						<li Class="RimBees.CompProperties_BeeResearchData">
+							<firstBee>RB_Bee_Vacstone_Queen</firstBee>
+							<secondBee>RB_Bee_Skilful_Queen</secondBee>
+							<resultingBees>
+								<li>RB_Bee_Gravlite_Queen</li>
+							</resultingBees>
+						</li>
+					</comps>
+				</ThingDef>
+			
+				<ThingDef ParentName="TSP_RB_Beeliever_MasterBeeBase" Name="TSP_RB_Beeliever_Gravlite_Base" Abstract="True">
+					<!-- <label>Gravlite Bee</label> -->
+					<description>An advanced form of Skillful Bees bred to repair the hulls and walls of Gravships and asteroid mining sites, turning the debries from the same into Gravlite Panels. Like Vacstone Bees, they are imumune to the vacuum of space. They feed on the mineral deposits of the asteroids themselves, creating a highly efficient, self-sustaining cycle for sustainable space habitation. Beekeepers will need to provide them a food source of Vacstone Blocks near a Gravlite Bee hive in order for them to repair and produce Gravlite Panels. Due to the fact that they consume minerals to stay alive alongside honey, small amounts of Gravlite can be derived from their honeycombs. \n\n\n\n\n Bee Traits: \n\n 	Production time: 2 days \n 	Works at Night: Yes \n 	Works When Raining: Yes \n 	Unusual Sources Needed: Vacstone Blocks \n 	Minimum Temperature: -455ºF (-270ºC) \n 	Maximum temperature: -455°F (270ºC)</description>
+					<descriptionHyperlinks>
+						<ThingDef>BlocksVacstone</ThingDef>
+					</descriptionHyperlinks>
+					<statBases>
+						<DeteriorationRate>0</DeteriorationRate>
+						<VacuumResistance MayRequire="ludeon.rimworld.odyssey">2</VacuumResistance>
+					</statBases>
+					<!--
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/ST_Bee_south</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData>
+					-->
+					<comps>			
+						<li Class="RimBees.CompProperties_Bees" Inherit="False">
+							<species>Gravlite</species>
+							<comb>TSP_RB_Beeliever_Gravlite_Honeycomb</comb>
+							<combtimedays>2</combtimedays>
+							<nocturnal>true</nocturnal> <!-- Works at night -->
+							<pluviophile>false</pluviophile> <!-- Works in the rain -->
+							<weirdplantneeded>BlocksVacstone</weirdplantneeded>
+							<tempMin>-270</tempMin> <!-- Negative four hundred fifty-five degrees, this is the temperature of outer space-->
+							<tempMax>36</tempMax> <!-- Ninety-seven degrees, rounded -->
+							<additionalBeeEffects Inherit="False">
+								<li Class="RimBees.AdditionalBeeEffects_Repair" Inherit="False">
+									<amount>7</amount>
+								</li>
+							</additionalBeeEffects>
+						</li>
+						<li Class="RimBees.CompProperties_TempRuinableAndDestroy" Inherit="False">
+							<minSafeTemperature>-270</minSafeTemperature>
+							<maxSafeTemperature>36</maxSafeTemperature>
+							<progressPerDegreePerTick>0.000001</progressPerDegreePerTick>
+						</li>
+						<li Inherit="False">
+							<compClass>RimBees.CompDangerBee</compClass>
+						</li>
+					</comps>
+				</ThingDef>
+				
+				<!-- MUST be RB_Bee_YOURNAME_Queen and then RB_Bee_YOURNAME_Drone, no exceptions -->
+				<ThingDef ParentName="TSP_RB_Beeliever_Gravlite_Base">
+					<defName>RB_Bee_Gravlite_Queen</defName>
+					<label>Gravlite Bee queen</label>
+					<descriptionHyperlinks>
+						<!-- <ThingDef>RB_Bee_Gravlite_Queen</ThingDef> -->
+						<ThingDef>RB_Bee_Gravlite_Drone</ThingDef>
+						<ThingDef>TSP_RB_Beeliever_Gravlite_Honeycomb</ThingDef>
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_Gravlite_Honeycomb</RecipeDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/OdysseyBranch/TSP_Bee_Queen_GravityPanel</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+						<color>(162,171,167)</color>
+					</graphicData>
+				</ThingDef>
+				
+				<ThingDef ParentName="TSP_RB_Beeliever_Gravlite_Base">
+					<defName>RB_Bee_Gravlite_Drone</defName>
+					<label>Gravlite Bee drone</label>
+					<descriptionHyperlinks>
+						<ThingDef>RB_Bee_Gravlite_Queen</ThingDef>
+						<!-- <ThingDef>RB_Bee_Gravlite_Drone</ThingDef> -->
+						<ThingDef>TSP_RB_Beeliever_Gravlite_Honeycomb</ThingDef>
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_Gravlite_Honeycomb</RecipeDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/OdysseyBranch/TSP_Bee_Drone_GravityPanel</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+						<color>(162,171,167)</color>
+					</graphicData>
+				</ThingDef>
+				
+				<ThingDef ParentName="RB_CombBase">
+					<defName>TSP_RB_Beeliever_Gravlite_Honeycomb</defName>
+					<label>Gravlite Bee honeycomb</label>
+					<description>Gravlite Bees' main purpose is to repair Gravships, spaceships, and structures in deep space and space colonies. Processing Gravlite Bee Honeycombs yields Gravlite Panels, Black Honey, and a small amount of Steel Wax.</description>
+					<descriptionHyperlinks>
+						<ThingDef>RB_Bee_Gravlite_Queen</ThingDef>
+						<ThingDef>RB_Bee_Gravlite_Drone</ThingDef>
+						<!-- <ThingDef>TSP_RB_Beeliever_Gravlite_Honeycomb</ThingDef> -->
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_Gravlite_Honeycomb</RecipeDef>
+						<ThingDef>GravlitePanel</ThingDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<!--
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/Honeycombs/HoneycombBase</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+						-->
+						<graphicClass>Graphic_StackCount</graphicClass>
+						<texPath>Things/Item/Resource/Gravcore</texPath>
+						<color>(162,171,167)</color>
+					</graphicData>	
+					<thingCategories Inherit="False">
+						<li>TSP_RB_Beeliever_Honeycombs</li>
+					</thingCategories>
+					<butcherProducts>
+						<GravlitePanel>2</GravlitePanel>
+						<RB_BlackHoney>5</RB_BlackHoney>
+						<RB_Steelwax>3</RB_Steelwax>
+					</butcherProducts>
+				</ThingDef>
+				
+				<RecipeDef>
+					<defName>TSP_RB_Beeliever_Centrifuge_Gravlite_Honeycomb</defName>
+					<label>Extract from Gravlite Bee honeycomb</label>
+					<description>Gravlite.</description>
+					<descriptionHyperlinks>
+						<ThingDef>RB_Bee_Gravlite_Queen</ThingDef>
+						<ThingDef>RB_Bee_Gravlite_Drone</ThingDef>
+						<ThingDef>TSP_RB_Beeliever_Gravlite_Honeycomb</ThingDef>
+						<!-- <RecipeDef>TSP_RB_Beeliever_Centrifuge_Gravlite_Honeycomb</RecipeDef> -->
+						<ThingDef>GravlitePanel</ThingDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<uiIconThing>GravlitePanel</uiIconThing>
+					<jobString>Gravlite.</jobString>
+					<effectWorking>Cremate</effectWorking>
+					<soundWorking>Recipe_Cremate</soundWorking>
+					<workAmount>900</workAmount>
+					<recipeUsers></recipeUsers>	
+					<ingredients>
+						<li>
+							<filter>
+								<thingDefs>
+									<li>TSP_RB_Beeliever_Gravlite_Honeycomb</li>
+								</thingDefs>
+							</filter>
+							<count>1</count>
+						</li>
+					</ingredients>
+					<fixedIngredientFilter>
+						<thingDefs>
+							<li>TSP_RB_Beeliever_Gravlite_Honeycomb</li>
+						</thingDefs>
+					</fixedIngredientFilter>
+					<specialProducts>
+						<li>Butchery</li>
+					</specialProducts>
+					<skillRequirements></skillRequirements>
+					<researchPrerequisites></researchPrerequisites>
+				</RecipeDef>
+			</value>
+		</match>
+	</Operation>
+</Patch>
