@@ -86,7 +86,7 @@
 			<li>Campfire</li>
 			<li>RB_BeeResearchTable</li>
 			<li MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</li>
-			<li MayRequire="zal.witchinghour">Cauldron</li>
+			<li MayRequire="tsp.halloweenie.integrationmore">Cauldron</li>
 			<li MayRequire="taranchuk.morearchotechgarbagecontinued,vanillaexpanded.vcooke">MAG_ArchotechCookingStove</li>
 		</recipeUsers>	
 		<ingredients>
@@ -134,7 +134,7 @@
 			<li>CraftingSpot</li>
 			<li>RB_BeeResearchTable</li>
 			<li MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</li>
-			<li MayRequire="zal.witchinghour">Cauldron</li>
+			<li MayRequire="tsp.halloweenie.integrationmore">Cauldron</li>
 			<li MayRequire="taranchuk.morearchotechgarbagecontinued,vanillaexpanded.vcooke">MAG_ArchotechCookingStove</li>
 		</recipeUsers>	
 		<ingredients>

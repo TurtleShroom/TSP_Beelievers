@@ -312,7 +312,7 @@
 					<soundWorking>Recipe_Cremate</soundWorking>
 					<workAmount>900</workAmount>
 					<recipeUsers Inherit="False">
-						<li MayRequire="zal.witchinghour">Cauldron</li>
+						<li MayRequire="tsp.halloweenie.integrationmore">Cauldron</li>
 						<li MayRequire="vanillaexpanded.vcooke">VCE_CanningMachine</li>
 					</recipeUsers>
 					<ingredients>

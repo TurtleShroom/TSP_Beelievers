@@ -109,6 +109,7 @@
 		<li>vr.mopatches</li>
 		<li>van.hornetkeeping</li>
 		<li>gz.ysbg</li>
+		<li>vanillaexpanded.vcookebakery</li>
 	</loadAfter>
 	<loadBefore>
 		<li>zal.patchhoney</li>
