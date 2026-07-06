@@ -189,7 +189,7 @@
 					</specialProducts>
 					<skillRequirements></skillRequirements>
 					<researchPrerequisites>
-						<li>L24_Research_JellyProduction</li>
+						<li MayRequire="eltwofour.mantodeanrace">L24_Research_JellyProduction</li>
 					</researchPrerequisites>
 				</RecipeDef>
 
@@ -384,7 +384,7 @@
 					</specialProducts>
 					<skillRequirements></skillRequirements>
 					<researchPrerequisites>
-						<li>L24_Research_JellyProduction</li>
+						<li MayRequire="eltwofour.mantodeanrace">L24_Research_JellyProduction</li>
 					</researchPrerequisites>
 				</RecipeDef>
 
@@ -577,7 +577,7 @@
 					</specialProducts>
 					<skillRequirements></skillRequirements>
 					<researchPrerequisites>
-						<li>L24_Research_JellyProduction</li>
+						<li MayRequire="eltwofour.mantodeanrace">L24_Research_JellyProduction</li>
 					</researchPrerequisites>
 				</RecipeDef>
 				
@@ -783,7 +783,7 @@
 					</specialProducts>
 					<skillRequirements></skillRequirements>
 					<researchPrerequisites>
-						<li>L24_Research_JellyProduction</li>
+						<li MayRequire="eltwofour.mantodeanrace">L24_Research_JellyProduction</li>
 					</researchPrerequisites>
 				</RecipeDef>
 				
@@ -964,7 +964,7 @@
 					</products>
 					<skillRequirements></skillRequirements>
 					<researchPrerequisites>
-						<li>L24_Research_JellyProduction</li>
+						<li MayRequire="eltwofour.mantodeanrace">L24_Research_JellyProduction</li>
 					</researchPrerequisites>
 				</RecipeDef>
 				
@@ -1138,7 +1138,7 @@
 					</specialProducts>
 					<skillRequirements></skillRequirements>
 					<researchPrerequisites>
-						<li>L24_Research_JellyProduction</li>
+						<li MayRequire="eltwofour.mantodeanrace">L24_Research_JellyProduction</li>
 					</researchPrerequisites>
 				</RecipeDef>
 				
@@ -1343,7 +1343,7 @@
 					</specialProducts>
 					<skillRequirements></skillRequirements>
 					<researchPrerequisites>
-						<li>L24_Research_JellyProduction</li>
+						<li MayRequire="eltwofour.mantodeanrace">L24_Research_JellyProduction</li>
 					</researchPrerequisites>
 				</RecipeDef>
 				
@@ -1516,7 +1516,7 @@
 					</specialProducts>
 					<skillRequirements></skillRequirements>
 					<researchPrerequisites>
-						<li>L24_Research_JellyProduction</li>
+						<li MayRequire="eltwofour.mantodeanrace">L24_Research_JellyProduction</li>
 					</researchPrerequisites>
 				</RecipeDef>
 				
@@ -1641,7 +1641,7 @@
 						<ThingDef>TSP_ST_RB_WildHive_Gnome</ThingDef>
 						<RecipeDef>TSP_ST_RB_Gneehive_Extract</RecipeDef>
 						-->
-						<ThingDef>L24_Manto_Silk</ThingDef>
+						<ThingDef MayRequire="eltwofour.mantodeanrace">L24_Manto_Silk</ThingDef>
 						<ThingDef>RB_BaseHoney</ThingDef>
 						<ThingDef>RB_Brittlewax</ThingDef>
 						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
@@ -1654,7 +1654,7 @@
 						<li>TSP_RB_Beeliever_Mantodean_Honeycombs</li>
 					</thingCategories>
 					<butcherProducts>
-						<L24_Manto_Silk>12</L24_Manto_Silk>
+						<L24_Manto_Silk MayRequire="eltwofour.mantodeanrace">12</L24_Manto_Silk>
 						<RB_BaseHoney>5</RB_BaseHoney>
 						<RB_Brittlewax>4</RB_Brittlewax>
 					</butcherProducts>
@@ -1713,7 +1713,7 @@
 					</specialProducts>
 					<skillRequirements></skillRequirements>
 					<researchPrerequisites>
-						<li>L24_Research_JellyProduction</li>
+						<li MayRequire="eltwofour.mantodeanrace">L24_Research_JellyProduction</li>
 					</researchPrerequisites>
 				</RecipeDef>
 				
@@ -1900,7 +1900,7 @@
 					</specialProducts>
 					<skillRequirements></skillRequirements>
 					<researchPrerequisites>
-						<li>L24_Research_JellyProduction</li>
+						<li MayRequire="eltwofour.mantodeanrace">L24_Research_JellyProduction</li>
 					</researchPrerequisites>
 				</RecipeDef>
 			</value>
@@ -2060,10 +2060,10 @@
 						<ThingDef>TSP_ST_RB_WildHive_Gnome</ThingDef>
 						<RecipeDef>TSP_ST_RB_Gneehive_Extract</RecipeDef>
 						-->
-						<ThingDef>L24_Manto_TwistedJelly</ThingDef>
-						<ThingDef>L24_Meat_Mantodean</ThingDef>
-						<ThingDef>L24_Manto_Carapace</ThingDef>
-						<ThingDef>RB_PsychotropicHoney</ThingDef>
+						<ThingDef MayRequire="eltwofour.mantodeanrace,ludeon.rimworld.anomaly">L24_Manto_TwistedJelly</ThingDef>
+						<ThingDef MayRequire="eltwofour.mantodeanrace">L24_Meat_Mantodean</ThingDef>
+						<ThingDef MayRequire="eltwofour.mantodeanrace">L24_Manto_Carapace</ThingDef>
+						<ThingDef MayRequire="eltwofour.mantodeanrace">RB_PsychotropicHoney</ThingDef>
 						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
 					</descriptionHyperlinks>
 					<graphicData Inherit="False">
@@ -2072,7 +2072,7 @@
 						<color>(99,52,71)</color>
 					</graphicData>
 					<thingCategories Inherit="False">
-						<li>TSP_RB_Beeliever_Mantodean_Honeycombs</li>
+						<li MayRequire="eltwofour.mantodeanrace">TSP_RB_Beeliever_Mantodean_Honeycombs</li>
 					</thingCategories>
 					<butcherProducts>
 						<L24_Manto_TwistedJelly>35</L24_Manto_TwistedJelly>
@@ -2091,9 +2091,9 @@
 						<ThingDef>RB_Bee_Mantodean_Corrupted_Queen</ThingDef>
 						<ThingDef>RB_Bee_Mantodean_Corrupted_Drone</ThingDef>
 						<ThingDef>TSP_RB_Beeliever_SlaveryOfMantodean_Corrupted_Honeycomb</ThingDef>
-						<ThingDef>L24_Manto_TwistedJelly</ThingDef>
-						<ThingDef>L24_Manto_Carapace</ThingDef>
-						<ThingDef>L24_Meat_Mantodean</ThingDef>
+						<ThingDef MayRequire="eltwofour.mantodeanrace,ludeon.rimworld.anomaly">L24_Manto_TwistedJelly</ThingDef>
+						<ThingDef MayRequire="eltwofour.mantodeanrace">L24_Manto_Carapace</ThingDef>
+						<ThingDef MayRequire="eltwofour.mantodeanrace">L24_Meat_Mantodean</ThingDef>
 						<ThingDef>RB_PsychotropicHoney</ThingDef>
 						<!-- <RecipeDef>TSP_RB_Beeliever_Centrifuge_SlaveryOfMantodean_Corrupted_Honeycomb</RecipeDef> -->
 						<!--
@@ -2109,7 +2109,7 @@
 					<soundWorking>Recipe_Cremate</soundWorking>
 					<workAmount>900</workAmount>
 					<recipeUsers>
-						<li>L24_Manto_JellyPool</li>
+						<li MayRequire="eltwofour.mantodeanrace">L24_Manto_JellyPool</li>
 						<!--
 						<li>RB_Honey_Centrifuge</li>
 						<li>RB_Advanced_Honey_Centrifuge</li>
@@ -2136,7 +2136,7 @@
 					</specialProducts>
 					<skillRequirements></skillRequirements>
 					<researchPrerequisites>
-						<li>L24_Research_JellyProduction</li>
+						<li MayRequire="eltwofour.mantodeanrace">L24_Research_JellyProduction</li>
 					</researchPrerequisites>
 				</RecipeDef>
 			</value>
@@ -2254,7 +2254,7 @@
 						<ThingDef>TSP_ST_RB_WildHive_Gnome</ThingDef>
 						<RecipeDef>TSP_ST_RB_Gneehive_Extract</RecipeDef>
 						-->
-						<ThingDef>L24_Manto_BlackJelly</ThingDef>
+						<ThingDef MayRequire="eltwofour.mantodeanrace">L24_Manto_BlackJelly</ThingDef>
 						<ThingDef>RB_BlackBeeswax</ThingDef>
 						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
 					</descriptionHyperlinks>
@@ -2324,7 +2324,7 @@
 					</specialProducts>
 					<skillRequirements></skillRequirements>
 					<researchPrerequisites>
-						<li>L24_Research_JellyProduction</li>
+						<li MayRequire="eltwofour.mantodeanrace">L24_Research_JellyProduction</li>
 					</researchPrerequisites>
 				</RecipeDef>
 			</value>

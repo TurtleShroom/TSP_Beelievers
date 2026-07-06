@@ -110,6 +110,7 @@
 		<li>van.hornetkeeping</li>
 		<li>gz.ysbg</li>
 		<li>vanillaexpanded.vcookebakery</li>
+		<li>biomesteam.biomesbees</li>
 	</loadAfter>
 	<loadBefore>
 		<li>zal.patchhoney</li>

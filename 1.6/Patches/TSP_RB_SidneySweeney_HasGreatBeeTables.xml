@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<Patch>
+	<!-- SIDNEY SWEENEY HAS GREAT BEES -->
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>/Defs/ThingDef[defName="SDenim"]</xpath>
+		<!-- If it does, add this. -->
+		<match Class="PatchOperationAdd">
+			<xpath>/Defs</xpath>
+			<success>Always</success>
+			<value>
+				<!-- Denim Branch -->
+				<!-- TIER Denim -->
+				<!-- BEE DESCRIPTION -->
+				<RimBees.BeeListDef>
+					<defName>TSP_RB_Beeliever_Denim</defName>
+					<nameString>Denim</nameString>
+					<beeDroneDef>RB_Bee_Denim_Drone</beeDroneDef>
+					<beeQueenDef>RB_Bee_Denim_Queen</beeQueenDef>
+					<!--
+					<beeQueenTag>RB_Bee_Denim_Queen_Tag</beeQueenTag>
+					<beeDroneTag>RB_Bee_Denim_Drone_Tag</beeDroneTag>
+					-->
+				</RimBees.BeeListDef>
+				
+				<!--
+				<RimBees.BeeCombinationDef>
+					<defName>TSP_RB_Beelievers_Denim_Tables</defName>
+					<bee1>Y</bee1>
+					<bee2>Z</bee2>
+					<result>
+						<li>Denim</li>
+					</result>				
+				</RimBees.BeeCombinationDef>
+				-->
+			
+				<ThingDef ParentName="TSP_RB_Beeliever_MasterBeeBase" Name="TSP_RB_Beeliever_Denim_Base" Abstract="True">
+					<!-- <label>Denim Bee</label> -->
+					<description>SIDNEY SWEENY HAS GREAT BEES. Sidney Sweeny has great bees, and these bees are bred to produce fine fabrics. Denim is a colored cotton drilling, spun in twill weave, largely used for jeans and overalls, though it was once even parot of floor coverings. \n \n Denim Bees are closely related to Weaving Bees and will, in the process of harvesting pollen, commonly draw plant fiber from the petals and stems of their target flowers. This is weaved into their honeycombs and walls of their hives in order to ensure better insulation against heat and cold. Denim is an advanced fabric that is stronger than normal cloth, and despite the best entomologists' studies, it is unknown as to where they get the skill to make a twill weave. For Denim Bees to make denim, they must be afforded dyes in the way of Tinctoria Plants. Place their beehives next to a crop of Tinctoria Plants to reap the benefits. \n\n\n\n\n Bee Traits: \n\n 	Production time: 1 day \n 	Works at Night: No \n 	Works When Raining: No \n 	Unusual Sources Needed: Tinctoria Dye Plants \n 	Minimum Temperature: 3ºF (-16.1111ºC) \n 	Maximum temperature: 105ºF (40.5556ºC)</description>
+					<!--
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/ST_Bee_south</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData>
+					-->
+					<comps>			
+						<li Class="RimBees.CompProperties_Bees" Inherit="False">
+							<species>Denim</species>
+							<comb>TSP_RB_Beeliever_Denim_Honeycomb</comb>
+							<combtimedays>1</combtimedays>
+							<nocturnal>false</nocturnal> <!-- Works at night -->
+							<pluviophile>false</pluviophile> <!-- Works in the rain -->
+							<weirdplantneeded>Plant_Tinctoria</weirdplantneeded>
+							<tempMin>-17</tempMin> <!-- Three degrees, rounded up -->
+							<tempMax>41</tempMax> <!-- One hundred five degrees, rounded up -->
+						</li>   
+					</comps>
+				</ThingDef>
+				
+				<!-- MUST be RB_Bee_YOURNAME_Queen and then RB_Bee_YOURNAME_Drone, no exceptions -->
+				<ThingDef ParentName="TSP_RB_Beeliever_Denim_Base">
+					<defName>RB_Bee_Denim_Queen</defName>
+					<label>Denim Bee queen</label>
+					<descriptionHyperlinks>
+						<!-- <ThingDef>RB_Bee_Denim_Queen</ThingDef> -->
+						<ThingDef>RB_Bee_Denim_Drone</ThingDef>
+						<ThingDef>TSP_RB_Beeliever_Denim_Honeycomb</ThingDef>
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_Denim_Honeycomb</RecipeDef>
+						<ThingDef>SDenim</ThingDef>
+						<ThingDef>Plant_Tinctoria</ThingDef>
+						<ThingDef>Dye</ThingDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/TSP_Bee_Queen</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData> 		
+				</ThingDef>
+				
+				<ThingDef ParentName="TSP_RB_Beeliever_Denim_Base">
+					<defName>RB_Bee_Denim_Drone</defName>
+					<label>Denim Bee drone</label>
+					<descriptionHyperlinks>
+						<ThingDef>RB_Bee_Denim_Queen</ThingDef>
+						<!-- <ThingDef>RB_Bee_Denim_Drone</ThingDef> -->
+						<ThingDef>TSP_RB_Beeliever_Denim_Honeycomb</ThingDef>
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_Denim_Honeycomb</RecipeDef>
+						<ThingDef>SDenim</ThingDef>
+						<ThingDef>Plant_Tinctoria</ThingDef>
+						<ThingDef>Dye</ThingDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/TSP_Bee_Drone</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData> 		
+				</ThingDef>
+				
+				<ThingDef ParentName="RB_CombBase">
+					<defName>TSP_RB_Beeliever_Denim_Honeycomb</defName>
+					<label>Denim Bee honeycomb</label>
+					<description>SIDNEY SWEENY HAS GREAT BEES, and these bees are bred to produce fine fabrics. Denim is a colored cotton drilling, spun in twill weave, largely used for jeans and overalls, though it was once even parot of floor coverings.  Processing Denim Bee honeycombs will yield bolts of denim cloth, honey (fittingly colored blue), and ordinary beeswax.</description>
+					<descriptionHyperlinks>
+						<ThingDef>RB_Bee_Denim_Queen</ThingDef>
+						<ThingDef>RB_Bee_Denim_Drone</ThingDef>
+						<!-- <ThingDef>TSP_RB_Beeliever_Denim_Honeycomb</ThingDef> -->
+						<ThingDef>SDenim</ThingDef>
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_Denim_Honeycomb</RecipeDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/Honeycombs/HoneycombBase</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+						<color>(94,123,159)</color>
+					</graphicData>	
+					<thingCategories Inherit="False">
+						<li>TSP_RB_Beeliever_Honeycombs</li>
+					</thingCategories>
+					<butcherProducts>
+						<SDenim>7</SDenim>
+						<RB_BlueHoney>5</RB_BlueHoney>
+						<RB_Beeswax>5</RB_Beeswax>
+					</butcherProducts>
+				</ThingDef>
+				
+				<RecipeDef>
+					<defName>TSP_RB_Beeliever_Centrifuge_Denim_Honeycomb</defName>
+					<label>Extract from Denim Bee honeycomb</label>
+					<description>SIDNEY SWEENY HAS GREAT BEES.</description>
+					<descriptionHyperlinks>
+						<ThingDef>RB_Bee_Denim_Queen</ThingDef>
+						<ThingDef>RB_Bee_Denim_Drone</ThingDef>
+						<ThingDef>TSP_RB_Beeliever_Denim_Honeycomb</ThingDef>
+						<ThingDef>SDenim</ThingDef>
+						<!-- <RecipeDef>TSP_RB_Beeliever_Centrifuge_Denim_Honeycomb</RecipeDef> -->
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<uiIconThing>SDenim</uiIconThing>
+					<jobString>SIDNEY SWEENY HAS GREAT BEES.</jobString>
+					<effectWorking>Cremate</effectWorking>
+					<soundWorking>Recipe_Cremate</soundWorking>
+					<workAmount>190</workAmount>
+					<recipeUsers Inherit="False"></recipeUsers>	
+					<ingredients>
+						<li>
+							<filter>
+								<thingDefs>
+									<li>TSP_RB_Beeliever_Denim_Honeycomb</li>
+								</thingDefs>
+							</filter>
+							<count>1</count>
+						</li>
+					</ingredients>
+					<fixedIngredientFilter>
+						<thingDefs>
+							<li>TSP_RB_Beeliever_Denim_Honeycomb</li>
+						</thingDefs>
+					</fixedIngredientFilter>
+					<specialProducts>
+						<li>Butchery</li>
+					</specialProducts>
+					<skillRequirements></skillRequirements>
+					<researchPrerequisites></researchPrerequisites>
+				</RecipeDef>
+			</value>
+		</match>
+	</Operation>
+</Patch>
