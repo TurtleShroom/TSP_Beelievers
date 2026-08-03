@@ -121,6 +121,7 @@
 			<xpath>Defs/RimBees.BeeCombinationDef[defName="RB_CombinationTier1_3"]/result</xpath>
 			<value>
 				<li>Insectoid</li>
+				<li MayRequire="dankpyon.medieval.overhaul">BasicComponent</li>
 			</value>
 		</match>
 		<!-- If the first XPATH does not exist, the original code stands. -->

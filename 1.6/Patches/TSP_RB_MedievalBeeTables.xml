@@ -639,7 +639,7 @@
 					<graphicData Inherit="False">
 						<texPath>Things/Item/Resource/QueenBee</texPath>
 						<graphicClass>Graphic_Single</graphicClass>
-						<drawSize>(0.9,0.9)</drawSize>
+						<drawSize>(0.7,0.7)</drawSize>
 					</graphicData> 		
 				</ThingDef>
 				
@@ -658,8 +658,8 @@
 						<ThingDef>DankPyon_Apiary</ThingDef>
 					</descriptionHyperlinks>
 					<graphicData Inherit="False">
-						<texPath>Things/Pawn/Animal/Bug_Types/Bee/Honeycombs/HoneycombBase</texPath>
-						<graphicClass>Graphic_Single</graphicClass>
+						<texPath>Things/Item/Resource/Honeycomb</texPath>
+						<graphicClass>Graphic_StackCount</graphicClass>
 						<color>(255,255,255)</color>
 					</graphicData>	
 					<thingCategories Inherit="False">
@@ -709,6 +709,8 @@
 					</fixedIngredientFilter>
 					<products>
 						<DankPyon_QueenBee MayRequire="dankpyon.medieval.overhaul">1</DankPyon_QueenBee>
+						<DankPyon_Honey>5</DankPyon_Honey>
+						<DankPyon_Wax>5</DankPyon_Wax>
 					</products>
 					<specialProducts>
 						<li>Butchery</li>
@@ -716,6 +718,194 @@
 					<skillRequirements></skillRequirements>
 					<researchPrerequisites></researchPrerequisites>
 				</RecipeDef>
+				
+				
+				
+				<!-- BasicComponent Branch -->
+				<!-- TIER BasicComponent -->
+				<!-- BEE DESCRIPTION -->
+				<RimBees.BeeListDef>
+					<defName>TSP_RB_Beeliever_Medieval3_BasicComponent</defName>
+					<nameString>BasicComponent</nameString>
+					<beeDroneDef>RB_Bee_BasicComponent_Drone</beeDroneDef>
+					<beeQueenDef>RB_Bee_BasicComponent_Queen</beeQueenDef>
+					<!--
+					<beeQueenTag>RB_Bee_BasicComponent_Queen_Tag</beeQueenTag>
+					<beeDroneTag>RB_Bee_BasicComponent_Drone_Tag</beeDroneTag>
+					-->
+				</RimBees.BeeListDef>
+				
+				<!--
+				<RimBees.BeeCombinationDef>
+					<defName>TSP_RB_Beelievers_BasicComponent_Tables</defName>
+					<bee1>Y</bee1>
+					<bee2>Z</bee2>
+					<result>
+						<li>BasicComponent</li>
+					</result>				
+				</RimBees.BeeCombinationDef>
+				-->
+			
+				<ThingDef ParentName="TSP_RB_Beeliever_MasterBeeBase" Name="TSP_RB_Beeliever_BasicComponent_Base" Abstract="True">
+					<!-- <label>BasicComponent Bee</label> -->
+					<description>The earliest predecessors to Electronic Bees, the Clockwork Bees are a type of Technological Bee that assembles small amounts of iron and metals from their surroundings, using them to create basic gears and mechanical devices. The build up of these metals are fashioned into Basic Medieval Components by these bees. \n\n\n\n\n Bee Traits: \n\n 	Production time: approximately twenty hours (20h) \n 	Works at Night: Yes \n 	Works When Raining: No \n 	Unusual Sources Needed: No \n 	Minimum Temperature: 0ºF (-17.7778ºC) \n 	Maximum temperature: 97ºF (36.1111ºC)</description>
+					<!--
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/ST_Bee_south</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData>
+					-->
+					<comps>			
+						<li Class="RimBees.CompProperties_Bees" Inherit="False">
+							<species>BasicComponent</species>
+							<comb>TSP_RB_MO_Beeliever_BasicComponent_Honeycomb</comb>
+							<combtimedays>0.8</combtimedays>
+							<nocturnal>true</nocturnal> <!-- Works at night -->
+							<pluviophile>false</pluviophile> <!-- Works in the rain -->
+							<weirdplantneeded>no</weirdplantneeded>
+							<tempMin>-18</tempMin> <!-- Approximately zero degrees -->
+							<tempMax>37</tempMax> <!-- Approximately ninety-seven degrees -->
+						</li>   
+					</comps>
+				</ThingDef>
+				
+				<!-- MUST be RB_Bee_YOURNAME_Queen and then RB_Bee_YOURNAME_Drone, no exceptions -->
+				<ThingDef ParentName="TSP_RB_Beeliever_BasicComponent_Base">
+					<defName>RB_Bee_BasicComponent_Queen</defName>
+					<label>Clockwork Bee queen</label>
+					<descriptionHyperlinks>
+						<!-- <ThingDef>RB_Bee_BasicComponent_Queen</ThingDef> -->
+						<ThingDef>RB_Bee_BasicComponent_Drone</ThingDef>
+						<ThingDef>TSP_RB_MO_Beeliever_BasicComponent_Honeycomb</ThingDef>
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_BasicComponent_Honeycomb</RecipeDef>
+						<ThingDef>DankPyon_ComponentBasic</ThingDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Item/Resource/TSP_MO_QueenBee_Clockwork</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData> 		
+				</ThingDef>
+				
+				<ThingDef ParentName="TSP_RB_Beeliever_BasicComponent_Base">
+					<defName>RB_Bee_BasicComponent_Drone</defName>
+					<label>Clockwork Bee drone</label>
+					<descriptionHyperlinks>
+						<ThingDef>RB_Bee_BasicComponent_Queen</ThingDef>
+						<!-- <ThingDef>RB_Bee_BasicComponent_Drone</ThingDef> -->
+						<ThingDef>TSP_RB_MO_Beeliever_BasicComponent_Honeycomb</ThingDef>
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_BasicComponent_Honeycomb</RecipeDef>
+						<ThingDef>DankPyon_ComponentBasic</ThingDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Item/Resource/TSP_MO_DroneBee_Clockwork</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData> 		
+				</ThingDef>
+				
+				<ThingDef ParentName="RB_CombBase">
+					<defName>TSP_RB_MO_Beeliever_BasicComponent_Honeycomb</defName>
+					<label>Clockwork Bee honeycomb</label>
+					<description>Clockwork Bees are primitive Technological Bees that create simple gears and basic mechanical devices alongside normal honey and Medieval Beeswax.</description>
+					<descriptionHyperlinks>
+						<ThingDef>RB_Bee_BasicComponent_Queen</ThingDef>
+						<ThingDef>RB_Bee_BasicComponent_Drone</ThingDef>
+						<!-- <ThingDef>TSP_RB_MO_Beeliever_BasicComponent_Honeycomb</ThingDef> -->
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_BasicComponent_Honeycomb</RecipeDef>
+						<ThingDef>DankPyon_ComponentBasic</ThingDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Item/Unfinished/UnfinishedLivingShield</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+						<color>(113,113,10)</color>
+					</graphicData>	
+					<thingCategories Inherit="False">
+						<li>TSP_RB_Beeliever_Honeycombs</li>
+					</thingCategories>
+					<butcherProducts>
+						<DankPyon_ComponentBasic>3</DankPyon_ComponentBasic>
+						<RB_BaseHoney>5</RB_BaseHoney>
+						<DankPyon_Honey>1</DankPyon_Honey>
+						<DankPyon_Wax>5</DankPyon_Wax>
+					</butcherProducts>
+				</ThingDef>
+				
+				<RecipeDef>
+					<defName>TSP_RB_Beeliever_Centrifuge_BasicComponent_Honeycomb</defName>
+					<label>Extract from Clockwork Bee honeycomb</label>
+					<description>Clockwork Bees are primitive Technological Bees that create simple gears and mechanics alongside normal honey and Medieval Beeswax. The build up of these metals are fashioned into Basic Medieval Components by these bees.</description>
+					<descriptionHyperlinks>
+						<ThingDef>RB_Bee_BasicComponent_Queen</ThingDef>
+						<ThingDef>RB_Bee_BasicComponent_Drone</ThingDef>
+						<ThingDef>TSP_RB_MO_Beeliever_BasicComponent_Honeycomb</ThingDef>
+						<!-- <RecipeDef>TSP_RB_Beeliever_Centrifuge_BasicComponent_Honeycomb</RecipeDef> -->
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<uiIconThing>DankPyon_ComponentBasic</uiIconThing>
+					<jobString>Basic Component.</jobString>
+					<effectWorking>Cremate</effectWorking>
+					<soundWorking>Recipe_Cremate</soundWorking>
+					<workAmount>900</workAmount>
+					<recipeUsers Inherit="False"></recipeUsers>	
+					<ingredients>
+						<li>
+							<filter>
+								<thingDefs>
+									<li>TSP_RB_MO_Beeliever_BasicComponent_Honeycomb</li>
+								</thingDefs>
+							</filter>
+							<count>1</count>
+						</li>
+					</ingredients>
+					<fixedIngredientFilter>
+						<thingDefs>
+							<li>TSP_RB_Beeliever_MO_BasicComponent_Honeycomb</li>
+						</thingDefs>
+					</fixedIngredientFilter>
+					<specialProducts>
+						<li>Butchery</li>
+					</specialProducts>
+					<skillRequirements></skillRequirements>
+					<researchPrerequisites></researchPrerequisites>
+				</RecipeDef>
+				
+				<ThingDef ParentName="TSP_Beelievers_Beesearch">
+					<defName>TSP_RB_MO_Beeliever_BasicComponent_Beesearch</defName>
+					<graphicData Inherit="False">
+						<graphicClass>Graphic_Single</graphicClass>
+						<texPath>Special/Book/SchematicScroll</texPath>
+						<drawSize>0.93</drawSize>
+					</graphicData>
+					<comps>
+						<li Class="RimBees.CompProperties_BeeResearchData">
+							<firstBee>RB_Bee_Amalgam_Queen</firstBee>
+							<secondBee>RB_Bee_Hybrid_Queen</secondBee>
+							<resultingBees>
+								<li>RB_Bee_BasicComponent_Queen</li>
+							</resultingBees>
+						</li>
+						<!--
+						<li Class="CompProperties_Book">
+							<nameMaker>Namer_Schematic</nameMaker>
+							<descriptionMaker>Description_Schematic</descriptionMaker>
+							<ageYearsRange>1~1</ageYearsRange>
+							<openGraphic>
+								<texPath>Special/Book/SchematicScroll_Open</texPath>
+								<graphicClass>Graphic_Multi</graphicClass>
+								<drawSize>0.7</drawSize>
+							</openGraphic>
+							<verticalGraphic>
+								<texPath>Special/Book/SchematicScroll_Vertical</texPath>
+								<graphicClass>Graphic_Multi</graphicClass>
+								<addTopAltitudeBias>true</addTopAltitudeBias>
+							</verticalGraphic>
+							<doers></doers>
+						</li>
+						-->
+					</comps>
+				</ThingDef>
 			</value>
 		</match>
 	</Operation>
@@ -810,6 +1000,7 @@
 					<workAmount>500</workAmount>
 					<recipeUsers>
 						<li>RB_Beekeeping_Workbench_Building</li>
+						<li MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</li>
 					</recipeUsers>
 					<ingredients>
 						<li>
@@ -870,10 +1061,181 @@
 			<xpath>Defs/ThingDef[defName="DankPyon_Apiary"]/costList</xpath>
 			<success>Always</success>
 			<value>
-				<costList>
+				<costList Inherit="False">
 					<RB_Bee_Oswin_Queen>1</RB_Bee_Oswin_Queen>
 				</costList>
 			</value>
 		</match>
+	</Operation>
+	
+	<!-- Add comps field to Settlement WorldObjectDef if it doesn't exist -->
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/ThingDef[defName="DankPyon_Honey"]/thingCategories</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/ThingDef[defName="DankPyon_Honey"]</xpath>
+			<success>Always</success>
+			<value>
+				<thingCategories Inherit="False"></thingCategories>
+			</value>
+		</nomatch>
+	</Operation>
+	
+	<!-- Add comps field to Settlement WorldObjectDef if it doesn't exist -->
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/ThingDef[defName="DankPyon_Honeycomb"]/thingCategories</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/ThingDef[defName="DankPyon_Honeycomb"]</xpath>
+			<success>Always</success>
+			<value>
+				<thingCategories Inherit="False"></thingCategories>
+			</value>
+		</nomatch>
+	</Operation>
+	
+	<!-- Add comps field to Settlement WorldObjectDef if it doesn't exist -->
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/ThingDef[defName="DankPyon_HornetHoney"]/thingCategories</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/ThingDef[defName="DankPyon_HornetHoney"]</xpath>
+			<success>Always</success>
+			<value>
+				<thingCategories></thingCategories>
+			</value>
+		</nomatch>
+	</Operation>
+	
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>Defs/ThingDef[defName="DankPyon_Honey"]/thingCategories</xpath>
+		<!-- If it does, do this replacement. -->
+		<match Class="PatchOperationReplace">
+			<success>Always</success>
+			<xpath>Defs/ThingDef[defName="DankPyon_Honey"]/thingCategories</xpath>
+			<value>
+				<thingCategories Inherit="False">
+					<li MayRequire="tsp.zal.patchhoney2">TSP_MO_Honey</li>
+					<li MayRequire="dankpyon.medieval.overhaul">DankPyon_Honey</li>
+				</thingCategories>
+			</value>
+		</match>
+		<!-- If the first XPATH does not exist, the original code stands. -->
+	</Operation>
+	
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>Defs/ThingDef[defName="DankPyon_HornetHoney"]/thingCategories</xpath>
+		<!-- If it does, do this replacement. -->
+		<match Class="PatchOperationReplace">
+			<success>Always</success>
+			<xpath>Defs/ThingDef[defName="DankPyon_HornetHoney"]/thingCategories</xpath>
+			<value>
+				<thingCategories Inherit="False">
+					<li MayRequire="tsp.zal.patchhoney2">TSP_MO_Honey</li>
+					<li MayRequire="dankpyon.medieval.overhaul">DankPyon_Honey</li>
+					<li>Drugs</li>
+				</thingCategories>
+			</value>
+		</match>
+		<!-- If the first XPATH does not exist, the original code stands. -->
+	</Operation>
+	
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>Defs/ThingDef[defName="DankPyon_Honeycomb"]/thingCategories</xpath>
+		<!-- If it does, do this replacement. -->
+		<match Class="PatchOperationReplace">
+			<success>Always</success>
+			<xpath>Defs/ThingDef[defName="DankPyon_Honeycomb"]/thingCategories</xpath>
+			<value>
+				<thingCategories Inherit="False">
+					<li MayRequire="sarg.rimbees">RB_Combs</li>
+					<li>ResourcesRaw</li>
+				</thingCategories>
+			</value>
+		</match>
+		<!-- If the first XPATH does not exist, the original code stands. -->
+	</Operation>
+	
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>Defs/ThingDef[defName="DankPyon_Wax"]/thingCategories</xpath>
+		<!-- If it does, do this replacement. -->
+		<match Class="PatchOperationReplace">
+			<success>Always</success>
+			<xpath>Defs/ThingDef[defName="DankPyon_Wax"]/thingCategories</xpath>
+			<value>
+				<thingCategories Inherit="False">
+					<li MayRequire="sarg.rimbees">RB_BeeswaxCategory</li>
+					<li>ResourcesRaw</li>
+				</thingCategories>
+			</value>
+		</match>
+		<!-- If the first XPATH does not exist, the original code stands. -->
+	</Operation>
+
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>Defs/ThingDef[defName="DankPyon_Honey"]/ingestible/preferability</xpath>
+		<!-- If it does, do this replacement. -->
+		<match Class="PatchOperationReplace">
+			<success>Always</success>
+			<xpath>Defs/ThingDef[defName="DankPyon_Honey"]/ingestible/preferability</xpath>
+			<value>
+				<preferability>RawTasty</preferability>
+			</value>
+		</match>
+		<!-- If it DOES NOT, add this instead. -->
+		<nomatch Class="PatchOperationAdd">
+			<success>Always</success>
+			<xpath>Defs/ThingDef[defName="DankPyon_Honey"]/ingestible</xpath>
+			<value>
+				<preferability>RawTasty</preferability>
+			</value>
+		</nomatch>
+		<!-- If the first XPATH does not exist, the original code stands. -->
+	</Operation>
+	
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>Defs/ThingDef[defName="DankPyon_HornetHoney"]/ingestible/preferability</xpath>
+		<!-- If it does, do this replacement. -->
+		<match Class="PatchOperationReplace">
+			<success>Always</success>
+			<xpath>Defs/ThingDef[defName="DankPyon_HornetHoney"]/ingestible/preferability</xpath>
+			<value>
+				<preferability>DesperateOnly</preferability>
+			</value>
+		</match>
+		<!-- If it DOES NOT, add this instead. -->
+		<nomatch Class="PatchOperationAdd">
+			<success>Always</success>
+			<xpath>Defs/ThingDef[defName="DankPyon_HornetHoney"]/ingestible</xpath>
+			<value>
+				<preferability>DesperateOnly</preferability>
+			</value>
+		</nomatch>
+		<!-- If the first XPATH does not exist, the original code stands. -->
+	</Operation>
+	
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>Defs/ThingDef[defName="DankPyon_Honeycomb"]/ingestible/preferability</xpath>
+		<!-- If it does, do this replacement. -->
+		<match Class="PatchOperationReplace">
+			<success>Always</success>
+			<xpath>Defs/ThingDef[defName="DankPyon_Honeycomb"]/ingestible/preferability</xpath>
+			<value>
+				<preferability>DesperateOnly</preferability>
+			</value>
+		</match>
+		<!-- If it DOES NOT, add this instead. -->
+		<nomatch Class="PatchOperationAdd">
+			<success>Always</success>
+			<xpath>Defs/ThingDef[defName="DankPyon_Honeycomb"]/ingestible</xpath>
+			<value>
+				<preferability>DesperateOnly</preferability>
+			</value>
+		</nomatch>
+		<!-- If the first XPATH does not exist, the original code stands. -->
 	</Operation>
 </Patch>
