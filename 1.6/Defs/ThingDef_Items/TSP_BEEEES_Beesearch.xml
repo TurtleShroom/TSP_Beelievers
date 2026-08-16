@@ -53,7 +53,8 @@
 			<MarketValue>24</MarketValue>
 		</statBases>
 		<tickerType>Normal</tickerType>
-		<tradeability Inherit="False">Sellable</tradeability>
+		<!-- <isUnfinishedThing>true</isUnfinishedThing> -->
+		<tradeability Inherit="False">None</tradeability>
 		<thingCategories Inherit="False">
 			<li>RB_BeeResearch</li>
 		</thingCategories>

@@ -1,0 +1,375 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<Patch>
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>/Defs/ThingDef[defName="RimClaw_ModelCard"]</xpath>
+		<!-- If it does, add this. -->
+		<match Class="PatchOperationAdd">
+			<xpath>/Defs</xpath>
+			<success>Always</success>
+			<value>
+				<!-- Clawfish_AI Branch -->
+				<!-- TIER Clawfish_AI -->
+				<!-- BEE DESCRIPTION -->
+				<RimBees.BeeListDef>
+					<defName>TSP_RB_Beeliever_Clawfish_AI</defName>
+					<nameString>Clawfish_AI</nameString>
+					<beeDroneDef>RB_Bee_Clawfish_AI_Drone</beeDroneDef>
+					<beeQueenDef>RB_Bee_Clawfish_AI_Queen</beeQueenDef>
+					<!--
+					<beeQueenTag>RB_Bee_Clawfish_AI_Queen_Tag</beeQueenTag>
+					<beeDroneTag>RB_Bee_Clawfish_AI_Drone_Tag</beeDroneTag>
+					-->
+				</RimBees.BeeListDef>
+				
+				<RimBees.BeeCombinationDef>
+					<defName>TSP_RB_Beelievers_Clawfish_AI_Tables</defName>
+					<bee1>Water</bee1>
+					<bee2>Electronic</bee2>
+					<result>
+						<li>Clawfish_AI</li>
+					</result>				
+				</RimBees.BeeCombinationDef>
+				
+				<ThingDef ParentName="TSP_Beelievers_Beesearch">
+					<defName>TSP_RB_Beelievers_ClawfishAI1_Beesearch</defName>
+					<graphicData Inherit="False">
+						<graphicClass>Graphic_Single</graphicClass>
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/Beesearch/Idr_adbo2</texPath>
+					</graphicData>
+					<comps>
+						<li Class="RimBees.CompProperties_BeeResearchData">
+							<firstBee>RB_Bee_Electronic_Queen</firstBee>
+							<secondBee>RB_Bee_Water_Queen</secondBee>
+							<resultingBees>
+								<li>RB_Bee_Clawfish_AI_Queen</li>
+							</resultingBees>
+						</li>
+					</comps>
+				</ThingDef>
+			
+				<ThingDef ParentName="TSP_RB_Beeliever_MasterBeeBase" Name="TSP_RB_Beeliever_Clawfish_AI_Base" Abstract="True">
+					<!-- <label>Clawfish_AI Bee</label> -->
+					<description>Submerging Electronic Bees in water somehow adapts them to producing the necessary code to program advanced artificial intelligence. As with other Technological Bee types, they gather gold and copper alongside pollen to produce electronic components. In order for them to correctly do this, they need to be given a nearby supply of Components. \n\n\n\n\n Bee Traits: \n\n 	Production time: 4 days \n 	Works at Night: Yes \n 	Works When Raining: Yes \n 	Unusual Sources Needed: Industrial Components \n 	Minimum Temperature: 50ºF (-10ºC) \n 	Maximum temperature: 185ºF (85ºC)</description>
+					<!--
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/ST_Bee_south</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData>
+					-->
+					<comps>			
+						<li Class="RimBees.CompProperties_Bees" Inherit="False">
+							<species>Clawfish_AI</species>
+							<comb>TSP_RB_Beeliever_Clawfish_AI_Honeycomb</comb>
+							<combtimedays>4</combtimedays>
+							<nocturnal>true</nocturnal> <!-- Works at night -->
+							<pluviophile>true</pluviophile> <!-- Works in the rain -->
+							<weirdplantneeded>ComponentIndustrial</weirdplantneeded>
+							<tempMin>-10</tempMin> <!-- Fifty degrees -->
+							<tempMax>85</tempMax> <!-- CPU's can get quite hot before they melt -->
+						</li>   
+					</comps>
+				</ThingDef>
+				
+				<!-- MUST be RB_Bee_YOURNAME_Queen and then RB_Bee_YOURNAME_Drone, no exceptions -->
+				<ThingDef ParentName="TSP_RB_Beeliever_Clawfish_AI_Base">
+					<defName>RB_Bee_Clawfish_AI_Queen</defName>
+					<label>Clawfish AI Bee queen</label>
+					<descriptionHyperlinks>
+						<!-- <ThingDef>RB_Bee_Clawfish_AI_Queen</ThingDef> -->
+						<ThingDef>RB_Bee_Clawfish_AI_Drone</ThingDef>
+						<ThingDef>TSP_RB_Beeliever_Clawfish_AI_Honeycomb</ThingDef>
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_Clawfish_AI_Honeycomb</RecipeDef>
+						<ThingDef>RimClaw_PromptInjector</ThingDef>
+						<ThingDef>RimClaw_PromptInjectionDatabase</ThingDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/VibeCode_Branch/image2</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData> 		
+				</ThingDef>
+				
+				<ThingDef ParentName="TSP_RB_Beeliever_Clawfish_AI_Base">
+					<defName>RB_Bee_Clawfish_AI_Drone</defName>
+					<label>Clawfish AI Bee drone</label>
+					<descriptionHyperlinks>
+						<ThingDef>RB_Bee_Clawfish_AI_Queen</ThingDef>
+						<!-- <ThingDef>RB_Bee_Clawfish_AI_Drone</ThingDef> -->
+						<ThingDef>TSP_RB_Beeliever_Clawfish_AI_Honeycomb</ThingDef>
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_Clawfish_AI_Honeycomb</RecipeDef>
+						<ThingDef>RimClaw_PromptInjector</ThingDef>
+						<ThingDef>RimClaw_PromptInjectionDatabase</ThingDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/VibeCode_Branch/image</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData> 		
+				</ThingDef>
+				
+				<ThingDef ParentName="RB_CombBase">
+					<defName>TSP_RB_Beeliever_Clawfish_AI_Honeycomb</defName>
+					<label>Clawfish AI Bee honeycomb</label>
+					<description>By untangling the complex and often partially broken honeycombs constructed by Clawfish AI Bees, computational databases, normal honey, and Steelwax can be generated.</description>
+					<descriptionHyperlinks>
+						<ThingDef>RB_Bee_Clawfish_AI_Queen</ThingDef>
+						<ThingDef>RB_Bee_Clawfish_AI_Drone</ThingDef>
+						<ThingDef>RimClaw_PromptInjector</ThingDef>
+						<ThingDef>RimClaw_PromptInjectionDatabase</ThingDef>
+						<!-- <ThingDef>TSP_RB_Beeliever_Clawfish_AI_Honeycomb</ThingDef> -->
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_Clawfish_AI_Honeycomb</RecipeDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/VibeCode_Branch/image3</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+						<color>(255,255,255)</color>
+					</graphicData>	
+					<thingCategories Inherit="False">
+						<li>TSP_RB_Beeliever_Honeycombs</li>
+					</thingCategories>
+					<butcherProducts>
+						<RimClaw_PromptInjectionDatabase>1</RimClaw_PromptInjectionDatabase>
+						<RB_BaseHoney>6</RB_BaseHoney>
+						<RB_Steelwax>5</RB_Steelwax>
+					</butcherProducts>
+				</ThingDef>
+				
+				<RecipeDef>
+					<defName>TSP_RB_Beeliever_Centrifuge_Clawfish_AI_Honeycomb</defName>
+					<label>Extract from Clawfish_AI Bee honeycomb</label>
+					<description>Untangle the messy software written in this artificial intelligence-generated honeycomb.</description>
+					<descriptionHyperlinks>
+						<ThingDef>RB_Bee_Clawfish_AI_Queen</ThingDef>
+						<ThingDef>RB_Bee_Clawfish_AI_Drone</ThingDef>
+						<ThingDef>TSP_RB_Beeliever_Clawfish_AI_Honeycomb</ThingDef>
+						<ThingDef>RimClaw_PromptInjector</ThingDef>
+						<ThingDef>RimClaw_PromptInjectionDatabase</ThingDef>
+						<!-- <RecipeDef>TSP_RB_Beeliever_Centrifuge_Clawfish_AI_Honeycomb</RecipeDef> -->
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<uiIconThing>RimClaw_PromptInjectionDatabase</uiIconThing>
+					<jobString>Vibe code programming.</jobString>
+					<effectWorking>Cremate</effectWorking>
+					<soundWorking>Recipe_Cremate</soundWorking>
+					<workAmount>900</workAmount>
+					<recipeUsers Inherit="False"></recipeUsers>	
+					<ingredients>
+						<li>
+							<filter>
+								<thingDefs>
+									<li>TSP_RB_Beeliever_Clawfish_AI_Honeycomb</li>
+								</thingDefs>
+							</filter>
+							<count>1</count>
+						</li>
+					</ingredients>
+					<fixedIngredientFilter>
+						<thingDefs>
+							<li>TSP_RB_Beeliever_Clawfish_AI_Honeycomb</li>
+						</thingDefs>
+					</fixedIngredientFilter>
+					<specialProducts>
+						<li>Butchery</li>
+					</specialProducts>
+					<skillRequirements></skillRequirements>
+					<researchPrerequisites></researchPrerequisites>
+				</RecipeDef>
+			</value>
+		</match>
+	</Operation>
+	
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>Defs/ThingDef[defName="RimClaw_PromptInjector"]</xpath>
+		<!-- If it does, add this. -->
+		<match Class="PatchOperationAdd">
+			<xpath>/Defs</xpath>
+			<success>Always</success>
+			<value>
+				<RecipeDef>
+					<defName>TSP_RB_Beeliever_MakePromptInjector</defName>
+					<label>Assemble Prompt Injector</label>
+					<description>By smothering a computational database in honey, an electromagnetic pulse gun can be created for taming Clawfish Large-Language Model engines! (Stop asking how. The answer will not come.)</description>
+					<descriptionHyperlinks>
+						<ThingDef>RB_Bee_Clawfish_AI_Queen</ThingDef>
+						<ThingDef>RB_Bee_Clawfish_AI_Drone</ThingDef>
+						<ThingDef>TSP_RB_Beeliever_Clawfish_AI_Honeycomb</ThingDef>
+						<ThingDef>RimClaw_PromptInjector</ThingDef>
+						<ThingDef>RimClaw_PromptInjectionDatabase</ThingDef>
+						<!-- <RecipeDef>TSP_RB_Beeliever_MakePromptInjector</RecipeDef> -->
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_Clawfish_AI_Honeycomb</RecipeDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<uiIconThing>RimClaw_PromptInjectionDatabase</uiIconThing>
+					<jobString>Vibe code programming.</jobString>
+					<effectWorking>Cremate</effectWorking>
+					<soundWorking>Recipe_Cremate</soundWorking>
+					<workAmount>900</workAmount>
+					<recipeUsers Inherit="False">
+						<li>TableMachining</li>
+						<li>FabricationBench</li>
+						<li MayRequire="clover.tech.rsmc">Simple_semiconductor_manufacturing_machine</li>
+						<li MayRequire="duality.overhaul">OfficeWorkstation</li>
+					</recipeUsers>	
+					<ingredients>
+						<li>
+							<filter>
+								<categories></categories>
+								<thingDefs>
+									<li>TSP_RB_Beeliever_Clawfish_AI_Honeycomb</li>
+									<li>RimClaw_PromptInjectionDatabase</li>
+								</thingDefs>
+								<disallowedCategories>
+									<li>Honey</li>
+								</disallowedCategories>
+							</filter>
+							<count>1</count>
+						</li>
+						<li>
+							<filter>
+								<categories>
+									<li>Honey</li>
+								</categories>
+							</filter>
+							<count>25</count>
+						</li>
+					</ingredients>
+					<fixedIngredientFilter>
+						<categories>
+							<li>Honey</li>
+						</categories>
+						<thingDefs>
+							<li>TSP_RB_Beeliever_Clawfish_AI_Honeycomb</li>
+							<li MayRequire="acutus.rimclaw">RimClaw_PromptInjectionDatabase</li>
+						</thingDefs>
+					</fixedIngredientFilter>
+					<defaultIngredientFilter>
+						<categories></categories>
+						<thingDefs>
+							<li>RimClaw_PromptInjectionDatabase</li>
+							<li>TSP_RB_Beeliever_Clawfish_AI_Honeycomb</li>
+							<li MayRequire="tsp.zal.patchhoney2">TSP_HoneyWort</li>
+							<li MayRequire="sarg.rimbees">RB_BaseHoney</li>
+						</thingDefs>
+					</defaultIngredientFilter>
+					<skillRequirements></skillRequirements>
+					<researchPrerequisites>
+						<li MayRequire="acutus.rimclaw">AgenticDesign</li>
+					</researchPrerequisites>
+				</RecipeDef>
+			</value>
+		</match>
+		<!-- If the first XPATH does not exist, the original code stands. -->
+	</Operation>
+	
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>Defs/ThingDef[defName="RimClaw_PromptInjectionDatabase"]/statBases/MarketValue</xpath>
+		<!-- If it does, do this replacement. -->
+		<match Class="PatchOperationReplace">
+			<xpath>Defs/ThingDef[defName="RimClaw_PromptInjectionDatabase"]/statBases/MarketValue</xpath>
+			<success>Always</success>
+			<value>
+				<MarketValue>6.2</MarketValue>
+			</value>
+		</match>
+		<!-- If the first XPATH does not exist, the original code stands. -->
+	</Operation>
+	
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>Defs/ThingDef[defName="RimClaw_PromptInjector"]/statBases/MarketValue</xpath>
+		<!-- If it does, do this replacement. -->
+		<match Class="PatchOperationReplace">
+			<xpath>Defs/ThingDef[defName="RimClaw_PromptInjector"]/statBases/MarketValue</xpath>
+			<success>Always</success>
+			<value>
+				<MarketValue>6.2</MarketValue>
+			</value>
+		</match>
+		<!-- If it DOES NOT, add this instead. -->
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/ThingDef[defName="RimClaw_PromptInjector"]/statBases</xpath>
+			<success>Always</success>
+			<value>
+				<MarketValue>6.2</MarketValue>
+			</value>
+		</nomatch>
+		<!-- If the first XPATH does not exist, the original code stands. -->
+	</Operation>
+	
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>Defs/ThingDef[defName="RimClaw_PromptInjectionDatabase"]/tradeability</xpath>
+		<!-- If it does, do this replacement. -->
+		<match Class="PatchOperationReplace">
+			<xpath>Defs/ThingDef[defName="RimClaw_PromptInjectionDatabase"]/tradeability</xpath>
+			<success>Always</success>
+			<value>
+				<tradeability>All</tradeability>
+			</value>
+		</match>
+		<!-- If it DOES NOT, add this instead. -->
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/ThingDef[defName="RimClaw_PromptInjectionDatabase"]</xpath>
+			<success>Always</success>
+			<value>
+				<tradeability>All</tradeability>
+			</value>
+		</nomatch>
+		<!-- If the first XPATH does not exist, the original code stands. -->
+	</Operation>
+	
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>Defs/ThingDef[defName="RimClaw_PromptInjector"]/tradeability</xpath>
+		<!-- If it does, do this replacement. -->
+		<match Class="PatchOperationReplace">
+			<xpath>Defs/ThingDef[defName="RimClaw_PromptInjector"]/tradeability</xpath>
+			<success>Always</success>
+			<value>
+				<tradeability>All</tradeability>
+			</value>
+		</match>
+		<!-- If it DOES NOT, add this instead. -->
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/ThingDef[defName="RimClaw_PromptInjector"]</xpath>
+			<success>Always</success>
+			<value>
+				<tradeability>All</tradeability>
+			</value>
+		</nomatch>
+		<!-- If the first XPATH does not exist, the original code stands. -->
+	</Operation>
+	
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>Defs/ThingDef[defName="RimClaw_Clawfish"]/race/manhunterOnDamageChance</xpath>
+		<!-- If it does, do this replacement. -->
+		<match Class="PatchOperationReplace">
+			<xpath>Defs/ThingDef[defName="RimClaw_Clawfish"]/race/manhunterOnDamageChance</xpath>
+			<success>Always</success>
+			<value>
+				<manhunterOnDamageChance>0</manhunterOnDamageChance>
+			</value>
+		</match>
+		<!-- If the first XPATH does not exist, the original code stands. -->
+	</Operation>
+	
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>Defs/ThingDef[defName="RimClaw_Clawfish"]/race/manhunterOnTameFailChance</xpath>
+		<!-- If it does, do this replacement. -->
+		<match Class="PatchOperationReplace">
+			<xpath>Defs/ThingDef[defName="RimClaw_Clawfish"]/race/manhunterOnTameFailChance</xpath>
+			<success>Always</success>
+			<value>
+				<manhunterOnTameFailChance>0</manhunterOnTameFailChance>
+			</value>
+		</match>
+		<!-- If the first XPATH does not exist, the original code stands. -->
+	</Operation>
+</Patch>

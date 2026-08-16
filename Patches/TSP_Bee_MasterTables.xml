@@ -254,4 +254,74 @@
 		</match>
 		<!-- If the first XPATH does not exist, the original code stands. -->
 	</Operation>
+	
+	<Operation Class="PatchOperationConditional">
+		<!-- Does this exist? -->
+		<xpath>Defs/ThingDef[defName="RB_Bee_Chitin_Queen"]</xpath>
+		<!-- If it does, add this. -->
+		<match Class="PatchOperationAdd">
+			<success>Always</success>
+			<xpath>Defs/RimBees.BeeCombinationDef[defName="RB_CombinationTier3_6"]/result</xpath>
+			<value>
+				<li MayRequire="sarg.alphaanimals">Chitin</li>
+			</value>
+		</match>
+		<!-- If the first XPATH does not exist, the original code stands. -->
+	</Operation>
+	
+	<Operation Class="PatchOperationConditional">
+		<!-- Does this exist? -->
+		<xpath>Defs/ThingDef[defName="RB_Bee_Chitin_Queen"]</xpath>
+		<!-- If it does, add this. -->
+		<match Class="PatchOperationAdd">
+			<success>Always</success>
+			<xpath>Defs/ThingDef[defName="RB_ResearchPapersAdaptTech"]/comps/li/resultingBees</xpath>
+			<value>
+				<li MayRequire="sarg.alphaanimals">RB_Bee_Chitin_Queen</li>
+			</value>
+		</match>
+		<!-- If the first XPATH does not exist, the original code stands. -->
+	</Operation>
+	
+	<Operation Class="PatchOperationConditional">
+		<!-- Does this exist? -->
+		<xpath>Defs/ThingDef[defName="RB_Bee_Silicon_Queen"]</xpath>
+		<!-- If it does, add this. -->
+		<match Class="PatchOperationAdd">
+			<success>Always</success>
+			<xpath>Defs/RimBees.BeeCombinationDef[defName="RB_CombinationTier2_5"]/result</xpath>
+			<value>
+				<li MayRequire="clover.tech.rsmc">Silicon</li>
+			</value>
+		</match>
+		<!-- If the first XPATH does not exist, the original code stands. -->
+	</Operation>
+	
+	<Operation Class="PatchOperationConditional">
+		<!-- Does this exist? -->
+		<xpath>Defs/ThingDef[defName="RB_Bee_Silicon_Queen"]</xpath>
+		<!-- If it does, add this. -->
+		<match Class="PatchOperationAdd">
+			<success>Always</success>
+			<xpath>Defs/RimBees.BeeCombinationDef[defName="RB_CombinationTier3_6"]/result</xpath>
+			<value>
+				<li MayRequire="shenanigans.denim">Denim</li>
+			</value>
+		</match>
+		<!-- If the first XPATH does not exist, the original code stands. -->
+	</Operation>
+	
+	<Operation Class="PatchOperationConditional">
+		<!-- Does this exist? -->
+		<xpath>Defs/ThingDef[defName="RB_Bee_Chitin_Queen"]</xpath>
+		<!-- If it does, add this. -->
+		<match Class="PatchOperationAdd">
+			<success>Always</success>
+			<xpath>Defs/ThingDef[defName="RB_ResearchPapersAdaptTech"]/comps/li/resultingBees</xpath>
+			<value>
+				<li MayRequire="shenanigans.denim">RB_Bee_Denim_Queen</li>
+			</value>
+		</match>
+		<!-- If the first XPATH does not exist, the original code stands. -->
+	</Operation>
 </Patch>

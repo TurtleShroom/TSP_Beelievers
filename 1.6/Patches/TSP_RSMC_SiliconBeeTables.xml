@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<Patch>
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>Defs/ThingDef[defName="Simple_semiconductor_manufacturing_machine"]</xpath>
+		<!-- If it does, add this. -->
+		<match Class="PatchOperationAdd">
+			<xpath>/Defs</xpath>
+			<success>Always</success>
+			<value>
+				<!-- Silicon Branch -->
+				<!-- TIER Silicon -->
+				<!-- BEE DESCRIPTION -->
+				<RimBees.BeeListDef>
+					<defName>TSP_RB_Beeliever_Silicon</defName>
+					<nameString>Silicon</nameString>
+					<beeDroneDef>RB_Bee_Silicon_Drone</beeDroneDef>
+					<beeQueenDef>RB_Bee_Silicon_Queen</beeQueenDef>
+					<!--
+					<beeQueenTag>RB_Bee_Silicon_Queen_Tag</beeQueenTag>
+					<beeDroneTag>RB_Bee_Silicon_Drone_Tag</beeDroneTag>
+					-->
+				</RimBees.BeeListDef>
+				
+				<RimBees.BeeCombinationDef>
+					<defName>TSP_RB_Beelievers_Silicon1_Tables</defName>
+					<bee1>Technological</bee1>
+					<bee2>Oriental</bee2>
+					<result>
+						<li>Silicon</li>
+					</result>				
+				</RimBees.BeeCombinationDef>
+				
+				<ThingDef ParentName="TSP_Beelievers_Beesearch">
+					<defName>TSP_RB_Beelievers_SiliconTables_Beesearch</defName>
+					<graphicData Inherit="False">
+						<graphicClass>Graphic_Single</graphicClass>
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/Beesearch/Idr_adbo2</texPath>
+					</graphicData>
+					<comps>
+						<li Class="RimBees.CompProperties_BeeResearchData">
+							<firstBee>RB_Bee_Technological_Queen</firstBee>
+							<secondBee>RB_Bee_Oriental_Queen</secondBee>
+							<resultingBees>
+								<li>RB_Bee_Silicon_Queen</li>
+							</resultingBees>
+						</li>
+					</comps>
+				</ThingDef>
+			
+				<ThingDef ParentName="TSP_RB_Beeliever_MasterBeeBase" Name="TSP_RB_Beeliever_Silicon_Base" Abstract="True">
+					<!-- <label>Silicon Bee</label> -->
+					<description>Silicon Bees are a type of Technological Bee that produce silicon wavers for general purpose computing, operating similarly to how Technological Bees produce components. Silicon Bees are extremely heat resistant and can be paired with other bees to increase productivity in extreme environments. \n\n\n\n\n Bee Traits: \n\n 	Production time: 1 day \n 	Works at Night: Yes \n 	Works When Raining: No \n 	Unusual Sources Needed: No \n 	Minimum Temperature: 50ºF (-10ºC) \n 	Maximum temperature: 185ºF (85ºC)</description>
+					<!--
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/ST_Bee_south</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData>
+					-->
+					<comps>			
+						<li Class="RimBees.CompProperties_Bees" Inherit="False">
+							<species>Silicon</species>
+							<comb>TSP_RB_Beeliever_Silicon_Honeycomb</comb>
+							<combtimedays>1</combtimedays>
+							<nocturnal>false</nocturnal> <!-- Works at night -->
+							<pluviophile>true</pluviophile> <!-- Works in the rain -->
+							<weirdplantneeded>no</weirdplantneeded>
+							<tempMin>-10</tempMin> <!-- Fifty degrees -->
+							<tempMax>85</tempMax> <!-- CPU's can get quite hot before they melt -->
+						</li>   
+					</comps>
+				</ThingDef>
+				
+				<!-- MUST be RB_Bee_YOURNAME_Queen and then RB_Bee_YOURNAME_Drone, no exceptions -->
+				<ThingDef ParentName="TSP_RB_Beeliever_Silicon_Base">
+					<defName>RB_Bee_Silicon_Queen</defName>
+					<label>Silicon Bee queen</label>
+					<descriptionHyperlinks>
+						<!-- <ThingDef>RB_Bee_Silicon_Queen</ThingDef> -->
+						<ThingDef>RB_Bee_Silicon_Drone</ThingDef>
+						<ThingDef>TSP_RB_Beeliever_Silicon_Honeycomb</ThingDef>
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_Silicon_Honeycomb</RecipeDef>
+						<ThingDef>Silicon</ThingDef>
+						<ThingDef>Simple_semiconductor_manufacturing_machine</ThingDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/OrientalBranch/TSP_Bee_Silicon_Queen</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData> 		
+				</ThingDef>
+				
+				<ThingDef ParentName="TSP_RB_Beeliever_Silicon_Base">
+					<defName>RB_Bee_Silicon_Drone</defName>
+					<label>Silicon Bee drone</label>
+					<descriptionHyperlinks>
+						<ThingDef>RB_Bee_Silicon_Queen</ThingDef>
+						<!-- <ThingDef>RB_Bee_Silicon_Drone</ThingDef> -->
+						<ThingDef>TSP_RB_Beeliever_Silicon_Honeycomb</ThingDef>
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_Silicon_Honeycomb</RecipeDef>
+						<ThingDef>Silicon</ThingDef>
+						<ThingDef>Simple_semiconductor_manufacturing_machine</ThingDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/OrientalBranch/TSP_Bee_Silicon_Drone</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData> 		
+				</ThingDef>
+				
+				<ThingDef ParentName="RB_CombBase">
+					<defName>TSP_RB_Beeliever_Silicon_Honeycomb</defName>
+					<label>Silicon Bee honeycomb</label>
+					<description>Silicon Bees are heat-resistant Technological Bees that produce simple silicon wafers instead of components. Extracting the honeycombs will yield Silicon Wafers, normal Honey, and Brittle Beeswax.</description>
+					<descriptionHyperlinks>
+						<ThingDef>RB_Bee_Silicon_Queen</ThingDef>
+						<ThingDef>RB_Bee_Silicon_Drone</ThingDef>
+						<!-- <ThingDef>TSP_RB_Beeliever_Silicon_Honeycomb</ThingDef> -->
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_Silicon_Honeycomb</RecipeDef>
+						<ThingDef>Silicon</ThingDef>
+						<ThingDef>Simple_semiconductor_manufacturing_machine</ThingDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/Honeycombs/TSP_RB_Silicon_Honeycomb</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+						<color>(255,255,255)</color>
+					</graphicData>	
+					<thingCategories Inherit="False">
+						<li>TSP_RB_Beeliever_Honeycombs</li>
+					</thingCategories>
+					<butcherProducts>
+						<Silicon>5</Silicon>
+						<RB_BaseHoney>5</RB_BaseHoney>
+						<RB_Brittlewax>5</RB_Brittlewax>
+					</butcherProducts>
+				</ThingDef>
+				
+				<RecipeDef>
+					<defName>TSP_RB_Beeliever_Centrifuge_Silicon_Honeycomb</defName>
+					<label>Extract from Silicon Bee honeycomb</label>
+					<description>Silicon Bees are heat-resistant Technological Bees that produce simple silicon wafers instead of components. Extracting the honeycombs will yield Silicon Wafers, normal Honey, and Brittle Beeswax.</description>
+					<descriptionHyperlinks>
+						<ThingDef>RB_Bee_Silicon_Queen</ThingDef>
+						<ThingDef>RB_Bee_Silicon_Drone</ThingDef>
+						<ThingDef>TSP_RB_Beeliever_Silicon_Honeycomb</ThingDef>
+						<!-- <RecipeDef>TSP_RB_Beeliever_Centrifuge_Silicon_Honeycomb</RecipeDef> -->
+						<ThingDef>Silicon</ThingDef>
+						<ThingDef>Simple_semiconductor_manufacturing_machine</ThingDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<uiIconThing>Simple_semiconductor_manufacturing_machine</uiIconThing>
+					<jobString>Extracting silicon wafers.</jobString>
+					<effectWorking>Cremate</effectWorking>
+					<soundWorking>Recipe_Cremate</soundWorking>
+					<workAmount>900</workAmount>
+					<recipeUsers Inherit="False">
+						<li MayRequire="clover.tech.rsmc">Simple_semiconductor_manufacturing_machine</li>
+					</recipeUsers>	
+					<ingredients>
+						<li>
+							<filter>
+								<thingDefs>
+									<li>TSP_RB_Beeliever_Silicon_Honeycomb</li>
+								</thingDefs>
+							</filter>
+							<count>1</count>
+						</li>
+					</ingredients>
+					<fixedIngredientFilter>
+						<thingDefs>
+							<li>TSP_RB_Beeliever_Silicon_Honeycomb</li>
+						</thingDefs>
+					</fixedIngredientFilter>
+					<specialProducts>
+						<li>Butchery</li>
+					</specialProducts>
+					<skillRequirements></skillRequirements>
+					<researchPrerequisites></researchPrerequisites>
+				</RecipeDef>
+			</value>
+		</match>
+	</Operation>
+</Patch>
