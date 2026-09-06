@@ -111,6 +111,10 @@
 		<li>gz.ysbg</li>
 		<li>vanillaexpanded.vcookebakery</li>
 		<li>biomesteam.biomesbees</li>
+		<li>asel.monolynrace</li>
+		<li>mindi.monolynhugme</li>
+		<li>acutus.rimclaw</li>
+		<li>xxk.hollowknight.core</li>
 	</loadAfter>
 	<loadBefore>
 		<li>zal.patchhoney</li>
