@@ -123,6 +123,7 @@
 								<Soul>10</Soul>
 								<RB_Steelwax>5</RB_Steelwax>
 								<RB_BaseHoney>5</RB_BaseHoney>
+								<XXK_SoulThings MayRequire="XXK.HollowKnight.Core">1</XXK_SoulThings>
 							</butcherProducts>
 						</ThingDef>
 					</value>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<Patch>
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>Defs/ThingDef[@Name="AArmoury_FateManipulatorBase"]/tradeability</xpath>
+		<!-- If it does, do this replacement. -->
+		<match Class="PatchOperationReplace">
+			<xpath>Defs/ThingDef[@Name="AArmoury_FateManipulatorBase"]/tradeability</xpath>
+			<success>Always</success>
+			<value>
+				<tradeability>All</tradeability>
+			</value>
+		</match>
+		<!-- If it DOES NOT, add this. -->
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/ThingDef[@Name="AArmoury_FateManipulatorBase"]</xpath>
+			<success>Always</success>
+			<value>
+				<tradeability>All</tradeability>
+			</value>
+		</nomatch>
+		<!-- If the first XPATH does not exist, the original code stands. -->
+    </Operation>
+</Patch>

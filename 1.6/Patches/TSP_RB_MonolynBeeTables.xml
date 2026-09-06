@@ -1,0 +1,865 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<Patch>
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>/Defs/ThingDef[defName="BaptismalFont"]</xpath>
+		<!-- If it does, add this. -->
+		<match Class="PatchOperationAdd">
+			<xpath>/Defs</xpath>
+			<success>Always</success>
+			<value>
+				<!-- Monolyn Branch -->
+				<!-- TIER Monolyn -->
+				<!-- BEE DESCRIPTION -->
+				<RimBees.BeeListDef>
+					<defName>TSP_RB_Beeliever_Monolyn</defName>
+					<nameString>Monolyn</nameString>
+					<beeDroneDef>RB_Bee_Monolyn_Drone</beeDroneDef>
+					<beeQueenDef>RB_Bee_Monolyn_Queen</beeQueenDef>
+					<!--
+					<beeQueenTag>RB_Bee_Monolyn_Queen_Tag</beeQueenTag>
+					<beeDroneTag>RB_Bee_Monolyn_Drone_Tag</beeDroneTag>
+					-->
+				</RimBees.BeeListDef>
+				
+				<RimBees.BeeCombinationDef>
+					<defName>TSP_RB_Beelievers_Monolyn1_Tables</defName>
+					<bee1>Firefly</bee1>
+					<bee2>Nocturnal</bee2>
+					<result>
+						<li>Monolyn</li>
+					</result>				
+				</RimBees.BeeCombinationDef>
+			
+				<ThingDef ParentName="TSP_RB_Beeliever_MasterBeeBase" Name="TSP_RB_Beeliever_Monolyn_Base" Abstract="True">
+					<!-- <label>Monolyn Bee</label> -->
+					<description>Bees dunked in Monolyn Baptismal Fount ink, assimilated into the Monolyn Divinitech apparatus. Using similar powers and reactions to light as the Monolyns themselves, the process of gathering pollen enables the bees to mass produce valuable materials essential to Monolyn existence. \n\n\n\n\n Bee Traits: \n\n 	Production time: 1 day \n 	Works at Night: No \n 	Works When Raining: No \n 	Unusual Sources Needed: No \n 	Minimum Temperature: 23ºF (-5ºC) \n 	Maximum temperature: 104ºF (40ºC)</description>
+					<!--
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/ST_Bee_south</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData>
+					-->
+					<comps>			
+						<li Class="RimBees.CompProperties_Bees" Inherit="False">
+							<species>Monolyn</species>
+							<comb>TSP_RB_Beeliever_Monolyn_Honeycomb</comb>
+							<combtimedays>1</combtimedays>
+							<nocturnal>false</nocturnal> <!-- Works at night -->
+							<pluviophile>false</pluviophile> <!-- Works in the rain -->
+							<weirdplantneeded>no</weirdplantneeded>
+							<tempMin>-5</tempMin> <!-- Zero degrees -->
+							<tempMax>40</tempMax> <!-- Ninety-seven degrees -->
+						</li>   
+					</comps>
+				</ThingDef>
+				
+				<!-- MUST be RB_Bee_YOURNAME_Queen and then RB_Bee_YOURNAME_Drone, no exceptions -->
+				<ThingDef ParentName="TSP_RB_Beeliever_Monolyn_Base">
+					<defName>RB_Bee_Monolyn_Queen</defName>
+					<label>Monolyn Bee queen</label>
+					<descriptionHyperlinks>
+						<!-- <ThingDef>RB_Bee_Monolyn_Queen</ThingDef> -->
+						<ThingDef>RB_Bee_Monolyn_Drone</ThingDef>
+						<ThingDef>TSP_RB_Beeliever_Monolyn_Honeycomb</ThingDef>
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_Monolyn_Honeycomb</RecipeDef>
+						<ThingDef>MN_Astridite</ThingDef>
+						<ThingDef>BaptismalFont</ThingDef>
+						<ASEL.MonolynRecipeDef>TSP_RB_ASEL_Monolyn_GetDunkedOn</ASEL.MonolynRecipeDef>
+						<RecipeDef>TSP_RB_Monolyn_GetDunkedOn</RecipeDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/MonolynBranch/TSP_Bee_Monolyn_Queen</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData> 		
+				</ThingDef>
+				
+				<ThingDef ParentName="TSP_RB_Beeliever_Monolyn_Base">
+					<defName>RB_Bee_Monolyn_Drone</defName>
+					<label>Monolyn Bee drone</label>
+					<descriptionHyperlinks>
+						<ThingDef>RB_Bee_Monolyn_Queen</ThingDef>
+						<!-- <ThingDef>RB_Bee_Monolyn_Drone</ThingDef> -->
+						<ThingDef>TSP_RB_Beeliever_Monolyn_Honeycomb</ThingDef>
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_Monolyn_Honeycomb</RecipeDef>
+						<ThingDef>MN_Astridite</ThingDef>
+						<ASEL.MonolynRecipeDef>TSP_RB_ASEL_Monolyn_GetDunkedOn</ASEL.MonolynRecipeDef>
+						<RecipeDef>TSP_RB_Monolyn_GetDunkedOn</RecipeDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/MonolynBranch/TSP_Bee_Monolyn_Drone</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData> 		
+				</ThingDef>
+				
+				<ThingDef ParentName="RB_CombBase">
+					<defName>TSP_RB_Beeliever_Monolyn_Honeycomb</defName>
+					<label>Monolyn Bee honeycomb</label>
+					<description>Monolyn Bees naturally produce Astridite in the process of gathering pollen. This is likely due to their immersion in the Monolyn Baptismal Fount. Processing their honeycombs yields White Honey, Black Beeswax, and Astridite.</description>
+					<descriptionHyperlinks>
+						<ThingDef>RB_Bee_Monolyn_Queen</ThingDef>
+						<ThingDef>RB_Bee_Monolyn_Drone</ThingDef>
+						<!-- <ThingDef>TSP_RB_Beeliever_Monolyn_Honeycomb</ThingDef> -->
+						<ASEL.MonolynRecipeDef>TSP_RB_ASEL_Monolyn_GetDunkedOn</ASEL.MonolynRecipeDef>
+						<RecipeDef>TSP_RB_Monolyn_GetDunkedOn</RecipeDef>
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_Monolyn_Honeycomb</RecipeDef>
+						<ThingDef>MN_Astridite</ThingDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/Honeycombs/HoneycombBase</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+						<color>(255,255,255)</color>
+					</graphicData>	
+					<thingCategories Inherit="False">
+						<li>TSP_RB_Beeliever_Honeycombs</li>
+					</thingCategories>
+					<butcherProducts>
+						<RB_WhiteHoney>5</RB_WhiteHoney>
+						<RB_BlackBeeswax>5</RB_BlackBeeswax>
+						<MN_Astridite>10</MN_Astridite>
+					</butcherProducts>
+				</ThingDef>
+				
+				<RecipeDef>
+					<defName>TSP_RB_Beeliever_Centrifuge_Monolyn_Honeycomb</defName>
+					<label>Extract from Monolyn Bee honeycomb</label>
+					<description>Monolyn Bees naturally produce Astridite in the process of gathering pollen. This is likely due to their immersion in the Monolyn Baptismal Fount.</description>
+					<descriptionHyperlinks>
+						<ThingDef>RB_Bee_Monolyn_Queen</ThingDef>
+						<ThingDef>RB_Bee_Monolyn_Drone</ThingDef>
+						<ThingDef>TSP_RB_Beeliever_Monolyn_Honeycomb</ThingDef>
+						<!-- <RecipeDef>TSP_RB_Beeliever_Centrifuge_Monolyn_Honeycomb</RecipeDef> -->
+						<ThingDef>MN_Astridite</ThingDef>
+						<ASEL.MonolynRecipeDef>TSP_RB_ASEL_Monolyn_GetDunkedOn</ASEL.MonolynRecipeDef>
+						<RecipeDef>TSP_RB_Monolyn_GetDunkedOn</RecipeDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<uiIconThing>MN_Astridite</uiIconThing>
+					<jobString>Monolyn.</jobString>
+					<effectWorking>Cremate</effectWorking>
+					<soundWorking>Recipe_Cremate</soundWorking>
+					<workAmount>900</workAmount>
+					<recipeUsers Inherit="False"></recipeUsers>	
+					<ingredients>
+						<li>
+							<filter>
+								<thingDefs>
+									<li>TSP_RB_Beeliever_Monolyn_Honeycomb</li>
+								</thingDefs>
+							</filter>
+							<count>1</count>
+						</li>
+					</ingredients>
+					<fixedIngredientFilter>
+						<thingDefs>
+							<li>TSP_RB_Beeliever_Monolyn_Honeycomb</li>
+						</thingDefs>
+					</fixedIngredientFilter>
+					<specialProducts>
+						<li>Butchery</li>
+					</specialProducts>
+					<skillRequirements></skillRequirements>
+					<researchPrerequisites></researchPrerequisites>
+				</RecipeDef>
+				
+
+				
+				<!-- TIER Monolyn -->
+				<!-- BEE DESCRIPTION -->
+				<RimBees.BeeListDef>
+					<defName>TSP_RB_Beeliever_Monolyn2Seed</defName>
+					<nameString>MonolynSeed</nameString>
+					<beeDroneDef>RB_Bee_MonolynSeed_Drone</beeDroneDef>
+					<beeQueenDef>RB_Bee_MonolynSeed_Queen</beeQueenDef>
+					<!--
+					<beeQueenTag>RB_Bee_MonolynSeed_Queen_Tag</beeQueenTag>
+					<beeDroneTag>RB_Bee_MonolynSeed_Drone_Tag</beeDroneTag>
+					-->
+				</RimBees.BeeListDef>
+				
+				<RimBees.BeeCombinationDef>
+					<defName>TSP_RB_Beelievers_Monolyn2_Tables</defName>
+					<bee1>Monolyn</bee1>
+					<bee2>Firefly</bee2>
+					<result>
+						<li>MonolynSeed</li>
+						<li>MonolynSancterite</li>
+						<li>MonolynCalcerite</li>
+					</result>				
+				</RimBees.BeeCombinationDef>
+				
+				<ThingDef ParentName="TSP_Beelievers_Beesearch">
+					<defName>TSP_RB_Beelievers_Monolyn_Beesearch</defName>
+					<descriptionHyperlinks>
+						<ThingDef>RB_Bee_Monolyn_Queen</ThingDef>
+						<ThingDef>RB_Bee_Monolyn_Drone</ThingDef>
+						<ThingDef>RB_Bee_MonolynSeed_Queen</ThingDef>
+						<ThingDef>RB_Bee_MonolynSeed_Drone</ThingDef>
+						<ThingDef>RB_Bee_MonolynSancterite_Queen</ThingDef>
+						<ThingDef>RB_Bee_MonolynSancterite_Drone</ThingDef>
+						<ThingDef>RB_Bee_MonolynCalcerite_Queen</ThingDef>
+						<ThingDef>RB_Bee_MonolynCalcerite_Drone</ThingDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<graphicClass>Graphic_Single</graphicClass>
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/Beesearch/TSP_Monolyn_HELP</texPath>
+					</graphicData>
+					<comps>
+						<li Class="RimBees.CompProperties_BeeResearchData">
+							<firstBee>RB_Bee_Monolyn_Queen</firstBee>
+							<secondBee>RB_Bee_Firefly_Queen</secondBee>
+							<resultingBees>
+								<!-- <li>RB_Bee_Monolyn_Queen</li> -->
+								<li>RB_Bee_MonolynSeed_Queen</li>
+								<li>RB_Bee_MonolynSancterite_Queen</li>
+								<li>RB_Bee_MonolynCalcerite_Queen</li>
+							</resultingBees>
+						</li>
+					</comps>
+				</ThingDef>
+			
+				<ThingDef ParentName="TSP_RB_Beeliever_MasterBeeBase" Name="TSP_RB_Beeliever_MonolynSeed_Base" Abstract="True">
+					<!-- <label>Monolyn Bee</label> -->
+					<description>Bees dunked in Monolyn Baptismal Fount ink, assimilated into the Monolyn Divinitech apparatus. Using similar powers and reactions to light as the Monolyns themselves, the process of gathering pollen enables the bees to mass produce valuable materials essential to Monolyn existence.  Monolyn Seed Bees are further enhanced by the powers of light, and feed their larvae Seeds alongside honey, making them effective at producing critical Monolyn products without needing as much raw material. In order for them to successfully produce Monolyn Seeds, however, a supply of Astridite must be made available to them near their hives. \n\n\n\n\n Bee Traits: \n\n 	Production time: two days \n 	Works at Night: No \n 	Works When Raining: No \n 	Unusual Sources Needed: Astridite \n 	Minimum Temperature: 23ºF (-5ºC) \n 	Maximum temperature: 104ºF (40ºC)</description>
+					<!--
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/ST_Bee_south</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData>
+					-->
+					<comps>			
+						<li Class="RimBees.CompProperties_Bees" Inherit="False">
+							<species>MonolynSeed</species>
+							<comb>TSP_RB_Beeliever_MonolynSeed_Honeycomb</comb>
+							<combtimedays>2</combtimedays>
+							<nocturnal>false</nocturnal> <!-- Works at night -->
+							<pluviophile>false</pluviophile> <!-- Works in the rain -->
+							<weirdplantneeded>MN_Astridite</weirdplantneeded>
+							<tempMin>-5</tempMin> <!-- Zero degrees -->
+							<tempMax>40</tempMax> <!-- Ninety-seven degrees -->
+						</li>   
+					</comps>
+				</ThingDef>
+				
+				<!-- MUST be RB_Bee_YOURNAME_Queen and then RB_Bee_YOURNAME_Drone, no exceptions -->
+				<ThingDef ParentName="TSP_RB_Beeliever_MonolynSeed_Base">
+					<defName>RB_Bee_MonolynSeed_Queen</defName>
+					<label>Monolyn Seed Bee queen</label>
+					<descriptionHyperlinks>
+						<!-- <ThingDef>RB_Bee_MonolynSeed_Queen</ThingDef> -->
+						<ThingDef>RB_Bee_MonolynSeed_Drone</ThingDef>
+						<ThingDef>TSP_RB_Beeliever_MonolynSeed_Honeycomb</ThingDef>
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_MonolynSeed_Honeycomb</RecipeDef>
+						<ThingDef>MN_Seed</ThingDef>
+						<ThingDef>MN_Astridite</ThingDef>
+						<ASEL.MonolynRecipeDef>TSP_RB_ASEL_MonolynSeed_GetDunkedOn</ASEL.MonolynRecipeDef>
+						<RecipeDef>TSP_RB_MonolynSeed_GetDunkedOn</RecipeDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/MonolynBranch/TSP_Bee_Monolyn_Queen</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData> 		
+				</ThingDef>
+				
+				<ThingDef ParentName="TSP_RB_Beeliever_MonolynSeed_Base">
+					<defName>RB_Bee_MonolynSeed_Drone</defName>
+					<label>Monolyn Bee drone</label>
+					<descriptionHyperlinks>
+						<ThingDef>RB_Bee_MonolynSeed_Queen</ThingDef>
+						<!-- <ThingDef>RB_Bee_MonolynSeed_Drone</ThingDef> -->
+						<ThingDef>TSP_RB_Beeliever_MonolynSeed_Honeycomb</ThingDef>
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_MonolynSeed_Honeycomb</RecipeDef>
+						<ThingDef>MN_Seed</ThingDef>
+						<ThingDef>MN_Astridite</ThingDef>
+						<ASEL.MonolynRecipeDef>TSP_RB_ASEL_MonolynSeed_GetDunkedOn</ASEL.MonolynRecipeDef>
+						<RecipeDef>TSP_RB_MonolynSeed_GetDunkedOn</RecipeDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/MonolynBranch/TSP_Bee_Monolyn_Drone</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData> 		
+				</ThingDef>
+				
+				<ThingDef ParentName="RB_CombBase">
+					<defName>TSP_RB_Beeliever_MonolynSeed_Honeycomb</defName>
+					<label>Monolyn Seed Bee honeycomb</label>
+					<description>Monolyn Bees naturally produce Astridite in the process of gathering pollen. This is likely due to their immersion in the Monolyn Baptismal Fount. Monolyn Seed Bees are further enhanced by the powers of light, and feed their larvae Seeds alongside honey, making them effective at producing critical Monolyn products without needing as much raw material. Processing their honeycombs yields Black Honey, White Beeswax, and Monolyn Seeds.</description>
+					<descriptionHyperlinks>
+						<ThingDef>RB_Bee_MonolynSeed_Queen</ThingDef>
+						<ThingDef>RB_Bee_MonolynSeed_Drone</ThingDef>
+						<!-- <ThingDef>TSP_RB_Beeliever_MonolynSeed_Honeycomb</ThingDef> -->
+						<ASEL.MonolynRecipeDef>TSP_RB_ASEL_MonolynSeed_GetDunkedOn</ASEL.MonolynRecipeDef>
+						<RecipeDef>TSP_RB_MonolynSeed_GetDunkedOn</RecipeDef>
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_MonolynSeed_Honeycomb</RecipeDef>
+						<ThingDef>MN_Seed</ThingDef>
+						<ThingDef>MN_Astridite</ThingDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/Honeycombs/HoneycombBase</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+						<color>(255,255,255)</color>
+					</graphicData>	
+					<thingCategories Inherit="False">
+						<li>TSP_RB_Beeliever_Honeycombs</li>
+					</thingCategories>
+					<butcherProducts>
+						<RB_BlackHoney>5</RB_BlackHoney>
+						<RB_WhiteBeeswax>5</RB_WhiteBeeswax>
+						<MN_Seed>10</MN_Seed>
+					</butcherProducts>
+				</ThingDef>
+				
+				<RecipeDef>
+					<defName>TSP_RB_Beeliever_Centrifuge_MonolynSeed_Honeycomb</defName>
+					<label>Extract from Monolyn Seed Bee honeycomb</label>
+					<description>Monolyn Bees naturally produce Astridite in the process of gathering pollen. This is likely due to their immersion in the Monolyn Baptismal Fount. Monolyn Seed Bees are further enhanced by the powers of light, and feed their larvae Monolyn Seeds alongside normal honey, making them effective at producing critical Monolyn products.</description>
+					<descriptionHyperlinks>
+						<ThingDef>RB_Bee_MonolynSeed_Queen</ThingDef>
+						<ThingDef>RB_Bee_MonolynSeed_Drone</ThingDef>
+						<ThingDef>TSP_RB_Beeliever_MonolynSeed_Honeycomb</ThingDef>
+						<!-- <RecipeDef>TSP_RB_Beeliever_Centrifuge_MonolynSeed_Honeycomb</RecipeDef> -->
+						<ThingDef>MN_Seed</ThingDef>
+						<ASEL.MonolynRecipeDef>TSP_RB_ASEL_MonolynSeed_GetDunkedOn</ASEL.MonolynRecipeDef>
+						<RecipeDef>TSP_RB_MonolynSeed_GetDunkedOn</RecipeDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<uiIconThing>MN_Seed</uiIconThing>
+					<jobString>Monolyn.</jobString>
+					<effectWorking>Cremate</effectWorking>
+					<soundWorking>Recipe_Cremate</soundWorking>
+					<workAmount>900</workAmount>
+					<recipeUsers Inherit="False"></recipeUsers>	
+					<ingredients>
+						<li>
+							<filter>
+								<thingDefs>
+									<li>TSP_RB_Beeliever_MonolynSeed_Honeycomb</li>
+								</thingDefs>
+							</filter>
+							<count>1</count>
+						</li>
+					</ingredients>
+					<fixedIngredientFilter>
+						<thingDefs>
+							<li>TSP_RB_Beeliever_MonolynSeed_Honeycomb</li>
+						</thingDefs>
+					</fixedIngredientFilter>
+					<specialProducts>
+						<li>Butchery</li>
+					</specialProducts>
+					<skillRequirements></skillRequirements>
+					<researchPrerequisites></researchPrerequisites>
+				</RecipeDef>
+				
+				<RimBees.BeeListDef>
+					<defName>TSP_RB_Beeliever_Monolyn3Seed</defName>
+					<nameString>MonolynSancterite</nameString>
+					<beeDroneDef>RB_Bee_MonolynSancterite_Drone</beeDroneDef>
+					<beeQueenDef>RB_Bee_MonolynSancterite_Queen</beeQueenDef>
+					<!--
+					<beeQueenTag>RB_Bee_MonolynSancterite_Queen_Tag</beeQueenTag>
+					<beeDroneTag>RB_Bee_MonolynSancterite_Drone_Tag</beeDroneTag>
+					-->
+				</RimBees.BeeListDef>
+			
+				<ThingDef ParentName="TSP_RB_Beeliever_MasterBeeBase" Name="TSP_RB_Beeliever_MonolynSancterite_Base" Abstract="True">
+					<!-- <label>Monolyn Bee</label> -->
+					<description>Bees dunked in Monolyn Baptismal Fount ink, assimilated into the Monolyn Divinitech apparatus. Using similar powers and reactions to light as the Monolyns themselves, the process of gathering pollen enables the bees to mass produce valuable materials essential to Monolyn existence.  Monolyn Sancterite Bees are further enhanced by the powers of light, to the point that they produce honeycombs that are literally made of Sancterite. Monolyn Sancterite Bees do not make wax for their honeycombs. They make hexagonal meshes of Sancterite directly. Leaving no wax and minimal honey, these bees are optimized for Monolyn manufacturing. \n\n\n\n\n Bee Traits: \n\n 	Production time: two days \n 	Works at Night: No \n 	Works When Raining: No \n 	Unusual Sources Needed: No \n 	Minimum Temperature: 23ºF (-5ºC) \n 	Maximum temperature: 104ºF (40ºC)</description>
+					<!--
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/ST_Bee_south</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData>
+					-->
+					<comps>			
+						<li Class="RimBees.CompProperties_Bees" Inherit="False">
+							<species>MonolynSancterite</species>
+							<comb>TSP_RB_Beeliever_MonolynSancterite_Honeycomb</comb>
+							<combtimedays>2</combtimedays>
+							<nocturnal>false</nocturnal> <!-- Works at night -->
+							<pluviophile>false</pluviophile> <!-- Works in the rain -->
+							<weirdplantneeded>no</weirdplantneeded>
+							<tempMin>-5</tempMin> <!-- Zero degrees -->
+							<tempMax>40</tempMax> <!-- Ninety-seven degrees -->
+						</li>   
+					</comps>
+				</ThingDef>
+				
+				<!-- MUST be RB_Bee_YOURNAME_Queen and then RB_Bee_YOURNAME_Drone, no exceptions -->
+				<ThingDef ParentName="TSP_RB_Beeliever_MonolynSancterite_Base">
+					<defName>RB_Bee_MonolynSancterite_Queen</defName>
+					<label>Monolyn Sancterite Bee queen</label>
+					<descriptionHyperlinks>
+						<!-- <ThingDef>RB_Bee_MonolynSancterite_Queen</ThingDef> -->
+						<ThingDef>RB_Bee_MonolynSancterite_Drone</ThingDef>
+						<ThingDef>TSP_RB_Beeliever_MonolynSancterite_Honeycomb</ThingDef>
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_MonolynSancterite_Honeycomb</RecipeDef>
+						<ThingDef>Sanctarite</ThingDef>
+						<ASEL.MonolynRecipeDef>TSP_RB_ASEL_Monolyn_GetDunkedOn</ASEL.MonolynRecipeDef>
+						<RecipeDef>TSP_RB_Monolyn_GetDunkedOn</RecipeDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/MonolynBranch/TSP_Bee_Monolyn_Queen</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+						<color>(230,230,230)</color>
+					</graphicData> 		
+				</ThingDef>
+				
+				<ThingDef ParentName="TSP_RB_Beeliever_MonolynSancterite_Base">
+					<defName>RB_Bee_MonolynSancterite_Drone</defName>
+					<label>Monolyn Sancterite Bee drone</label>
+					<descriptionHyperlinks>
+						<ThingDef>RB_Bee_MonolynSancterite_Queen</ThingDef>
+						<!-- <ThingDef>RB_Bee_MonolynSancterite_Drone</ThingDef> -->
+						<ThingDef>TSP_RB_Beeliever_MonolynSancterite_Honeycomb</ThingDef>
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_MonolynSancterite_Honeycomb</RecipeDef>
+						<ThingDef>Sanctarite</ThingDef>
+						<ASEL.MonolynRecipeDef>TSP_RB_ASEL_Monolyn_GetDunkedOn</ASEL.MonolynRecipeDef>
+						<RecipeDef>TSP_RB_Monolyn_GetDunkedOn</RecipeDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/MonolynBranch/TSP_Bee_Monolyn_Drone</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+						<color>(230,230,230)</color>
+					</graphicData> 		
+				</ThingDef>
+				
+				<ThingDef ParentName="RB_CombBase">
+					<defName>TSP_RB_Beeliever_MonolynSancterite_Honeycomb</defName>
+					<label>Monolyn Sancterite Bee honeycomb</label>
+					<description>Monolyn Sancterite Bees do not make wax for their honeycombs. They make hexagonal meshes of Sancterite directly. Processing their honeycombs yields Black Honey and way too much Sanctarite.</description>
+					<descriptionHyperlinks>
+						<ThingDef>RB_Bee_MonolynSancterite_Queen</ThingDef>
+						<ThingDef>RB_Bee_MonolynSancterite_Drone</ThingDef>
+						<!-- <ThingDef>TSP_RB_Beeliever_MonolynSancterite_Honeycomb</ThingDef> -->
+						<ASEL.MonolynRecipeDef>TSP_RB_ASEL_Monolyn_GetDunkedOn</ASEL.MonolynRecipeDef>
+						<RecipeDef>TSP_RB_Monolyn_GetDunkedOn</RecipeDef>
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_MonolynSancterite_Honeycomb</RecipeDef>
+						<ThingDef>Sanctarite</ThingDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/Honeycombs/HoneycombBase</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+						<color>(230,230,230)</color>
+					</graphicData>	
+					<thingCategories Inherit="False">
+						<li>TSP_RB_Beeliever_Honeycombs</li>
+					</thingCategories>
+					<butcherProducts>
+						<RB_BlackHoney>2</RB_BlackHoney>
+						<Sanctarite>40</Sanctarite>
+					</butcherProducts>
+				</ThingDef>
+				
+				<RecipeDef>
+					<defName>TSP_RB_Beeliever_Centrifuge_MonolynSancterite_Honeycomb</defName>
+					<label>Extract from Monolyn Sancterite Bee honeycomb</label>
+					<description>Monolyn Sancterite Bees do not make wax for their honeycombs. They make hexagonal meshes of Sancterite directly.</description>
+					<descriptionHyperlinks>
+						<ThingDef>RB_Bee_MonolynSancterite_Queen</ThingDef>
+						<ThingDef>RB_Bee_MonolynSancterite_Drone</ThingDef>
+						<ThingDef>TSP_RB_Beeliever_MonolynSancterite_Honeycomb</ThingDef>
+						<!-- <RecipeDef>TSP_RB_Beeliever_Centrifuge_MonolynSancterite_Honeycomb</RecipeDef> -->
+						<ThingDef>Sanctarite</ThingDef>
+						<ASEL.MonolynRecipeDef>TSP_RB_ASEL_Monolyn_GetDunkedOn</ASEL.MonolynRecipeDef>
+						<RecipeDef>TSP_RB_Monolyn_GetDunkedOn</RecipeDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<uiIconThing>Sanctarite</uiIconThing>
+					<jobString>Monolyn.</jobString>
+					<effectWorking>Cremate</effectWorking>
+					<soundWorking>Recipe_Cremate</soundWorking>
+					<workAmount>900</workAmount>
+					<recipeUsers Inherit="False"></recipeUsers>	
+					<ingredients>
+						<li>
+							<filter>
+								<thingDefs>
+									<li>TSP_RB_Beeliever_MonolynSancterite_Honeycomb</li>
+								</thingDefs>
+							</filter>
+							<count>1</count>
+						</li>
+					</ingredients>
+					<fixedIngredientFilter>
+						<thingDefs>
+							<li>TSP_RB_Beeliever_MonolynSancterite_Honeycomb</li>
+						</thingDefs>
+					</fixedIngredientFilter>
+					<specialProducts>
+						<li>Butchery</li>
+					</specialProducts>
+					<skillRequirements></skillRequirements>
+					<researchPrerequisites></researchPrerequisites>
+				</RecipeDef>
+			
+				
+				
+				
+				<!-- Monolyn Branch -->
+				<!-- TIER Monolyn -->
+				<!-- BEE DESCRIPTION -->
+				<RimBees.BeeListDef>
+					<defName>TSP_RB_Beeliever_MonolynCalcerite</defName>
+					<nameString>MonolynCalcerite</nameString>
+					<beeDroneDef>RB_Bee_MonolynCalcerite_Drone</beeDroneDef>
+					<beeQueenDef>RB_Bee_MonolynCalcerite_Queen</beeQueenDef>
+					<!--
+					<beeQueenTag>RB_Bee_MonolynCalcerite_Queen_Tag</beeQueenTag>
+					<beeDroneTag>RB_Bee_MonolynCalcerite_Drone_Tag</beeDroneTag>
+					-->
+				</RimBees.BeeListDef>
+				
+				<ThingDef ParentName="TSP_RB_Beeliever_MasterBeeBase" Name="TSP_RB_Beeliever_MonolynCalcerite_Base" Abstract="True">
+					<!-- <label>Monolyn Bee</label> -->
+					<description>Bees dunked in Monolyn Baptismal Fount ink, assimilated into the Monolyn Divinitech apparatus. Using similar powers and reactions to light as the Monolyns themselves, the process of gathering pollen enables the bees to mass produce valuable materials essential to Monolyn existence. When given a source of Astridite, Monolyn Calcerite Bees naturally refine Calcerite in the process of gathering pollen.  \n\n\n\n\n Bee Traits: \n\n 	Production time: 1 day \n 	Works at Night: Astridite \n 	Works When Raining: No \n 	Unusual Sources Needed: No \n 	Minimum Temperature: 23ºF (-5ºC) \n 	Maximum temperature: 104ºF (40ºC)</description>
+					<!--
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/ST_Bee_south</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData>
+					-->
+					<comps>			
+						<li Class="RimBees.CompProperties_Bees" Inherit="False">
+							<species>MonolynCalcerite</species>
+							<comb>TSP_RB_Beeliever_MonolynCalcerite_Honeycomb</comb>
+							<combtimedays>2</combtimedays>
+							<nocturnal>false</nocturnal> <!-- Works at night -->
+							<pluviophile>false</pluviophile> <!-- Works in the rain -->
+							<weirdplantneeded>MN_Astridite</weirdplantneeded>
+							<tempMin>-5</tempMin> <!-- Zero degrees -->
+							<tempMax>40</tempMax> <!-- Ninety-seven degrees -->
+						</li>   
+					</comps>
+				</ThingDef>
+				
+				<!-- MUST be RB_Bee_YOURNAME_Queen and then RB_Bee_YOURNAME_Drone, no exceptions -->
+				<ThingDef ParentName="TSP_RB_Beeliever_MonolynCalcerite_Base">
+					<defName>RB_Bee_MonolynCalcerite_Queen</defName>
+					<label>Monolyn Calcerite Bee queen</label>
+					<descriptionHyperlinks>
+						<!-- <ThingDef>RB_Bee_MonolynCalcerite_Queen</ThingDef> -->
+						<ThingDef>RB_Bee_MonolynCalcerite_Drone</ThingDef>
+						<ThingDef>TSP_RB_Beeliever_MonolynCalcerite_Honeycomb</ThingDef>
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_MonolynCalcerite_Honeycomb</RecipeDef>
+						<ThingDef>MNCalcirite</ThingDef>
+						<ThingDef>MN_Astridite</ThingDef>
+						<ASEL.MonolynRecipeDef>TSP_RB_ASEL_Monolyn_GetDunkedOn</ASEL.MonolynRecipeDef>
+						<RecipeDef>TSP_RB_Monolyn_GetDunkedOn</RecipeDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/MonolynBranch/TSP_Bee_Monolyn_Queen</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+						<color>(60,60,60)</color>
+					</graphicData> 		
+				</ThingDef>
+				
+				<ThingDef ParentName="TSP_RB_Beeliever_MonolynCalcerite_Base">
+					<defName>RB_Bee_MonolynCalcerite_Drone</defName>
+					<label>Monolyn Calcerite Bee drone</label>
+					<descriptionHyperlinks>
+						<ThingDef>RB_Bee_MonolynCalcerite_Queen</ThingDef>
+						<!-- <ThingDef>RB_Bee_MonolynCalcerite_Drone</ThingDef> -->
+						<ThingDef>TSP_RB_Beeliever_MonolynCalcerite_Honeycomb</ThingDef>
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_MonolynCalcerite_Honeycomb</RecipeDef>
+						<ThingDef>MNCalcirite</ThingDef>
+						<ThingDef>MN_Astridite</ThingDef>
+						<ASEL.MonolynRecipeDef>TSP_RB_ASEL_Monolyn_GetDunkedOn</ASEL.MonolynRecipeDef>
+						<RecipeDef>TSP_RB_Monolyn_GetDunkedOn</RecipeDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/MonolynBranch/TSP_Bee_Monolyn_Drone</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+						<color>(60,60,60)</color>
+					</graphicData> 		
+				</ThingDef>
+				
+				<ThingDef ParentName="RB_CombBase">
+					<defName>TSP_RB_Beeliever_MonolynCalcerite_Honeycomb</defName>
+					<label>Monolyn Calcerite Bee honeycomb</label>
+					<description>When given a source of Astridite, Monolyn Calcerite Bees naturally refine Calcerite in the process of gathering pollen. Processing their honeycombs yields White Honey, Black Beeswax, and Calcerite.</description>
+					<descriptionHyperlinks>
+						<ThingDef>RB_Bee_MonolynCalcerite_Queen</ThingDef>
+						<ThingDef>RB_Bee_MonolynCalcerite_Drone</ThingDef>
+						<!-- <ThingDef>TSP_RB_Beeliever_MonolynCalcerite_Honeycomb</ThingDef> -->
+						<ASEL.MonolynRecipeDef>TSP_RB_ASEL_Monolyn_GetDunkedOn</ASEL.MonolynRecipeDef>
+						<RecipeDef>TSP_RB_Monolyn_GetDunkedOn</RecipeDef>
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_MonolynCalcerite_Honeycomb</RecipeDef>
+						<ThingDef>MNCalcirite</ThingDef>
+						<ThingDef>MN_Astridite</ThingDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/Honeycombs/HoneycombBase</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+						<color>(60,60,60)</color>
+					</graphicData>	
+					<thingCategories Inherit="False">
+						<li>TSP_RB_Beeliever_Honeycombs</li>
+					</thingCategories>
+					<butcherProducts>
+						<RB_WhiteHoney>5</RB_WhiteHoney>
+						<RB_BlackBeeswax>5</RB_BlackBeeswax>
+						<MNCalcirite>10</MNCalcirite>
+					</butcherProducts>
+				</ThingDef>
+				
+				<RecipeDef>
+					<defName>TSP_RB_Beeliever_Centrifuge_MonolynCalcerite_Honeycomb</defName>
+					<label>Extract from Monolyn Calcerite Bee honeycomb</label>
+					<description>When given a source of Astridite, Monolyn Calcerite Bees naturally refine Calcerite in the process of gathering pollen. This is likely due to their immersion in the Monolyn Baptismal Fount.</description>
+					<descriptionHyperlinks>
+						<ThingDef>RB_Bee_MonolynCalcerite_Queen</ThingDef>
+						<ThingDef>RB_Bee_MonolynCalcerite_Drone</ThingDef>
+						<ThingDef>TSP_RB_Beeliever_MonolynCalcerite_Honeycomb</ThingDef>
+						<!-- <RecipeDef>TSP_RB_Beeliever_Centrifuge_MonolynCalcerite_Honeycomb</RecipeDef> -->
+						<ThingDef>MNCalcirite</ThingDef>
+						<ThingDef>MN_Astridite</ThingDef>
+						<ASEL.MonolynRecipeDef>TSP_RB_ASEL_Monolyn_GetDunkedOn</ASEL.MonolynRecipeDef>
+						<RecipeDef>TSP_RB_Monolyn_GetDunkedOn</RecipeDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<uiIconThing>MNCalcirite</uiIconThing>
+					<jobString>Monolyn.</jobString>
+					<effectWorking>Cremate</effectWorking>
+					<soundWorking>Recipe_Cremate</soundWorking>
+					<workAmount>900</workAmount>
+					<recipeUsers Inherit="False"></recipeUsers>	
+					<ingredients>
+						<li>
+							<filter>
+								<thingDefs>
+									<li>TSP_RB_Beeliever_MonolynCalcerite_Honeycomb</li>
+								</thingDefs>
+							</filter>
+							<count>1</count>
+						</li>
+					</ingredients>
+					<fixedIngredientFilter>
+						<thingDefs>
+							<li>TSP_RB_Beeliever_MonolynCalcerite_Honeycomb</li>
+						</thingDefs>
+					</fixedIngredientFilter>
+					<specialProducts>
+						<li>Butchery</li>
+					</specialProducts>
+					<skillRequirements></skillRequirements>
+					<researchPrerequisites></researchPrerequisites>
+				</RecipeDef>
+			</value>
+		</match>
+	</Operation>
+	
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>/Defs/ThingDef[defName="RB_Bee_Monolyn_Queen"]</xpath>
+		<!-- If it does, add this. -->
+		<match Class="PatchOperationAdd">
+			<xpath>/Defs</xpath>
+			<success>Always</success>
+			<value>
+				<RecipeDef>
+					<defName>TSP_RB_Monolyn_GetDunkedOn</defName>
+					<label>dunk bees in the Monolyn fountain</label>
+					<description>Why is bee glowing? \n 'CAUSE SHE JUST GOT DUNKED ON! \n I ain't even lying, FOR SHE JUST GOT DUNKED ON! \n Yep yep, she was flying in the night so I jumped up in the air AND I DUNKED HER IN THE LIGHT!</description>
+					<descriptionHyperlinks>
+						<ThingDef>RB_Bee_Monolyn_Queen</ThingDef>
+						<ThingDef>RB_Bee_Monolyn_Drone</ThingDef>
+						<ThingDef>TSP_RB_Beeliever_Monolyn_Honeycomb</ThingDef>
+						<!-- <RecipeDef>TSP_RB_Beeliever_Centrifuge_Monolyn_Honeycomb</RecipeDef> -->
+						<!-- <RecipeDef>TSP_RB_Monolyn_GetDunkedOn</RecipeDef> -->
+						<ASEL.MonolynRecipeDef>TSP_RB_ASEL_Monolyn_GetDunkedOn</ASEL.MonolynRecipeDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<jobString>Dunking bees into the Monolyn baptismal fount.</jobString>
+					<effectWorking>Cremate</effectWorking>
+					<soundWorking>Recipe_Cremate</soundWorking>
+					<workAmount>100</workAmount>
+					<uiIconThing>RB_Bee_Monolyn_Queen</uiIconThing>
+					<recipeUsers Inherit="False">
+						<li>BaptismalFont</li>
+					</recipeUsers>
+					<ingredients>
+						<li>
+							<filter>
+								<customSummary>bees</customSummary>
+								<categories>
+									<li>RB_BeesAndQueens</li>
+								</categories>
+								<thingDefs></thingDefs>
+								<disallowedThingDefs>
+									<li>RB_Bee_Monolyn_Queen</li>
+									<li>RB_Bee_Monolyn_Drone</li>
+								</disallowedThingDefs>
+							</filter>
+							<count>1</count>
+						</li>
+					</ingredients>
+					<fixedIngredientFilter>
+						<categories>
+							<li>RB_BeesAndQueens</li>
+						</categories>
+						<thingDefs></thingDefs>
+						<disallowedThingDefs>
+							<li>RB_Bee_Monolyn_Queen</li>
+							<li>RB_Bee_Monolyn_Drone</li>
+						</disallowedThingDefs>
+					</fixedIngredientFilter>
+					<researchPrerequisites>
+						<li>BlackBlood</li>
+					</researchPrerequisites>
+					<products>
+						<RB_Bee_Monolyn_Queen>1</RB_Bee_Monolyn_Queen>
+					</products>
+					<!--
+					<modExtensions>
+					   <li Class="ASEL.ASELModExtension"></li>
+					</modExtensions>
+					-->
+				</RecipeDef>
+				
+				<ASEL.MonolynRecipeDef ParentName = "BloodRecipeBase">
+					<defName>TSP_RB_ASEL_Monolyn_GetDunkedOn</defName>
+					<label>dunk beehives in the Monolyn fountain</label>
+					<description>Why is bee glowing? \n 'CAUSE SHE JUST GOT DUNKED ON! \n I ain't even lying, FOR SHE JUST GOT DUNKED ON! \n Yep yep, she was flying in the night so I jumped up in the air AND I DUNKED HER IN THE LIGHT!</description>
+					<descriptionHyperlinks>
+						<ThingDef>BaptismalFont</ThingDef>
+						<ThingDef>RB_Bee_Monolyn_Queen</ThingDef>
+						<ThingDef>RB_Bee_Monolyn_Drone</ThingDef>
+						<ThingDef>BaptismalFont</ThingDef>
+						<!-- <ASEL.MonolynRecipeDef>TSP_RB_ASEL_Monolyn_GetDunkedOn</ASEL.MonolynRecipeDef> -->
+						<RecipeDef>TSP_RB_Monolyn_GetDunkedOn</RecipeDef>
+					</descriptionHyperlinks>
+					<thing>RB_Bee_Monolyn_Queen</thing>
+					<recipeTime>200</recipeTime>
+					<lightCost>1</lightCost>
+					<useCostList>false</useCostList>
+					<recipeUsers Inherit="False" IsNull="True"></recipeUsers>
+					<products>
+						<RB_Bee_Monolyn_Queen>1</RB_Bee_Monolyn_Queen>
+						<RB_Bee_Monolyn_Drone>13</RB_Bee_Monolyn_Drone>
+					</products>
+					<ingredients>
+						<li>
+							<filter>
+								<customSummary>beehives</customSummary>
+								<categories></categories>
+								<thingDefs>
+									<li>RB_WildHive_Temperate</li>
+									<li>RB_WildHive_Mild</li>
+								</thingDefs>
+								<disallowedThingDefs>
+									<li>RB_Bee_Monolyn_Queen</li>
+									<li>RB_Bee_Monolyn_Drone</li>
+								</disallowedThingDefs>
+							</filter>
+							<count>1</count>
+						</li>
+					</ingredients>
+					<researchPrerequisites>
+						<li>BlackBlood</li>
+					</researchPrerequisites>
+					<modExtensions Inherit="False">
+						<li Class="ASEL.ASELModExtension"></li>
+					</modExtensions>
+				</ASEL.MonolynRecipeDef>
+				
+				<RecipeDef ParentName = "BloodRecipeBase">
+					<defName>TSP_RB_ASEL_Monolyn_Beehives_GetDunkedOn</defName>
+					<label>dunk beehives in the Monolyn fountain</label>
+					<description>Why is bee glowing? \n 'CAUSE SHE JUST GOT DUNKED ON! \n I ain't even lying, FOR SHE JUST GOT DUNKED ON! \n Yep yep, she was flying in the night so I jumped up in the air AND I DUNKED HER IN THE LIGHT!</description>
+					<descriptionHyperlinks>
+						<ThingDef>BaptismalFont</ThingDef>
+						<ThingDef>RB_Bee_Monolyn_Queen</ThingDef>
+						<ThingDef>RB_Bee_Monolyn_Drone</ThingDef>
+						<ThingDef>BaptismalFont</ThingDef>
+						<ASEL.MonolynRecipeDef>TSP_RB_ASEL_Monolyn_GetDunkedOn</ASEL.MonolynRecipeDef>
+						<RecipeDef>TSP_RB_Monolyn_GetDunkedOn</RecipeDef>
+					</descriptionHyperlinks>
+					<uiIconThing>RB_Bee_Monolyn_Queen</uiIconThing>
+					<!--
+					<thing>RB_Bee_Monolyn_Queen</thing>
+					<recipeTime>200</recipeTime>
+					<lightCost>1</lightCost>
+					<useCostList>false</useCostList>
+					-->
+					<recipeUsers Inherit="False">
+						<li>BaptismalFont</li>
+					</recipeUsers>
+					<products>
+						<RB_Bee_Monolyn_Queen>1</RB_Bee_Monolyn_Queen>
+						<RB_Bee_Monolyn_Drone>13</RB_Bee_Monolyn_Drone>
+					</products>
+					<ingredients>
+						<li>
+							<filter>
+								<customSummary>beehives</customSummary>
+								<categories></categories>
+								<thingDefs>
+									<li>RB_WildHive_Temperate</li>
+									<li>RB_WildHive_Mild</li>
+								</thingDefs>
+								<disallowedThingDefs>
+									<li>RB_Bee_Monolyn_Queen</li>
+									<li>RB_Bee_Monolyn_Drone</li>
+								</disallowedThingDefs>
+							</filter>
+							<count>1</count>
+						</li>
+					</ingredients>
+					<researchPrerequisites>
+						<li>BlackBlood</li>
+					</researchPrerequisites>
+					<!--
+					<modExtensions Inherit="False">
+						<li Class="ASEL.ASELModExtension"></li>
+					</modExtensions>
+					-->
+				</RecipeDef>
+				
+				<WorkGiverDef>
+					<defName>TSP_RB_Monolyn_DunkBeesBaptismalFont</defName>
+					<label>dunking bees in baptismal font</label>
+					<giverClass>WorkGiver_DoBill</giverClass>
+					<workType>MNBloodDraw</workType>
+					<priorityInType>999</priorityInType>
+					<fixedBillGiverDefs>
+					  <li>BaptismalFont</li>
+					</fixedBillGiverDefs>
+					<verb>dunk at</verb>
+					<gerund>dunking at</gerund>
+					<requiredCapacities></requiredCapacities>
+					<prioritizeSustains>false</prioritizeSustains>
+				</WorkGiverDef>
+			</value>
+		</match>
+		<!-- If the first XPATH does not exist, the original code stands. -->
+	</Operation>
+	
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>Defs/WorkTypeDef[defName="TSP_DoctorBees_Work"]</xpath>
+		<!-- If it does, do this replacement. -->
+		<match Class="PatchOperationReplace">
+			<xpath>Defs/WorkGiverDef[defName="TSP_RB_Monolyn_DunkBeesBaptismalFont"]/workType</xpath>
+			<success>Always</success>
+			<value>
+				<workType>TSP_DoctorBees_Work</workType>
+			</value>
+		</match>
+		<!-- If the first XPATH does not exist, the original code stands. -->
+	</Operation>
+</Patch>

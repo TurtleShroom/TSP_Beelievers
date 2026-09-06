@@ -861,7 +861,7 @@
 					</ingredients>
 					<fixedIngredientFilter>
 						<thingDefs>
-							<li>TSP_RB_Beeliever_MO_BasicComponent_Honeycomb</li>
+							<li>TSP_RB_MO_Beeliever_BasicComponent_Honeycomb</li>
 						</thingDefs>
 					</fixedIngredientFilter>
 					<specialProducts>

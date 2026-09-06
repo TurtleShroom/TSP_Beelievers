@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<Patch>
+	<!-- "TONIGHT, WE SHAW." -->
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>Defs/ThingDef[defName="XXK_Geo"]</xpath>
+		<!-- If it does, add this. -->
+		<match Class="PatchOperationAdd">
+			<xpath>/Defs</xpath>
+			<success>Always</success>
+			<value>
+				<!-- Hallownest Branch -->
+				<!-- TIER Hallownest -->
+				<!-- BEE DESCRIPTION -->
+				<RimBees.BeeListDef>
+					<defName>TSP_RB_Beeliever_Hallownest</defName>
+					<nameString>Hallownest</nameString>
+					<beeDroneDef>RB_Bee_Hallownest_Drone</beeDroneDef>
+					<beeQueenDef>RB_Bee_Hallownest_Queen</beeQueenDef>
+					<!--
+					<beeQueenTag>RB_Bee_Hallownest_Queen_Tag</beeQueenTag>
+					<beeDroneTag>RB_Bee_Hallownest_Drone_Tag</beeDroneTag>
+					-->
+				</RimBees.BeeListDef>
+				
+				<RimBees.BeeCombinationDef>
+					<defName>TSP_RB_Beelievers_Hallownest_Tables</defName>
+					<bee1>Insectoid</bee1>
+					<bee2>Argent</bee2>
+					<result>
+						<li>Hallownest</li>
+					</result>				
+				</RimBees.BeeCombinationDef>
+				
+				<ThingDef ParentName="TSP_Beelievers_Beesearch">
+					<defName>TSP_RB_Beelievers_Hallownest1_Beesearch</defName>
+					<description>"Tonight, we SHAW."</description>
+					<graphicData Inherit="False">
+						<graphicClass>Graphic_Single</graphicClass>
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/Beesearch/Idr_adbo2</texPath>
+						<color>(190,120,215)</color>
+					</graphicData>
+					<comps>
+						<li Class="RimBees.CompProperties_BeeResearchData">
+							<firstBee>RB_Bee_Argent_Queen</firstBee>
+							<secondBee>RB_Bee_Insectoid_Queen</secondBee>
+							<resultingBees>
+								<li>RB_Bee_Hallownest_Queen</li>
+							</resultingBees>
+						</li>
+					</comps>
+				</ThingDef>
+			
+				<ThingDef ParentName="TSP_RB_Beeliever_MasterBeeBase" Name="TSP_RB_Beeliever_Hallownest_Base" Abstract="True">
+					<!-- <label>Hallownest Bee</label> -->
+					<description>Bees descended from the outskirts of Hallownest, hailing from "The Hive Land." Originally servants of Queen Vespa, an enormous, sapient insect, these bees were scattered across the galaxy as humans colonized alongside Hallownest races. The Infection followed soon after, further causing them to distribute their range. Hallownest Bees' "queens" are evolved forms of female Hive Knights that regained flight, rather than royal offspring of Queen Vespa. Without their queen, these "Hive Dames" took the role of making more Hallownest Bees. Beekeepers who rescue, shelter, and protect them will be rewarded with Geo Currency, Tasty Honey, and normal beeswax. \n\n\n\n\n Bee Traits: \n\n 	Production time: 1 day \n 	Works at Night: No \n 	Works When Raining: No \n 	Unusual Sources Needed: No \n 	Minimum Temperature: 0ºF (-17.7778ºC) \n 	Maximum temperature: 113ºF (45ºC)</description>
+					<!--
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/ST_Bee_south</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData>
+					-->
+					<comps>			
+						<li Class="RimBees.CompProperties_Bees" Inherit="False">
+							<species>Hallownest</species>
+							<comb>TSP_RB_Beeliever_Hallownest_Honeycomb</comb>
+							<combtimedays>1</combtimedays>
+							<nocturnal>false</nocturnal> <!-- Works at night -->
+							<pluviophile>false</pluviophile> <!-- Works in the rain -->
+							<weirdplantneeded>no</weirdplantneeded>
+							<tempMin>-18</tempMin> <!-- Zero degrees -->
+							<tempMax>45</tempMax> <!-- One hundred thirteen degrees-->
+						</li>   
+					</comps>
+				</ThingDef>
+				
+				<!-- MUST be RB_Bee_YOURNAME_Queen and then RB_Bee_YOURNAME_Drone, no exceptions -->
+				<ThingDef ParentName="TSP_RB_Beeliever_Hallownest_Base">
+					<defName>RB_Bee_Hallownest_Queen</defName>
+					<label>Hive Dame (Hallownest Bee queen)</label>
+					<descriptionHyperlinks>
+						<!-- <ThingDef>RB_Bee_Hallownest_Queen</ThingDef> -->
+						<ThingDef>RB_Bee_Hallownest_Drone</ThingDef>
+						<ThingDef>TSP_RB_Beeliever_Hallownest_Honeycomb</ThingDef>
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_Hallownest_Honeycomb</RecipeDef>
+						<ThingDef>XXK_Geo</ThingDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/SilksongBranch/TSP_HallownestBase_Queen</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData> 		
+				</ThingDef>
+				
+				<ThingDef ParentName="TSP_RB_Beeliever_Hallownest_Base">
+					<defName>RB_Bee_Hallownest_Drone</defName>
+					<label>Hiveling (Hallownest Bee drone)</label>
+					<descriptionHyperlinks>
+						<ThingDef>RB_Bee_Hallownest_Queen</ThingDef>
+						<!-- <ThingDef>RB_Bee_Hallownest_Drone</ThingDef> -->
+						<ThingDef>TSP_RB_Beeliever_Hallownest_Honeycomb</ThingDef>
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_Hallownest_Honeycomb</RecipeDef>
+						<ThingDef>XXK_Geo</ThingDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/SilksongBranch/TSP_HallownestBase_Drone</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData> 		
+				</ThingDef>
+				
+				<ThingDef ParentName="RB_CombBase">
+					<defName>TSP_RB_Beeliever_Hallownest_Honeycomb</defName>
+					<label>Hallownest Bee honeycomb</label>
+					<description>Beekeepers who rescue, shelter, and protect Hallownest Bees will be rewarded with Geo Currency, Tasty Honey, and normal beeswax.</description>
+					<descriptionHyperlinks>
+						<ThingDef>RB_Bee_Hallownest_Queen</ThingDef>
+						<ThingDef>RB_Bee_Hallownest_Drone</ThingDef>
+						<!-- <ThingDef>TSP_RB_Beeliever_Hallownest_Honeycomb</ThingDef> -->
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_Hallownest_Honeycomb</RecipeDef>
+						<ThingDef>XXK_Geo</ThingDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Building/Building_Production/XXK_HollowWallLamp_east</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+						<color>(190,120,215)</color>
+					</graphicData>	
+					<thingCategories Inherit="False">
+						<li>TSP_RB_Beeliever_Honeycombs</li>
+					</thingCategories>
+					<butcherProducts>
+						<XXK_Geo MayRequire="XXK.HollowKnight.Core">5</XXK_Geo>
+						<RB_TastyHoney>5</RB_TastyHoney>
+						<RB_Beeswax>5</RB_Beeswax>
+					</butcherProducts>
+				</ThingDef>
+				
+				<RecipeDef>
+					<defName>TSP_RB_Beeliever_Centrifuge_Hallownest_Honeycomb</defName>
+					<label>Extract from Hallownest Bee honeycomb</label>
+					<description>Beekeepers who rescue, shelter, and protect Hallownest Bees will be rewarded with Geo Currency, Tasty Honey, and normal beeswax.</description>
+					<descriptionHyperlinks>
+						<ThingDef>RB_Bee_Hallownest_Queen</ThingDef>
+						<ThingDef>RB_Bee_Hallownest_Drone</ThingDef>
+						<ThingDef>TSP_RB_Beeliever_Hallownest_Honeycomb</ThingDef>
+						<!-- <RecipeDef>TSP_RB_Beeliever_Centrifuge_Hallownest_Honeycomb</RecipeDef> -->
+						<ThingDef>XXK_Geo</ThingDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<uiIconThing>XXK_Geo</uiIconThing>
+					<jobString>Extracting Geo Currency.</jobString>
+					<effectWorking>Cremate</effectWorking>
+					<soundWorking>Recipe_Cremate</soundWorking>
+					<workAmount>900</workAmount>
+					<recipeUsers Inherit="False"></recipeUsers>	
+					<ingredients>
+						<li>
+							<filter>
+								<thingDefs>
+									<li>TSP_RB_Beeliever_Hallownest_Honeycomb</li>
+								</thingDefs>
+							</filter>
+							<count>1</count>
+						</li>
+					</ingredients>
+					<fixedIngredientFilter>
+						<thingDefs>
+							<li>TSP_RB_Beeliever_Hallownest_Honeycomb</li>
+						</thingDefs>
+					</fixedIngredientFilter>
+					<specialProducts>
+						<li>Butchery</li>
+					</specialProducts>
+					<skillRequirements></skillRequirements>
+					<researchPrerequisites></researchPrerequisites>
+				</RecipeDef>
+				
+
+
+				<!-- CrystalPeak Branch -->
+				<!-- TIER CrystalPeak -->
+				<!-- BEE DESCRIPTION -->
+				<RimBees.BeeListDef>
+					<defName>TSP_RB_Beeliever_CrystalPeak</defName>
+					<nameString>CrystalPeak</nameString>
+					<beeDroneDef>RB_Bee_CrystalPeak_Drone</beeDroneDef>
+					<beeQueenDef>RB_Bee_CrystalPeak_Queen</beeQueenDef>
+					<!--
+					<beeQueenTag>RB_Bee_CrystalPeak_Queen_Tag</beeQueenTag>
+					<beeDroneTag>RB_Bee_CrystalPeak_Drone_Tag</beeDroneTag>
+					-->
+				</RimBees.BeeListDef>
+				
+				<RimBees.BeeCombinationDef>
+					<defName>TSP_RB_Beelievers_CrystalPeak_Tables</defName>
+					<bee1>Hallownest</bee1>
+					<bee2>Quarry</bee2>
+					<result>
+						<li>CrystalPeak</li>
+					</result>				
+				</RimBees.BeeCombinationDef>
+				
+				<ThingDef ParentName="TSP_Beelievers_Beesearch">
+					<defName>TSP_RB_Beelievers_Hallownest2_Beesearch</defName>
+					<description>"Tonight, we SHAW."</description>
+					<graphicData Inherit="False">
+						<graphicClass>Graphic_Single</graphicClass>
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/Beesearch/Idr_adbo2</texPath>
+						<color>(190,120,215)</color>
+					</graphicData>
+					<comps>
+						<li Class="RimBees.CompProperties_BeeResearchData">
+							<firstBee>RB_Bee_Hallownest_Queen</firstBee>
+							<secondBee>RB_Bee_Quarry_Queen</secondBee>
+							<resultingBees>
+								<li>RB_Bee_CrystalPeak_Queen</li>
+							</resultingBees>
+						</li>
+					</comps>
+				</ThingDef>
+			
+				<ThingDef ParentName="TSP_RB_Beeliever_MasterBeeBase" Name="TSP_RB_Beeliever_CrystalPeak_Base" Abstract="True">
+					<!-- <label>CrystalPeak Bee</label> -->
+					<description>Bees descended from the outskirts of Hallownest, hailing from Crystal Peaks. These bees were interbred with Quarry Bees to assist in Hallownest's extrraction operations. Originally bred, with Queen Vespa's blessing, to aid the massive mining operations of Crystal Peaks' singing pink crystals, they, like their kin, colonized the galaxy with other Hallownest creatures. Crystal Peak Bees, like Quarry Bees, extract stones from the landscape as they gather pollen. In this case, though, they are attracted to the faint singing hum of Crystal Peak Pink Crystals, and will bring them back to their hives. Processing a Crystal Peak Bee honeycomb will yield Crystal Peak Pink Crystals, Heavy Beeswax, and normal honey. \n \n Like their Hive Land counterparts, all Hallownest bees were originally servants of Queen Vespa, an enormous, sapient insect, these bees were scattered across the galaxy as humans colonized alongside CrystalPeak races. The Infection followed soon after, further causing them to distribute their range. As with all Hallownest bees, Crystal Peak Bees' "queens" are evolved forms of female Hive Knights that regained flight, rather than royal offspring of Queen Vespa. Without their queen, these "Hive Dames" took the role of making more Crystal Peak Bees.. \n\n\n\n\n Bee Traits: \n\n 	Production time: 1 day \n 	Works at Night: Yes \n 	Works When Raining: No \n 	Unusual Sources Needed: No \n 	Minimum Temperature: 0ºF (-17.7778ºC) \n 	Maximum temperature: 113ºF (45ºC)</description>
+					<!--
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/ST_Bee_south</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData>
+					-->
+					<comps>			
+						<li Class="RimBees.CompProperties_Bees" Inherit="False">
+							<species>CrystalPeak</species>
+							<comb>TSP_RB_Beeliever_CrystalPeak_Honeycomb</comb>
+							<combtimedays>1</combtimedays>
+							<nocturnal>true</nocturnal> <!-- Works at night -->
+							<pluviophile>false</pluviophile> <!-- Works in the rain -->
+							<weirdplantneeded>no</weirdplantneeded>
+							<tempMin>-18</tempMin> <!-- Zero degrees -->
+							<tempMax>45</tempMax> <!-- One hundred thirteen degrees-->
+						</li>   
+					</comps>
+				</ThingDef>
+				
+				<!-- MUST be RB_Bee_YOURNAME_Queen and then RB_Bee_YOURNAME_Drone, no exceptions -->
+				<ThingDef ParentName="TSP_RB_Beeliever_CrystalPeak_Base">
+					<defName>RB_Bee_CrystalPeak_Queen</defName>
+					<label>Hive Dame (Crystal Peak Bee queen)</label>
+					<descriptionHyperlinks>
+						<!-- <ThingDef>RB_Bee_CrystalPeak_Queen</ThingDef> -->
+						<ThingDef>RB_Bee_CrystalPeak_Drone</ThingDef>
+						<ThingDef>TSP_RB_Beeliever_CrystalPeak_Honeycomb</ThingDef>
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_CrystalPeak_Honeycomb</RecipeDef>
+						<ThingDef>XXK_Crystal</ThingDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/SilksongBranch/TSP_CrystalPeakBase_Queen</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData> 		
+				</ThingDef>
+				
+				<ThingDef ParentName="TSP_RB_Beeliever_CrystalPeak_Base">
+					<defName>RB_Bee_CrystalPeak_Drone</defName>
+					<label>Hiveling (Crystal Peak Bee drone)</label>
+					<descriptionHyperlinks>
+						<ThingDef>RB_Bee_CrystalPeak_Queen</ThingDef>
+						<!-- <ThingDef>RB_Bee_CrystalPeak_Drone</ThingDef> -->
+						<ThingDef>TSP_RB_Beeliever_CrystalPeak_Honeycomb</ThingDef>
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_CrystalPeak_Honeycomb</RecipeDef>
+						<ThingDef>XXK_Crystal</ThingDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/SilksongBranch/TSP_CrystalPeakBase_Drone</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData> 		
+				</ThingDef>
+				
+				<ThingDef ParentName="RB_CombBase">
+					<defName>TSP_RB_Beeliever_CrystalPeak_Honeycomb</defName>
+					<label>Crystal Peak Bee honeycomb</label>
+					<description>Crystal Peak Bees, like Quarry Bees, extract stones from the landscape as they gather pollen. In this case, though, they are attracted to the faint singing hum of Crystal Peak Pink Crystals, and will bring them back to their hives. Processing a Crystal Peak Bee honeycomb will yield Crystal Peak Pink Crystals, Heavy Beeswax, and normal honey.</description>
+					<descriptionHyperlinks>
+						<ThingDef>RB_Bee_CrystalPeak_Queen</ThingDef>
+						<ThingDef>RB_Bee_CrystalPeak_Drone</ThingDef>
+						<!-- <ThingDef>TSP_RB_Beeliever_CrystalPeak_Honeycomb</ThingDef> -->
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_CrystalPeak_Honeycomb</RecipeDef>
+						<ThingDef>XXK_Crystal</ThingDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Building/Building_Production/XXK_HollowWallLamp_east</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+						<color>(190,120,215)</color>
+					</graphicData>	
+					<thingCategories Inherit="False">
+						<li>TSP_RB_Beeliever_Honeycombs</li>
+					</thingCategories>
+					<butcherProducts>
+						<XXK_Crystal MayRequire="XXK.HollowKnight.Core">20</XXK_Crystal>
+						<RB_HeavyWax>5</RB_HeavyWax>
+						<RB_BaseHoney>5</RB_BaseHoney>
+					</butcherProducts>
+				</ThingDef>
+				
+				<RecipeDef>
+					<defName>TSP_RB_Beeliever_Centrifuge_CrystalPeak_Honeycomb</defName>
+					<label>Extract from Crystal Peak Bee honeycomb</label>
+					<description>Crystal Peak Bees, like Quarry Bees, extract stones from the landscape as they gather pollen. In this case, though, they are attracted to the faint singing hum of Crystal Peak Pink Crystals, and will bring them back to their hives. Processing a Crystal Peak Bee honeycomb will yield Crystal Peak Pink Crystals, Heavy Beeswax, and normal honey.</description>
+					<descriptionHyperlinks>
+						<ThingDef>RB_Bee_CrystalPeak_Queen</ThingDef>
+						<ThingDef>RB_Bee_CrystalPeak_Drone</ThingDef>
+						<ThingDef>TSP_RB_Beeliever_CrystalPeak_Honeycomb</ThingDef>
+						<!-- <RecipeDef>TSP_RB_Beeliever_Centrifuge_CrystalPeak_Honeycomb</RecipeDef> -->
+						<ThingDef>XXK_Crystal</ThingDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<uiIconThing>XXK_Crystal</uiIconThing>
+					<jobString>Crystal Peaking.</jobString>
+					<effectWorking>Cremate</effectWorking>
+					<soundWorking>Recipe_Cremate</soundWorking>
+					<workAmount>900</workAmount>
+					<recipeUsers Inherit="False"></recipeUsers>	
+					<ingredients>
+						<li>
+							<filter>
+								<thingDefs>
+									<li>TSP_RB_Beeliever_CrystalPeak_Honeycomb</li>
+								</thingDefs>
+							</filter>
+							<count>1</count>
+						</li>
+					</ingredients>
+					<fixedIngredientFilter>
+						<thingDefs>
+							<li>TSP_RB_Beeliever_CrystalPeak_Honeycomb</li>
+						</thingDefs>
+					</fixedIngredientFilter>
+					<specialProducts>
+						<li>Butchery</li>
+					</specialProducts>
+					<skillRequirements></skillRequirements>
+					<researchPrerequisites></researchPrerequisites>
+				</RecipeDef>
+			</value>
+		</match>
+	</Operation>
+	
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>Defs/ThingDef[defName="XXK_Geo"]/statBases/MarketValue</xpath>
+		<!-- If it does, do this replacement. -->
+		<match Class="PatchOperationReplace">
+			<xpath>Defs/ThingDef[defName="XXK_Geo"]/statBases/MarketValue</xpath>
+			<success>Always</success>
+			<value>
+				<MarketValue>1.75</MarketValue>
+			</value>
+		</match>
+		<!-- If the first XPATH does not exist, the original code stands. -->
+	</Operation>
+	
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>Defs/ThingDef[defName="XXK_Crystal"]/statBases/MarketValue</xpath>
+		<!-- If it does, do this replacement. -->
+		<match Class="PatchOperationReplace">
+			<xpath>Defs/ThingDef[defName="XXK_Crystal"]/statBases/MarketValue</xpath>
+			<success>Always</success>
+			<value>
+				<MarketValue>2</MarketValue>
+			</value>
+		</match>
+		<!-- If the first XPATH does not exist, the original code stands. -->
+	</Operation>
+	
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>Defs/ThingDef[defName="XXK_Crystal"]/stuffProps/commonality</xpath>
+		<!-- If it does, do this replacement. -->
+		<match Class="PatchOperationReplace">
+			<xpath>Defs/ThingDef[defName="XXK_Crystal"]/stuffProps/commonality</xpath>
+			<success>Always</success>
+			<value>
+				<commonality>0.03</commonality>
+			</value>
+		</match>
+		<!-- If the first XPATH does not exist, the original code stands. -->
+	</Operation>
+	
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>Defs/ThingDef[defName="XXK_Crystal"]/stuffProps/categories</xpath>
+		<!-- If it does, add this. -->
+		<match Class="PatchOperationAdd">
+			<xpath>Defs/ThingDef[defName="XXK_Crystal"]/stuffProps/categories</xpath>
+			<success>Always</success>
+			<value>
+				<li>Stony</li>
+				<li MayRequire="sarg.alphabiomes">AB_Exotic</li>
+				<li MayRequire="sarg.alphabiomes">AB_ExoticMetals</li>
+				<li MayRequire="dankpyon.medieval.overhaul">DankPyon_Gems</li>
+			</value>
+		</match>
+		<!-- If the first XPATH does not exist, the original code stands. -->
+	</Operation>
+</Patch>
