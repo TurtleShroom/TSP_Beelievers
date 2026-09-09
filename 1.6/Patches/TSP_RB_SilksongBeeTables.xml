@@ -125,13 +125,13 @@
 					<graphicData Inherit="False">
 						<texPath>Things/Building/Building_Production/XXK_HollowWallLamp_east</texPath>
 						<graphicClass>Graphic_Single</graphicClass>
-						<color>(190,120,215)</color>
+						<color>(90,20,115)</color>
 					</graphicData>	
 					<thingCategories Inherit="False">
 						<li>TSP_RB_Beeliever_Honeycombs</li>
 					</thingCategories>
 					<butcherProducts>
-						<XXK_Geo MayRequire="XXK.HollowKnight.Core">5</XXK_Geo>
+						<XXK_Geo MayRequire="XXK.HollowKnight.Core">15</XXK_Geo>
 						<RB_TastyHoney>5</RB_TastyHoney>
 						<RB_Beeswax>5</RB_Beeswax>
 					</butcherProducts>
@@ -257,8 +257,9 @@
 						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
 					</descriptionHyperlinks>
 					<graphicData Inherit="False">
-						<texPath>Things/Pawn/Animal/Bug_Types/Bee/SilksongBranch/TSP_CrystalPeakBase_Queen</texPath>
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/SilksongBranch/TSP_HallownestBase_Drone</texPath>
 						<graphicClass>Graphic_Single</graphicClass>
+						<color>(190,120,215)</color>
 					</graphicData> 		
 				</ThingDef>
 				
@@ -274,8 +275,9 @@
 						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
 					</descriptionHyperlinks>
 					<graphicData Inherit="False">
-						<texPath>Things/Pawn/Animal/Bug_Types/Bee/SilksongBranch/TSP_CrystalPeakBase_Drone</texPath>
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/SilksongBranch/TSP_HallownestBase_Queen</texPath>
 						<graphicClass>Graphic_Single</graphicClass>
+						<color>(190,120,215)</color>
 					</graphicData> 		
 				</ThingDef>
 				
