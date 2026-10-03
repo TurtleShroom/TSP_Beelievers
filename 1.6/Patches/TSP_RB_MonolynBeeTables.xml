@@ -257,7 +257,7 @@
 						<RecipeDef>TSP_RB_Beeliever_Centrifuge_MonolynSeed_Honeycomb</RecipeDef>
 						<ThingDef>MN_Seed</ThingDef>
 						<ThingDef>MN_Astridite</ThingDef>
-						<ASEL.MonolynRecipeDef>TSP_RB_ASEL_MonolynSeed_GetDunkedOn</ASEL.MonolynRecipeDef>
+						<!-- <ASEL.MonolynRecipeDef>TSP_RB_ASEL_MonolynSeed_GetDunkedOn</ASEL.MonolynRecipeDef> -->
 						<RecipeDef>TSP_RB_MonolynSeed_GetDunkedOn</RecipeDef>
 						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
 					</descriptionHyperlinks>
@@ -277,7 +277,7 @@
 						<RecipeDef>TSP_RB_Beeliever_Centrifuge_MonolynSeed_Honeycomb</RecipeDef>
 						<ThingDef>MN_Seed</ThingDef>
 						<ThingDef>MN_Astridite</ThingDef>
-						<ASEL.MonolynRecipeDef>TSP_RB_ASEL_MonolynSeed_GetDunkedOn</ASEL.MonolynRecipeDef>
+						<!-- <ASEL.MonolynRecipeDef>TSP_RB_ASEL_MonolynSeed_GetDunkedOn</ASEL.MonolynRecipeDef> -->
 						<RecipeDef>TSP_RB_MonolynSeed_GetDunkedOn</RecipeDef>
 						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
 					</descriptionHyperlinks>
@@ -295,7 +295,7 @@
 						<ThingDef>RB_Bee_MonolynSeed_Queen</ThingDef>
 						<ThingDef>RB_Bee_MonolynSeed_Drone</ThingDef>
 						<!-- <ThingDef>TSP_RB_Beeliever_MonolynSeed_Honeycomb</ThingDef> -->
-						<ASEL.MonolynRecipeDef>TSP_RB_ASEL_MonolynSeed_GetDunkedOn</ASEL.MonolynRecipeDef>
+						<!-- <ASEL.MonolynRecipeDef>TSP_RB_ASEL_MonolynSeed_GetDunkedOn</ASEL.MonolynRecipeDef> -->
 						<RecipeDef>TSP_RB_MonolynSeed_GetDunkedOn</RecipeDef>
 						<RecipeDef>TSP_RB_Beeliever_Centrifuge_MonolynSeed_Honeycomb</RecipeDef>
 						<ThingDef>MN_Seed</ThingDef>
@@ -403,7 +403,7 @@
 						<ThingDef>TSP_RB_Beeliever_MonolynSancterite_Honeycomb</ThingDef>
 						<RecipeDef>TSP_RB_Beeliever_Centrifuge_MonolynSancterite_Honeycomb</RecipeDef>
 						<ThingDef>Sanctarite</ThingDef>
-						<ASEL.MonolynRecipeDef>TSP_RB_ASEL_Monolyn_GetDunkedOn</ASEL.MonolynRecipeDef>
+						<!-- <ASEL.MonolynRecipeDef>TSP_RB_ASEL_Monolyn_GetDunkedOn</ASEL.MonolynRecipeDef> -->
 						<RecipeDef>TSP_RB_Monolyn_GetDunkedOn</RecipeDef>
 						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
 					</descriptionHyperlinks>
@@ -423,7 +423,7 @@
 						<ThingDef>TSP_RB_Beeliever_MonolynSancterite_Honeycomb</ThingDef>
 						<RecipeDef>TSP_RB_Beeliever_Centrifuge_MonolynSancterite_Honeycomb</RecipeDef>
 						<ThingDef>Sanctarite</ThingDef>
-						<ASEL.MonolynRecipeDef>TSP_RB_ASEL_Monolyn_GetDunkedOn</ASEL.MonolynRecipeDef>
+						<!-- <ASEL.MonolynRecipeDef>TSP_RB_ASEL_Monolyn_GetDunkedOn</ASEL.MonolynRecipeDef> -->
 						<RecipeDef>TSP_RB_Monolyn_GetDunkedOn</RecipeDef>
 						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
 					</descriptionHyperlinks>
@@ -442,7 +442,7 @@
 						<ThingDef>RB_Bee_MonolynSancterite_Queen</ThingDef>
 						<ThingDef>RB_Bee_MonolynSancterite_Drone</ThingDef>
 						<!-- <ThingDef>TSP_RB_Beeliever_MonolynSancterite_Honeycomb</ThingDef> -->
-						<ASEL.MonolynRecipeDef>TSP_RB_ASEL_Monolyn_GetDunkedOn</ASEL.MonolynRecipeDef>
+						<!-- <ASEL.MonolynRecipeDef>TSP_RB_ASEL_Monolyn_GetDunkedOn</ASEL.MonolynRecipeDef> -->
 						<RecipeDef>TSP_RB_Monolyn_GetDunkedOn</RecipeDef>
 						<RecipeDef>TSP_RB_Beeliever_Centrifuge_MonolynSancterite_Honeycomb</RecipeDef>
 						<ThingDef>Sanctarite</ThingDef>
@@ -472,7 +472,7 @@
 						<ThingDef>TSP_RB_Beeliever_MonolynSancterite_Honeycomb</ThingDef>
 						<!-- <RecipeDef>TSP_RB_Beeliever_Centrifuge_MonolynSancterite_Honeycomb</RecipeDef> -->
 						<ThingDef>Sanctarite</ThingDef>
-						<ASEL.MonolynRecipeDef>TSP_RB_ASEL_Monolyn_GetDunkedOn</ASEL.MonolynRecipeDef>
+						<!-- <ASEL.MonolynRecipeDef>TSP_RB_ASEL_Monolyn_GetDunkedOn</ASEL.MonolynRecipeDef> -->
 						<RecipeDef>TSP_RB_Monolyn_GetDunkedOn</RecipeDef>
 						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
 					</descriptionHyperlinks>
@@ -555,7 +555,7 @@
 						<RecipeDef>TSP_RB_Beeliever_Centrifuge_MonolynCalcerite_Honeycomb</RecipeDef>
 						<ThingDef>MNCalcirite</ThingDef>
 						<ThingDef>MN_Astridite</ThingDef>
-						<ASEL.MonolynRecipeDef>TSP_RB_ASEL_Monolyn_GetDunkedOn</ASEL.MonolynRecipeDef>
+						<!-- <ASEL.MonolynRecipeDef>TSP_RB_ASEL_Monolyn_GetDunkedOn</ASEL.MonolynRecipeDef> -->
 						<RecipeDef>TSP_RB_Monolyn_GetDunkedOn</RecipeDef>
 						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
 					</descriptionHyperlinks>
@@ -576,7 +576,7 @@
 						<RecipeDef>TSP_RB_Beeliever_Centrifuge_MonolynCalcerite_Honeycomb</RecipeDef>
 						<ThingDef>MNCalcirite</ThingDef>
 						<ThingDef>MN_Astridite</ThingDef>
-						<ASEL.MonolynRecipeDef>TSP_RB_ASEL_Monolyn_GetDunkedOn</ASEL.MonolynRecipeDef>
+						<!-- <ASEL.MonolynRecipeDef>TSP_RB_ASEL_Monolyn_GetDunkedOn</ASEL.MonolynRecipeDef> -->
 						<RecipeDef>TSP_RB_Monolyn_GetDunkedOn</RecipeDef>
 						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
 					</descriptionHyperlinks>
@@ -595,7 +595,7 @@
 						<ThingDef>RB_Bee_MonolynCalcerite_Queen</ThingDef>
 						<ThingDef>RB_Bee_MonolynCalcerite_Drone</ThingDef>
 						<!-- <ThingDef>TSP_RB_Beeliever_MonolynCalcerite_Honeycomb</ThingDef> -->
-						<ASEL.MonolynRecipeDef>TSP_RB_ASEL_Monolyn_GetDunkedOn</ASEL.MonolynRecipeDef>
+						<!-- <ASEL.MonolynRecipeDef>TSP_RB_ASEL_Monolyn_GetDunkedOn</ASEL.MonolynRecipeDef> -->
 						<RecipeDef>TSP_RB_Monolyn_GetDunkedOn</RecipeDef>
 						<RecipeDef>TSP_RB_Beeliever_Centrifuge_MonolynCalcerite_Honeycomb</RecipeDef>
 						<ThingDef>MNCalcirite</ThingDef>
@@ -628,7 +628,7 @@
 						<!-- <RecipeDef>TSP_RB_Beeliever_Centrifuge_MonolynCalcerite_Honeycomb</RecipeDef> -->
 						<ThingDef>MNCalcirite</ThingDef>
 						<ThingDef>MN_Astridite</ThingDef>
-						<ASEL.MonolynRecipeDef>TSP_RB_ASEL_Monolyn_GetDunkedOn</ASEL.MonolynRecipeDef>
+						<!-- <ASEL.MonolynRecipeDef>TSP_RB_ASEL_Monolyn_GetDunkedOn</ASEL.MonolynRecipeDef> -->
 						<RecipeDef>TSP_RB_Monolyn_GetDunkedOn</RecipeDef>
 						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
 					</descriptionHyperlinks>
@@ -673,7 +673,7 @@
 			<value>
 				<RecipeDef>
 					<defName>TSP_RB_Monolyn_GetDunkedOn</defName>
-					<label>dunk bees in the Monolyn fountain</label>
+					<label>dunk bees in the Monolyn baptismal pool</label>
 					<description>Why is bee glowing? \n 'CAUSE SHE JUST GOT DUNKED ON! \n I ain't even lying, FOR SHE JUST GOT DUNKED ON! \n Yep yep, she was flying in the night so I jumped up in the air AND I DUNKED HER IN THE LIGHT!</description>
 					<descriptionHyperlinks>
 						<ThingDef>RB_Bee_Monolyn_Queen</ThingDef>
@@ -681,7 +681,7 @@
 						<ThingDef>TSP_RB_Beeliever_Monolyn_Honeycomb</ThingDef>
 						<!-- <RecipeDef>TSP_RB_Beeliever_Centrifuge_Monolyn_Honeycomb</RecipeDef> -->
 						<!-- <RecipeDef>TSP_RB_Monolyn_GetDunkedOn</RecipeDef> -->
-						<ASEL.MonolynRecipeDef>TSP_RB_ASEL_Monolyn_GetDunkedOn</ASEL.MonolynRecipeDef>
+						<!-- <ASEL.MonolynRecipeDef>TSP_RB_ASEL_Monolyn_GetDunkedOn</ASEL.MonolynRecipeDef> -->
 						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
 					</descriptionHyperlinks>
 					<jobString>Dunking bees into the Monolyn baptismal fount.</jobString>
@@ -731,6 +731,7 @@
 					-->
 				</RecipeDef>
 				
+				<!--
 				<ASEL.MonolynRecipeDef ParentName = "BloodRecipeBase">
 					<defName>TSP_RB_ASEL_Monolyn_GetDunkedOn</defName>
 					<label>dunk beehives in the Monolyn fountain</label>
@@ -740,7 +741,6 @@
 						<ThingDef>RB_Bee_Monolyn_Queen</ThingDef>
 						<ThingDef>RB_Bee_Monolyn_Drone</ThingDef>
 						<ThingDef>BaptismalFont</ThingDef>
-						<!-- <ASEL.MonolynRecipeDef>TSP_RB_ASEL_Monolyn_GetDunkedOn</ASEL.MonolynRecipeDef> -->
 						<RecipeDef>TSP_RB_Monolyn_GetDunkedOn</RecipeDef>
 					</descriptionHyperlinks>
 					<thing>RB_Bee_Monolyn_Queen</thing>
@@ -776,6 +776,7 @@
 						<li Class="ASEL.ASELModExtension"></li>
 					</modExtensions>
 				</ASEL.MonolynRecipeDef>
+				-->
 				
 				<RecipeDef ParentName = "BloodRecipeBase">
 					<defName>TSP_RB_ASEL_Monolyn_Beehives_GetDunkedOn</defName>
