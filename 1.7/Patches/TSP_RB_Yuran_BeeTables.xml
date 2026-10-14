@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+	<!-- Do any of the following Mods exist? -->
+		<mods>
+			<li>Yuran race</li>
+			<li>悠兰纸人诱饵但是啥杯</li>
+			<li>Vanilla Plants Expanded</li>
+		</mods>
+		<match Class="PatchOperationAdd">
+			<xpath>/Defs</xpath>
+			<success>Always</success>
+			<value>
+				<!-- Cherry Branch -->
+				<!-- TIER Cherry -->
+				<!-- BEE DESCRIPTION -->
+				<RimBees.BeeListDef>
+					<defName>TSP_RB_Beeliever_Cherry</defName>
+					<nameString>Cherry</nameString>
+					<beeDroneDef>RB_Bee_Cherry_Drone</beeDroneDef>
+					<beeQueenDef>RB_Bee_Cherry_Queen</beeQueenDef>
+					<!--
+					<beeQueenTag>RB_Bee_Cherry_Queen_Tag</beeQueenTag>
+					<beeDroneTag>RB_Bee_Cherry_Drone_Tag</beeDroneTag>
+					-->
+				</RimBees.BeeListDef>
+				
+				<RimBees.BeeCombinationDef>
+					<defName>TSP_RB_Beelievers_Yuran1_Tables</defName>
+					<bee1>Fruit</bee1>
+					<bee2>Slurry</bee2>
+					<result>
+						<li>Cherry</li>
+					</result>				
+				</RimBees.BeeCombinationDef>
+			
+				<ThingDef ParentName="TSP_RB_Beeliever_MasterBeeBase" Name="TSP_RB_Beeliever_Cherry_Base" Abstract="True">
+					<!-- <label>Cherry Bee</label> -->
+					<description>I HATE CHERRIES!!! Eww. EWW. Oh gosh, EWW EWW EWW! IT TASTES LIKE MEDICINE! AWW! GROSS! WHO EATS THIS CRAP?! \n\n\n\n\n Bee Traits: \n\n 	Production time: 1 day \n 	Works at Night: No \n 	Works When Raining: No \n 	Unusual Sources Needed: No \n 	Minimum Temperature: 0ºF (-17.7778ºC) \n 	Maximum temperature: 97ºF (36.1111ºC)</description>
+					<!--
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/ST_Bee_south</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData>
+					-->
+					<comps>			
+						<li Class="RimBees.CompProperties_Bees" Inherit="False">
+							<species>Cherry</species>
+							<comb>TSP_RB_Beeliever_Cherry_Honeycomb</comb>
+							<combtimedays>1</combtimedays>
+							<nocturnal>false</nocturnal> <!-- Works at night -->
+							<pluviophile>true</pluviophile> <!-- Works in the rain -->
+							<weirdplantneeded>no</weirdplantneeded>
+							<tempMin>-18</tempMin> <!-- Zero degrees -->
+							<tempMax>37</tempMax> <!-- Ninety-seven degrees -->
+						</li>   
+					</comps>
+				</ThingDef>
+				
+				<!-- MUST be RB_Bee_YOURNAME_Queen and then RB_Bee_YOURNAME_Drone, no exceptions -->
+				<ThingDef ParentName="TSP_RB_Beeliever_Cherry_Base">
+					<defName>RB_Bee_Cherry_Queen</defName>
+					<label>Cherry Bee queen</label>
+					<descriptionHyperlinks>
+						<!-- <ThingDef>RB_Bee_Cherry_Queen</ThingDef> -->
+						<ThingDef>RB_Bee_Cherry_Drone</ThingDef>
+						<ThingDef>TSP_RB_Beeliever_Cherry_Honeycomb</ThingDef>
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_Cherry_Honeycomb</RecipeDef>
+						<ThingDef MayRequire="vanillaexpanded.vplantse">VCE_RawCherry</ThingDef>
+						<ThingDef MayRequire="rooandgloomy.yuranracemod">YR_yedoensisBerries</ThingDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/SlurryBranch/RB_Bee_NoxiousCherry_Queen</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+						<color>(137,20,59)</color>
+					</graphicData> 		
+				</ThingDef>
+				
+				<ThingDef ParentName="TSP_RB_Beeliever_Cherry_Base">
+					<defName>RB_Bee_Cherry_Drone</defName>
+					<label>Cherry Bee drone</label>
+					<descriptionHyperlinks>
+						<ThingDef>RB_Bee_Cherry_Queen</ThingDef>
+						<!-- <ThingDef>RB_Bee_Cherry_Drone</ThingDef> -->
+						<ThingDef>TSP_RB_Beeliever_Cherry_Honeycomb</ThingDef>
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_Cherry_Honeycomb</RecipeDef>
+						<ThingDef MayRequire="vanillaexpanded.vplantse">VCE_RawCherry</ThingDef>
+						<ThingDef MayRequire="rooandgloomy.yuranracemod">YR_yedoensisBerries</ThingDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/SlurryBranch/RB_Bee_NoxiousCherry_Drone</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+						<color>(137,20,59)</color>
+					</graphicData> 		
+				</ThingDef>
+				
+				<ThingDef ParentName="RB_CombBase">
+					<defName>TSP_RB_Beeliever_Cherry_Honeycomb</defName>
+					<label>Cherry Bee honeycomb</label>
+					<description>Absolutely disgusting. Get cherries, Red Beeswax, and Psychotropic Honey... but why would you want cherries?</description>
+					<descriptionHyperlinks>
+						<ThingDef>RB_Bee_Cherry_Queen</ThingDef>
+						<ThingDef>RB_Bee_Cherry_Drone</ThingDef>
+						<!-- <ThingDef>TSP_RB_Beeliever_Cherry_Honeycomb</ThingDef> -->
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_Cherry_Honeycomb</RecipeDef>
+						<ThingDef MayRequire="vanillaexpanded.vplantse">VCE_RawCherry</ThingDef>
+						<ThingDef MayRequire="rooandgloomy.yuranracemod">YR_yedoensisBerries</ThingDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/Honeycombs/TSB_RB_IHATECHERRIES</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+						<color>(137,20,59)</color>
+					</graphicData>	
+					<thingCategories Inherit="False">
+						<li>TSP_RB_Beeliever_Honeycombs</li>
+					</thingCategories>
+					<butcherProducts>
+						<VCE_RawCherry MayRequire="vanillaexpanded.vplantse">15</VCE_RawCherry>
+						<YR_yedoensisBerries MayRequire="rooandgloomy.yuranracemod">10</YR_yedoensisBerries>
+						<RB_RedBeeswax>5</RB_RedBeeswax>
+						<RB_PsychotropicHoney>5</RB_PsychotropicHoney>
+					</butcherProducts>
+				</ThingDef>
+				
+				<RecipeDef>
+					<defName>TSP_RB_Beeliever_Centrifuge_Cherry_Honeycomb</defName>
+					<label>Extract from Cherry Bee honeycomb</label>
+					<description>EWW!</description>
+					<descriptionHyperlinks>
+						<ThingDef>RB_Bee_Cherry_Queen</ThingDef>
+						<ThingDef>RB_Bee_Cherry_Drone</ThingDef>
+						<ThingDef>TSP_RB_Beeliever_Cherry_Honeycomb</ThingDef>
+						<!-- <RecipeDef>TSP_RB_Beeliever_Centrifuge_Cherry_Honeycomb</RecipeDef> -->
+						<ThingDef MayRequire="vanillaexpanded.vplantse">VCE_RawCherry</ThingDef>
+						<ThingDef MayRequire="rooandgloomy.yuranracemod">YR_yedoensisBerries</ThingDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<!-- <uiIconThing></uiIconThing> -->
+					<jobString>Eww.</jobString>
+					<effectWorking>Cremate</effectWorking>
+					<soundWorking>Recipe_Cremate</soundWorking>
+					<workAmount>900</workAmount>
+					<recipeUsers Inherit="False"></recipeUsers>	
+					<ingredients>
+						<li>
+							<filter>
+								<thingDefs>
+									<li>TSP_RB_Beeliever_Cherry_Honeycomb</li>
+								</thingDefs>
+							</filter>
+							<count>1</count>
+						</li>
+					</ingredients>
+					<fixedIngredientFilter>
+						<thingDefs>
+							<li>TSP_RB_Beeliever_Cherry_Honeycomb</li>
+						</thingDefs>
+					</fixedIngredientFilter>
+					<specialProducts>
+						<li>Butchery</li>
+					</specialProducts>
+					<skillRequirements></skillRequirements>
+					<researchPrerequisites></researchPrerequisites>
+				</RecipeDef>
+			</value>
+		</match>
+	</Operation>
+	
+	
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>Defs/ThingDef[defName="YR_yedoensisBerries_Big"]</xpath>
+		<match Class="PatchOperationAdd">
+			<xpath>/Defs</xpath>
+			<success>Always</success>
+			<value>
+				<!-- Yuran Branch -->
+				<!-- TIER Yuran -->
+				<!-- BEE DESCRIPTION -->
+				<RimBees.BeeListDef>
+					<defName>TSP_RB_Beeliever_Yuran</defName>
+					<nameString>Yuran</nameString>
+					<beeDroneDef>RB_Bee_Yuran_Drone</beeDroneDef>
+					<beeQueenDef>RB_Bee_Yuran_Queen</beeQueenDef>
+					<!--
+					<beeQueenTag>RB_Bee_Yuran_Queen_Tag</beeQueenTag>
+					<beeDroneTag>RB_Bee_Yuran_Drone_Tag</beeDroneTag>
+					-->
+				</RimBees.BeeListDef>
+				
+				<RimBees.BeeCombinationDef>
+					<defName>TSP_RB_Beelievers_Yuran2_Tables</defName>
+					<bee1>Cherry</bee1>
+					<bee2>Oriental</bee2>
+					<result>
+						<li>Yuran</li>
+					</result>				
+				</RimBees.BeeCombinationDef>
+			
+				<ThingDef ParentName="TSP_RB_Beeliever_MasterBeeBase" Name="TSP_RB_Beeliever_Yuran_Base" Abstract="True">
+					<!-- <label>Yuran Bee</label> -->
+					<description>Yuran Bees are special Oriental Bees exposed to the mystic crafts of the Yuran race. Yuran Bees are magically enhanced by Yuran spells to produce Yuran products, albeit at a slow clip. They produce various Yuran goods in the process of pollinating Yuran plants. \n\n\n\n\n Bee Traits: \n\n 	Production time: 5 days \n 	Works at Night: No \n 	Works When Raining: No \n 	Unusual Sources Needed: No \n 	Minimum Temperature: -6ºF (-21.1111ºC) \n 	Maximum temperature: 112ºF (-41.4444ºC)</description>
+					<!--
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/ST_Bee_south</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData>
+					-->
+					<comps>			
+						<li Class="RimBees.CompProperties_Bees" Inherit="False">
+							<species>Yuran</species>
+							<comb>TSP_RB_Beeliever_Yuran_Honeycomb</comb>
+							<combtimedays>5</combtimedays>
+							<nocturnal>false</nocturnal> <!-- Works at night -->
+							<pluviophile>true</pluviophile> <!-- Works in the rain -->
+							<weirdplantneeded>no</weirdplantneeded>
+							<tempMin>-21</tempMin> <!-- Negative six degrees -->
+							<tempMax>44</tempMax> <!-- One hundred twelve degrees -->
+						</li>   
+					</comps>
+				</ThingDef>
+				
+				<!-- MUST be RB_Bee_YOURNAME_Queen and then RB_Bee_YOURNAME_Drone, no exceptions -->
+				<ThingDef ParentName="TSP_RB_Beeliever_Yuran_Base">
+					<defName>RB_Bee_Yuran_Queen</defName>
+					<label>Yuran Bee queen</label>
+					<descriptionHyperlinks>
+						<!-- <ThingDef>RB_Bee_Yuran_Queen</ThingDef> -->
+						<ThingDef>RB_Bee_Yuran_Drone</ThingDef>
+						<ThingDef>TSP_RB_Beeliever_Yuran_Honeycomb</ThingDef>
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_Yuran_Honeycomb</RecipeDef>
+						<ThingDef MayRequire="vanillaexpanded.vplantse">VCE_RawYuran</ThingDef>
+						<ThingDef MayRequire="rooandgloomy.yuranracemod">YR_yedoensisBerries</ThingDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/SlurryBranch/RB_Bee_NoxiousCherry_Yuran_Queen</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+						<color>(137,20,59)</color>
+					</graphicData> 		
+				</ThingDef>
+				
+				<ThingDef ParentName="TSP_RB_Beeliever_Yuran_Base">
+					<defName>RB_Bee_Yuran_Drone</defName>
+					<label>Yuran Bee drone</label>
+					<descriptionHyperlinks>
+						<ThingDef>RB_Bee_Yuran_Queen</ThingDef>
+						<!-- <ThingDef>RB_Bee_Yuran_Drone</ThingDef> -->
+						<ThingDef>TSP_RB_Beeliever_Yuran_Honeycomb</ThingDef>
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_Yuran_Honeycomb</RecipeDef>
+						<ThingDef MayRequire="vanillaexpanded.vplantse">VCE_RawYuran</ThingDef>
+						<ThingDef MayRequire="rooandgloomy.yuranracemod">YR_yedoensisBerries</ThingDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/SlurryBranch/RB_Bee_NoxiousCherry_Yuran_Drone</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+						<color>(137,20,59)</color>
+					</graphicData>
+				</ThingDef>
+				
+				<ThingDef ParentName="RB_CombBase">
+					<defName>TSP_RB_Beeliever_Yuran_Honeycomb</defName>
+					<label>Yuran Bee honeycomb</label>
+					<description>Yuran Bees are magically enhanced by Yuran spells to produce Yuran products, albeit at a slow clip. Yurans cultivate these special bees to better produce their distinct cultural products and goods. All Yuran Bees produce Red Beeswax and Adaptive Honey, but what else they generate depends on when their hives are harvested.</description>
+					<descriptionHyperlinks>
+						<ThingDef>RB_Bee_Yuran_Queen</ThingDef>
+						<ThingDef>RB_Bee_Yuran_Drone</ThingDef>
+						<!-- <ThingDef>TSP_RB_Beeliever_Yuran_Honeycomb</ThingDef> -->
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_Yuran_Honeycomb</RecipeDef>
+						<ThingDef MayRequire="vanillaexpanded.vplantse">VCE_RawYuran</ThingDef>
+						<ThingDef MayRequire="rooandgloomy.yuranracemod">YR_yedoensisBerries</ThingDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/Honeycombs/TSB_RB_IHATECHERRIES</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+						<!-- <color>(137,20,59)</color> -->
+						<color>(255,255,255)</color>
+					</graphicData>	
+					<thingCategories Inherit="False">
+						<li>TSP_RB_Beeliever_Honeycombs</li>
+					</thingCategories>
+					<butcherProducts>
+						<TSP_RB_Beelievers_Yuran_SpawnSystem>1</TSP_RB_Beelievers_Yuran_SpawnSystem>
+						<RB_RedBeeswax>10</RB_RedBeeswax>
+						<RB_AdaptiveHoney>5</RB_AdaptiveHoney>
+					</butcherProducts>
+				</ThingDef>
+				
+				<RecipeDef>
+					<defName>TSP_RB_Beeliever_Centrifuge_Yuran_Honeycomb</defName>
+					<label>Extract from Yuran Bee honeycomb</label>
+					<description>Exract Yuran products from Yuran Bee honeycombs! Yuran Bees are magically enhanced by Yuran spells to produce Yuran products, albeit at a slow clip.</description>
+					<descriptionHyperlinks>
+						<ThingDef>RB_Bee_Yuran_Queen</ThingDef>
+						<ThingDef>RB_Bee_Yuran_Drone</ThingDef>
+						<ThingDef>TSP_RB_Beeliever_Yuran_Honeycomb</ThingDef>
+						<!-- <RecipeDef>TSP_RB_Beeliever_Centrifuge_Yuran_Honeycomb</RecipeDef> -->
+						<ThingDef MayRequire="vanillaexpanded.vplantse">VCE_RawYuran</ThingDef>
+						<ThingDef MayRequire="rooandgloomy.yuranracemod">YR_yedoensisBerries</ThingDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<uiIconThing>TSP_RB_Beelievers_Yuran_SpawnSystem</uiIconThing>
+					<jobString>Randomizing Yuran products.</jobString>
+					<effectWorking>Cremate</effectWorking>
+					<soundWorking>Recipe_Cremate</soundWorking>
+					<workAmount>900</workAmount>
+					<recipeUsers Inherit="False">
+						<li MayRequire="rooandgloomy.yuranracemod">YR_Shine</li>
+						<li MayRequire="rooandgloomy.yuranracemod">YR_P_Brewery</li>
+					</recipeUsers>	
+					<ingredients>
+						<li>
+							<filter>
+								<thingDefs>
+									<li>TSP_RB_Beeliever_Yuran_Honeycomb</li>
+								</thingDefs>
+							</filter>
+							<count>1</count>
+						</li>
+					</ingredients>
+					<fixedIngredientFilter>
+						<thingDefs>
+							<li>TSP_RB_Beeliever_Yuran_Honeycomb</li>
+						</thingDefs>
+					</fixedIngredientFilter>
+					<specialProducts>
+						<li>Butchery</li>
+					</specialProducts>
+					<skillRequirements></skillRequirements>
+					<researchPrerequisites></researchPrerequisites>
+				</RecipeDef>
+			</value>
+		</match>
+	</Operation>
+	
+	
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>Defs/ThingDef[defName="YR_yedoensisBerries_Big"]</xpath>
+		<match Class="PatchOperationAdd">
+			<xpath>/Defs</xpath>
+			<success>Always</success>
+			<value>
+				<ThingDef ParentName="ResourceBase">
+					<defName>TSP_RB_Beelievers_Yuran_SpawnSystem</defName>
+					<label>Yuran Bee Products</label>
+					<description>Yuran Bees are magically enhanced by Yuran spells to produce Yuran products, albeit at a slow clip.</description>
+					<descriptionHyperlinks>
+						<ThingDef>RB_Bee_Yuran_Queen</ThingDef>
+						<ThingDef>RB_Bee_Yuran_Drone</ThingDef>
+						<!-- <ThingDef>TSP_RB_Beelievers_Yuran_SpawnSystem</ThingDef> -->
+						<ThingDef>TSP_RB_Beeliever_Yuran_Honeycomb</ThingDef>
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_Yuran_Honeycomb</RecipeDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<fillPercent>0.01</fillPercent>
+					<rotatable>false</rotatable>
+					<tickerType>Normal</tickerType>
+					<graphicData Inherit="False">
+						<texPath>Yuran/Item/YR_Totem/TwistedFaith</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+						<color>(137,20,59)</color>
+					</graphicData>
+					<altitudeLayer>Building</altitudeLayer>
+					<stackLimit>999</stackLimit>
+					<statBases>
+						<MaxHitPoints>2</MaxHitPoints>
+						<!-- <WorkToBuild>2</WorkToBuild> -->
+						<Flammability>2</Flammability>
+						<Mass>2</Mass>
+					</statBases>
+					<passability>Standable</passability>
+					<pathCost>0</pathCost>
+					<building>
+						<isEdifice>false</isEdifice>
+						<canBuildNonEdificesUnder>true</canBuildNonEdificesUnder>
+						<canPlaceOverWall>true</canPlaceOverWall>
+					</building>
+					<clearBuildingArea>false</clearBuildingArea>
+					<thingCategories Inherit="False"></thingCategories>
+					<comps>
+						<li Class="RimBees.CompProperties_RandomItemSpawner">
+							<amount>2</amount>
+							<categories>
+								<li>TSP_ST_BEEEES_HiddenCategory_Yuran</li>
+							</categories>
+						</li>
+					</comps>
+				</ThingDef>
+			</value>
+		</match>
+	</Operation>
+</Patch>

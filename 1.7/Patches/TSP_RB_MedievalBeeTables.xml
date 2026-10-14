@@ -1,0 +1,1241 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Patch>
+	<!-- Aelanna's Model No-Match Detector and Insertion Code -->
+	<!-- Special thanks to Aelanna for straight-up saving me scores of headaches! -->
+	<!-- Add comps field to Settlement WorldObjectDef if it doesn't exist -->
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/ThingDef[defName="DankPyon_QueenBee"]/comps</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/ThingDef[defName="DankPyon_QueenBee"]</xpath>
+			<success>Always</success>
+			<value>
+				<comps></comps>
+			</value>
+		</nomatch>
+	</Operation>
+	
+	<!-- Add comps field to Settlement WorldObjectDef if it doesn't exist -->
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/ThingDef[defName="DankPyon_BeeHive"]/comps</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/ThingDef[defName="DankPyon_BeeHive"]</xpath>
+			<success>Always</success>
+			<value>
+				<comps></comps>
+			</value>
+		</nomatch>
+	</Operation>
+	
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/ThingDef[defName="DankPyon_QueenBee"]/descriptionHyperlinks</xpath>
+		<match Class="PatchOperationReplace">
+			<xpath>Defs/ThingDef[defName="DankPyon_QueenBee"]/descriptionHyperlinks</xpath>
+			<success>Always</success>
+			<value>
+				<descriptionHyperlinks>
+					<!-- <ThingDef MayRequire="dankpyon.medieval.overhaul,tsp.beelievers">DankPyon_QueenBee</ThingDef> -->
+					<RecipeDef MayRequire="dankpyon.medieval.overhaul,tsp.beelievers">TSP_MO_BEEEES_QueenBee_To_RB_Queen</RecipeDef>
+					<ThingDef MayRequire="dankpyon.medieval.overhaul,tsp.beelievers">DankPyon_BeeHive</ThingDef>
+					<ThingDef MayRequire="dankpyon.medieval.overhaul,tsp.beelievers">RB_Bee_Oswin_Queen</ThingDef>
+					<ThingDef MayRequire="dankpyon.medieval.overhaul,tsp.beelievers">RB_Bee_Oswin_Drone</ThingDef>
+					<RecipeDef MayRequire="dankpyon.medieval.overhaul,tsp.beelievers">TSP_RB_Beeliever_Centrifuge_Oswin_Honeycomb</RecipeDef>
+					<ThingDef MayRequire="dankpyon.medieval.overhaul,tsp.beelievers">DankPyon_Honeycomb</ThingDef>
+					<ThingDef MayRequire="dankpyon.medieval.overhaul,tsp.beelievers">DankPyon_Honey</ThingDef>
+					<ThingDef MayRequire="dankpyon.medieval.overhaul,tsp.beelievers">DankPyon_Wax</ThingDef>
+					<ThingDef MayRequire="dankpyon.medieval.overhaul,tsp.beelievers">DankPyon_Apiary</ThingDef>
+					<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+				</descriptionHyperlinks>
+			</value>
+		</match>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/ThingDef[defName="DankPyon_QueenBee"]</xpath>
+			<success>Always</success>
+			<value>
+				<descriptionHyperlinks>
+					<!-- <ThingDef MayRequire="dankpyon.medieval.overhaul,tsp.beelievers">DankPyon_QueenBee</ThingDef> -->
+					<RecipeDef MayRequire="dankpyon.medieval.overhaul,tsp.beelievers">TSP_MO_BEEEES_QueenBee_To_RB_Queen</RecipeDef>
+					<ThingDef MayRequire="dankpyon.medieval.overhaul,tsp.beelievers">DankPyon_BeeHive</ThingDef>
+					<ThingDef MayRequire="dankpyon.medieval.overhaul,tsp.beelievers">RB_Bee_Oswin_Queen</ThingDef>
+					<ThingDef MayRequire="dankpyon.medieval.overhaul,tsp.beelievers">RB_Bee_Oswin_Drone</ThingDef>
+					<RecipeDef MayRequire="dankpyon.medieval.overhaul,tsp.beelievers">TSP_RB_Beeliever_Centrifuge_Oswin_Honeycomb</RecipeDef>
+					<ThingDef MayRequire="dankpyon.medieval.overhaul,tsp.beelievers">DankPyon_Honeycomb</ThingDef>
+					<ThingDef MayRequire="dankpyon.medieval.overhaul,tsp.beelievers">DankPyon_Honey</ThingDef>
+					<ThingDef MayRequire="dankpyon.medieval.overhaul,tsp.beelievers">DankPyon_Wax</ThingDef>
+					<ThingDef MayRequire="dankpyon.medieval.overhaul,tsp.beelievers">DankPyon_Apiary</ThingDef>
+					<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+				</descriptionHyperlinks>
+			</value>
+		</nomatch>
+	</Operation>
+	
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/ThingDef[defName="DankPyon_BeeHive"]/descriptionHyperlinks</xpath>
+		<match Class="PatchOperationReplace">
+			<xpath>Defs/ThingDef[defName="DankPyon_BeeHive"]/descriptionHyperlinks</xpath>
+			<success>Always</success>
+			<value>
+				<descriptionHyperlinks>
+					<RecipeDef MayRequire="dankpyon.medieval.overhaul,tsp.beelievers">TSP_MO_BEEEES_QueenBee_To_RB_Queen</RecipeDef>
+					<ThingDef MayRequire="dankpyon.medieval.overhaul,tsp.beelievers">DankPyon_QueenBee</ThingDef>
+					<ThingDef MayRequire="dankpyon.medieval.overhaul,tsp.beelievers">RB_Bee_Oswin_Queen</ThingDef>
+					<ThingDef MayRequire="dankpyon.medieval.overhaul,tsp.beelievers">RB_Bee_Oswin_Drone</ThingDef>
+					<RecipeDef MayRequire="dankpyon.medieval.overhaul,tsp.beelievers">TSP_RB_Beeliever_Centrifuge_Oswin_Honeycomb</RecipeDef>
+					<ThingDef MayRequire="dankpyon.medieval.overhaul,tsp.beelievers">DankPyon_Honeycomb</ThingDef>
+					<ThingDef MayRequire="dankpyon.medieval.overhaul,tsp.beelievers">DankPyon_Honey</ThingDef>
+					<ThingDef MayRequire="dankpyon.medieval.overhaul,tsp.beelievers">DankPyon_Wax</ThingDef>
+					<ThingDef MayRequire="dankpyon.medieval.overhaul,tsp.beelievers">DankPyon_Apiary</ThingDef>
+					<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+				</descriptionHyperlinks>
+			</value>
+		</match>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/ThingDef[defName="DankPyon_BeeHive"]</xpath>
+			<success>Always</success>
+			<value>
+				<descriptionHyperlinks>
+					<RecipeDef MayRequire="dankpyon.medieval.overhaul,tsp.beelievers">TSP_MO_BEEEES_QueenBee_To_RB_Queen</RecipeDef>
+					<ThingDef MayRequire="dankpyon.medieval.overhaul,tsp.beelievers">DankPyon_QueenBee</ThingDef>
+					<ThingDef MayRequire="dankpyon.medieval.overhaul,tsp.beelievers">RB_Bee_Oswin_Queen</ThingDef>
+					<ThingDef MayRequire="dankpyon.medieval.overhaul,tsp.beelievers">RB_Bee_Oswin_Drone</ThingDef>
+					<RecipeDef MayRequire="dankpyon.medieval.overhaul,tsp.beelievers">TSP_RB_Beeliever_Centrifuge_Oswin_Honeycomb</RecipeDef>
+					<ThingDef MayRequire="dankpyon.medieval.overhaul,tsp.beelievers">DankPyon_Honeycomb</ThingDef>
+					<ThingDef MayRequire="dankpyon.medieval.overhaul,tsp.beelievers">DankPyon_Honey</ThingDef>
+					<ThingDef MayRequire="dankpyon.medieval.overhaul,tsp.beelievers">DankPyon_Wax</ThingDef>
+					<ThingDef MayRequire="dankpyon.medieval.overhaul,tsp.beelievers">DankPyon_Apiary</ThingDef>
+					<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+				</descriptionHyperlinks>
+			</value>
+		</nomatch>
+	</Operation>
+
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>Defs/ThingDef[defName="VFEM2_Honey"]</xpath>
+		<!-- If it does, add this. -->
+		<match Class="PatchOperationAdd">
+			<xpath>/Defs</xpath>
+			<success>Always</success>
+			<value>
+				<!-- No Branch -->
+				<!-- TIER II -->
+				<!-- Medieval Bees: additional climate bee from Adaptive Branch -->
+				<RimBees.BeeListDef>
+					<defName>TSP_RB_Beeliever_Medieval1_Viking</defName>
+					<nameString>Northern</nameString>
+					<beeDroneDef>RB_Bee_Northern_Drone</beeDroneDef>
+					<beeQueenDef>RB_Bee_Northern_Queen</beeQueenDef>
+					<!--
+					<beeQueenTag>RB_Bee_Medieval_Queen_Tag</beeQueenTag>
+					<beeDroneTag>RB_Bee_Medieval_Drone_Tag</beeDroneTag>
+					-->
+				</RimBees.BeeListDef>
+			
+				<ThingDef ParentName="TSP_RB_Beeliever_MasterBeeBase" Name="TSP_RB_Beeliever_Medieval_Northern_Base" Abstract="True">
+					<!-- <label>Northern Bee</label> -->
+					<description>Northern Bees are closely related to Temperate Bees and are descended from subspecies of the European dark honey bees of Old Earth. Beekeeping in the steppes of far-eastern Europe, the Baltic regions, and the Volga regions of Old Earth all date back to Old Earth's medieval era. Northern Bees produce a rich, thick honey and can produce honey even in colder temperatures. \n\n\n\n\n Bee Traits: \n\n 	Production time: 1 day \n 	Works at Night: No \n 	Works When Raining: No \n 	Unusual Sources Needed: No \n 	Minimum Temperature: -18ºF (-27.7778ºC) \n 	Maximum temperature: 91ºF (33ºC)</description>
+					<!--
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/ST_Bee_south</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData>
+					-->
+					<comps Inherit="False">
+						<li Class="RimBees.CompProperties_Bees" Inherit="False">
+							<species>Northern</species>
+							<comb>TSP_RB_Beeliever_Northern_Honeycomb</comb>
+							<combtimedays>1</combtimedays>
+							<nocturnal>false</nocturnal> <!-- Works at night -->
+							<pluviophile>false</pluviophile> <!-- Works in the rain -->
+							<weirdplantneeded>no</weirdplantneeded>
+							<tempMin>-27.7778</tempMin> <!-- Negative eighteen degrees -->
+							<tempMax>33</tempMax> <!-- Approximately ninety-one degrees -->
+						</li>
+						<li Class="CompProperties_Forbiddable"></li>
+						<li Class="RimBees.CompProperties_TempRuinableAndDestroy" Inherit="False">
+							<minSafeTemperature>-27.7778</minSafeTemperature> <!-- Zero degrees Farenheit -->
+							<maxSafeTemperature>33</maxSafeTemperature> <!-- Ninety-seven degrees Farenheit -->
+							<progressPerDegreePerTick>0.000045</progressPerDegreePerTick>
+						</li>
+						<li>
+							<compClass>RimBees.CompDangerBee</compClass>
+						</li>
+					</comps>
+				</ThingDef>
+				
+				<ThingDef ParentName="TSP_RB_Beeliever_Medieval_Northern_Base">
+					<defName>RB_Bee_Northern_Queen</defName>
+					<label>Northern Bee queen</label>
+					<descriptionHyperlinks>
+						<!-- <ThingDef>RB_Bee_Northern_Queen</ThingDef> -->
+						<ThingDef>RB_Bee_Northern_Drone</ThingDef>
+						<ThingDef>TSP_RB_Beeliever_Northern_Honeycomb</ThingDef>
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_Northern_Honeycomb</RecipeDef>
+						<!--
+						<ThingDef>TSP_ST_RB_WildHive_Gnome</ThingDef>
+						<RecipeDef>TSP_ST_RB_Gneehive_Extract</RecipeDef>
+						-->
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Item/Bees/RB_Bee_Temperate_Queen</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+						<color>(153, 89, 32)</color>
+					</graphicData> 		
+				</ThingDef>
+				
+				<ThingDef ParentName="TSP_RB_Beeliever_Medieval_Northern_Base">
+					<defName>RB_Bee_Northern_Drone</defName>
+					<label>Northern Bee drone</label>
+					<descriptionHyperlinks>
+						<ThingDef>RB_Bee_Northern_Queen</ThingDef>
+						<!-- <ThingDef>RB_Bee_Northern_Drone</ThingDef> -->
+						<ThingDef>TSP_RB_Beeliever_Northern_Honeycomb</ThingDef>
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_Northern_Honeycomb</RecipeDef>
+						<!--
+						<ThingDef>TSP_ST_RB_WildHive_Gnome</ThingDef>
+						<RecipeDef>TSP_ST_RB_Gneehive_Extract</RecipeDef>
+						-->
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Item/Bees/RB_Bee_Temperate_Drone</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+						<color>(153, 89, 32)</color>
+					</graphicData> 		
+				</ThingDef>
+				
+				<ThingDef ParentName="RB_CombBase">
+					<defName>TSP_RB_Beeliever_Northern_Honeycomb</defName>
+					<label>Northern Bee honeycomb</label>
+					<description>Northern Bees are descendants of European dark honey bees that were historically cultivated in Old Earth's Baltic, Volga, and far-eastern European regions. Their honeycombs produce Thick Honey and regular beeswax.</description>
+					<descriptionHyperlinks>
+						<!-- <ResearchProjectDef>ST_GnomeCulture</ResearchProjectDef> -->
+						<ThingDef>RB_Bee_Northern_Queen</ThingDef>
+						<ThingDef>RB_Bee_Northern_Drone</ThingDef>
+						<!-- <ThingDef>TSP_RB_Beeliever_Starch_Honeycomb</ThingDef> -->
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_Northern_Honeycomb</RecipeDef>
+						<!--
+						<ThingDef>TSP_ST_GnomeHoney</ThingDef>
+						<ThingDef>TSP_ST_RB_WildHive_Gnome</ThingDef>
+						<RecipeDef>TSP_ST_RB_Gneehive_Extract</RecipeDef>
+						-->
+						<ThingDef>VFEM2_Honey</ThingDef>
+						<ThingDef>RB_Beeswax</ThingDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Item/Resource/AnimalProductRaw/Honey</texPath>
+						<graphicClass>Graphic_StackCount</graphicClass>
+						<color>(153, 89, 32)</color>
+					</graphicData>	
+					<thingCategories Inherit="False">
+						<li>TSP_RB_Beeliever_Honeycombs</li>
+					</thingCategories>
+					<butcherProducts>
+						<VFEM2_Honey>7</VFEM2_Honey>
+						<RB_Beeswax>5</RB_Beeswax>
+					</butcherProducts>
+				</ThingDef>
+				
+				<RecipeDef>
+					<defName>TSP_RB_Beeliever_Centrifuge_Northern_Honeycomb</defName>
+					<label>extract from Northern honeycomb</label>
+					<description>Extracts Thick Honey and ordinary Beeswax from Northern Bee honeycombs.</description>
+					<descriptionHyperlinks>
+						<!-- <ResearchProjectDef>ST_GnomeCulture</ResearchProjectDef> -->
+						<ThingDef>RB_Bee_Northern_Queen</ThingDef>
+						<ThingDef>RB_Bee_Northern_Drone</ThingDef>
+						<ThingDef>TSP_RB_Beeliever_Northern_Honeycomb</ThingDef>
+						<ThingDef>VFEM2_Honey</ThingDef>
+						<ThingDef>RB_Beeswax</ThingDef>
+						<!-- <RecipeDef>TSP_RB_Beeliever_Centrifuge_Northern_Honeycomb</RecipeDef> -->
+						<!--
+						<ThingDef>TSP_ST_GnomeHoney</ThingDef>
+						<ThingDef>TSP_ST_RB_WildHive_Gnome</ThingDef>
+						<RecipeDef>TSP_ST_RB_Gneehive_Extract</RecipeDef>
+						-->
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<uiIconThing>VFEM2_Honey</uiIconThing>
+					<jobString>Extracting honey.</jobString>
+					<effectWorking>Cremate</effectWorking>
+					<soundWorking>Recipe_Cremate</soundWorking>
+					<workAmount>900</workAmount>
+					<recipeUsers></recipeUsers>	
+					<ingredients>
+						<li>
+							<filter>
+								<thingDefs>
+									<li>TSP_RB_Beeliever_Northern_Honeycomb</li>
+								</thingDefs>
+							</filter>
+							<count>1</count>
+						</li>
+					</ingredients>
+					<fixedIngredientFilter>
+						<thingDefs>
+							<li>TSP_RB_Beeliever_Northern_Honeycomb</li>
+						</thingDefs>
+					</fixedIngredientFilter>
+					<specialProducts>
+						<li>Butchery</li>
+					</specialProducts>
+					<skillRequirements></skillRequirements>
+					<researchPrerequisites>
+						
+					</researchPrerequisites>
+				</RecipeDef>
+				
+				
+				
+				
+				<!-- No Branch -->
+				<!-- TIER II -->
+				<!-- Wine Bees: Tipsy Bees that make wine instead of beer -->
+				<RimBees.BeeListDef>
+					<defName>TSP_RB_Beeliever_Medieval2_Wine</defName>
+					<nameString>Wino</nameString>
+					<beeDroneDef>RB_Bee_Wino_Drone</beeDroneDef>
+					<beeQueenDef>RB_Bee_Wino_Queen</beeQueenDef>
+					<!--
+					<beeQueenTag>RB_Bee_Medieval_Queen_Tag</beeQueenTag>
+					<beeDroneTag>RB_Bee_Medieval_Drone_Tag</beeDroneTag>
+					-->
+				</RimBees.BeeListDef>
+
+				<RimBees.BeeCombinationDef>
+					<defName>TSP_RB_Beelievers_MedievalTables1_Wine</defName>
+					<bee1>Fruit</bee1>
+					<bee2>Tipsy</bee2>
+					<result>
+						<li>Wino</li>
+					</result>				
+				</RimBees.BeeCombinationDef>
+				
+				<ThingDef ParentName="TSP_Beelievers_Beesearch">
+					<defName>TSP_RB_Beelievers_MedievalTables1_Wine_Beesearch</defName>
+					<graphicData Inherit="False">
+						<graphicClass>Graphic_Single</graphicClass>
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/Beesearch/Idr_adbo2</texPath>
+					</graphicData>
+					<comps>
+						<li Class="RimBees.CompProperties_BeeResearchData">
+							<firstBee>RB_Bee_Fruit_Queen</firstBee>
+							<secondBee>RB_Bee_Tipsy_Queen</secondBee>
+							<resultingBees>
+								<li>RB_Bee_Wino_Queen</li>
+							</resultingBees>
+						</li>
+					</comps>
+				</ThingDef>
+				
+				<ThingDef ParentName="TSP_RB_Beeliever_MasterBeeBase" Name="TSP_RB_Beeliever_Medieval_Wine_Base" Abstract="True">
+					<!-- <label>Wine Bee</label> -->
+					<description>A "wino" is an alcoholic whose beverage of choice is almost exclusively wine. Very closely related to Tipsy Bees, the Wino Bees are Fruit Bees that have developed the ability to ferment the berry sugars in their nectar to great effect, producing what is basically wine must awaiting storage in barrels. They produce, in essence, all the ingredients necessary for wine. However, to make wine out of Wino Bee Honeycombs, one must insert the wine must that they produce in a barrel for them. \n\n\n\n\n Bee Traits: \n\n 	Production time: 18 hours \n 	Works at Night: No \n 	Works When Raining: No \n 	Unusual Sources Needed: No \n 	Minimum Temperature: 23ºF (-5ºC) \n 	Maximum temperature: 91ºF (33ºC)</description>
+					<!--
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/ST_Bee_south</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData>
+					-->
+					<comps Inherit="False">
+						<li Class="RimBees.CompProperties_Bees" Inherit="False">
+							<species>Wino</species>
+							<comb>TSP_RB_Beeliever_Wine_Honeycomb</comb>
+							<combtimedays>0.75</combtimedays>
+							<nocturnal>false</nocturnal> <!-- Works at night -->
+							<pluviophile>false</pluviophile> <!-- Works in the rain -->
+							<weirdplantneeded>no</weirdplantneeded>
+							<tempMin>-5</tempMin> <!-- Twenty-three degrees -->
+							<tempMax>33</tempMax> <!-- Approximately ninety-one degrees -->
+						</li>
+						<li Class="CompProperties_Forbiddable"></li>
+						<li Class="RimBees.CompProperties_TempRuinableAndDestroy" Inherit="False">
+							<minSafeTemperature>-27.7778</minSafeTemperature> <!-- Zero degrees Farenheit -->
+							<maxSafeTemperature>33</maxSafeTemperature> <!-- Ninety-seven degrees Farenheit -->
+							<progressPerDegreePerTick>0.000045</progressPerDegreePerTick>
+						</li>
+						<li>
+							<compClass>RimBees.CompDangerBee</compClass>
+						</li>
+					</comps>
+				</ThingDef>
+				
+				<ThingDef ParentName="TSP_RB_Beeliever_Medieval_Wine_Base">
+					<defName>RB_Bee_Wino_Queen</defName>
+					<label>Wino Bee queen</label>
+					<descriptionHyperlinks>
+						<!-- <ThingDef>RB_Bee_Wino_Queen</ThingDef> -->
+						<ThingDef>RB_Bee_Wino_Drone</ThingDef>
+						<ThingDef>TSP_RB_Beeliever_Wine_Honeycomb</ThingDef>
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_Wine_Honeycomb</RecipeDef>
+						<ThingDef MayRequire="oskarpotocki.vfe.medieval2">VFEM2_Must</ThingDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/OtherBranch/TSP_Bee_Wine_Queen</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData> 		
+				</ThingDef>
+				
+				<ThingDef ParentName="TSP_RB_Beeliever_Medieval_Wine_Base">
+					<defName>RB_Bee_Wino_Drone</defName>
+					<label>Wino Bee drone</label>
+					<descriptionHyperlinks>
+						<ThingDef>RB_Bee_Wino_Queen</ThingDef>
+						<!-- <ThingDef>RB_Bee_Wino_Drone</ThingDef> -->
+						<ThingDef>TSP_RB_Beeliever_Wine_Honeycomb</ThingDef>
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_Wine_Honeycomb</RecipeDef>
+						<ThingDef MayRequire="oskarpotocki.vfe.medieval2">VFEM2_Must</ThingDef>
+						<!--
+						<ThingDef>TSP_ST_RB_WildHive_Gnome</ThingDef>
+						<RecipeDef>TSP_ST_RB_Gneehive_Extract</RecipeDef>
+						-->
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/OtherBranch/TSP_Bee_Wine_Drone</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData> 		
+				</ThingDef>
+				
+				<ThingDef ParentName="RB_CombBase">
+					<defName>TSP_RB_Beeliever_Wine_Honeycomb</defName>
+					<label>Wino Bee honeycomb</label>
+					<description>A "wino" is an alcoholic whose beverage of choice is almost exclusively wine. Very closely related to Tipsy Bees, the Wino Bees are Fruit Bees which produce, in essence, all the ingredients necessary for wine. However, to make wine out of Wino Bee Honeycombs, one must insert the wine must that they produce into a barrel for them. \n Wino Bee Honeycombs produce Wine Must, a small amount of  Thick Honey plus Tasty Honey, and Brittle Beeswax.</description>
+					<descriptionHyperlinks>
+						<!-- <ResearchProjectDef>ST_GnomeCulture</ResearchProjectDef> -->
+						<ThingDef>RB_Bee_Wino_Queen</ThingDef>
+						<ThingDef>RB_Bee_Wino_Drone</ThingDef>
+						<!-- <ThingDef>TSP_RB_Beeliever_Wine_Honeycomb</ThingDef> -->
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_Wine_Honeycomb</RecipeDef>
+						<ThingDef MayRequire="oskarpotocki.vfe.medieval2">VFEM2_Must</ThingDef>
+						<!--
+						<ThingDef>TSP_ST_GnomeHoney</ThingDef>
+						<ThingDef>TSP_ST_RB_WildHive_Gnome</ThingDef>
+						<RecipeDef>TSP_ST_RB_Gneehive_Extract</RecipeDef>
+						-->
+						<ThingDef>VFEM2_Honey</ThingDef>
+						<ThingDef>RB_Brittlewax</ThingDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/Honeycombs/TSP_RB_Wine_Honeycomb</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData>	
+					<thingCategories Inherit="False">
+						<li>TSP_RB_Beeliever_Honeycombs</li>
+					</thingCategories>
+					<butcherProducts>
+						<VFEM2_Must>5</VFEM2_Must>
+						<VFEM2_Honey>2</VFEM2_Honey>
+						<RB_TastyHoney>2</RB_TastyHoney>
+						<RB_Brittlewax>4</RB_Brittlewax>
+					</butcherProducts>
+				</ThingDef>
+				
+				<RecipeDef>
+					<defName>TSP_RB_Beeliever_Centrifuge_Wine_Honeycomb</defName>
+					<label>extract from Wine honeycomb</label>
+					<description>Extracts Wine Must, Thick and Tasty Honey, and Brittle Beeswax from Wino Bee honeycombs. The wine they produce must manually be inserted into a barrel to ferment.</description>
+					<descriptionHyperlinks>
+						<!-- <ResearchProjectDef>ST_GnomeCulture</ResearchProjectDef> -->
+						<ThingDef>RB_Bee_Wino_Queen</ThingDef>
+						<ThingDef>RB_Bee_Wino_Drone</ThingDef>
+						<ThingDef>TSP_RB_Beeliever_Wine_Honeycomb</ThingDef>
+						<ThingDef>VFEM2_Honey</ThingDef>
+						<ThingDef>RB_TastyHoney</ThingDef>
+						<ThingDef MayRequire="oskarpotocki.vfe.medieval2">VFEM2_Must</ThingDef>
+						<ThingDef>RB_Brittlewax</ThingDef>
+						<!-- <RecipeDef>TSP_RB_Beeliever_Centrifuge_Northern_Honeycomb</RecipeDef> -->
+						<!--
+						<ThingDef>TSP_ST_GnomeHoney</ThingDef>
+						<ThingDef>TSP_ST_RB_WildHive_Gnome</ThingDef>
+						<RecipeDef>TSP_ST_RB_Gneehive_Extract</RecipeDef>
+						-->
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<uiIconThing>VFEM2_Must</uiIconThing>
+					<jobString>Extracting honey and wine.</jobString>
+					<effectWorking>Cremate</effectWorking>
+					<soundWorking>Recipe_Cremate</soundWorking>
+					<workAmount>900</workAmount>
+					<recipeUsers></recipeUsers>	
+					<ingredients>
+						<li>
+							<filter>
+								<thingDefs>
+									<li>TSP_RB_Beeliever_Wine_Honeycomb</li>
+								</thingDefs>
+							</filter>
+							<count>1</count>
+						</li>
+					</ingredients>
+					<fixedIngredientFilter>
+						<thingDefs>
+							<li>TSP_RB_Beeliever_Wine_Honeycomb</li>
+						</thingDefs>
+					</fixedIngredientFilter>
+					<specialProducts>
+						<li>Butchery</li>
+					</specialProducts>
+					<skillRequirements></skillRequirements>
+					<researchPrerequisites>
+						
+					</researchPrerequisites>
+				</RecipeDef>
+			</value>
+		</match>
+	</Operation>
+	
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>Defs/ThingDef[defName="VFEM2_Honey"]/label</xpath>
+		<!-- If it does, do this replacement. -->
+		<match Class="PatchOperationReplace">
+			<success>Always</success>
+			<xpath>Defs/ThingDef[defName="VFEM2_Honey"]/label</xpath>
+			<value>
+				<label>thick honey</label>
+			</value>
+		</match>
+		<!-- If the first XPATH does not exist, the original code stands. All according to plan. -->
+	</Operation>
+	
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>Defs/ThingDef[defName="VFEM2_Honey"]/ingestible/preferability</xpath>
+		<!-- If it does, do this replacement. -->
+		<match Class="PatchOperationReplace">
+			<success>Always</success>
+			<xpath>Defs/ThingDef[defName="VFEM2_Honey"]/ingestible/preferability</xpath>
+			<value>
+				<preferability>RawTasty</preferability>
+			</value>
+		</match>
+		<!-- If the first XPATH does not exist, the original code stands. All according to plan. -->
+	</Operation>
+	
+	<Operation Class="PatchOperationConditional">
+		<!-- Does this exist? -->
+		<xpath>Defs/ThingDef[defName="RB_Bee_Northern_Queen"]</xpath>
+		<!-- If it does, add this. -->
+		<match Class="PatchOperationAdd">
+			<success>Always</success>
+			<xpath>Defs/RimBees.BeeCombinationDef[defName="RB_CombinationTier2_1"]/result</xpath>
+			<value>
+				<li>Northern</li>
+			</value>
+		</match>
+		<!-- If the first XPATH does not exist, the original code stands. -->
+	</Operation>
+	
+	
+	
+	
+	
+	
+	
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>Defs/ThingDef[defName="DankPyon_QueenBee"]</xpath>
+		<!-- If it does, add this. -->
+		<match Class="PatchOperationAdd">
+			<xpath>/Defs</xpath>
+			<success>Always</success>
+			<value>
+				<!-- Oswin Branch -->
+				<!-- TIER II -->
+				<!-- Medieval Bees: additional climate bee from Adaptive Branch -->
+				<RimBees.BeeListDef>
+					<defName>TSP_RB_Beeliever_Medieval2_Vulture</defName>
+					<nameString>Oswin</nameString>
+					<beeDroneDef>RB_Bee_Oswin_Drone</beeDroneDef>
+					<beeQueenDef>RB_Bee_Oswin_Queen</beeQueenDef>
+					<!--
+					<beeQueenTag>RB_Bee_Medieval_Queen_Tag</beeQueenTag>
+					<beeDroneTag>RB_Bee_Medieval_Drone_Tag</beeDroneTag>
+					-->
+				</RimBees.BeeListDef>
+				
+				<!--
+				<RimBees.BeeCombinationDef>
+					<defName>TSP_RB_Beelievers_Oswin_Tables</defName>
+					<bee1>Y</bee1>
+					<bee2>Z</bee2>
+					<result>
+						<li>Oswin</li>
+					</result>				
+				</RimBees.BeeCombinationDef>
+				-->
+			
+				<ThingDef ParentName="TSP_RB_Beeliever_MasterBeeBase" Name="TSP_RB_Beeliever_Oswin_Base" Abstract="True">
+					<!-- <label>Oswin Bee</label> -->
+					<description>The tamed matriarch of an Oswin Bee colony originating from the regions originally claimed by its original breeders, the namesake House Oswin. Unlike typical bees, they consume carrion and produce a smokey, savory honey. Oswin Bees, when put into Alpha Rim Bee beehives, produce their honeycombs far, far slower than their dedicated beehives, and only produce one honeycomb at a time. That is because Oswin Bees consume meat to produce their honey, unlike Nutritious Bees that produce it, making it more difficult for them to acquire carrion. For this reason, it is highly recommended that dedicated Oswin Beehives be used instead. \n\n\n\n\n Bee Traits: \n\n 	Production time: 1 day \n 	Works at Night: No \n 	Works When Raining: No \n 	Unusual Sources Needed: No \n 	Minimum Temperature: 0ºF (-17.7778ºC) \n 	Maximum temperature: 97ºF (36.1111ºC)</description>
+					<!--
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/ST_Bee_south</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData>
+					-->
+					<descriptionHyperlinks>
+						<!-- <ThingDef MayRequire="dankpyon.medieval.overhaul">DankPyon_QueenBee</ThingDef> -->
+					</descriptionHyperlinks>
+					<comps Inherit="False">
+						<li Class="RimBees.CompProperties_Bees" Inherit="False">
+							<species>Oswin</species>
+							<comb>DankPyon_Honeycomb</comb>
+							<combtimedays>2</combtimedays>
+							<nocturnal>false</nocturnal> <!-- Works at night -->
+							<pluviophile>false</pluviophile> <!-- Works in the rain -->
+							<weirdplantneeded>no</weirdplantneeded>
+							<tempMin>-18</tempMin> <!-- Zero degrees (rounded) -->
+							<tempMax>36</tempMax> <!-- Ninety-seven degrees (rounded) -->
+						</li>   
+					</comps>
+				</ThingDef>
+				
+				<!-- MUST be RB_Bee_YOURNAME_Queen and then RB_Bee_YOURNAME_Drone, no exceptions -->
+				<ThingDef ParentName="TSP_RB_Beeliever_Oswin_Base">
+					<defName>RB_Bee_Oswin_Queen</defName>
+					<label>Oswin Bee queen</label>
+					<descriptionHyperlinks>
+						<RecipeDef MayRequire="dankpyon.medieval.overhaul,tsp.beelievers">TSP_MO_BEEEES_QueenBee_To_RB_Queen</RecipeDef>
+						<ThingDef MayRequire="dankpyon.medieval.overhaul">DankPyon_QueenBee</ThingDef>
+						<!-- <ThingDef>RB_Bee_Oswin_Queen</ThingDef> -->
+						<ThingDef>RB_Bee_Oswin_Drone</ThingDef>
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_Oswin_Honeycomb</RecipeDef>
+						<ThingDef MayRequire="dankpyon.medieval.overhaul">DankPyon_Honeycomb</ThingDef>
+						<ThingDef MayRequire="dankpyon.medieval.overhaul">DankPyon_Honey</ThingDef>
+						<ThingDef MayRequire="dankpyon.medieval.overhaul">DankPyon_Wax</ThingDef>
+						<ThingDef MayRequire="dankpyon.medieval.overhaul">DankPyon_Apiary</ThingDef>
+						<ThingDef MayRequire="dankpyon.medieval.overhaul,tsp.beelievers">DankPyon_BeeHive</ThingDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Item/Resource/QueenBee</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+						<drawSize>(1.25,1.25)</drawSize>
+					</graphicData> 		
+				</ThingDef>
+				
+				<ThingDef ParentName="TSP_RB_Beeliever_Oswin_Base">
+					<defName>RB_Bee_Oswin_Drone</defName>
+					<label>Oswin Bee drone</label>
+					<descriptionHyperlinks>
+						<RecipeDef MayRequire="dankpyon.medieval.overhaul,tsp.beelievers">TSP_MO_BEEEES_QueenBee_To_RB_Queen</RecipeDef>
+						<ThingDef MayRequire="dankpyon.medieval.overhaul">DankPyon_QueenBee</ThingDef>
+						<ThingDef>RB_Bee_Oswin_Queen</ThingDef>
+						<!-- <ThingDef>RB_Bee_Oswin_Drone</ThingDef> -->
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_Oswin_Honeycomb</RecipeDef>
+						<ThingDef MayRequire="dankpyon.medieval.overhaul">DankPyon_Honeycomb</ThingDef>
+						<ThingDef MayRequire="dankpyon.medieval.overhaul">DankPyon_Honey</ThingDef>
+						<ThingDef MayRequire="dankpyon.medieval.overhaul">DankPyon_Wax</ThingDef>
+						<ThingDef MayRequire="dankpyon.medieval.overhaul">DankPyon_Apiary</ThingDef>
+						<ThingDef MayRequire="dankpyon.medieval.overhaul,tsp.beelievers">DankPyon_BeeHive</ThingDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Item/Resource/QueenBee</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+						<drawSize>(0.7,0.7)</drawSize>
+					</graphicData> 		
+				</ThingDef>
+				
+				<!--
+				<ThingDef ParentName="RB_CombBase">
+					<defName>TSP_RB_Beeliever_Oswin_Honeycomb</defName>
+					<label>Oswin Bee honeycomb</label>
+					<description>Oswin.</description>
+					<descriptionHyperlinks>
+						<RecipeDef MayRequire="dankpyon.medieval.overhaul,tsp.beelievers">TSP_MO_BEEEES_QueenBee_To_RB_Queen</RecipeDef>
+						<ThingDef MayRequire="dankpyon.medieval.overhaul">DankPyon_QueenBee</ThingDef>
+						<ThingDef>RB_Bee_Oswin_Queen</ThingDef>
+						<ThingDef>RB_Bee_Oswin_Drone</ThingDef>
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_Oswin_Honeycomb</RecipeDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+						<ThingDef>DankPyon_Apiary</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Item/Resource/Honeycomb</texPath>
+						<graphicClass>Graphic_StackCount</graphicClass>
+						<color>(255,255,255)</color>
+					</graphicData>	
+					<thingCategories Inherit="False">
+						<li>TSP_RB_Beeliever_Honeycombs</li>
+					</thingCategories>
+					<butcherProducts></butcherProducts>
+				</ThingDef>
+				-->
+				
+				<RecipeDef>
+					<defName>TSP_RB_Beeliever_Centrifuge_Oswin_Honeycomb</defName>
+					<label>Extract from Oswin Bee honeycomb</label>
+					<description>Oswin.</description>
+					<descriptionHyperlinks>
+						<RecipeDef MayRequire="dankpyon.medieval.overhaul,tsp.beelievers">TSP_MO_BEEEES_QueenBee_To_RB_Queen</RecipeDef>
+						<ThingDef MayRequire="dankpyon.medieval.overhaul">DankPyon_QueenBee</ThingDef>
+						<ThingDef>RB_Bee_Oswin_Queen</ThingDef>
+						<ThingDef>RB_Bee_Oswin_Drone</ThingDef>
+						<ThingDef MayRequire="dankpyon.medieval.overhaul">DankPyon_Honeycomb</ThingDef>
+						<!-- <RecipeDef>TSP_RB_Beeliever_Centrifuge_Oswin_Honeycomb</RecipeDef> -->
+						<ThingDef MayRequire="dankpyon.medieval.overhaul">DankPyon_Honey</ThingDef>
+						<ThingDef MayRequire="dankpyon.medieval.overhaul">DankPyon_Wax</ThingDef>
+						<ThingDef MayRequire="dankpyon.medieval.overhaul">DankPyon_Apiary</ThingDef>
+						<ThingDef MayRequire="dankpyon.medieval.overhaul,tsp.beelievers">DankPyon_BeeHive</ThingDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<uiIconThing>DankPyon_Honey</uiIconThing>
+					<jobString>Extracting Smokey Honey.</jobString>
+					<effectWorking>Cremate</effectWorking>
+					<soundWorking>Recipe_Cremate</soundWorking>
+					<workAmount>900</workAmount>
+					<!-- <recipeUsers></recipeUsers> -->
+					<ingredients>
+						<li>
+							<filter>
+								<thingDefs>
+									<li MayRequire="dankpyon.medieval.overhaul">DankPyon_Honeycomb</li>
+								</thingDefs>
+							</filter>
+							<count>1</count>
+						</li>
+					</ingredients>
+					<fixedIngredientFilter>
+						<thingDefs>
+							<li MayRequire="dankpyon.medieval.overhaul">DankPyon_Honeycomb</li>
+						</thingDefs>
+					</fixedIngredientFilter>
+					<products>
+						<DankPyon_QueenBee MayRequire="dankpyon.medieval.overhaul">1</DankPyon_QueenBee>
+						<DankPyon_Honey>5</DankPyon_Honey>
+						<DankPyon_Wax>5</DankPyon_Wax>
+					</products>
+					<specialProducts>
+						<li>Butchery</li>
+					</specialProducts>
+					<skillRequirements></skillRequirements>
+					<researchPrerequisites></researchPrerequisites>
+				</RecipeDef>
+				
+				
+				
+				<!-- BasicComponent Branch -->
+				<!-- TIER BasicComponent -->
+				<!-- BEE DESCRIPTION -->
+				<RimBees.BeeListDef>
+					<defName>TSP_RB_Beeliever_Medieval3_BasicComponent</defName>
+					<nameString>BasicComponent</nameString>
+					<beeDroneDef>RB_Bee_BasicComponent_Drone</beeDroneDef>
+					<beeQueenDef>RB_Bee_BasicComponent_Queen</beeQueenDef>
+					<!--
+					<beeQueenTag>RB_Bee_BasicComponent_Queen_Tag</beeQueenTag>
+					<beeDroneTag>RB_Bee_BasicComponent_Drone_Tag</beeDroneTag>
+					-->
+				</RimBees.BeeListDef>
+				
+				<!--
+				<RimBees.BeeCombinationDef>
+					<defName>TSP_RB_Beelievers_BasicComponent_Tables</defName>
+					<bee1>Y</bee1>
+					<bee2>Z</bee2>
+					<result>
+						<li>BasicComponent</li>
+					</result>				
+				</RimBees.BeeCombinationDef>
+				-->
+			
+				<ThingDef ParentName="TSP_RB_Beeliever_MasterBeeBase" Name="TSP_RB_Beeliever_BasicComponent_Base" Abstract="True">
+					<!-- <label>BasicComponent Bee</label> -->
+					<description>The earliest predecessors to Electronic Bees, the Clockwork Bees are a type of Technological Bee that assembles small amounts of iron and metals from their surroundings, using them to create basic gears and mechanical devices. The build up of these metals are fashioned into Basic Medieval Components by these bees. \n\n\n\n\n Bee Traits: \n\n 	Production time: approximately twenty hours (20h) \n 	Works at Night: Yes \n 	Works When Raining: No \n 	Unusual Sources Needed: No \n 	Minimum Temperature: 0ºF (-17.7778ºC) \n 	Maximum temperature: 97ºF (36.1111ºC)</description>
+					<!--
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/ST_Bee_south</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData>
+					-->
+					<comps>			
+						<li Class="RimBees.CompProperties_Bees" Inherit="False">
+							<species>BasicComponent</species>
+							<comb>TSP_RB_MO_Beeliever_BasicComponent_Honeycomb</comb>
+							<combtimedays>0.8</combtimedays>
+							<nocturnal>true</nocturnal> <!-- Works at night -->
+							<pluviophile>false</pluviophile> <!-- Works in the rain -->
+							<weirdplantneeded>no</weirdplantneeded>
+							<tempMin>-18</tempMin> <!-- Approximately zero degrees -->
+							<tempMax>37</tempMax> <!-- Approximately ninety-seven degrees -->
+						</li>   
+					</comps>
+				</ThingDef>
+				
+				<!-- MUST be RB_Bee_YOURNAME_Queen and then RB_Bee_YOURNAME_Drone, no exceptions -->
+				<ThingDef ParentName="TSP_RB_Beeliever_BasicComponent_Base">
+					<defName>RB_Bee_BasicComponent_Queen</defName>
+					<label>Clockwork Bee queen</label>
+					<descriptionHyperlinks>
+						<!-- <ThingDef>RB_Bee_BasicComponent_Queen</ThingDef> -->
+						<ThingDef>RB_Bee_BasicComponent_Drone</ThingDef>
+						<ThingDef>TSP_RB_MO_Beeliever_BasicComponent_Honeycomb</ThingDef>
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_BasicComponent_Honeycomb</RecipeDef>
+						<ThingDef>DankPyon_ComponentBasic</ThingDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Item/Resource/TSP_MO_QueenBee_Clockwork</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData> 		
+				</ThingDef>
+				
+				<ThingDef ParentName="TSP_RB_Beeliever_BasicComponent_Base">
+					<defName>RB_Bee_BasicComponent_Drone</defName>
+					<label>Clockwork Bee drone</label>
+					<descriptionHyperlinks>
+						<ThingDef>RB_Bee_BasicComponent_Queen</ThingDef>
+						<!-- <ThingDef>RB_Bee_BasicComponent_Drone</ThingDef> -->
+						<ThingDef>TSP_RB_MO_Beeliever_BasicComponent_Honeycomb</ThingDef>
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_BasicComponent_Honeycomb</RecipeDef>
+						<ThingDef>DankPyon_ComponentBasic</ThingDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Item/Resource/TSP_MO_DroneBee_Clockwork</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData> 		
+				</ThingDef>
+				
+				<ThingDef ParentName="RB_CombBase">
+					<defName>TSP_RB_MO_Beeliever_BasicComponent_Honeycomb</defName>
+					<label>Clockwork Bee honeycomb</label>
+					<description>Clockwork Bees are primitive Technological Bees that create simple gears and basic mechanical devices alongside normal honey and Medieval Beeswax.</description>
+					<descriptionHyperlinks>
+						<ThingDef>RB_Bee_BasicComponent_Queen</ThingDef>
+						<ThingDef>RB_Bee_BasicComponent_Drone</ThingDef>
+						<!-- <ThingDef>TSP_RB_MO_Beeliever_BasicComponent_Honeycomb</ThingDef> -->
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_BasicComponent_Honeycomb</RecipeDef>
+						<ThingDef>DankPyon_ComponentBasic</ThingDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Item/Unfinished/UnfinishedLivingShield</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+						<color>(113,113,10)</color>
+					</graphicData>	
+					<thingCategories Inherit="False">
+						<li>TSP_RB_Beeliever_Honeycombs</li>
+					</thingCategories>
+					<butcherProducts>
+						<DankPyon_ComponentBasic>3</DankPyon_ComponentBasic>
+						<RB_BaseHoney>5</RB_BaseHoney>
+						<DankPyon_Honey>1</DankPyon_Honey>
+						<DankPyon_Wax>5</DankPyon_Wax>
+					</butcherProducts>
+				</ThingDef>
+				
+				<RecipeDef>
+					<defName>TSP_RB_Beeliever_Centrifuge_BasicComponent_Honeycomb</defName>
+					<label>Extract from Clockwork Bee honeycomb</label>
+					<description>Clockwork Bees are primitive Technological Bees that create simple gears and mechanics alongside normal honey and Medieval Beeswax. The build up of these metals are fashioned into Basic Medieval Components by these bees.</description>
+					<descriptionHyperlinks>
+						<ThingDef>RB_Bee_BasicComponent_Queen</ThingDef>
+						<ThingDef>RB_Bee_BasicComponent_Drone</ThingDef>
+						<ThingDef>TSP_RB_MO_Beeliever_BasicComponent_Honeycomb</ThingDef>
+						<!-- <RecipeDef>TSP_RB_Beeliever_Centrifuge_BasicComponent_Honeycomb</RecipeDef> -->
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<uiIconThing>DankPyon_ComponentBasic</uiIconThing>
+					<jobString>Basic Component.</jobString>
+					<effectWorking>Cremate</effectWorking>
+					<soundWorking>Recipe_Cremate</soundWorking>
+					<workAmount>900</workAmount>
+					<recipeUsers Inherit="False"></recipeUsers>	
+					<ingredients>
+						<li>
+							<filter>
+								<thingDefs>
+									<li>TSP_RB_MO_Beeliever_BasicComponent_Honeycomb</li>
+								</thingDefs>
+							</filter>
+							<count>1</count>
+						</li>
+					</ingredients>
+					<fixedIngredientFilter>
+						<thingDefs>
+							<li>TSP_RB_MO_Beeliever_BasicComponent_Honeycomb</li>
+						</thingDefs>
+					</fixedIngredientFilter>
+					<specialProducts>
+						<li>Butchery</li>
+					</specialProducts>
+					<skillRequirements></skillRequirements>
+					<researchPrerequisites></researchPrerequisites>
+				</RecipeDef>
+				
+				<ThingDef ParentName="TSP_Beelievers_Beesearch">
+					<defName>TSP_RB_MO_Beeliever_BasicComponent_Beesearch</defName>
+					<graphicData Inherit="False">
+						<graphicClass>Graphic_Single</graphicClass>
+						<texPath>Special/Book/SchematicScroll</texPath>
+						<drawSize>0.93</drawSize>
+					</graphicData>
+					<comps>
+						<li Class="RimBees.CompProperties_BeeResearchData">
+							<firstBee>RB_Bee_Amalgam_Queen</firstBee>
+							<secondBee>RB_Bee_Hybrid_Queen</secondBee>
+							<resultingBees>
+								<li>RB_Bee_BasicComponent_Queen</li>
+							</resultingBees>
+						</li>
+						<!--
+						<li Class="CompProperties_Book">
+							<nameMaker>Namer_Schematic</nameMaker>
+							<descriptionMaker>Description_Schematic</descriptionMaker>
+							<ageYearsRange>1~1</ageYearsRange>
+							<openGraphic>
+								<texPath>Special/Book/SchematicScroll_Open</texPath>
+								<graphicClass>Graphic_Multi</graphicClass>
+								<drawSize>0.7</drawSize>
+							</openGraphic>
+							<verticalGraphic>
+								<texPath>Special/Book/SchematicScroll_Vertical</texPath>
+								<graphicClass>Graphic_Multi</graphicClass>
+								<addTopAltitudeBias>true</addTopAltitudeBias>
+							</verticalGraphic>
+							<doers></doers>
+						</li>
+						-->
+					</comps>
+				</ThingDef>
+			</value>
+		</match>
+	</Operation>
+	
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>Defs/ThingDef[defName="DankPyon_QueenBee"]/comps</xpath>
+		<!-- If it does, add this. -->
+		<match Class="PatchOperationAdd">
+			<xpath>Defs/ThingDef[defName="DankPyon_QueenBee"]/comps</xpath>
+			<success>Always</success>
+			<value>
+				<li Class="VEF.Cooking.CompProperties_TempTransforms" MayRequire="oskarpotocki.vanillafactionsexpanded.core">
+					<minSafeTemperature MayRequire="oskarpotocki.vanillafactionsexpanded.core">0</minSafeTemperature>
+					<maxSafeTemperature MayRequire="oskarpotocki.vanillafactionsexpanded.core">0.01</maxSafeTemperature>
+					<progressPerDegreePerTick MayRequire="oskarpotocki.vanillafactionsexpanded.core">100</progressPerDegreePerTick>
+					<thingToTransformInto MayRequire="oskarpotocki.vanillafactionsexpanded.core">RB_Bee_Oswin_Queen</thingToTransformInto>
+				</li>
+			</value>
+		</match>
+	</Operation>
+	
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>Defs/ThingDef[defName="DankPyon_QueenBee"]/label</xpath>
+		<!-- If it does, do this replacement. -->
+		<match Class="PatchOperationReplace">
+			<xpath>Defs/ThingDef[defName="DankPyon_QueenBee"]/label</xpath>
+			<success>Always</success>
+			<value>
+				<label>Vulture bee (wild)</label>
+			</value>
+		</match>
+	</Operation>
+
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>Defs/ThingDef[defName="DankPyon_QueenBee"]/description</xpath>
+		<!-- If it does, do this replacement. -->
+		<match Class="PatchOperationReplace">
+			<xpath>Defs/ThingDef[defName="DankPyon_QueenBee"]/description</xpath>
+			<success>Always</success>
+			<value>
+				<description>The wild matriarch of a Vulture Bee colony originating from the regions of House Oswin. Unlike typical bees, they consume carrion and produce a smokey and savory honey. She will not inhabit an Alpha Rim Bees Mod Beehouse without first being tamed. A wild Vulture Bee can be tamed at a Beekeeping Workbench. This will produce Oswin Bees, which can be put into Alpha Rim Bee Mod Beehouses.</description>
+			</value>
+		</match>
+	</Operation>
+	
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>Defs/ThingDef[defName="DankPyon_QueenBee"]/thingCategories</xpath>
+		<!-- If it does, do this replacement. -->
+		<match Class="PatchOperationReplace">
+			<xpath>Defs/ThingDef[defName="DankPyon_QueenBee"]/thingCategories</xpath>
+			<success>Always</success>
+			<value>
+				<thingCategories Inherit="False">
+					<li MayRequire="sarg.rimbees">RB_BeesAndQueens</li>
+				</thingCategories>
+			</value>
+		</match>
+	</Operation>
+	
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>Defs/ThingDef[defName="DankPyon_Apiary"]</xpath>
+		<!-- If it does, add this. -->
+		<match Class="PatchOperationAdd">
+			<xpath>/Defs</xpath>
+			<success>Always</success>
+			<value>
+				<RecipeDef>
+					<defName>TSP_MO_BEEEES_QueenBee_To_RB_Queen</defName>
+					<label>tame Vulture Bee</label>
+					<description>Tame a wild Vulture Bee and train it to make honey for Alpha Rim Bees Mod beekeeping purposes. This Recipe will produce Oswin Bees, which are able to be inserted into Alpha Rim Bee Mod Beehouses. This extracts bees, queen bees and combs from a wild Vulture Bee beehive.</description>
+					<descriptionHyperlinks>
+						<!-- <RecipeDef MayRequire="dankpyon.medieval.overhaul,tsp.beelievers">TSP_MO_BEEEES_QueenBee_To_RB_Queen</RecipeDef> -->
+						<ThingDef MayRequire="dankpyon.medieval.overhaul">DankPyon_QueenBee</ThingDef>
+						<ThingDef MayRequire="dankpyon.medieval.overhaul,tsp.beelievers">RB_Bee_Oswin_Queen</ThingDef>
+						<ThingDef MayRequire="dankpyon.medieval.overhaul,tsp.beelievers">RB_Bee_Oswin_Drone</ThingDef>
+						<ThingDef MayRequire="dankpyon.medieval.overhaul">DankPyon_Honeycomb</ThingDef>
+						<RecipeDef MayRequire="dankpyon.medieval.overhaul,tsp.beelievers">TSP_RB_Beeliever_Centrifuge_Oswin_Honeycomb</RecipeDef>
+						<ThingDef MayRequire="dankpyon.medieval.overhaul">DankPyon_Honey</ThingDef>
+						<ThingDef MayRequire="dankpyon.medieval.overhaul">DankPyon_Wax</ThingDef>
+						<ThingDef MayRequire="dankpyon.medieval.overhaul">DankPyon_Apiary</ThingDef>
+						<ThingDef MayRequire="dankpyon.medieval.overhaul,tsp.beelievers">DankPyon_BeeHive</ThingDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<jobString>Taming bees.</jobString>
+					<effectWorking>Cremate</effectWorking>
+					<soundWorking>Recipe_Cremate</soundWorking>
+					<workAmount>500</workAmount>
+					<recipeUsers>
+						<li>RB_Beekeeping_Workbench_Building</li>
+						<li MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</li>
+					</recipeUsers>
+					<ingredients>
+						<li>
+							<filter>
+								<thingDefs>
+									<li>DankPyon_QueenBee</li>
+								</thingDefs>
+							</filter>
+							<count>1</count>
+						</li>
+					</ingredients>
+					<fixedIngredientFilter>
+						<thingDefs>
+							<li>DankPyon_QueenBee</li>
+						</thingDefs>
+					</fixedIngredientFilter>
+					<products>
+						<RB_Bee_Oswin_Queen>1</RB_Bee_Oswin_Queen>
+						<!-- <RB_Bee_Oswin_Drone>1</RB_Bee_Oswin_Drone> -->
+						<DankPyon_Honeycomb>5</DankPyon_Honeycomb>
+					</products>
+					<skillRequirements></skillRequirements>
+					<workSkill>Animals</workSkill>
+				</RecipeDef>
+			</value>
+		</match>
+	</Operation>
+	
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>Defs/ThingDef[defName="DankPyon_Apiary"]/stuffCategories</xpath>
+		<!-- If it does, add this. -->
+		<match Class="PatchOperationAdd">
+			<xpath>Defs/ThingDef[defName="DankPyon_Apiary"]/stuffCategories</xpath>
+			<success>Always</success>
+			<value>
+				<li>Woody</li>
+				<li>Stony</li>
+				<li>Metallic</li>
+				<li MayRequire="Dubwise.Rimefeller">Plastic</li>
+				<li MayRequire="Dubwise.Rimefeller">Composite</li>
+				<li MayRequire="sarg.alphabiomes">AB_Exotic</li>
+				<li MayRequire="sarg.alphabiomes">AB_ExoticWooden</li>
+				<li MayRequire="sarg.alphabiomes">AB_ExoticMetals</li>
+				<li MayRequire="biomesteam.biomescore">BMT_ChitinStuff</li>
+				<li MayRequire="sarg.rimbees">RB_Waxy</li>
+				<li MayRequire="eltwofour.mantodeanrace">L24_Stuff_MantodeanOrganic</li>
+				<li MayRequire="gguake.race.vivi">VV_Wax</li>
+			</value>
+		</match>
+	</Operation>
+	
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>Defs/ThingDef[defName="DankPyon_Apiary"]/costList</xpath>
+		<!-- If it does, add this. -->
+		<match Class="PatchOperationReplace">
+			<xpath>Defs/ThingDef[defName="DankPyon_Apiary"]/costList</xpath>
+			<success>Always</success>
+			<value>
+				<costList Inherit="False">
+					<RB_Bee_Oswin_Queen>1</RB_Bee_Oswin_Queen>
+				</costList>
+			</value>
+		</match>
+	</Operation>
+	
+	<!-- Add comps field to Settlement WorldObjectDef if it doesn't exist -->
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/ThingDef[defName="DankPyon_Honey"]/thingCategories</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/ThingDef[defName="DankPyon_Honey"]</xpath>
+			<success>Always</success>
+			<value>
+				<thingCategories Inherit="False"></thingCategories>
+			</value>
+		</nomatch>
+	</Operation>
+	
+	<!-- Add comps field to Settlement WorldObjectDef if it doesn't exist -->
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/ThingDef[defName="DankPyon_Honeycomb"]/thingCategories</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/ThingDef[defName="DankPyon_Honeycomb"]</xpath>
+			<success>Always</success>
+			<value>
+				<thingCategories Inherit="False"></thingCategories>
+			</value>
+		</nomatch>
+	</Operation>
+	
+	<!-- Add comps field to Settlement WorldObjectDef if it doesn't exist -->
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/ThingDef[defName="DankPyon_HornetHoney"]/thingCategories</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/ThingDef[defName="DankPyon_HornetHoney"]</xpath>
+			<success>Always</success>
+			<value>
+				<thingCategories></thingCategories>
+			</value>
+		</nomatch>
+	</Operation>
+	
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>Defs/ThingDef[defName="DankPyon_Honey"]/thingCategories</xpath>
+		<!-- If it does, do this replacement. -->
+		<match Class="PatchOperationReplace">
+			<success>Always</success>
+			<xpath>Defs/ThingDef[defName="DankPyon_Honey"]/thingCategories</xpath>
+			<value>
+				<thingCategories Inherit="False">
+					<li MayRequire="tsp.zal.patchhoney2">TSP_MO_Honey</li>
+					<li MayRequire="dankpyon.medieval.overhaul">DankPyon_Honey</li>
+				</thingCategories>
+			</value>
+		</match>
+		<!-- If the first XPATH does not exist, the original code stands. -->
+	</Operation>
+	
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>Defs/ThingDef[defName="DankPyon_HornetHoney"]/thingCategories</xpath>
+		<!-- If it does, do this replacement. -->
+		<match Class="PatchOperationReplace">
+			<success>Always</success>
+			<xpath>Defs/ThingDef[defName="DankPyon_HornetHoney"]/thingCategories</xpath>
+			<value>
+				<thingCategories Inherit="False">
+					<li MayRequire="tsp.zal.patchhoney2">TSP_MO_Honey</li>
+					<li MayRequire="dankpyon.medieval.overhaul">DankPyon_Honey</li>
+					<li>Drugs</li>
+				</thingCategories>
+			</value>
+		</match>
+		<!-- If the first XPATH does not exist, the original code stands. -->
+	</Operation>
+	
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>Defs/ThingDef[defName="DankPyon_Honeycomb"]/thingCategories</xpath>
+		<!-- If it does, do this replacement. -->
+		<match Class="PatchOperationReplace">
+			<success>Always</success>
+			<xpath>Defs/ThingDef[defName="DankPyon_Honeycomb"]/thingCategories</xpath>
+			<value>
+				<thingCategories Inherit="False">
+					<li MayRequire="sarg.rimbees">RB_Combs</li>
+					<li>ResourcesRaw</li>
+				</thingCategories>
+			</value>
+		</match>
+		<!-- If the first XPATH does not exist, the original code stands. -->
+	</Operation>
+	
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>Defs/ThingDef[defName="DankPyon_Wax"]/thingCategories</xpath>
+		<!-- If it does, do this replacement. -->
+		<match Class="PatchOperationReplace">
+			<success>Always</success>
+			<xpath>Defs/ThingDef[defName="DankPyon_Wax"]/thingCategories</xpath>
+			<value>
+				<thingCategories Inherit="False">
+					<li MayRequire="sarg.rimbees">RB_BeeswaxCategory</li>
+					<li>ResourcesRaw</li>
+				</thingCategories>
+			</value>
+		</match>
+		<!-- If the first XPATH does not exist, the original code stands. -->
+	</Operation>
+
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>Defs/ThingDef[defName="DankPyon_Honey"]/ingestible/preferability</xpath>
+		<!-- If it does, do this replacement. -->
+		<match Class="PatchOperationReplace">
+			<success>Always</success>
+			<xpath>Defs/ThingDef[defName="DankPyon_Honey"]/ingestible/preferability</xpath>
+			<value>
+				<preferability>RawTasty</preferability>
+			</value>
+		</match>
+		<!-- If it DOES NOT, add this instead. -->
+		<nomatch Class="PatchOperationAdd">
+			<success>Always</success>
+			<xpath>Defs/ThingDef[defName="DankPyon_Honey"]/ingestible</xpath>
+			<value>
+				<preferability>RawTasty</preferability>
+			</value>
+		</nomatch>
+		<!-- If the first XPATH does not exist, the original code stands. -->
+	</Operation>
+	
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>Defs/ThingDef[defName="DankPyon_HornetHoney"]/ingestible/preferability</xpath>
+		<!-- If it does, do this replacement. -->
+		<match Class="PatchOperationReplace">
+			<success>Always</success>
+			<xpath>Defs/ThingDef[defName="DankPyon_HornetHoney"]/ingestible/preferability</xpath>
+			<value>
+				<preferability>DesperateOnly</preferability>
+			</value>
+		</match>
+		<!-- If it DOES NOT, add this instead. -->
+		<nomatch Class="PatchOperationAdd">
+			<success>Always</success>
+			<xpath>Defs/ThingDef[defName="DankPyon_HornetHoney"]/ingestible</xpath>
+			<value>
+				<preferability>DesperateOnly</preferability>
+			</value>
+		</nomatch>
+		<!-- If the first XPATH does not exist, the original code stands. -->
+	</Operation>
+	
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>Defs/ThingDef[defName="DankPyon_Honeycomb"]/ingestible/preferability</xpath>
+		<!-- If it does, do this replacement. -->
+		<match Class="PatchOperationReplace">
+			<success>Always</success>
+			<xpath>Defs/ThingDef[defName="DankPyon_Honeycomb"]/ingestible/preferability</xpath>
+			<value>
+				<preferability>DesperateOnly</preferability>
+			</value>
+		</match>
+		<!-- If it DOES NOT, add this instead. -->
+		<nomatch Class="PatchOperationAdd">
+			<success>Always</success>
+			<xpath>Defs/ThingDef[defName="DankPyon_Honeycomb"]/ingestible</xpath>
+			<value>
+				<preferability>DesperateOnly</preferability>
+			</value>
+		</nomatch>
+		<!-- If the first XPATH does not exist, the original code stands. -->
+	</Operation>
+</Patch>

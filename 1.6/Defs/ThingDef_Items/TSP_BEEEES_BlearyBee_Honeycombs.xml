@@ -30,6 +30,7 @@
 			<RB_BlueHoney>2</RB_BlueHoney>
 			<RB_HeavyWax>2</RB_HeavyWax>
 			<Leather_Bird>30</Leather_Bird>
+			<TranquilizerLiquid MayRequire="mlie.tranquilizerguns">25</TranquilizerLiquid>
 		</butcherProducts>
 	</ThingDef>
 	

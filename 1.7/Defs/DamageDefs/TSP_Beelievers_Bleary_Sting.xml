@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<Defs>
+	<DamageDef>
+		<defName>TSP_Beelievers_BlearySting</defName>
+		<label>Bleary Bee sting</label>
+		<workerClass>DamageWorker_Stun</workerClass>
+		<externalViolence>true</externalViolence>
+		<deathMessage>{0} has fallen asleep for good.</deathMessage>
+		<!-- <hediff></hediff> -->
+		<harmsHealth>false</harmsHealth>
+		<makesBlood>false</makesBlood>
+		<hasForcefulImpact>true</hasForcefulImpact>
+		<canInterruptJobs>false</canInterruptJobs>
+		<impactSoundType>Electric</impactSoundType>
+		<additionalHediffs>
+			<li>
+				<hediff>Anesthetic</hediff>
+				<severityPerDamageDealt>0.015</severityPerDamageDealt>
+				<!-- <victimSeverityScaling>ToxicResistance</victimSeverityScaling> -->
+				<victimSeverityScalingByInvBodySize>false</victimSeverityScalingByInvBodySize>
+				<inverseStatScaling>true</inverseStatScaling>
+			</li>
+		</additionalHediffs>
+		<defaultDamage>23</defaultDamage>
+		<isRanged>false</isRanged>
+		<harmAllLayersUntilOutside>false</harmAllLayersUntilOutside>
+		<armorCategory>Heat</armorCategory>
+		<makesAnimalsFlee>true</makesAnimalsFlee>
+		<causeStun>false</causeStun>
+		<explosionCellFleck>BlastDry</explosionCellFleck>
+		<soundExplosion>Explosion_Stun</soundExplosion>
+	</DamageDef>
+</Defs>

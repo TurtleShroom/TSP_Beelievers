@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<Patch>
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>Defs/ThingDef[defName="Leather_Chitin"]</xpath>
+		<!-- If it does, add this. -->
+		<match Class="PatchOperationAdd">
+			<xpath>/Defs</xpath>
+			<success>Always</success>
+			<value>
+				<!-- Chitin Branch -->
+				<!-- TIER Chitin -->
+				<!-- BEE DESCRIPTION -->
+				<RimBees.BeeListDef>
+					<defName>TSP_RB_Beeliever_Chitin</defName>
+					<nameString>Chitin</nameString>
+					<beeDroneDef>RB_Bee_Chitin_Drone</beeDroneDef>
+					<beeQueenDef>RB_Bee_Chitin_Queen</beeQueenDef>
+					<!--
+					<beeQueenTag>RB_Bee_Chitin_Queen_Tag</beeQueenTag>
+					<beeDroneTag>RB_Bee_Chitin_Drone_Tag</beeDroneTag>
+					-->
+				</RimBees.BeeListDef>
+				
+				<!--
+				<RimBees.BeeCombinationDef>
+					<defName>TSP_RB_Beelievers_Chitin_Tables</defName>
+					<bee1>Y</bee1>
+					<bee2>Z</bee2>
+					<result>
+						<li>Chitin</li>
+					</result>				
+				</RimBees.BeeCombinationDef>
+				-->
+			
+				<ThingDef ParentName="TSP_RB_Beeliever_MasterBeeBase" Name="TSP_RB_Beeliever_Chitin_Base" Abstract="True">
+					<!-- <label>Chitin Bee</label> -->
+					<description>Chitin bees, like all bees, have a hard exoskeleton made of chitin. Chitin bees occassionaly molt their exoskeleton, allowing a slow build up of insect chitin over time. \n\n\n\n\n Bee Traits: \n\n 	Production time: 1 day \n 	Works at Night: No \n 	Works When Raining: Yes \n 	Unusual Sources Needed: No \n 	Minimum Temperature: 0ºF (-17.7778ºC) \n 	Maximum temperature: 97ºF (36.1111ºC)</description>
+					<!--
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/ST_Bee_south</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData>
+					-->
+					<comps>			
+						<li Class="RimBees.CompProperties_Bees" Inherit="False">
+							<species>Chitin</species>
+							<comb>TSP_RB_Beeliever_Chitin_Honeycomb</comb>
+							<combtimedays>1</combtimedays>
+							<nocturnal>false</nocturnal> <!-- Works at night -->
+							<pluviophile>true</pluviophile> <!-- Works in the rain -->
+							<weirdplantneeded>no</weirdplantneeded>
+							<tempMin>-18</tempMin> <!-- Approximately zero degrees -->
+							<tempMax>37</tempMax> <!-- Approximately ninety-seven degrees -->
+						</li>   
+					</comps>
+				</ThingDef>
+				
+				<!-- MUST be RB_Bee_YOURNAME_Queen and then RB_Bee_YOURNAME_Drone, no exceptions -->
+				<ThingDef ParentName="TSP_RB_Beeliever_Chitin_Base">
+					<defName>RB_Bee_Chitin_Queen</defName>
+					<label>Chitin Bee queen</label>
+					<descriptionHyperlinks>
+						<!-- <ThingDef>RB_Bee_Chitin_Queen</ThingDef> -->
+						<ThingDef>RB_Bee_Chitin_Drone</ThingDef>
+						<ThingDef>TSP_RB_Beeliever_Chitin_Honeycomb</ThingDef>
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_Chitin_Honeycomb</RecipeDef>
+						<ThingDef>Leather_Chitin</ThingDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Item/Bees/RB_Bee_Wooly_Queen</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+						<color>(126,112,116)</color>
+					</graphicData> 		
+				</ThingDef>
+				
+				<ThingDef ParentName="TSP_RB_Beeliever_Chitin_Base">
+					<defName>RB_Bee_Chitin_Drone</defName>
+					<label>Chitin Bee drone</label>
+					<descriptionHyperlinks>
+						<ThingDef>RB_Bee_Chitin_Queen</ThingDef>
+						<!-- <ThingDef>RB_Bee_Chitin_Drone</ThingDef> -->
+						<ThingDef>TSP_RB_Beeliever_Chitin_Honeycomb</ThingDef>
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_Chitin_Honeycomb</RecipeDef>
+						<ThingDef>Leather_Chitin</ThingDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Item/Bees/RB_Bee_Wooly_Drone</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+						<color>(126,112,116)</color>
+					</graphicData> 		
+				</ThingDef>
+				
+				<ThingDef ParentName="RB_CombBase">
+					<defName>TSP_RB_Beeliever_Chitin_Honeycomb</defName>
+					<label>Chitin Bee honeycomb</label>
+					<description>Chitin bees produce no special honey or beeswax. Instead, they simply molt their exoskeletons at a rate that is regular enough to be harvested for insect chitin building materials!</description>
+					<descriptionHyperlinks>
+						<ThingDef>RB_Bee_Chitin_Queen</ThingDef>
+						<ThingDef>RB_Bee_Chitin_Drone</ThingDef>
+						<!-- <ThingDef>TSP_RB_Beeliever_Chitin_Honeycomb</ThingDef> -->
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_Chitin_Honeycomb</RecipeDef>
+						<ThingDef>Leather_Chitin</ThingDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Item/Combs/RB_Weaving_Honeycomb</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+						<color>(126,112,116)</color>
+					</graphicData>	
+					<thingCategories Inherit="False">
+						<li>TSP_RB_Beeliever_Honeycombs</li>
+					</thingCategories>
+					<butcherProducts>
+						<Leather_Chitin>5</Leather_Chitin>
+						<RB_BaseHoney>5</RB_BaseHoney>
+						<RB_Beeswax>5</RB_Beeswax>
+					</butcherProducts>
+				</ThingDef>
+				
+				<RecipeDef>
+					<defName>TSP_RB_Beeliever_Centrifuge_Chitin_Honeycomb</defName>
+					<label>Extract from Chitin Bee honeycomb</label>
+					<description>Chitinous bees regularly molt their exoskeletons, which can he harvested.</description>
+					<descriptionHyperlinks>
+						<ThingDef>RB_Bee_Chitin_Queen</ThingDef>
+						<ThingDef>RB_Bee_Chitin_Drone</ThingDef>
+						<ThingDef>TSP_RB_Beeliever_Chitin_Honeycomb</ThingDef>
+						<ThingDef>Leather_Chitin</ThingDef>
+						<!-- <RecipeDef>TSP_RB_Beeliever_Centrifuge_Chitin_Honeycomb</RecipeDef> -->
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<uiIconThing>Leather_Chitin</uiIconThing>
+					<jobString>Extracting chitin and honey.</jobString>
+					<effectWorking>Cremate</effectWorking>
+					<soundWorking>Recipe_Cremate</soundWorking>
+					<workAmount>900</workAmount>
+					<recipeUsers Inherit="False"></recipeUsers>	
+					<ingredients>
+						<li>
+							<filter>
+								<thingDefs>
+									<li>TSP_RB_Beeliever_Chitin_Honeycomb</li>
+								</thingDefs>
+							</filter>
+							<count>1</count>
+						</li>
+					</ingredients>
+					<fixedIngredientFilter>
+						<thingDefs>
+							<li>TSP_RB_Beeliever_Chitin_Honeycomb</li>
+						</thingDefs>
+					</fixedIngredientFilter>
+					<specialProducts>
+						<li>Butchery</li>
+					</specialProducts>
+					<skillRequirements></skillRequirements>
+					<researchPrerequisites></researchPrerequisites>
+				</RecipeDef>
+			</value>
+		</match>
+	</Operation>
+</Patch>
