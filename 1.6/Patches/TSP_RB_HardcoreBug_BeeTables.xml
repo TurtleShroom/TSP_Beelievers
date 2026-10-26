@@ -1,0 +1,375 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<Patch>
+	<!-- Aelanna's Model No-Match Detector and Insertion Code -->
+	<!-- Special thanks to Aelanna for straight-up saving me scores of headaches! -->
+	<!-- Add comps field to Settlement WorldObjectDef if it doesn't exist -->
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/ThingDef[defName="SteelLarvae"]/thingCategories</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/ThingDef[defName="SteelLarvae"]</xpath>
+			<success>Always</success>
+			<value>
+				<thingCategories></thingCategories>
+			</value>
+		</nomatch>
+	</Operation>
+	
+	<!-- Add comps field to Settlement WorldObjectDef if it doesn't exist -->
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/ThingDef[defName="BotFlyMaggots"]/thingCategories</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/ThingDef[defName="BotFlyMaggots"]</xpath>
+			<success>Always</success>
+			<value>
+				<thingCategories></thingCategories>
+			</value>
+		</nomatch>
+	</Operation>
+	
+	<!-- Add comps field to Settlement WorldObjectDef if it doesn't exist -->
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/ThingDef[defName="WoodLarvae"]/thingCategories</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/ThingDef[defName="WoodLarvae"]</xpath>
+			<success>Always</success>
+			<value>
+				<thingCategories></thingCategories>
+			</value>
+		</nomatch>
+	</Operation>
+	
+	<!-- Add comps field to Settlement WorldObjectDef if it doesn't exist -->
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/ThingDef[defName="HealRootFruit"]/thingCategories</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/ThingDef[defName="HealRootFruit"]</xpath>
+			<success>Always</success>
+			<value>
+				<thingCategories></thingCategories>
+			</value>
+		</nomatch>
+	</Operation>
+	
+	<!-- Add comps field to Settlement WorldObjectDef if it doesn't exist -->
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/ThingCategoryDef[defName="TSP_HardcoreFoods_Survivalism"]</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>/Defs</xpath>
+			<success>Always</success>
+			<value>
+				<ThingCategoryDef>
+					<defName>TSP_HardcoreFoods_Survivalism_Larvae</defName>
+					<label>insect larvae</label>
+					<parent>MeatRaw</parent>
+					<!-- <texPath>Things/BotMaggots/BotMaggots_a</texPath> -->
+				</ThingCategoryDef>
+			</value>
+		</nomatch>
+	</Operation>
+
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>Defs/ThingDef[defName="SteelLarvaeSoup"]</xpath>
+		<!-- If it does, LET'S FASTING GOOOOOO!!! -->
+		<match Class="PatchOperationSequence">
+			<operations>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs</xpath>
+					<success>Always</success>
+					<value>
+						<ThingCategoryDef>
+							<defName>TSP_HardcoreFoods_Survivalism_Larvae</defName>
+							<label>insect larvae</label>
+							<parent>MeatRaw</parent>
+							<!-- <texPath>Things/BotMaggots/BotMaggots_a</texPath> -->
+						</ThingCategoryDef>
+					</value>
+				</li>
+				
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/ThingDef[defName="SteelLarvaeSoup"]/thingCategories</xpath>
+					<success>Always</success>
+					<value>
+						<thingCategories Inherit="False">
+							<li>FoodMeals</li>
+							<li>Foods</li>
+						</thingCategories>
+					</value>
+				</li>
+				
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/ThingDef[defName="WoodLarvaeSoup"]/thingCategories</xpath>
+					<success>Always</success>
+					<value>
+						<thingCategories Inherit="False">
+							<li>FoodMeals</li>
+							<li>Foods</li>
+						</thingCategories>
+					</value>
+				</li>
+				
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/ThingDef[defName="BotFlyMaggots"]/thingCategories</xpath>
+					<success>Always</success>
+					<value>
+						<thingCategories Inherit="False">
+							<li>TSP_HardcoreFoods_Survivalism_Larvae</li>
+							<li>Foods</li>
+						</thingCategories>
+					</value>
+				</li>
+				
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/ThingDef[defName="WoodLarvae"]/thingCategories</xpath>
+					<success>Always</success>
+					<value>
+						<thingCategories Inherit="False">
+							<li>TSP_HardcoreFoods_Survivalism_Larvae</li>
+							<li>Foods</li>
+						</thingCategories>
+					</value>
+				</li>
+				
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/ThingDef[defName="SteelLarvae"]/thingCategories</xpath>
+					<success>Always</success>
+					<value>
+						<thingCategories Inherit="False">
+							<li>TSP_HardcoreFoods_Survivalism_Larvae</li>
+							<li>Foods</li>
+						</thingCategories>
+					</value>
+				</li>
+				
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs</xpath>
+					<success>Always</success>
+					<value>
+						<ThingDef ParentName="ResourceBase">
+							<defName>TSP_BEES_SpawnHardcoreLarvae</defName>
+							<label>survivalist larvae</label>
+							<description>Harvesting from a Survivalist Bee will yield Adaptive Honey, normal beeswax, and larvae of certain bee species. No one knows what kind of larvae until the honeycombs are processed</description>
+							<descriptionHyperlinks>
+								<ThingDef>TSP_RB_Beeliever_Survivalist_Honeycomb</ThingDef>
+								<ThingDef>SteelLarvae</ThingDef>
+								<ThingDef>BotFlyMaggots</ThingDef>
+								<ThingDef>WoodLarvae</ThingDef>
+							</descriptionHyperlinks>
+							<fillPercent>0</fillPercent>
+							<rotatable>false</rotatable>
+							<tickerType>Normal</tickerType>
+							<clearBuildingArea>false</clearBuildingArea>
+							<alwaysHaulable>false</alwaysHaulable>
+							<stackLimit>1</stackLimit>
+							<graphicData>
+								<texPath>Things/SFlySoup</texPath>
+								<graphicClass>Graphic_StackCount</graphicClass>
+								<drawSize>1</drawSize>
+							</graphicData>
+							<altitudeLayer>Building</altitudeLayer>
+							<statBases>
+								<MaxHitPoints>300</MaxHitPoints>
+								<WorkToBuild>200</WorkToBuild>
+								<Mass>0.001</Mass>
+								<Flammability>1.5</Flammability>
+							</statBases>
+							<passability>PassThroughOnly</passability>
+							<pathCost>5</pathCost>
+							<building>
+								<isEdifice>false</isEdifice>
+								<canPlaceOverWall>true</canPlaceOverWall>
+							</building>
+							<thingCategories Inherit="False"></thingCategories>
+							<comps>
+								<li Class="RimBees.CompProperties_RandomItemSpawner">
+									<amount>5</amount>
+									<categories>
+										<li>TSP_HardcoreFoods_Survivalism_Larvae</li>
+									</categories>
+								</li>
+							</comps>
+						</ThingDef>
+					</value>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+
+	<Operation Class="PatchOperationConditional">
+	<!-- Does this exist? -->
+		<xpath>Defs/ThingDef[defName="SteelLarvaeSoup"]</xpath>
+		<!-- If it does, add this. -->
+		<match Class="PatchOperationAdd">
+			<xpath>/Defs</xpath>
+			<success>Always</success>
+			<value>
+				<!-- Survivalist Branch -->
+				<!-- TIER Survivalist -->
+				<!-- BEE DESCRIPTION -->
+				<RimBees.BeeListDef>
+					<defName>TSP_RB_Beeliever_Survivalist</defName>
+					<nameString>Survivalist</nameString>
+					<beeDroneDef>RB_Bee_Survivalist_Drone</beeDroneDef>
+					<beeQueenDef>RB_Bee_Survivalist_Queen</beeQueenDef>
+					<!--
+					<beeQueenTag>RB_Bee_Survivalist_Queen_Tag</beeQueenTag>
+					<beeDroneTag>RB_Bee_Survivalist_Drone_Tag</beeDroneTag>
+					-->
+				</RimBees.BeeListDef>
+				
+				<RimBees.BeeCombinationDef>
+					<defName>TSP_RB_Beelievers_Survivalist1_Tables</defName>
+					<bee1>Insectoid</bee1>
+					<bee2>Commando</bee2>
+					<result>
+						<li>Survivalist</li>
+					</result>				
+				</RimBees.BeeCombinationDef>
+				
+				<RimBees.BeeCombinationDef>
+					<defName>TSP_RB_Beelievers_Survivalist2_Tables</defName>
+					<bee1>Insectoid</bee1>
+					<bee2>Nutritious</bee2>
+					<result>
+						<li>Survivalist</li>
+					</result>				
+				</RimBees.BeeCombinationDef>
+			
+				<ThingDef ParentName="TSP_RB_Beeliever_MasterBeeBase" Name="TSP_RB_Beeliever_Survivalist_Base" Abstract="True">
+					<!-- <label>Survivalist Bee</label> -->
+					<description>Survivalist bees maintain a mutualistic symbiosis with multiple other species of insects, protecting their young in exchange for the juices they secrete. \n\n\n\n\n Bee Traits: \n\n 	Production time: 1 day \n 	Works at Night: No \n 	Works When Raining: Yes \n 	Unusual Sources Needed: No \n 	Minimum Temperature: -34.6ºF (-37ºC) \n 	Maximum temperature: 122ºF (50ºC)</description>
+					<!--
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/ST_Bee_south</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData>
+					-->
+					<comps>			
+						<li Class="RimBees.CompProperties_Bees" Inherit="False">
+							<species>Survivalist</species>
+							<comb>TSP_RB_Beeliever_Survivalist_Honeycomb</comb>
+							<combtimedays>1</combtimedays>
+							<nocturnal>true</nocturnal> <!-- Works at night -->
+							<pluviophile>true</pluviophile> <!-- Works in the rain -->
+							<weirdplantneeded>no</weirdplantneeded>
+							<tempMin>-37</tempMin> <!-- Zero degrees -->
+							<tempMax>50</tempMax> <!-- Ninety-seven degrees -->
+						</li>   
+					</comps>
+				</ThingDef>
+				
+				<!-- MUST be RB_Bee_YOURNAME_Queen and then RB_Bee_YOURNAME_Drone, no exceptions -->
+				<ThingDef ParentName="TSP_RB_Beeliever_Survivalist_Base">
+					<defName>RB_Bee_Survivalist_Queen</defName>
+					<label>Survivalist Bee queen</label>
+					<descriptionHyperlinks>
+						<!-- <ThingDef>RB_Bee_Survivalist_Queen</ThingDef> -->
+						<ThingDef>RB_Bee_Survivalist_Drone</ThingDef>
+						<ThingDef>TSP_RB_Beeliever_Survivalist_Honeycomb</ThingDef>
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_Survivalist_Honeycomb</RecipeDef>
+						<ThingDef>SteelLarvae</ThingDef>
+						<ThingDef>BotFlyMaggots</ThingDef>
+						<ThingDef>WoodLarvae</ThingDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/OtherBranch/TSP_Bee_SurvivalistHardcore_Queen</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData> 		
+				</ThingDef>
+				
+				<ThingDef ParentName="TSP_RB_Beeliever_Survivalist_Base">
+					<defName>RB_Bee_Survivalist_Drone</defName>
+					<label>Survivalist Bee drone</label>
+					<descriptionHyperlinks>
+						<ThingDef>RB_Bee_Survivalist_Queen</ThingDef>
+						<!-- <ThingDef>RB_Bee_Survivalist_Drone</ThingDef> -->
+						<ThingDef>TSP_RB_Beeliever_Survivalist_Honeycomb</ThingDef>
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_Survivalist_Honeycomb</RecipeDef>
+						<ThingDef>SteelLarvae</ThingDef>
+						<ThingDef>BotFlyMaggots</ThingDef>
+						<ThingDef>WoodLarvae</ThingDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/OtherBranch/TSP_Bee_SurvivalistHardcore_Drone</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData> 		
+				</ThingDef>
+				
+				<ThingDef ParentName="RB_CombBase">
+					<defName>TSP_RB_Beeliever_Survivalist_Honeycomb</defName>
+					<label>Survivalist Bee honeycomb</label>
+					<description>Survivalist bee honeycombs are filled with larvae from other insect species, which are in mutualist symbiosis with the bees. Extracting them will yield such larvae, alongside normal beeswax and Adaptive Honey</description>
+					<descriptionHyperlinks>
+						<ThingDef>RB_Bee_Survivalist_Queen</ThingDef>
+						<ThingDef>RB_Bee_Survivalist_Drone</ThingDef>
+						<!-- <ThingDef>TSP_RB_Beeliever_Survivalist_Honeycomb</ThingDef> -->
+						<RecipeDef>TSP_RB_Beeliever_Centrifuge_Survivalist_Honeycomb</RecipeDef>
+						<ThingDef>SteelLarvae</ThingDef>
+						<ThingDef>BotFlyMaggots</ThingDef>
+						<ThingDef>WoodLarvae</ThingDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<graphicData Inherit="False">
+						<texPath>Things/Pawn/Animal/Bug_Types/Bee/Honeycombs/TSP_RB_SurvivalistHardcore_Honeycomb</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+						<color>(255,255,255)</color>
+					</graphicData>	
+					<thingCategories Inherit="False">
+						<li>TSP_RB_Beeliever_Honeycombs</li>
+					</thingCategories>
+					<butcherProducts>
+						<RB_AdaptiveHoney>5</RB_AdaptiveHoney>
+						<RB_Beeswax>5</RB_Beeswax>
+						<TSP_BEES_SpawnHardcoreLarvae>5</TSP_BEES_SpawnHardcoreLarvae>
+					</butcherProducts>
+				</ThingDef>
+				
+				<RecipeDef>
+					<defName>TSP_RB_Beeliever_Centrifuge_Survivalist_Honeycomb</defName>
+					<label>Extract from Survivalist Bee honeycomb</label>
+					<description>Survivalist.</description>
+					<descriptionHyperlinks>
+						<ThingDef>RB_Bee_Survivalist_Queen</ThingDef>
+						<ThingDef>RB_Bee_Survivalist_Drone</ThingDef>
+						<ThingDef>TSP_RB_Beeliever_Survivalist_Honeycomb</ThingDef>
+						<!-- <RecipeDef>TSP_RB_Beeliever_Centrifuge_Survivalist_Honeycomb</RecipeDef> -->
+						<ThingDef>SteelLarvae</ThingDef>
+						<ThingDef>BotFlyMaggots</ThingDef>
+						<ThingDef>WoodLarvae</ThingDef>
+						<ThingDef MayRequire="tsp.zal.patchhoney2">TSP_LaymanHoneyMachine</ThingDef>
+					</descriptionHyperlinks>
+					<uiIconThing>WoodLarvaeSoup</uiIconThing>
+					<jobString>Extracting larvae from survivalist honeycombs.</jobString>
+					<effectWorking>Cremate</effectWorking>
+					<soundWorking>Recipe_Cremate</soundWorking>
+					<workAmount>900</workAmount>
+					<recipeUsers Inherit="False"></recipeUsers>	
+					<ingredients>
+						<li>
+							<filter>
+								<thingDefs>
+									<li>TSP_RB_Beeliever_Survivalist_Honeycomb</li>
+								</thingDefs>
+							</filter>
+							<count>1</count>
+						</li>
+					</ingredients>
+					<fixedIngredientFilter>
+						<thingDefs>
+							<li>TSP_RB_Beeliever_Survivalist_Honeycomb</li>
+						</thingDefs>
+					</fixedIngredientFilter>
+					<specialProducts>
+						<li>Butchery</li>
+					</specialProducts>
+					<skillRequirements></skillRequirements>
+					<researchPrerequisites></researchPrerequisites>
+				</RecipeDef>
+			</value>
+		</match>
+		<!-- If the first XPATH does not exist, the original code stands. -->
+	</Operation>
+</Patch>

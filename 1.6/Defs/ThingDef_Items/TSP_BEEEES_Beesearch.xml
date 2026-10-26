@@ -8,6 +8,9 @@
 			<graphicClass>Graphic_Single</graphicClass>
 			<texPath>Things/Pawn/Animal/Bug_Types/Bee/Beesearch/Idr_adbo2</texPath>
 		</graphicData>
+		<statBases>
+			<MarketValue>8</MarketValue>
+		</statBases>
 		<thingCategories>
 			<li>TSP_RB_Beesearch_Beelievers</li>
 		</thingCategories>
@@ -37,7 +40,7 @@
 		</comps>
 	</ThingDef>
 
-	<ThingDef ParentName="ResourceBase">
+	<ThingDef ParentName="TSP_Beelievers_Beesearch">
 		<defName>TSP_Beelievers_RB_Beesearch_Randomized</defName>
 		<label>TurtleShroom Bee-lievers Beesearch (unfinished)</label>
 		<description>The bee research documentation is in progress. When the Recipe is complete, a random combination of hybrid bees from the Storytime Mod will be displayed for study.</description>
@@ -58,7 +61,7 @@
 		<thingCategories Inherit="False">
 			<li>RB_BeeResearch</li>
 		</thingCategories>
-		<stackLimit>999</stackLimit>
+		<stackLimit>1</stackLimit>
 		<comps Inherit="False">
 			<!--
 			<li Class="RimBees.CompProperties_RandomResearch">

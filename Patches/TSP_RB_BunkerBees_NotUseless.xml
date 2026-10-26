@@ -42,7 +42,7 @@
 		<xpath>Defs/ThingDef[defName="RB_BunkerBeehouse"]/disableImpassableShotOverConfigError</xpath>
 		<!-- If it does, do this replacement. -->
 		<match Class="PatchOperationReplace">
-			<xpath>Defs/ThingDefdefName="RB_BunkerBeehouse"]/disableImpassableShotOverConfigError</xpath>
+			<xpath>Defs/ThingDef[defName="RB_BunkerBeehouse"]/disableImpassableShotOverConfigError</xpath>
 			<success>Always</success>
 			<value>
 				<disableImpassableShotOverConfigError>true</disableImpassableShotOverConfigError>
