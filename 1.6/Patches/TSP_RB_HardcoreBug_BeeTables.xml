@@ -53,7 +53,7 @@
 	
 	<!-- Add comps field to Settlement WorldObjectDef if it doesn't exist -->
 	<Operation Class="PatchOperationConditional">
-		<xpath>Defs/ThingCategoryDef[defName="TSP_HardcoreFoods_Survivalism"]</xpath>
+		<xpath>Defs/ThingCategoryDef[defName="TSP_HardcoreFoods_Survivalism_Larvae"]</xpath>
 		<nomatch Class="PatchOperationAdd">
 			<xpath>/Defs</xpath>
 			<success>Always</success>
@@ -70,10 +70,11 @@
 
 	<Operation Class="PatchOperationConditional">
 	<!-- Does this exist? -->
-		<xpath>Defs/ThingDef[defName="SteelLarvaeSoup"]</xpath>
+		<xpath>Defs/ThingDef[defName="HF_Grub"]</xpath>
 		<!-- If it does, LET'S FASTING GOOOOOO!!! -->
 		<match Class="PatchOperationSequence">
 			<operations>
+				<!--
 				<li Class="PatchOperationAdd">
 					<xpath>/Defs</xpath>
 					<success>Always</success>
@@ -82,10 +83,11 @@
 							<defName>TSP_HardcoreFoods_Survivalism_Larvae</defName>
 							<label>insect larvae</label>
 							<parent>MeatRaw</parent>
-							<!-- <texPath>Things/BotMaggots/BotMaggots_a</texPath> -->
+							<texPath>Things/BotMaggots/BotMaggots_a</texPath>
 						</ThingCategoryDef>
 					</value>
 				</li>
+				-->
 				
 				<li Class="PatchOperationReplace">
 					<xpath>Defs/ThingDef[defName="SteelLarvaeSoup"]/thingCategories</xpath>
@@ -142,6 +144,17 @@
 					</value>
 				</li>
 				
+				<li Class="PatchOperationReplace">
+					<xpath>Defs/ThingDef[defName="HF_Grub"]/thingCategories</xpath>
+					<success>Always</success>
+					<value>
+						<thingCategories Inherit="False">
+							<li>TSP_HardcoreFoods_Survivalism_Larvae</li>
+							<li>Foods</li>
+						</thingCategories>
+					</value>
+				</li>
+
 				<li Class="PatchOperationAdd">
 					<xpath>/Defs</xpath>
 					<success>Always</success>
@@ -149,7 +162,7 @@
 						<ThingDef ParentName="ResourceBase">
 							<defName>TSP_BEES_SpawnHardcoreLarvae</defName>
 							<label>survivalist larvae</label>
-							<description>Harvesting from a Survivalist Bee will yield Adaptive Honey, normal beeswax, and larvae of certain bee species. No one knows what kind of larvae until the honeycombs are processed</description>
+							<description>Harvesting from a Survivalist Bee will yield Adaptive Honey, normal beeswax, and larvae of certain bee species. No one knows what kind of larvae will come out until the honeycombs are processed</description>
 							<descriptionHyperlinks>
 								<ThingDef>TSP_RB_Beeliever_Survivalist_Honeycomb</ThingDef>
 								<ThingDef>SteelLarvae</ThingDef>
